@@ -221,6 +221,7 @@ df['交流负荷'] = pd.Series(acLoad)
 df['直流负荷'] = pd.Series(dcLoad)
 df['电价'] = pd.Series(microgrid_device['ut'].buy_price)
 df['电网购电功率'] = pd.Series([value(optimalDispatch.utility_power[t]) for t in T])
+df['电网购热功率'] = pd.Series([value(optimalDispatch.high_heat[t]) for t in T])
 df['交流侧逆变器功率'] = pd.Series([value(optimalDispatch.inv_ac[t]) for t in T])
 df['直流侧逆变器功率'] = pd.Series([value(optimalDispatch.inv_dc[t]) for t in T])
 for es in N_es:
@@ -244,6 +245,9 @@ for absc in N_absc:
     df[absc+'吸收式制冷机制冷功率'] = pd.Series([value(optimalDispatch.absc_heat_in[absc, t]) for t in T]) * microgrid_device[absc].COP_htc
 for bol in N_bol:
     df[bol+'燃气锅炉热功率'] = pd.Series([value(optimalDispatch.bol_power[bol, t]) for t in T])
+df['高品位热功率'] = pd.Series([value(optimalDispatch.high_heat[t]) for t in T])
+df['中品位热功率'] = pd.Series([value(optimalDispatch.medium_heat[t]) for t in T])
+df['低品位热功率'] = pd.Series([value(optimalDispatch.low_heat[t]) for t in T])
 df.to_excel('output.xlsx')
 plt.plot(df)
 plt.show()
