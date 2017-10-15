@@ -22,7 +22,6 @@ plt.show()
 
 '''Interaction process'''
 '''Electric DR'''
-'''
 writer = pd.ExcelWriter('Electric DR.xlsx')
 for e in [0.2,0.4,0.6,0.8,1]:
     amount = e * 3000
@@ -34,7 +33,6 @@ for e in [0.2,0.4,0.6,0.8,1]:
     res_result = optimizationModel.retriveResult(microgrid_data,case,responseStrategy)
     res_result.to_excel(writer,sheet_name = str(e))
 writer.save()
-'''
 '''Heat DR'''
 writer = pd.ExcelWriter('Heat DR.xlsx')
 for e in [0.2,0.4,0.6,0.8,1]:
