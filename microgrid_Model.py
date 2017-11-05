@@ -7,7 +7,7 @@ class PV:
 
 
 class electricStorage:
-    def __init__(self, om = 0.005, Cbw = 0.00075 , capacity = 9600, SOCmin = 0.1, SOCmax = 0.9, SOCint = 0.1, Pmax_in = 1250, Pmax_out = 1250, efficiency = 0.9, selfRelease = 0.000):
+    def __init__(self, om = 0.005, Cbw = 0.00075 , capacity = 9600, SOCmin = 0.1, SOCmax = 0.9, SOCint = 0.1, Pmax_in = 1250, Pmax_out = 1250, efficiency = 0.95, selfRelease = 0.0025):
         self.om = om
         self.Cbw = Cbw
         self.capacity = capacity
@@ -36,12 +36,13 @@ class electricStorage:
 
 
 class absorptionChiller:
-    def __init__(self, om = 0.00008, COP_htc = 1.2, COP_hth = 1, Hmin = 0, Hmax = 1000):
+    def __init__(self, om = 0.00008, COP_htc = 0.8, COP_hth = 1, Hmin = 0, Hmax = 1000, ElecCost = 0.2):
         self.om = om
         self.COP_htc = COP_htc
         self.COP_hth = COP_hth
         self.Hmin = Hmin
         self.Hmax = Hmax
+        self.ElecCost = ElecCost
         self.result = {}
     def show(self):
         return {"om":self.om,
@@ -49,12 +50,14 @@ class absorptionChiller:
                 "COP_hth":self.COP_hth}
 
 class boiler:
-    def __init__(self, om = 0.03, Pmax = 1000, Pmin = 0, efficiency = 0.9):
+    def __init__(self, om = 0.04, Pmax = 1000, Pmin = 50, efficiency = 0.85,maxDetP=500,ON_OFF_COST=100):
         self.om = om
         self.Pmin = Pmin
         self.Pmax = Pmax
         self.efficiency = efficiency
         self.result = {}
+        self.ON_OFF_COST = ON_OFF_COST
+        self.maxDetP=maxDetP
     def show(self):
         return {"om":self.om,
                 "Pmax":self.Pmax,
@@ -132,13 +135,16 @@ class airConditioner:## P>=0 cooling, P<0 heating
                 "COP":self.COP}
 
 class gasTurbine:
-    def __init__(self, om = 0.063, Pmax = 1000, Pmin = 50, efficiency = 0.33, heat_recycle = 0.6):
+    def __init__(self, om = 0.063, Pmax = 1000, Pmin = 50, efficiency = 0.33, heat_recycle = 0.6,maxDetP=500,ON_OFF_COST=200):
         self.om = om
         self.Pmax = Pmax
         self.Pmin = Pmin
         self.efficiency = efficiency
         self.heat_recycle = heat_recycle
+        self.low_heat_recycle = 1 - heat_recycle
         self.HER = (1 - efficiency)/efficiency
+        self.maxDetP = maxDetP
+        self.ON_OFF_COST = ON_OFF_COST
         self.result = {}
     def show(self):
         return {"om":self.om,
@@ -172,4 +178,3 @@ class inverter:
     def show(self):
         return {"ac_dc_efficiency":self.ac_dc_efficiency,
                 "dc_ac_efficiency":self.dc_ac_efficiency}
-

@@ -10,6 +10,7 @@ class MicrogridCase:
         microgrid_device['CS_1'] = coldStorage()
         microgrid_device['AC_1'] = airConditioner()
         microgrid_device['GT_1'] = gasTurbine()
+
         microgrid_device['ut'] = utility()
         microgrid_device['inv'] = inverter()
         self.device = microgrid_device

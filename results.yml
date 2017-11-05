@@ -6,12 +6,12 @@
 # ----------------------------------------------------------
 Problem: 
 - Name: unknown
-  Lower bound: 127746.206761112
-  Upper bound: 127746.206761112
+  Lower bound: 109468.660697728
+  Upper bound: 109468.660697728
   Number of objectives: 1
-  Number of constraints: 4652
-  Number of variables: 3326
-  Number of nonzeros: 10809
+  Number of constraints: 4877
+  Number of variables: 3281
+  Number of nonzeros: 11325
   Sense: minimize
 # ----------------------------------------------------------
 #   Solver Information
@@ -21,10 +21,10 @@ Solver:
   Termination condition: optimal
   Statistics: 
     Branch and bound: 
-      Number of bounded subproblems: 161
-      Number of created subproblems: 161
+      Number of bounded subproblems: 91
+      Number of created subproblems: 91
   Error rc: 0
-  Time: 0.5555086135864258
+  Time: 0.4717743396759033
 # ----------------------------------------------------------
 #   Solution Information
 # ----------------------------------------------------------
@@ -36,580 +36,572 @@ Solution:
   Message: None
   Objective:
     objective:
-      Value: 127746.20676111303
+      Value: 109468.66069772774
   Variable:
-    absc_heat_in[ABSC_1,0]:
-      Value: 252.509090909091
-    absc_heat_in[ABSC_1,10]:
-      Value: 282.269090909091
-    absc_heat_in[ABSC_1,11]:
-      Value: 300.245090909091
-    absc_heat_in[ABSC_1,12]:
-      Value: 308.221090909091
-    absc_heat_in[ABSC_1,13]:
-      Value: 324.347090909091
-    absc_heat_in[ABSC_1,14]:
-      Value: 342.373090909091
-    absc_heat_in[ABSC_1,15]:
-      Value: 360.399090909091
+    HBauxvar[76]:
+      Value: 2.27373675443232e-13
+    HBauxvar[77]:
+      Value: -2.27373675443232e-13
     absc_heat_in[ABSC_1,16]:
-      Value: 359.425090909091
+      Value: -1.13686837721616e-13
     absc_heat_in[ABSC_1,17]:
-      Value: 362.451090909091
+      Value: 7.105427357601e-14
     absc_heat_in[ABSC_1,18]:
-      Value: 372.477090909091
-    absc_heat_in[ABSC_1,19]:
-      Value: 388.503090909091
-    absc_heat_in[ABSC_1,1]:
-      Value: 250.485090909091
+      Value: -2.27373675443232e-13
     absc_heat_in[ABSC_1,20]:
-      Value: 404.529090909091
+      Value: 1.13686837721616e-13
     absc_heat_in[ABSC_1,21]:
-      Value: 417.555090909091
-    absc_heat_in[ABSC_1,22]:
-      Value: 426.581090909091
+      Value: -2.27373675443232e-13
     absc_heat_in[ABSC_1,23]:
-      Value: 424.607090909091
+      Value: 1.13686837721616e-13
     absc_heat_in[ABSC_1,24]:
-      Value: 422.633090909091
-    absc_heat_in[ABSC_1,25]:
-      Value: 434.929090909091
+      Value: -1.13686837721616e-13
     absc_heat_in[ABSC_1,26]:
-      Value: 453.079090909091
+      Value: -1.13686837721616e-13
     absc_heat_in[ABSC_1,27]:
-      Value: 451.229090909091
+      Value: -1.13686837721616e-13
     absc_heat_in[ABSC_1,28]:
-      Value: 449.379090909091
+      Value: 2.27373675443232e-13
     absc_heat_in[ABSC_1,29]:
-      Value: 447.529090909091
-    absc_heat_in[ABSC_1,2]:
-      Value: 248.461090909091
-    absc_heat_in[ABSC_1,30]:
-      Value: 445.679090909091
+      Value: 1.13686837721616e-13
     absc_heat_in[ABSC_1,31]:
-      Value: 443.829090909091
+      Value: -1.13686837721616e-13
     absc_heat_in[ABSC_1,32]:
-      Value: 441.979090909091
+      Value: -1.13686837721616e-13
     absc_heat_in[ABSC_1,33]:
-      Value: 440.129090909091
+      Value: 2.27373675443232e-13
     absc_heat_in[ABSC_1,34]:
-      Value: 438.279090909091
-    absc_heat_in[ABSC_1,35]:
-      Value: 436.429090909091
+      Value: 1.13686837721616e-13
     absc_heat_in[ABSC_1,36]:
-      Value: 434.579090909091
+      Value: -1.13686837721616e-13
     absc_heat_in[ABSC_1,37]:
-      Value: 432.729090909091
+      Value: -1.13686837721616e-13
     absc_heat_in[ABSC_1,38]:
-      Value: 426.879090909091
+      Value: -2.27373675443232e-13
     absc_heat_in[ABSC_1,39]:
-      Value: 422.029090909091
-    absc_heat_in[ABSC_1,3]:
-      Value: 246.437090909091
-    absc_heat_in[ABSC_1,40]:
-      Value: 405.179090909091
+      Value: -3.41060513164848e-13
     absc_heat_in[ABSC_1,41]:
-      Value: 394.329090909091
+      Value: -1.13686837721616e-13
     absc_heat_in[ABSC_1,42]:
-      Value: 373.479090909091
+      Value: -1.13686837721616e-13
     absc_heat_in[ABSC_1,43]:
-      Value: 273.295490909091
-    absc_heat_in[ABSC_1,44]:
-      Value: 266.376290909091
+      Value: 1.13686837721616e-13
     absc_heat_in[ABSC_1,45]:
-      Value: 258.017090909091
+      Value: -1.13686837721616e-12
     absc_heat_in[ABSC_1,46]:
-      Value: 249.657890909091
+      Value: -2.27373675443232e-13
     absc_heat_in[ABSC_1,47]:
-      Value: 233.522690909091
+      Value: -5.6843418860808e-13
     absc_heat_in[ABSC_1,48]:
-      Value: 217.387490909091
+      Value: -1.70530256582424e-12
     absc_heat_in[ABSC_1,49]:
-      Value: 202.958690909091
-    absc_heat_in[ABSC_1,4]:
-      Value: 264.413090909091
+      Value: 5.6843418860808e-13
     absc_heat_in[ABSC_1,50]:
-      Value: 228.529890909091
+      Value: 3.41060513164848e-13
     absc_heat_in[ABSC_1,51]:
-      Value: 217.067490909091
+      Value: 6.82121026329696e-13
     absc_heat_in[ABSC_1,52]:
-      Value: 212.805090909091
+      Value: 2.27373675443232e-13
     absc_heat_in[ABSC_1,53]:
-      Value: 208.542690909091
+      Value: -1.13686837721616e-13
     absc_heat_in[ABSC_1,54]:
-      Value: 204.280290909091
+      Value: -4.54747350886464e-13
     absc_heat_in[ABSC_1,55]:
-      Value: 200.017890909091
-    absc_heat_in[ABSC_1,56]:
-      Value: 1354.14661818182
-    absc_heat_in[ABSC_1,57]:
-      Value: 1329.21061818182
-    absc_heat_in[ABSC_1,58]:
-      Value: 1336.67461818182
-    absc_heat_in[ABSC_1,59]:
-      Value: 1332.98501818182
-    absc_heat_in[ABSC_1,5]:
-      Value: 272.389090909091
-    absc_heat_in[ABSC_1,60]:
-      Value: 1289.29541818182
-    absc_heat_in[ABSC_1,61]:
-      Value: 1221.70661818182
-    absc_heat_in[ABSC_1,62]:
-      Value: 1214.11781818182
-    absc_heat_in[ABSC_1,63]:
-      Value: 1221.69221818182
-    absc_heat_in[ABSC_1,64]:
-      Value: 1229.26661818182
-    absc_heat_in[ABSC_1,65]:
-      Value: 1296.97061818182
-    absc_heat_in[ABSC_1,66]:
-      Value: 1304.67461818182
-    absc_heat_in[ABSC_1,67]:
-      Value: 1307.69141818182
+      Value: -9.09494701772928e-13
     absc_heat_in[ABSC_1,68]:
-      Value: 189.435490909091
-    absc_heat_in[ABSC_1,69]:
-      Value: 270.445090909091
-    absc_heat_in[ABSC_1,6]:
-      Value: 280.365090909091
-    absc_heat_in[ABSC_1,70]:
-      Value: 291.454690909091
-    absc_heat_in[ABSC_1,71]:
-      Value: 322.654690909091
-    absc_heat_in[ABSC_1,72]:
-      Value: 353.854690909091
-    absc_heat_in[ABSC_1,73]:
-      Value: 355.054690909091
-    absc_heat_in[ABSC_1,74]:
-      Value: 356.254690909091
+      Value: 1.13686837721616e-12
     absc_heat_in[ABSC_1,75]:
-      Value: 357.454690909091
-    absc_heat_in[ABSC_1,76]:
-      Value: 1515.92741818182
-    absc_heat_in[ABSC_1,77]:
-      Value: 1443.22
-    absc_heat_in[ABSC_1,78]:
-      Value: 1358.32
-    absc_heat_in[ABSC_1,79]:
-      Value: 1284.04
-    absc_heat_in[ABSC_1,7]:
-      Value: 278.341090909091
-    absc_heat_in[ABSC_1,80]:
-      Value: 1293.09333333333
-    absc_heat_in[ABSC_1,81]:
-      Value: 1302.14666666667
-    absc_heat_in[ABSC_1,82]:
-      Value: 1311.2
-    absc_heat_in[ABSC_1,83]:
-      Value: 1321.08666666666
-    absc_heat_in[ABSC_1,84]:
-      Value: 1316.66666666667
-    absc_heat_in[ABSC_1,85]:
-      Value: 1312.24666666667
-    absc_heat_in[ABSC_1,86]:
-      Value: 1307.82666666667
-    absc_heat_in[ABSC_1,87]:
-      Value: 1303.40666666668
-    absc_heat_in[ABSC_1,88]:
-      Value: 369.069090909091
-    absc_heat_in[ABSC_1,89]:
-      Value: 374.101090909091
-    absc_heat_in[ABSC_1,8]:
-      Value: 286.317090909091
-    absc_heat_in[ABSC_1,90]:
-      Value: 379.133090909091
-    absc_heat_in[ABSC_1,91]:
-      Value: 384.165090909091
-    absc_heat_in[ABSC_1,92]:
-      Value: 389.197090909091
-    absc_heat_in[ABSC_1,93]:
-      Value: 394.229090909091
-    absc_heat_in[ABSC_1,94]:
-      Value: 399.261090909091
-    absc_heat_in[ABSC_1,9]:
-      Value: 294.293090909091
-    ac_power[AC_1,0]:
-      Value: 289.830021141649
-    ac_power[AC_1,10]:
-      Value: 269.19932346723
-    ac_power[AC_1,11]:
-      Value: 263.950207188161
-    ac_power[AC_1,12]:
-      Value: 261.49178858351
-    ac_power[AC_1,13]:
-      Value: 256.758951374207
-    ac_power[AC_1,14]:
-      Value: 224.751695560254
-    ac_power[AC_1,15]:
-      Value: 220.186300211416
+      Value: 443.807976559803
     ac_power[AC_1,16]:
-      Value: 220.923230443975
+      Value: 75.7757105943077
     ac_power[AC_1,17]:
-      Value: 220.543881606765
+      Value: 89.1348837209302
     ac_power[AC_1,18]:
-      Value: 194.955230443975
+      Value: 66.3441860465117
     ac_power[AC_1,19]:
-      Value: 190.947974630021
-    ac_power[AC_1,1]:
-      Value: 290.859974630021
+      Value: 66.8093023255814
     ac_power[AC_1,20]:
-      Value: 186.940718816068
+      Value: 67.2744186046511
     ac_power[AC_1,21]:
-      Value: 183.77067230444
+      Value: 88.8902840934334
     ac_power[AC_1,22]:
-      Value: 181.716904862579
+      Value: 246.828622540249
     ac_power[AC_1,23]:
-      Value: 182.732904862579
+      Value: 247.24007155636
     ac_power[AC_1,24]:
-      Value: 183.748904862579
+      Value: 247.651520572447
     ac_power[AC_1,25]:
-      Value: 180.782579281184
+      Value: 248.062969588562
     ac_power[AC_1,26]:
-      Value: 176.182579281184
+      Value: 248.474418604643
     ac_power[AC_1,27]:
-      Value: 177.163974630021
+      Value: 248.885867620756
     ac_power[AC_1,28]:
-      Value: 178.145369978858
+      Value: 249.297316636844
     ac_power[AC_1,29]:
-      Value: 155.870951374207
-    ac_power[AC_1,2]:
-      Value: 291.889928118393
+      Value: 229.136314847932
     ac_power[AC_1,30]:
-      Value: 156.852346723044
+      Value: 229.547763864035
     ac_power[AC_1,31]:
-      Value: 157.833742071882
+      Value: 266.03312801353
     ac_power[AC_1,32]:
-      Value: 158.815137420719
+      Value: 282.158139534884
     ac_power[AC_1,33]:
-      Value: 159.796532769556
+      Value: 282.623255813953
     ac_power[AC_1,34]:
-      Value: 184.441183932347
+      Value: 306.751627906977
     ac_power[AC_1,35]:
-      Value: 199.363044397463
+      Value: 321.157209302326
     ac_power[AC_1,36]:
-      Value: 214.284904862579
+      Value: 335.562790697674
     ac_power[AC_1,37]:
-      Value: 206.68955602537
+      Value: 327.451162790698
     ac_power[AC_1,38]:
-      Value: 223.531416490486
+      Value: 342.660465116279
     ac_power[AC_1,39]:
-      Value: 216.862579281184
-    ac_power[AC_1,3]:
-      Value: 292.919881606765
+      Value: 334.638139534884
     ac_power[AC_1,40]:
-      Value: 260.054207188161
+      Value: 373.127441860465
     ac_power[AC_1,41]:
-      Value: 301.593742071882
+      Value: 411.639069767442
     ac_power[AC_1,42]:
-      Value: 345.923974630021
+      Value: 450.150697674419
     ac_power[AC_1,43]:
-      Value: 379.245909513742
+      Value: 455.514418604651
     ac_power[AC_1,44]:
-      Value: 386.540569978858
+      Value: 460.878139534884
     ac_power[AC_1,45]:
-      Value: 395.353369978858
+      Value: 467.358139534884
     ac_power[AC_1,46]:
-      Value: 404.166169978858
+      Value: 473.838139534884
     ac_power[AC_1,47]:
-      Value: 421.17692346723
+      Value: 486.346046511628
     ac_power[AC_1,48]:
-      Value: 438.187676955603
+      Value: 498.853953488372
     ac_power[AC_1,49]:
-      Value: 453.399435095138
-    ac_power[AC_1,4]:
-      Value: 288.3684397463
+      Value: 500
     ac_power[AC_1,50]:
-      Value: 457.448402536998
+      Value: 500
     ac_power[AC_1,51]:
-      Value: 469.532793234672
+      Value: 500
     ac_power[AC_1,52]:
-      Value: 479.607881606765
+      Value: 500
     ac_power[AC_1,53]:
-      Value: 489.67738858351
+      Value: 500
     ac_power[AC_1,54]:
-      Value: 499.746895560254
+      Value: 500
     ac_power[AC_1,55]:
-      Value: 500
+      Value: 489.794542635653
     ac_power[AC_1,56]:
-      Value: 67.3972228329811
+      Value: 451.19007751938
     ac_power[AC_1,57]:
-      Value: 77.8723856236788
+      Value: 448.81488372093
     ac_power[AC_1,58]:
-      Value: 79.3056879492601
+      Value: 452.331162790698
     ac_power[AC_1,59]:
-      Value: 86.2962739957719
-    ac_power[AC_1,5]:
-      Value: 286.607695560254
+      Value: 458.292093023256
     ac_power[AC_1,60]:
-      Value: 104.449650739958
+      Value: 464.253023255814
     ac_power[AC_1,61]:
-      Value: 129.194432135307
+      Value: 470.135813953489
     ac_power[AC_1,62]:
-      Value: 137.195027484144
+      Value: 476.018604651163
     ac_power[AC_1,63]:
-      Value: 129.209613530656
+      Value: 470.146976744186
     ac_power[AC_1,64]:
-      Value: 121.224199577167
+      Value: 464.275348837209
     ac_power[AC_1,65]:
-      Value: 96.3579670190277
+      Value: 458.303255813954
     ac_power[AC_1,66]:
-      Value: 88.2359205073996
+      Value: 452.331162790698
     ac_power[AC_1,67]:
-      Value: 71.1019298097253
+      Value: 457.571779208152
     ac_power[AC_1,68]:
-      Value: 483.160328118393
-    ac_power[AC_1,69]:
-      Value: 444.266486257928
-    ac_power[AC_1,6]:
-      Value: 284.846951374207
-    ac_power[AC_1,70]:
-      Value: 422.116830443975
-    ac_power[AC_1,71]:
-      Value: 405.060086257928
-    ac_power[AC_1,72]:
-      Value: 388.003342071882
-    ac_power[AC_1,73]:
-      Value: 381.210783932347
-    ac_power[AC_1,74]:
-      Value: 374.418225792812
-    ac_power[AC_1,75]:
-      Value: 350.390318816068
-    ac_power[AC_1,7]:
-      Value: 285.876904862579
-    ac_power[AC_1,80]:
-      Value: -5.28775989402865e-14
-    ac_power[AC_1,88]:
-      Value: 259.511881606769
-    ac_power[AC_1,89]:
-      Value: 256.87411416491
-    ac_power[AC_1,8]:
-      Value: 274.348718816068
-    ac_power[AC_1,90]:
-      Value: 254.23634672305
-    ac_power[AC_1,91]:
-      Value: 251.59857928119
-    ac_power[AC_1,92]:
-      Value: 248.960811839331
-    ac_power[AC_1,93]:
-      Value: 246.323044397471
-    ac_power[AC_1,94]:
-      Value: 127.40620718817
-    ac_power[AC_1,9]:
-      Value: 266.076346723044
-    bol_power[Boiler_1,0]:
-      Value: 1000
-    bol_power[Boiler_1,10]:
-      Value: 1000
-    bol_power[Boiler_1,11]:
-      Value: 1000
-    bol_power[Boiler_1,12]:
-      Value: 1000
-    bol_power[Boiler_1,13]:
-      Value: 1000
-    bol_power[Boiler_1,14]:
-      Value: 1000
-    bol_power[Boiler_1,15]:
-      Value: 1000
-    bol_power[Boiler_1,16]:
-      Value: 1000
-    bol_power[Boiler_1,17]:
-      Value: 1000
-    bol_power[Boiler_1,18]:
-      Value: 1000
-    bol_power[Boiler_1,19]:
-      Value: 1000
-    bol_power[Boiler_1,1]:
-      Value: 1000
-    bol_power[Boiler_1,20]:
-      Value: 1000
-    bol_power[Boiler_1,21]:
-      Value: 1000
-    bol_power[Boiler_1,22]:
-      Value: 1000
-    bol_power[Boiler_1,23]:
-      Value: 1000
-    bol_power[Boiler_1,24]:
-      Value: 1000
-    bol_power[Boiler_1,25]:
-      Value: 1000
-    bol_power[Boiler_1,26]:
-      Value: 1000
-    bol_power[Boiler_1,27]:
-      Value: 1000
-    bol_power[Boiler_1,28]:
-      Value: 1000
-    bol_power[Boiler_1,29]:
-      Value: 1000
-    bol_power[Boiler_1,2]:
-      Value: 1000
-    bol_power[Boiler_1,30]:
-      Value: 1000
-    bol_power[Boiler_1,31]:
-      Value: 1000
-    bol_power[Boiler_1,32]:
-      Value: 1000
-    bol_power[Boiler_1,33]:
-      Value: 1000
-    bol_power[Boiler_1,34]:
-      Value: 1000
-    bol_power[Boiler_1,35]:
-      Value: 1000
-    bol_power[Boiler_1,36]:
-      Value: 1000
-    bol_power[Boiler_1,37]:
-      Value: 1000
-    bol_power[Boiler_1,38]:
-      Value: 1000
-    bol_power[Boiler_1,39]:
-      Value: 1000
-    bol_power[Boiler_1,3]:
-      Value: 1000
-    bol_power[Boiler_1,40]:
-      Value: 1000
-    bol_power[Boiler_1,41]:
-      Value: 1000
-    bol_power[Boiler_1,42]:
-      Value: 1000
-    bol_power[Boiler_1,43]:
-      Value: 1000
-    bol_power[Boiler_1,44]:
-      Value: 1000
-    bol_power[Boiler_1,45]:
-      Value: 1000
-    bol_power[Boiler_1,46]:
-      Value: 1000
-    bol_power[Boiler_1,47]:
-      Value: 1000
-    bol_power[Boiler_1,48]:
-      Value: 1000
-    bol_power[Boiler_1,49]:
-      Value: 1000
-    bol_power[Boiler_1,4]:
-      Value: 1000
-    bol_power[Boiler_1,50]:
-      Value: 1000
-    bol_power[Boiler_1,51]:
-      Value: 1000
-    bol_power[Boiler_1,52]:
-      Value: 1000
-    bol_power[Boiler_1,53]:
-      Value: 1000
-    bol_power[Boiler_1,54]:
-      Value: 1000
-    bol_power[Boiler_1,55]:
-      Value: 1000
-    bol_power[Boiler_1,56]:
-      Value: 1000
-    bol_power[Boiler_1,57]:
-      Value: 1000
-    bol_power[Boiler_1,58]:
-      Value: 1000
-    bol_power[Boiler_1,59]:
-      Value: 1000
-    bol_power[Boiler_1,5]:
-      Value: 1000
-    bol_power[Boiler_1,60]:
-      Value: 1000
-    bol_power[Boiler_1,61]:
-      Value: 1000
-    bol_power[Boiler_1,62]:
-      Value: 1000
-    bol_power[Boiler_1,63]:
-      Value: 1000
-    bol_power[Boiler_1,64]:
-      Value: 1000
-    bol_power[Boiler_1,65]:
-      Value: 1000
-    bol_power[Boiler_1,66]:
-      Value: 1000
-    bol_power[Boiler_1,67]:
-      Value: 1000
-    bol_power[Boiler_1,68]:
-      Value: 1000
-    bol_power[Boiler_1,69]:
-      Value: 1000
-    bol_power[Boiler_1,6]:
-      Value: 1000
-    bol_power[Boiler_1,70]:
-      Value: 1000
-    bol_power[Boiler_1,71]:
-      Value: 1000
-    bol_power[Boiler_1,72]:
-      Value: 1000
-    bol_power[Boiler_1,73]:
-      Value: 1000
-    bol_power[Boiler_1,74]:
-      Value: 1000
-    bol_power[Boiler_1,75]:
-      Value: 1000
-    bol_power[Boiler_1,76]:
-      Value: 1000
-    bol_power[Boiler_1,77]:
-      Value: 921.597381818182
-    bol_power[Boiler_1,78]:
-      Value: 851.133381818182
-    bol_power[Boiler_1,79]:
-      Value: 750.112581818182
-    bol_power[Boiler_1,7]:
-      Value: 1000
-    bol_power[Boiler_1,80]:
-      Value: 750.425115151515
-    bol_power[Boiler_1,81]:
-      Value: 732.737648484849
-    bol_power[Boiler_1,82]:
-      Value: 815.050181818183
-    bol_power[Boiler_1,83]:
-      Value: 819.904848484845
-    bol_power[Boiler_1,84]:
-      Value: 810.452848484849
-    bol_power[Boiler_1,85]:
-      Value: 801.000848484852
-    bol_power[Boiler_1,86]:
-      Value: 791.548848484856
-    bol_power[Boiler_1,87]:
-      Value: 782.096848484859
-    bol_power[Boiler_1,88]:
-      Value: 1000
-    bol_power[Boiler_1,89]:
-      Value: 1000
-    bol_power[Boiler_1,8]:
-      Value: 1000
-    bol_power[Boiler_1,90]:
-      Value: 1000
-    bol_power[Boiler_1,91]:
-      Value: 1000
-    bol_power[Boiler_1,92]:
-      Value: 1000
-    bol_power[Boiler_1,93]:
-      Value: 1000
-    bol_power[Boiler_1,94]:
-      Value: 1000
-    bol_power[Boiler_1,9]:
-      Value: 1000
-    cs_cold_in[CS_1,0]:
-      Value: 2.66666666666674
-    cs_cold_in[CS_1,10]:
-      Value: 2.66666666666677
-    cs_cold_in[CS_1,11]:
-      Value: 2.66666666666677
-    cs_cold_in[CS_1,12]:
-      Value: 2.66666666666677
-    cs_cold_in[CS_1,13]:
-      Value: 2.66666666666677
-    cs_cold_in[CS_1,14]:
-      Value: 2.66666666666677
-    cs_cold_in[CS_1,15]:
-      Value: 260.323520843868
-    cs_cold_in[CS_1,16]:
       Value: 500
+    ac_power[AC_1,69]:
+      Value: 500
+    ac_power[AC_1,70]:
+      Value: 500
+    ac_power[AC_1,71]:
+      Value: 495.103255813953
+    ac_power[AC_1,72]:
+      Value: 394.749141403936
+    ac_power[AC_1,73]:
+      Value: 364.016744186047
+    ac_power[AC_1,74]:
+      Value: 419.31404501302
+    ac_power[AC_1,75]:
+      Value: 251.297120640037
+    ac_power[AC_1,76]:
+      Value: 325.681674418601
+    ac_power[AC_1,77]:
+      Value: 300.803999999996
+    ac_power[AC_1,78]:
+      Value: 275.926325581401
+    ac_power[AC_1,79]:
+      Value: 272.857215556166
+    ac_power[AC_1,80]:
+      Value: 360.863255813954
+    ac_power[AC_1,81]:
+      Value: 363.38976744186
+    ac_power[AC_1,82]:
+      Value: 365.916279069768
+    ac_power[AC_1,83]:
+      Value: 368.675348837208
+    ac_power[AC_1,84]:
+      Value: 367.441860465116
+    ac_power[AC_1,85]:
+      Value: 366.208372093024
+    ac_power[AC_1,86]:
+      Value: 364.974883720932
+    ac_power[AC_1,87]:
+      Value: 363.74139534884
+    ac_power[AC_1,88]:
+      Value: 322.731353607637
+    ac_power[AC_1,89]:
+      Value: 14.3014052961884
+    ac_power[AC_1,90]:
+      Value: 288.228712410045
+    ac_power[AC_1,91]:
+      Value: 317.406583184253
+    ac_power[AC_1,92]:
+      Value: 9.97829705924225
+    ac_power[AC_1,93]:
+      Value: 35.0487297070081
+    ac_power[AC_1,94]:
+      Value: 6.26976744186978
+    ac_power[AC_1,95]:
+      Value: 249.47413953489
+    bol_auxvar[Boiler_1,16]:
+      Value: 1
+    bol_power[Boiler_1,16]:
+      Value: 701.484
+    bol_power[Boiler_1,17]:
+      Value: 698.458
+    bol_power[Boiler_1,18]:
+      Value: 688.432
+    bol_power[Boiler_1,19]:
+      Value: 672.406
+    bol_power[Boiler_1,20]:
+      Value: 656.38
+    bol_power[Boiler_1,21]:
+      Value: 643.354
+    bol_power[Boiler_1,22]:
+      Value: 634.328
+    bol_power[Boiler_1,23]:
+      Value: 636.302
+    bol_power[Boiler_1,24]:
+      Value: 638.276
+    bol_power[Boiler_1,25]:
+      Value: 625.98
+    bol_power[Boiler_1,26]:
+      Value: 607.83
+    bol_power[Boiler_1,27]:
+      Value: 609.68
+    bol_power[Boiler_1,28]:
+      Value: 611.53
+    bol_power[Boiler_1,29]:
+      Value: 613.38
+    bol_power[Boiler_1,30]:
+      Value: 615.23
+    bol_power[Boiler_1,31]:
+      Value: 617.08
+    bol_power[Boiler_1,32]:
+      Value: 618.93
+    bol_power[Boiler_1,33]:
+      Value: 620.78
+    bol_power[Boiler_1,34]:
+      Value: 622.63
+    bol_power[Boiler_1,35]:
+      Value: 624.48
+    bol_power[Boiler_1,36]:
+      Value: 626.33
+    bol_power[Boiler_1,37]:
+      Value: 628.18
+    bol_power[Boiler_1,38]:
+      Value: 634.03
+    bol_power[Boiler_1,39]:
+      Value: 638.88
+    bol_power[Boiler_1,40]:
+      Value: 655.73
+    bol_power[Boiler_1,41]:
+      Value: 666.58
+    bol_power[Boiler_1,42]:
+      Value: 687.43
+    bol_power[Boiler_1,43]:
+      Value: 787.6136
+    bol_power[Boiler_1,44]:
+      Value: 794.5328
+    bol_power[Boiler_1,45]:
+      Value: 802.891999999999
+    bol_power[Boiler_1,46]:
+      Value: 811.2512
+    bol_power[Boiler_1,47]:
+      Value: 827.386399999999
+    bol_power[Boiler_1,48]:
+      Value: 843.521599999998
+    bol_power[Boiler_1,49]:
+      Value: 857.950400000001
+    bol_power[Boiler_1,50]:
+      Value: 832.3792
+    bol_power[Boiler_1,51]:
+      Value: 843.841600000001
+    bol_power[Boiler_1,52]:
+      Value: 848.104
+    bol_power[Boiler_1,53]:
+      Value: 852.3664
+    bol_power[Boiler_1,54]:
+      Value: 856.6288
+    bol_power[Boiler_1,55]:
+      Value: 860.891199999999
+    bol_power[Boiler_1,56]:
+      Value: 360.8912
+    bol_power[Boiler_1,57]:
+      Value: 57.3910584919
+    bol_power[Boiler_1,58]:
+      Value: 77.5510799154341
+    bol_power[Boiler_1,59]:
+      Value: 77.9141547568685
+    bol_power[Boiler_1,60]:
+      Value: 78.2772295983042
+    bol_power[Boiler_1,61]:
+      Value: 78.6355450317133
+    bol_power[Boiler_1,62]:
+      Value: 78.9938604651178
+    bol_power[Boiler_1,63]:
+      Value: 78.6362249471464
+    bol_power[Boiler_1,64]:
+      Value: 78.2785894291751
+    bol_power[Boiler_1,65]:
+      Value: 77.9148346723015
+    bol_power[Boiler_1,66]:
+      Value: 81.1589926236499
+    bol_power[Boiler_1,67]:
+      Value: 314.500410002642
+    bol_power[Boiler_1,68]:
+      Value: 810.56450909091
+    bol_power[Boiler_1,69]:
+      Value: 729.554909090909
+    bol_power[Boiler_1,70]:
+      Value: 708.545309090909
+    bol_power[Boiler_1,71]:
+      Value: 677.345309090909
+    bol_power[Boiler_1,72]:
+      Value: 345.586430218463
+    bol_power[Boiler_1,73]:
+      Value: 309.932735715072
+    bol_power[Boiler_1,74]:
+      Value: 156.317846223047
+    bol_power[Boiler_1,75]:
+      Value: 49.9999999999995
+    bol_power[Boiler_1,76]:
+      Value: 49.9999999999993
+    bol_power[Boiler_1,77]:
+      Value: 50.0000000000007
+    bol_power[Boiler_1,78]:
+      Value: 50
+    bol_power[Boiler_1,79]:
+      Value: 49.9999999999995
+    bol_power[Boiler_1,80]:
+      Value: 71.9798528541165
+    bol_power[Boiler_1,81]:
+      Value: 72.133740380547
+    bol_power[Boiler_1,82]:
+      Value: 72.2876279069726
+    bol_power[Boiler_1,83]:
+      Value: 72.4556803382634
+    bol_power[Boiler_1,84]:
+      Value: 72.3805496828719
+    bol_power[Boiler_1,85]:
+      Value: 72.3054190274809
+    bol_power[Boiler_1,86]:
+      Value: 72.2302883720903
+    bol_power[Boiler_1,87]:
+      Value: 153.086066807617
+    bol_power[Boiler_1,88]:
+      Value: 630.930909090909
+    bol_power[Boiler_1,89]:
+      Value: 625.898909090909
+    bol_power[Boiler_1,90]:
+      Value: 620.866909090909
+    bol_power[Boiler_1,91]:
+      Value: 615.834909090909
+    bol_power[Boiler_1,92]:
+      Value: 610.802909090909
+    bol_power[Boiler_1,93]:
+      Value: 605.770909090909
+    bol_power[Boiler_1,94]:
+      Value: 600.738909090909
+    bol_power[Boiler_1,95]:
+      Value: 595.706909090909
+    bol_state[Boiler_1,16]:
+      Value: 1
+    bol_state[Boiler_1,17]:
+      Value: 1
+    bol_state[Boiler_1,18]:
+      Value: 1
+    bol_state[Boiler_1,19]:
+      Value: 1
+    bol_state[Boiler_1,20]:
+      Value: 1
+    bol_state[Boiler_1,21]:
+      Value: 1
+    bol_state[Boiler_1,22]:
+      Value: 1
+    bol_state[Boiler_1,23]:
+      Value: 1
+    bol_state[Boiler_1,24]:
+      Value: 1
+    bol_state[Boiler_1,25]:
+      Value: 1
+    bol_state[Boiler_1,26]:
+      Value: 1
+    bol_state[Boiler_1,27]:
+      Value: 1
+    bol_state[Boiler_1,28]:
+      Value: 1
+    bol_state[Boiler_1,29]:
+      Value: 1
+    bol_state[Boiler_1,30]:
+      Value: 1
+    bol_state[Boiler_1,31]:
+      Value: 1
+    bol_state[Boiler_1,32]:
+      Value: 1
+    bol_state[Boiler_1,33]:
+      Value: 1
+    bol_state[Boiler_1,34]:
+      Value: 1
+    bol_state[Boiler_1,35]:
+      Value: 1
+    bol_state[Boiler_1,36]:
+      Value: 1
+    bol_state[Boiler_1,37]:
+      Value: 1
+    bol_state[Boiler_1,38]:
+      Value: 1
+    bol_state[Boiler_1,39]:
+      Value: 1
+    bol_state[Boiler_1,40]:
+      Value: 1
+    bol_state[Boiler_1,41]:
+      Value: 1
+    bol_state[Boiler_1,42]:
+      Value: 1
+    bol_state[Boiler_1,43]:
+      Value: 1
+    bol_state[Boiler_1,44]:
+      Value: 1
+    bol_state[Boiler_1,45]:
+      Value: 1
+    bol_state[Boiler_1,46]:
+      Value: 1
+    bol_state[Boiler_1,47]:
+      Value: 1
+    bol_state[Boiler_1,48]:
+      Value: 1
+    bol_state[Boiler_1,49]:
+      Value: 1
+    bol_state[Boiler_1,50]:
+      Value: 1
+    bol_state[Boiler_1,51]:
+      Value: 1
+    bol_state[Boiler_1,52]:
+      Value: 1
+    bol_state[Boiler_1,53]:
+      Value: 1
+    bol_state[Boiler_1,54]:
+      Value: 1
+    bol_state[Boiler_1,55]:
+      Value: 1
+    bol_state[Boiler_1,56]:
+      Value: 1
+    bol_state[Boiler_1,57]:
+      Value: 1
+    bol_state[Boiler_1,58]:
+      Value: 1
+    bol_state[Boiler_1,59]:
+      Value: 1
+    bol_state[Boiler_1,60]:
+      Value: 1
+    bol_state[Boiler_1,61]:
+      Value: 1
+    bol_state[Boiler_1,62]:
+      Value: 1
+    bol_state[Boiler_1,63]:
+      Value: 1
+    bol_state[Boiler_1,64]:
+      Value: 1
+    bol_state[Boiler_1,65]:
+      Value: 1
+    bol_state[Boiler_1,66]:
+      Value: 1
+    bol_state[Boiler_1,67]:
+      Value: 1
+    bol_state[Boiler_1,68]:
+      Value: 1
+    bol_state[Boiler_1,69]:
+      Value: 1
+    bol_state[Boiler_1,70]:
+      Value: 1
+    bol_state[Boiler_1,71]:
+      Value: 1
+    bol_state[Boiler_1,72]:
+      Value: 1
+    bol_state[Boiler_1,73]:
+      Value: 1
+    bol_state[Boiler_1,74]:
+      Value: 1
+    bol_state[Boiler_1,75]:
+      Value: 1
+    bol_state[Boiler_1,76]:
+      Value: 1
+    bol_state[Boiler_1,77]:
+      Value: 1
+    bol_state[Boiler_1,78]:
+      Value: 1
+    bol_state[Boiler_1,79]:
+      Value: 1
+    bol_state[Boiler_1,80]:
+      Value: 1
+    bol_state[Boiler_1,81]:
+      Value: 1
+    bol_state[Boiler_1,82]:
+      Value: 1
+    bol_state[Boiler_1,83]:
+      Value: 1
+    bol_state[Boiler_1,84]:
+      Value: 1
+    bol_state[Boiler_1,85]:
+      Value: 1
+    bol_state[Boiler_1,86]:
+      Value: 1
+    bol_state[Boiler_1,87]:
+      Value: 1
+    bol_state[Boiler_1,88]:
+      Value: 1
+    bol_state[Boiler_1,89]:
+      Value: 1
+    bol_state[Boiler_1,90]:
+      Value: 1
+    bol_state[Boiler_1,91]:
+      Value: 1
+    bol_state[Boiler_1,92]:
+      Value: 1
+    bol_state[Boiler_1,93]:
+      Value: 1
+    bol_state[Boiler_1,94]:
+      Value: 1
+    bol_state[Boiler_1,95]:
+      Value: 1
+    cs_cold_in[CS_1,16]:
+      Value: 444.555555555523
     cs_cold_in[CS_1,17]:
       Value: 500
     cs_cold_in[CS_1,18]:
       Value: 500
     cs_cold_in[CS_1,19]:
       Value: 500
-    cs_cold_in[CS_1,1]:
-      Value: 2.66666666666682
     cs_cold_in[CS_1,20]:
       Value: 500
     cs_cold_in[CS_1,21]:
@@ -630,60 +622,40 @@ Solution:
       Value: 500
     cs_cold_in[CS_1,29]:
       Value: 500
-    cs_cold_in[CS_1,2]:
-      Value: 2.66666666666677
     cs_cold_in[CS_1,30]:
       Value: 500
     cs_cold_in[CS_1,31]:
       Value: 500
-    cs_cold_in[CS_1,3]:
+    cs_cold_in[CS_1,49]:
+      Value: 77.1584000000003
+    cs_cold_in[CS_1,50]:
+      Value: 79.5631999999999
+    cs_cold_in[CS_1,51]:
+      Value: 81.4736000000003
+    cs_cold_in[CS_1,52]:
+      Value: 83.3840000000002
+    cs_cold_in[CS_1,53]:
+      Value: 85.2931999999986
+    cs_cold_in[CS_1,54]:
+      Value: 165.548036168659
+    cs_cold_in[CS_1,55]:
+      Value: 25.3333333333325
+    cs_cold_in[CS_1,68]:
+      Value: 92.5906505950536
+    cs_cold_in[CS_1,69]:
+      Value: 89.0890505950406
+    cs_cold_in[CS_1,70]:
+      Value: 75.7423999999944
+    cs_cold_in[CS_1,71]:
+      Value: 104.381308036925
+    cs_cold_in[CS_1,88]:
       Value: 2.66666666666677
-    cs_cold_in[CS_1,4]:
-      Value: 2.66666666666677
-    cs_cold_in[CS_1,5]:
-      Value: 2.66666666666677
-    cs_cold_in[CS_1,6]:
-      Value: 2.66666666666677
-    cs_cold_in[CS_1,7]:
-      Value: 2.66666666666677
-    cs_cold_in[CS_1,8]:
-      Value: 2.66666666666677
-    cs_cold_in[CS_1,9]:
-      Value: 2.66666666666677
-    cs_cold_in_out_state[CS_1,0,1]cs_cold_in[CS_1,0]:
-      Value: 2.66666666666674
-    cs_cold_in_out_state[CS_1,0,1]indicator_var:
-      Value: 1
-    cs_cold_in_out_state[CS_1,1,1]cs_cold_in[CS_1,1]:
-      Value: 2.66666666666682
-    cs_cold_in_out_state[CS_1,1,1]indicator_var:
-      Value: 1
-    cs_cold_in_out_state[CS_1,10,1]cs_cold_in[CS_1,10]:
-      Value: 2.66666666666677
-    cs_cold_in_out_state[CS_1,10,1]indicator_var:
-      Value: 1
-    cs_cold_in_out_state[CS_1,11,1]cs_cold_in[CS_1,11]:
-      Value: 2.66666666666677
-    cs_cold_in_out_state[CS_1,11,1]indicator_var:
-      Value: 1
-    cs_cold_in_out_state[CS_1,12,1]cs_cold_in[CS_1,12]:
-      Value: 2.66666666666677
-    cs_cold_in_out_state[CS_1,12,1]indicator_var:
-      Value: 1
-    cs_cold_in_out_state[CS_1,13,1]cs_cold_in[CS_1,13]:
-      Value: 2.66666666666677
-    cs_cold_in_out_state[CS_1,13,1]indicator_var:
-      Value: 1
-    cs_cold_in_out_state[CS_1,14,1]cs_cold_in[CS_1,14]:
-      Value: 2.66666666666677
-    cs_cold_in_out_state[CS_1,14,1]indicator_var:
-      Value: 1
-    cs_cold_in_out_state[CS_1,15,1]cs_cold_in[CS_1,15]:
-      Value: 260.323520843868
-    cs_cold_in_out_state[CS_1,15,1]indicator_var:
-      Value: 1
+    cs_cold_in[CS_1,89]:
+      Value: 8.01604277359024
+    cs_cold_in[CS_1,92]:
+      Value: 5.33867735470962
     cs_cold_in_out_state[CS_1,16,1]cs_cold_in[CS_1,16]:
-      Value: 500
+      Value: 444.555555555523
     cs_cold_in_out_state[CS_1,16,1]indicator_var:
       Value: 1
     cs_cold_in_out_state[CS_1,17,1]cs_cold_in[CS_1,17]:
@@ -697,10 +669,6 @@ Solution:
     cs_cold_in_out_state[CS_1,19,1]cs_cold_in[CS_1,19]:
       Value: 500
     cs_cold_in_out_state[CS_1,19,1]indicator_var:
-      Value: 1
-    cs_cold_in_out_state[CS_1,2,1]cs_cold_in[CS_1,2]:
-      Value: 2.66666666666677
-    cs_cold_in_out_state[CS_1,2,1]indicator_var:
       Value: 1
     cs_cold_in_out_state[CS_1,20,1]cs_cold_in[CS_1,20]:
       Value: 500
@@ -742,10 +710,6 @@ Solution:
       Value: 500
     cs_cold_in_out_state[CS_1,29,1]indicator_var:
       Value: 1
-    cs_cold_in_out_state[CS_1,3,1]cs_cold_in[CS_1,3]:
-      Value: 2.66666666666677
-    cs_cold_in_out_state[CS_1,3,1]indicator_var:
-      Value: 1
     cs_cold_in_out_state[CS_1,30,1]cs_cold_in[CS_1,30]:
       Value: 500
     cs_cold_in_out_state[CS_1,30,1]indicator_var:
@@ -770,10 +734,6 @@ Solution:
       Value: 1
     cs_cold_in_out_state[CS_1,39,1]indicator_var:
       Value: 1
-    cs_cold_in_out_state[CS_1,4,1]cs_cold_in[CS_1,4]:
-      Value: 2.66666666666677
-    cs_cold_in_out_state[CS_1,4,1]indicator_var:
-      Value: 1
     cs_cold_in_out_state[CS_1,40,1]indicator_var:
       Value: 1
     cs_cold_in_out_state[CS_1,41,1]indicator_var:
@@ -792,28 +752,36 @@ Solution:
       Value: 1
     cs_cold_in_out_state[CS_1,48,1]indicator_var:
       Value: 1
+    cs_cold_in_out_state[CS_1,49,1]cs_cold_in[CS_1,49]:
+      Value: 77.1584000000003
     cs_cold_in_out_state[CS_1,49,1]indicator_var:
       Value: 1
-    cs_cold_in_out_state[CS_1,5,1]cs_cold_in[CS_1,5]:
-      Value: 2.66666666666677
-    cs_cold_in_out_state[CS_1,5,1]indicator_var:
-      Value: 1
+    cs_cold_in_out_state[CS_1,50,1]cs_cold_in[CS_1,50]:
+      Value: 79.5631999999999
     cs_cold_in_out_state[CS_1,50,1]indicator_var:
       Value: 1
+    cs_cold_in_out_state[CS_1,51,1]cs_cold_in[CS_1,51]:
+      Value: 81.4736000000003
     cs_cold_in_out_state[CS_1,51,1]indicator_var:
       Value: 1
+    cs_cold_in_out_state[CS_1,52,1]cs_cold_in[CS_1,52]:
+      Value: 83.3840000000002
     cs_cold_in_out_state[CS_1,52,1]indicator_var:
       Value: 1
+    cs_cold_in_out_state[CS_1,53,1]cs_cold_in[CS_1,53]:
+      Value: 85.2931999999986
     cs_cold_in_out_state[CS_1,53,1]indicator_var:
       Value: 1
+    cs_cold_in_out_state[CS_1,54,1]cs_cold_in[CS_1,54]:
+      Value: 165.548036168659
     cs_cold_in_out_state[CS_1,54,1]indicator_var:
       Value: 1
-    cs_cold_in_out_state[CS_1,55,0]cs_cold_out[CS_1,55]:
-      Value: 14.3945309090911
-    cs_cold_in_out_state[CS_1,55,0]indicator_var:
+    cs_cold_in_out_state[CS_1,55,1]cs_cold_in[CS_1,55]:
+      Value: 25.3333333333325
+    cs_cold_in_out_state[CS_1,55,1]indicator_var:
       Value: 1
     cs_cold_in_out_state[CS_1,56,0]cs_cold_out[CS_1,56]:
-      Value: 500
+      Value: 474.666666666667
     cs_cold_in_out_state[CS_1,56,0]indicator_var:
       Value: 1
     cs_cold_in_out_state[CS_1,57,0]cs_cold_out[CS_1,57]:
@@ -827,10 +795,6 @@ Solution:
     cs_cold_in_out_state[CS_1,59,0]cs_cold_out[CS_1,59]:
       Value: 500
     cs_cold_in_out_state[CS_1,59,0]indicator_var:
-      Value: 1
-    cs_cold_in_out_state[CS_1,6,1]cs_cold_in[CS_1,6]:
-      Value: 2.66666666666677
-    cs_cold_in_out_state[CS_1,6,1]indicator_var:
       Value: 1
     cs_cold_in_out_state[CS_1,60,0]cs_cold_out[CS_1,60]:
       Value: 500
@@ -861,42 +825,56 @@ Solution:
     cs_cold_in_out_state[CS_1,66,0]indicator_var:
       Value: 1
     cs_cold_in_out_state[CS_1,67,0]cs_cold_out[CS_1,67]:
-      Value: 500
+      Value: 407.409349404946
     cs_cold_in_out_state[CS_1,67,0]indicator_var:
       Value: 1
+    cs_cold_in_out_state[CS_1,68,1]cs_cold_in[CS_1,68]:
+      Value: 92.5906505950536
     cs_cold_in_out_state[CS_1,68,1]indicator_var:
       Value: 1
+    cs_cold_in_out_state[CS_1,69,1]cs_cold_in[CS_1,69]:
+      Value: 89.0890505950406
     cs_cold_in_out_state[CS_1,69,1]indicator_var:
       Value: 1
-    cs_cold_in_out_state[CS_1,7,1]cs_cold_in[CS_1,7]:
-      Value: 2.66666666666677
-    cs_cold_in_out_state[CS_1,7,1]indicator_var:
-      Value: 1
+    cs_cold_in_out_state[CS_1,70,1]cs_cold_in[CS_1,70]:
+      Value: 75.7423999999944
     cs_cold_in_out_state[CS_1,70,1]indicator_var:
       Value: 1
+    cs_cold_in_out_state[CS_1,71,1]cs_cold_in[CS_1,71]:
+      Value: 104.381308036925
     cs_cold_in_out_state[CS_1,71,1]indicator_var:
       Value: 1
-    cs_cold_in_out_state[CS_1,72,1]indicator_var:
+    cs_cold_in_out_state[CS_1,72,0]cs_cold_out[CS_1,72]:
+      Value: 395.618691963075
+    cs_cold_in_out_state[CS_1,72,0]indicator_var:
       Value: 1
-    cs_cold_in_out_state[CS_1,73,1]indicator_var:
+    cs_cold_in_out_state[CS_1,73,0]cs_cold_out[CS_1,73]:
+      Value: 500
+    cs_cold_in_out_state[CS_1,73,0]indicator_var:
       Value: 1
-    cs_cold_in_out_state[CS_1,74,1]indicator_var:
+    cs_cold_in_out_state[CS_1,74,0]cs_cold_out[CS_1,74]:
+      Value: 234.453606444013
+    cs_cold_in_out_state[CS_1,74,0]indicator_var:
       Value: 1
-    cs_cold_in_out_state[CS_1,75,1]indicator_var:
+    cs_cold_in_out_state[CS_1,75,0]cs_cold_out[CS_1,75]:
+      Value: 500
+    cs_cold_in_out_state[CS_1,75,0]indicator_var:
       Value: 1
     cs_cold_in_out_state[CS_1,76,0]cs_cold_out[CS_1,76]:
-      Value: 14.631098181819
+      Value: 433.312800000015
     cs_cold_in_out_state[CS_1,76,0]indicator_var:
       Value: 1
-    cs_cold_in_out_state[CS_1,77,1]indicator_var:
+    cs_cold_in_out_state[CS_1,77,0]cs_cold_out[CS_1,77]:
+      Value: 438.406800000018
+    cs_cold_in_out_state[CS_1,77,0]indicator_var:
       Value: 1
-    cs_cold_in_out_state[CS_1,78,1]indicator_var:
+    cs_cold_in_out_state[CS_1,78,0]cs_cold_out[CS_1,78]:
+      Value: 443.500799999978
+    cs_cold_in_out_state[CS_1,78,0]indicator_var:
       Value: 1
-    cs_cold_in_out_state[CS_1,79,1]indicator_var:
-      Value: 1
-    cs_cold_in_out_state[CS_1,8,1]cs_cold_in[CS_1,8]:
-      Value: 2.66666666666677
-    cs_cold_in_out_state[CS_1,8,1]indicator_var:
+    cs_cold_in_out_state[CS_1,79,0]cs_cold_out[CS_1,79]:
+      Value: 367.561973108486
+    cs_cold_in_out_state[CS_1,79,0]indicator_var:
       Value: 1
     cs_cold_in_out_state[CS_1,80,1]indicator_var:
       Value: 1
@@ -914,30 +892,32 @@ Solution:
       Value: 1
     cs_cold_in_out_state[CS_1,87,1]indicator_var:
       Value: 1
+    cs_cold_in_out_state[CS_1,88,1]cs_cold_in[CS_1,88]:
+      Value: 2.66666666666677
     cs_cold_in_out_state[CS_1,88,1]indicator_var:
       Value: 1
+    cs_cold_in_out_state[CS_1,89,1]cs_cold_in[CS_1,89]:
+      Value: 8.01604277359024
     cs_cold_in_out_state[CS_1,89,1]indicator_var:
-      Value: 1
-    cs_cold_in_out_state[CS_1,9,1]cs_cold_in[CS_1,9]:
-      Value: 2.66666666666677
-    cs_cold_in_out_state[CS_1,9,1]indicator_var:
       Value: 1
     cs_cold_in_out_state[CS_1,90,1]indicator_var:
       Value: 1
     cs_cold_in_out_state[CS_1,91,1]indicator_var:
       Value: 1
+    cs_cold_in_out_state[CS_1,92,1]cs_cold_in[CS_1,92]:
+      Value: 5.33867735470962
     cs_cold_in_out_state[CS_1,92,1]indicator_var:
       Value: 1
     cs_cold_in_out_state[CS_1,93,1]indicator_var:
       Value: 1
-    cs_cold_in_out_state[CS_1,94,0]cs_cold_out[CS_1,94]:
-      Value: 500
-    cs_cold_in_out_state[CS_1,94,0]indicator_var:
+    cs_cold_in_out_state[CS_1,94,1]indicator_var:
       Value: 1
-    cs_cold_out[CS_1,55]:
-      Value: 14.3945309090911
+    cs_cold_in_out_state[CS_1,95,0]cs_cold_out[CS_1,95]:
+      Value: 448.917200000019
+    cs_cold_in_out_state[CS_1,95,0]indicator_var:
+      Value: 1
     cs_cold_out[CS_1,56]:
-      Value: 500
+      Value: 474.666666666667
     cs_cold_out[CS_1,57]:
       Value: 500
     cs_cold_out[CS_1,58]:
@@ -959,483 +939,425 @@ Solution:
     cs_cold_out[CS_1,66]:
       Value: 500
     cs_cold_out[CS_1,67]:
+      Value: 407.409349404946
+    cs_cold_out[CS_1,72]:
+      Value: 395.618691963075
+    cs_cold_out[CS_1,73]:
+      Value: 500
+    cs_cold_out[CS_1,74]:
+      Value: 234.453606444013
+    cs_cold_out[CS_1,75]:
       Value: 500
     cs_cold_out[CS_1,76]:
-      Value: 14.631098181819
-    cs_cold_out[CS_1,94]:
-      Value: 500
-    cs_cold_stored[CS_1,0]:
-      Value: 300
-    cs_cold_stored[CS_1,10]:
-      Value: 300
-    cs_cold_stored[CS_1,11]:
-      Value: 300
-    cs_cold_stored[CS_1,12]:
-      Value: 300
-    cs_cold_stored[CS_1,13]:
-      Value: 300
-    cs_cold_stored[CS_1,14]:
-      Value: 300
-    cs_cold_stored[CS_1,15]:
-      Value: 300
+      Value: 433.312800000015
+    cs_cold_out[CS_1,77]:
+      Value: 438.406800000018
+    cs_cold_out[CS_1,78]:
+      Value: 443.500799999978
+    cs_cold_out[CS_1,79]:
+      Value: 367.561973108486
+    cs_cold_out[CS_1,95]:
+      Value: 448.917200000019
     cs_cold_stored[CS_1,16]:
-      Value: 357.97279218987
+      Value: 1124.29846646574
     cs_cold_stored[CS_1,17]:
-      Value: 469.756846605491
+      Value: 1222.07486953281
     cs_cold_stored[CS_1,18]:
-      Value: 581.31733291228
+      Value: 1332.13071979374
     cs_cold_stored[CS_1,19]:
-      Value: 692.654698246455
-    cs_cold_stored[CS_1,1]:
-      Value: 300
+      Value: 1441.96645835415
     cs_cold_stored[CS_1,20]:
-      Value: 803.769388849962
+      Value: 1551.58252543744
     cs_cold_stored[CS_1,21]:
-      Value: 914.661850072262
+      Value: 1660.97936038657
     cs_cold_stored[CS_1,22]:
-      Value: 1025.33252637212
+      Value: 1770.1574016658
     cs_cold_stored[CS_1,23]:
-      Value: 1135.78186131937
+      Value: 1879.11708686246
     cs_cold_stored[CS_1,24]:
-      Value: 1246.01029759673
+      Value: 1987.85885268874
     cs_cold_stored[CS_1,25]:
-      Value: 1356.01827700154
+      Value: 2096.38313498336
     cs_cold_stored[CS_1,26]:
-      Value: 1465.80624044754
+      Value: 2204.6903687134
     cs_cold_stored[CS_1,27]:
-      Value: 1575.37462796664
+      Value: 2312.78098797597
     cs_cold_stored[CS_1,28]:
-      Value: 1684.72387871071
+      Value: 2420.65542600002
     cs_cold_stored[CS_1,29]:
-      Value: 1793.85443095329
-    cs_cold_stored[CS_1,2]:
-      Value: 300
+      Value: 2528.31411514802
     cs_cold_stored[CS_1,30]:
-      Value: 1902.76672209138
+      Value: 2635.75748691772
     cs_cold_stored[CS_1,31]:
-      Value: 2011.4611886472
+      Value: 2742.98597194389
     cs_cold_stored[CS_1,32]:
-      Value: 2119.9382662699
+      Value: 2850
     cs_cold_stored[CS_1,33]:
-      Value: 2115.69838973736
+      Value: 2844.3
     cs_cold_stored[CS_1,34]:
-      Value: 2111.46699295789
+      Value: 2838.6114
     cs_cold_stored[CS_1,35]:
-      Value: 2107.24405897197
+      Value: 2832.9341772
     cs_cold_stored[CS_1,36]:
-      Value: 2103.02957085403
+      Value: 2827.2683088456
     cs_cold_stored[CS_1,37]:
-      Value: 2098.82351171232
+      Value: 2821.61377222791
     cs_cold_stored[CS_1,38]:
-      Value: 2094.6258646889
+      Value: 2815.97054468345
     cs_cold_stored[CS_1,39]:
-      Value: 2090.43661295952
-    cs_cold_stored[CS_1,3]:
-      Value: 300
+      Value: 2810.33860359409
     cs_cold_stored[CS_1,40]:
-      Value: 2086.2557397336
+      Value: 2804.7179263869
     cs_cold_stored[CS_1,41]:
-      Value: 2082.08322825413
+      Value: 2799.10849053412
     cs_cold_stored[CS_1,42]:
-      Value: 2077.91906179762
+      Value: 2793.51027355306
     cs_cold_stored[CS_1,43]:
-      Value: 2073.76322367403
+      Value: 2787.92325300595
     cs_cold_stored[CS_1,44]:
-      Value: 2069.61569722668
+      Value: 2782.34740649994
     cs_cold_stored[CS_1,45]:
-      Value: 2065.47646583223
+      Value: 2776.78271168694
     cs_cold_stored[CS_1,46]:
-      Value: 2061.34551290056
+      Value: 2771.22914626356
     cs_cold_stored[CS_1,47]:
-      Value: 2057.22282187476
+      Value: 2765.68668797104
     cs_cold_stored[CS_1,48]:
-      Value: 2053.10837623101
+      Value: 2760.1553145951
     cs_cold_stored[CS_1,49]:
-      Value: 2049.00215947855
-    cs_cold_stored[CS_1,4]:
-      Value: 300
+      Value: 2754.63500396591
     cs_cold_stored[CS_1,50]:
-      Value: 2044.90415515959
+      Value: 2766.48637395797
     cs_cold_stored[CS_1,51]:
-      Value: 2040.81434684927
+      Value: 2778.85512121006
     cs_cold_stored[CS_1,52]:
-      Value: 2036.73271815558
+      Value: 2791.62897096764
     cs_cold_stored[CS_1,53]:
-      Value: 2032.65925271927
+      Value: 2804.8071130257
     cs_cold_stored[CS_1,54]:
-      Value: 2028.59393421383
+      Value: 2818.38846879965
     cs_cold_stored[CS_1,55]:
-      Value: 2024.5367463454
+      Value: 2850
     cs_cold_stored[CS_1,56]:
-      Value: 2016.48919204463
+      Value: 2850
     cs_cold_stored[CS_1,57]:
-      Value: 1873.56732477165
+      Value: 2712.44814814815
     cs_cold_stored[CS_1,58]:
-      Value: 1730.93130123322
+      Value: 2568.13436296296
     cs_cold_stored[CS_1,59]:
-      Value: 1588.58054974186
-    cs_cold_stored[CS_1,5]:
-      Value: 300
+      Value: 2424.10920534815
     cs_cold_stored[CS_1,60]:
-      Value: 1446.51449975349
+      Value: 2280.37209804856
     cs_cold_stored[CS_1,61]:
-      Value: 1304.73258186509
+      Value: 2136.92246496358
     cs_cold_stored[CS_1,62]:
-      Value: 1163.23422781247
+      Value: 1993.75973114476
     cs_cold_stored[CS_1,63]:
-      Value: 1022.01887046796
+      Value: 1850.88332279358
     cs_cold_stored[CS_1,64]:
-      Value: 881.085943838136
+      Value: 1708.29266725911
     cs_cold_stored[CS_1,65]:
-      Value: 740.434883061571
+      Value: 1565.9871930357
     cs_cold_stored[CS_1,66]:
-      Value: 600.065124406559
+      Value: 1423.96632976074
     cs_cold_stored[CS_1,67]:
-      Value: 459.976105268857
+      Value: 1282.22950821233
     cs_cold_stored[CS_1,68]:
-      Value: 320.16726416943
+      Value: 1166.49578547231
     cs_cold_stored[CS_1,69]:
-      Value: 319.526929641091
-    cs_cold_stored[CS_1,6]:
-      Value: 300
+      Value: 1184.99569028525
     cs_cold_stored[CS_1,70]:
-      Value: 318.887875781809
+      Value: 1202.67073528856
     cs_cold_stored[CS_1,71]:
-      Value: 318.250100030245
+      Value: 1217.30743381799
     cs_cold_stored[CS_1,72]:
-      Value: 317.613599830185
+      Value: 1238.35861325866
     cs_cold_stored[CS_1,73]:
-      Value: 316.978372630524
+      Value: 1125.98781493129
     cs_cold_stored[CS_1,74]:
-      Value: 316.344415885263
+      Value: 984.846950412535
     cs_cold_stored[CS_1,75]:
-      Value: 315.711727053493
+      Value: 917.751254721706
     cs_cold_stored[CS_1,76]:
-      Value: 315.080303599386
+      Value: 777.026863323374
     cs_cold_stored[CS_1,77]:
-      Value: 310.385949052793
+      Value: 655.108142930056
     cs_cold_stored[CS_1,78]:
-      Value: 309.765177154687
+      Value: 532.018259977525
     cs_cold_stored[CS_1,79]:
-      Value: 309.145646800378
-    cs_cold_stored[CS_1,7]:
-      Value: 300
+      Value: 407.759556790909
     cs_cold_stored[CS_1,80]:
-      Value: 308.527355506777
-    cs_cold_stored[CS_1,81]:
-      Value: 307.910300795763
-    cs_cold_stored[CS_1,82]:
-      Value: 307.294480194172
-    cs_cold_stored[CS_1,83]:
-      Value: 306.679891233784
-    cs_cold_stored[CS_1,84]:
-      Value: 306.066531451316
-    cs_cold_stored[CS_1,85]:
-      Value: 305.454398388413
-    cs_cold_stored[CS_1,86]:
       Value: 304.843489591636
-    cs_cold_stored[CS_1,87]:
+    cs_cold_stored[CS_1,81]:
       Value: 304.233802612453
-    cs_cold_stored[CS_1,88]:
+    cs_cold_stored[CS_1,82]:
       Value: 303.625335007228
-    cs_cold_stored[CS_1,89]:
+    cs_cold_stored[CS_1,83]:
       Value: 303.018084337214
-    cs_cold_stored[CS_1,8]:
+    cs_cold_stored[CS_1,84]:
+      Value: 302.412048168539
+    cs_cold_stored[CS_1,85]:
+      Value: 301.807224072202
+    cs_cold_stored[CS_1,86]:
+      Value: 301.203609624058
+    cs_cold_stored[CS_1,87]:
+      Value: 300.60120240481
+    cs_cold_stored[CS_1,88]:
+      Value: 300
+    cs_cold_stored[CS_1,89]:
       Value: 300
     cs_cold_stored[CS_1,90]:
-      Value: 302.412048168539
-    cs_cold_stored[CS_1,91]:
-      Value: 301.807224072202
-    cs_cold_stored[CS_1,92]:
       Value: 301.203609624058
+    cs_cold_stored[CS_1,91]:
+      Value: 300.60120240481
+    cs_cold_stored[CS_1,92]:
+      Value: 300
     cs_cold_stored[CS_1,93]:
       Value: 300.60120240481
     cs_cold_stored[CS_1,94]:
       Value: 300
-    cs_cold_stored[CS_1,9]:
+    cs_cold_stored[CS_1,95]:
       Value: 300
-    cs_power[CS_1,0]:
-      Value: 0.888888888888914
-    cs_power[CS_1,10]:
-      Value: 0.888888888888923
-    cs_power[CS_1,11]:
-      Value: 0.888888888888923
-    cs_power[CS_1,12]:
-      Value: 0.888888888888923
-    cs_power[CS_1,13]:
-      Value: 0.888888888888923
-    cs_power[CS_1,14]:
-      Value: 0.888888888888923
-    cs_power[CS_1,15]:
-      Value: 86.7745069479561
     cs_power[CS_1,16]:
-      Value: 166.666666666667
+      Value: 500
     cs_power[CS_1,17]:
-      Value: 166.666666666667
+      Value: 500
     cs_power[CS_1,18]:
-      Value: 166.666666666667
+      Value: 500
     cs_power[CS_1,19]:
-      Value: 166.666666666667
-    cs_power[CS_1,1]:
-      Value: 0.888888888888942
+      Value: 500
     cs_power[CS_1,20]:
-      Value: 166.666666666667
+      Value: 500
     cs_power[CS_1,21]:
-      Value: 166.666666666667
+      Value: 469.683926132746
     cs_power[CS_1,22]:
-      Value: 166.666666666667
+      Value: 243.972307692311
     cs_power[CS_1,23]:
-      Value: 166.666666666667
+      Value: 244.049230769218
     cs_power[CS_1,24]:
-      Value: 166.666666666667
+      Value: 244.126153846159
     cs_power[CS_1,25]:
-      Value: 166.666666666667
+      Value: 244.203076923061
     cs_power[CS_1,26]:
-      Value: 166.666666666667
+      Value: 244.280000000012
     cs_power[CS_1,27]:
-      Value: 166.666666666667
+      Value: 244.356923076916
     cs_power[CS_1,28]:
-      Value: 166.666666666667
+      Value: 244.433846153858
     cs_power[CS_1,29]:
-      Value: 166.666666666667
-    cs_power[CS_1,2]:
-      Value: 0.888888888888923
+      Value: 240.66461538463
     cs_power[CS_1,30]:
-      Value: 166.666666666667
+      Value: 240.741538461549
     cs_power[CS_1,31]:
-      Value: 166.666666666667
-    cs_power[CS_1,3]:
-      Value: 0.888888888888923
-    cs_power[CS_1,4]:
-      Value: 0.888888888888923
-    cs_power[CS_1,5]:
-      Value: 0.888888888888923
-    cs_power[CS_1,6]:
-      Value: 0.888888888888923
-    cs_power[CS_1,7]:
-      Value: 0.888888888888923
-    cs_power[CS_1,8]:
-      Value: 0.888888888888923
-    cs_power[CS_1,9]:
-      Value: 0.888888888888923
-    es_energy[ES_1,0]:
-      Value: 960
-    es_energy[ES_1,10]:
-      Value: 3582.61352776125
-    es_energy[ES_1,11]:
-      Value: 3863.86352776125
-    es_energy[ES_1,12]:
-      Value: 4145.11352776125
-    es_energy[ES_1,13]:
-      Value: 4426.36352776125
-    es_energy[ES_1,14]:
-      Value: 4707.61352776125
-    es_energy[ES_1,15]:
-      Value: 4988.86352776125
+      Value: 189.11251651394
+    cs_power[CS_1,49]:
+      Value: 40.1088
+    cs_power[CS_1,50]:
+      Value: 56.9423999999999
+    cs_power[CS_1,51]:
+      Value: 70.3152
+    cs_power[CS_1,52]:
+      Value: 83.6880000000001
+    cs_power[CS_1,53]:
+      Value: 97.0523999999996
+    cs_power[CS_1,54]:
+      Value: 136.53201205622
+    cs_power[CS_1,55]:
+      Value: 107.877600000009
+    cs_power[CS_1,68]:
+      Value: 82.5008835316842
+    cs_power[CS_1,69]:
+      Value: 57.9896835316804
+    cs_power[CS_1,70]:
+      Value: 30.1967999999981
+    cs_power[CS_1,71]:
+      Value: 34.7937693456417
+    cs_power[CS_1,88]:
+      Value: 57.9019487179473
+    cs_power[CS_1,89]:
+      Value: 500
+    cs_power[CS_1,90]:
+      Value: 102.93084554561
+    cs_power[CS_1,91]:
+      Value: 59.3412307692464
+    cs_power[CS_1,92]:
+      Value: 500
+    cs_power[CS_1,93]:
+      Value: 460.518154086634
+    cs_power[CS_1,94]:
+      Value: 500
     es_energy[ES_1,16]:
-      Value: 5270.11352776125
+      Value: 4288.23120642495
     es_energy[ES_1,17]:
-      Value: 5551.36352776125
+      Value: 4560.06150754325
     es_energy[ES_1,18]:
-      Value: 5832.61352776125
+      Value: 4828.30825842556
     es_energy[ES_1,19]:
-      Value: 6113.86352776125
-    es_energy[ES_1,1]:
-      Value: 1224.82950925375
+      Value: 5095.62728487252
     es_energy[ES_1,20]:
-      Value: 6395.11352776125
+      Value: 5362.28326084639
     es_energy[ES_1,21]:
-      Value: 6676.36352776125
+      Value: 5628.27784397334
     es_energy[ES_1,22]:
-      Value: 6957.61352776125
+      Value: 5895.68061411136
     es_energy[ES_1,23]:
-      Value: 7238.86352776125
+      Value: 6177.81641257608
     es_energy[ES_1,24]:
-      Value: 7520.11352776125
+      Value: 6459.24687154464
     es_energy[ES_1,25]:
-      Value: 7801.36352776125
+      Value: 6739.97375436578
     es_energy[ES_1,26]:
-      Value: 8082.61352776125
+      Value: 7019.99881997987
     es_energy[ES_1,27]:
-      Value: 8363.86352776125
+      Value: 7299.32382292992
     es_energy[ES_1,28]:
-      Value: 8524.30427089875
+      Value: 7577.95051337259
     es_energy[ES_1,29]:
-      Value: 8544.12001403625
-    es_energy[ES_1,2]:
-      Value: 1349.0340185075
+      Value: 7855.88063708916
     es_energy[ES_1,30]:
-      Value: 8570.49501729375
+      Value: 8133.11593549644
     es_energy[ES_1,31]:
-      Value: 8603.42928067125
+      Value: 8409.6581456577
     es_energy[ES_1,32]:
-      Value: 8640
+      Value: 8562.19847703774
     es_energy[ES_1,33]:
-      Value: 8640
+      Value: 8565.91995758933
     es_energy[ES_1,34]:
-      Value: 8640
+      Value: 8548.03794839304
     es_energy[ES_1,35]:
-      Value: 8640
+      Value: 8530.50224887089
     es_energy[ES_1,36]:
-      Value: 8640
+      Value: 8513.19045836499
     es_energy[ES_1,37]:
-      Value: 8640
+      Value: 8496.1020171028
     es_energy[ES_1,38]:
-      Value: 8640
+      Value: 8478.95490159493
     es_energy[ES_1,39]:
-      Value: 8640
-    es_energy[ES_1,3]:
-      Value: 1613.86352776125
+      Value: 8462.0407701549
     es_energy[ES_1,40]:
-      Value: 8640
+      Value: 8445.0686449737
     es_energy[ES_1,41]:
-      Value: 8640
+      Value: 8428.62006638452
     es_energy[ES_1,42]:
-      Value: 8640
+      Value: 8412.69400459065
     es_energy[ES_1,43]:
-      Value: 8640
+      Value: 8397.28915330011
     es_energy[ES_1,44]:
-      Value: 8640
+      Value: 8381.98986064941
     es_energy[ES_1,45]:
-      Value: 8640
+      Value: 8366.79586274198
     es_energy[ES_1,46]:
-      Value: 8640
+      Value: 8351.72084982931
     es_energy[ES_1,47]:
-      Value: 8640
+      Value: 8336.76452444892
     es_energy[ES_1,48]:
-      Value: 8640
+      Value: 8322.0019387192
     es_energy[ES_1,49]:
-      Value: 8640
-    es_energy[ES_1,4]:
-      Value: 1895.11352776125
+      Value: 8308.11114389356
     es_energy[ES_1,50]:
-      Value: 8640
+      Value: 8365.08978568133
     es_energy[ES_1,51]:
-      Value: 8640
+      Value: 8422.17067459712
     es_energy[ES_1,52]:
-      Value: 8640
+      Value: 8479.10057049813
     es_energy[ES_1,53]:
-      Value: 8640
+      Value: 8535.87985084314
     es_energy[ES_1,54]:
-      Value: 8640
+      Value: 8591.68845279103
     es_energy[ES_1,55]:
       Value: 8640
     es_energy[ES_1,56]:
-      Value: 8640
+      Value: 8622.49336434108
     es_energy[ES_1,57]:
-      Value: 8466.38888888889
+      Value: 8440.99903047714
     es_energy[ES_1,58]:
-      Value: 8119.16666666667
+      Value: 8095.48474823733
     es_energy[ES_1,59]:
-      Value: 7771.94444444444
-    es_energy[ES_1,5]:
-      Value: 2176.36352776125
+      Value: 7746.29866794568
     es_energy[ES_1,60]:
-      Value: 7424.72222222222
+      Value: 7397.98555285477
     es_energy[ES_1,61]:
-      Value: 7077.5
+      Value: 7050.54322055158
     es_energy[ES_1,62]:
-      Value: 6730.27777777778
+      Value: 6703.96949407915
     es_energy[ES_1,63]:
-      Value: 6383.05555555555
+      Value: 6358.2622019229
     es_energy[ES_1,64]:
-      Value: 6035.83333333333
+      Value: 6013.41917799704
     es_energy[ES_1,65]:
-      Value: 5688.61111111111
+      Value: 5669.43826163099
     es_energy[ES_1,66]:
-      Value: 5341.38888888889
+      Value: 5326.31729755586
     es_energy[ES_1,67]:
-      Value: 4994.16666666666
+      Value: 5077.55828428016
     es_energy[ES_1,68]:
-      Value: 4820.55555555555
+      Value: 4993.89485274818
     es_energy[ES_1,69]:
-      Value: 4820.55555555555
-    es_energy[ES_1,6]:
-      Value: 2457.61352776125
+      Value: 5065.7976095376
     es_energy[ES_1,70]:
-      Value: 4838.6658897123
+      Value: 5285.95810943505
     es_energy[ES_1,71]:
-      Value: 4851.13766697105
+      Value: 5569.61821416146
     es_energy[ES_1,72]:
-      Value: 4860.9527089578
+      Value: 5704.13166862606
     es_energy[ES_1,73]:
-      Value: 4868.1110156703
+      Value: 5689.87133945449
     es_energy[ES_1,74]:
-      Value: 4872.84485921655
+      Value: 5511.17297689533
     es_energy[ES_1,75]:
-      Value: 4875.15423959655
+      Value: 5168.44767603204
     es_energy[ES_1,76]:
-      Value: 4875.15423959655
+      Value: 4826.57918842091
     es_energy[ES_1,77]:
-      Value: 4701.54312848544
+      Value: 4485.5653720288
     es_energy[ES_1,78]:
-      Value: 4354.32090626322
+      Value: 4145.40409017768
     es_energy[ES_1,79]:
-      Value: 4007.098684041
-    es_energy[ES_1,7]:
-      Value: 2738.86352776125
+      Value: 3806.09321153118
     es_energy[ES_1,80]:
-      Value: 3659.87646181877
+      Value: 3467.6306100813
     es_energy[ES_1,81]:
-      Value: 3312.65423959655
+      Value: 3130.01416513504
     es_energy[ES_1,82]:
-      Value: 2965.43201737433
+      Value: 2793.24176130115
     es_energy[ES_1,83]:
-      Value: 2618.20979515211
+      Value: 2457.31128847685
     es_energy[ES_1,84]:
-      Value: 2270.98757292989
+      Value: 2122.2206418346
     es_energy[ES_1,85]:
-      Value: 1923.76535070766
+      Value: 1787.96772180896
     es_energy[ES_1,86]:
-      Value: 1576.54312848544
+      Value: 1454.55043408339
     es_energy[ES_1,87]:
-      Value: 1229.32090626322
+      Value: 1124.62596935552
     es_energy[ES_1,88]:
-      Value: 1055.70979515211
-    es_energy[ES_1,89]:
-      Value: 1055.70979515211
-    es_energy[ES_1,8]:
-      Value: 3020.11352776125
-    es_energy[ES_1,90]:
-      Value: 1133.61111111111
-    es_energy[ES_1,91]:
-      Value: 1133.61111111111
-    es_energy[ES_1,92]:
-      Value: 1133.61111111111
-    es_energy[ES_1,93]:
-      Value: 1133.61111111111
-    es_energy[ES_1,94]:
       Value: 960
-    es_energy[ES_1,9]:
-      Value: 3301.36352776125
-    es_power_in[ES_1,0]:
-      Value: 1177.02004112778
-    es_power_in[ES_1,10]:
-      Value: 1250
-    es_power_in[ES_1,11]:
-      Value: 1250
-    es_power_in[ES_1,12]:
-      Value: 1250
-    es_power_in[ES_1,13]:
-      Value: 1250
-    es_power_in[ES_1,14]:
-      Value: 1250
-    es_power_in[ES_1,15]:
-      Value: 1250
+    es_energy[ES_1,89]:
+      Value: 960
+    es_energy[ES_1,90]:
+      Value: 978.692276229828
+    es_energy[ES_1,91]:
+      Value: 967.521327173196
+    es_energy[ES_1,92]:
+      Value: 960
+    es_energy[ES_1,93]:
+      Value: 1071.06189106024
+    es_energy[ES_1,94]:
+      Value: 1029.63009900321
+    es_energy[ES_1,95]:
+      Value: 960
     es_power_in[ES_1,16]:
-      Value: 1250
+      Value: 1189.68791214471
     es_power_in[ES_1,17]:
-      Value: 1250
+      Value: 1177.46065116279
     es_power_in[ES_1,18]:
-      Value: 1250
+      Value: 1176.37809302327
     es_power_in[ES_1,19]:
-      Value: 1250
-    es_power_in[ES_1,1]:
-      Value: 552.020041127777
+      Value: 1176.40018604652
     es_power_in[ES_1,20]:
-      Value: 1250
+      Value: 1176.42227906977
     es_power_in[ES_1,21]:
-      Value: 1250
+      Value: 1185.15143051768
     es_power_in[ES_1,22]:
       Value: 1250
     es_power_in[ES_1,23]:
@@ -1447,103 +1369,99 @@ Solution:
     es_power_in[ES_1,26]:
       Value: 1250
     es_power_in[ES_1,27]:
-      Value: 713.0699695
+      Value: 1250
     es_power_in[ES_1,28]:
-      Value: 88.0699695
+      Value: 1250
     es_power_in[ES_1,29]:
-      Value: 117.2222367
-    es_power_in[ES_1,2]:
-      Value: 1177.02004112778
+      Value: 1250
     es_power_in[ES_1,30]:
-      Value: 146.3745039
+      Value: 1250
     es_power_in[ES_1,31]:
-      Value: 162.53653035
-    es_power_in[ES_1,3]:
-      Value: 1250
-    es_power_in[ES_1,4]:
-      Value: 1250
-    es_power_in[ES_1,5]:
-      Value: 1250
+      Value: 730.797796817628
+    es_power_in[ES_1,32]:
+      Value: 105.797796817628
+    es_power_in[ES_1,33]:
+      Value: 14.8749082007336
+    es_power_in[ES_1,34]:
+      Value: 16.1448225214244
+    es_power_in[ES_1,35]:
+      Value: 16.9030110159099
+    es_power_in[ES_1,36]:
+      Value: 17.6611995104062
+    es_power_in[ES_1,37]:
+      Value: 17.2342717258239
+    es_power_in[ES_1,38]:
+      Value: 18.0347613219057
+    es_power_in[ES_1,39]:
+      Value: 17.6125336597327
+    es_power_in[ES_1,40]:
+      Value: 19.6382864137105
+    es_power_in[ES_1,41]:
+      Value: 21.6652141982825
+    es_power_in[ES_1,42]:
+      Value: 23.6921419828648
+    es_power_in[ES_1,43]:
+      Value: 23.9744430844517
+    es_power_in[ES_1,44]:
+      Value: 24.256744186049
+    es_power_in[ES_1,45]:
+      Value: 24.5977968176273
+    es_power_in[ES_1,46]:
+      Value: 24.9388494492068
+    es_power_in[ES_1,47]:
+      Value: 25.5971603427179
+    es_power_in[ES_1,48]:
+      Value: 29.1124632469977
+    es_power_in[ES_1,49]:
+      Value: 327.3638722
+    es_power_in[ES_1,50]:
+      Value: 328.3941616
+    es_power_in[ES_1,51]:
+      Value: 328.359253
+    es_power_in[ES_1,52]:
+      Value: 328.3243443
+    es_power_in[ES_1,53]:
+      Value: 324.834954
+    es_power_in[ES_1,54]:
+      Value: 293.855866698716
+    es_power_in[ES_1,55]:
+      Value: 17.2352182782508
+    es_power_in[ES_1,68]:
+      Value: 355.315763879119
     es_power_in[ES_1,69]:
-      Value: 80.49037403
-    es_power_in[ES_1,6]:
-      Value: 1250
+      Value: 980.315763879119
     es_power_in[ES_1,70]:
-      Value: 55.43012115
+      Value: 1250
     es_power_in[ES_1,71]:
-      Value: 43.62240883
-    es_power_in[ES_1,72]:
-      Value: 31.8146965
-    es_power_in[ES_1,73]:
-      Value: 21.03930465
-    es_power_in[ES_1,74]:
-      Value: 10.2639128
-    es_power_in[ES_1,7]:
-      Value: 1250
+      Value: 625
+    es_power_in[ES_1,88]:
+      Value: 10.1052631578946
     es_power_in[ES_1,89]:
-      Value: 346.228070928905
-    es_power_in[ES_1,8]:
-      Value: 1250
-    es_power_in[ES_1,9]:
-      Value: 1250
-    es_power_in_out_state[ES_1,0,1]es_power_in[ES_1,0]:
-      Value: 1177.02004112778
-    es_power_in_out_state[ES_1,0,1]indicator_var:
-      Value: 1
-    es_power_in_out_state[ES_1,1,1]es_power_in[ES_1,1]:
-      Value: 552.020041127777
-    es_power_in_out_state[ES_1,1,1]indicator_var:
-      Value: 1
-    es_power_in_out_state[ES_1,10,1]es_power_in[ES_1,10]:
-      Value: 1250
-    es_power_in_out_state[ES_1,10,1]indicator_var:
-      Value: 1
-    es_power_in_out_state[ES_1,11,1]es_power_in[ES_1,11]:
-      Value: 1250
-    es_power_in_out_state[ES_1,11,1]indicator_var:
-      Value: 1
-    es_power_in_out_state[ES_1,12,1]es_power_in[ES_1,12]:
-      Value: 1250
-    es_power_in_out_state[ES_1,12,1]indicator_var:
-      Value: 1
-    es_power_in_out_state[ES_1,13,1]es_power_in[ES_1,13]:
-      Value: 1250
-    es_power_in_out_state[ES_1,13,1]indicator_var:
-      Value: 1
-    es_power_in_out_state[ES_1,14,1]es_power_in[ES_1,14]:
-      Value: 1250
-    es_power_in_out_state[ES_1,14,1]indicator_var:
-      Value: 1
-    es_power_in_out_state[ES_1,15,1]es_power_in[ES_1,15]:
-      Value: 1250
-    es_power_in_out_state[ES_1,15,1]indicator_var:
-      Value: 1
+      Value: 88.8095841255897
+    es_power_in[ES_1,92]:
+      Value: 477.734278148377
     es_power_in_out_state[ES_1,16,1]es_power_in[ES_1,16]:
-      Value: 1250
+      Value: 1189.68791214471
     es_power_in_out_state[ES_1,16,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,17,1]es_power_in[ES_1,17]:
-      Value: 1250
+      Value: 1177.46065116279
     es_power_in_out_state[ES_1,17,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,18,1]es_power_in[ES_1,18]:
-      Value: 1250
+      Value: 1176.37809302327
     es_power_in_out_state[ES_1,18,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,19,1]es_power_in[ES_1,19]:
-      Value: 1250
+      Value: 1176.40018604652
     es_power_in_out_state[ES_1,19,1]indicator_var:
       Value: 1
-    es_power_in_out_state[ES_1,2,1]es_power_in[ES_1,2]:
-      Value: 1177.02004112778
-    es_power_in_out_state[ES_1,2,1]indicator_var:
-      Value: 1
     es_power_in_out_state[ES_1,20,1]es_power_in[ES_1,20]:
-      Value: 1250
+      Value: 1176.42227906977
     es_power_in_out_state[ES_1,20,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,21,1]es_power_in[ES_1,21]:
-      Value: 1250
+      Value: 1185.15143051768
     es_power_in_out_state[ES_1,21,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,22,1]es_power_in[ES_1,22]:
@@ -1567,91 +1485,127 @@ Solution:
     es_power_in_out_state[ES_1,26,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,27,1]es_power_in[ES_1,27]:
-      Value: 713.0699695
+      Value: 1250
     es_power_in_out_state[ES_1,27,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,28,1]es_power_in[ES_1,28]:
-      Value: 88.0699695
+      Value: 1250
     es_power_in_out_state[ES_1,28,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,29,1]es_power_in[ES_1,29]:
-      Value: 117.2222367
+      Value: 1250
     es_power_in_out_state[ES_1,29,1]indicator_var:
       Value: 1
-    es_power_in_out_state[ES_1,3,1]es_power_in[ES_1,3]:
-      Value: 1250
-    es_power_in_out_state[ES_1,3,1]indicator_var:
-      Value: 1
     es_power_in_out_state[ES_1,30,1]es_power_in[ES_1,30]:
-      Value: 146.3745039
+      Value: 1250
     es_power_in_out_state[ES_1,30,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,31,1]es_power_in[ES_1,31]:
-      Value: 162.53653035
+      Value: 730.797796817628
     es_power_in_out_state[ES_1,31,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,32,1]es_power_in[ES_1,32]:
+      Value: 105.797796817628
     es_power_in_out_state[ES_1,32,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,33,1]es_power_in[ES_1,33]:
+      Value: 14.8749082007336
     es_power_in_out_state[ES_1,33,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,34,1]es_power_in[ES_1,34]:
+      Value: 16.1448225214244
     es_power_in_out_state[ES_1,34,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,35,1]es_power_in[ES_1,35]:
+      Value: 16.9030110159099
     es_power_in_out_state[ES_1,35,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,36,1]es_power_in[ES_1,36]:
+      Value: 17.6611995104062
     es_power_in_out_state[ES_1,36,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,37,1]es_power_in[ES_1,37]:
+      Value: 17.2342717258239
     es_power_in_out_state[ES_1,37,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,38,1]es_power_in[ES_1,38]:
+      Value: 18.0347613219057
     es_power_in_out_state[ES_1,38,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,39,1]es_power_in[ES_1,39]:
+      Value: 17.6125336597327
     es_power_in_out_state[ES_1,39,1]indicator_var:
       Value: 1
-    es_power_in_out_state[ES_1,4,1]es_power_in[ES_1,4]:
-      Value: 1250
-    es_power_in_out_state[ES_1,4,1]indicator_var:
-      Value: 1
+    es_power_in_out_state[ES_1,40,1]es_power_in[ES_1,40]:
+      Value: 19.6382864137105
     es_power_in_out_state[ES_1,40,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,41,1]es_power_in[ES_1,41]:
+      Value: 21.6652141982825
     es_power_in_out_state[ES_1,41,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,42,1]es_power_in[ES_1,42]:
+      Value: 23.6921419828648
     es_power_in_out_state[ES_1,42,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,43,1]es_power_in[ES_1,43]:
+      Value: 23.9744430844517
     es_power_in_out_state[ES_1,43,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,44,1]es_power_in[ES_1,44]:
+      Value: 24.256744186049
     es_power_in_out_state[ES_1,44,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,45,1]es_power_in[ES_1,45]:
+      Value: 24.5977968176273
     es_power_in_out_state[ES_1,45,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,46,1]es_power_in[ES_1,46]:
+      Value: 24.9388494492068
     es_power_in_out_state[ES_1,46,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,47,1]es_power_in[ES_1,47]:
+      Value: 25.5971603427179
     es_power_in_out_state[ES_1,47,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,48,1]es_power_in[ES_1,48]:
+      Value: 29.1124632469977
     es_power_in_out_state[ES_1,48,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,49,1]es_power_in[ES_1,49]:
+      Value: 327.3638722
     es_power_in_out_state[ES_1,49,1]indicator_var:
       Value: 1
-    es_power_in_out_state[ES_1,5,1]es_power_in[ES_1,5]:
-      Value: 1250
-    es_power_in_out_state[ES_1,5,1]indicator_var:
-      Value: 1
+    es_power_in_out_state[ES_1,50,1]es_power_in[ES_1,50]:
+      Value: 328.3941616
     es_power_in_out_state[ES_1,50,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,51,1]es_power_in[ES_1,51]:
+      Value: 328.359253
     es_power_in_out_state[ES_1,51,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,52,1]es_power_in[ES_1,52]:
+      Value: 328.3243443
     es_power_in_out_state[ES_1,52,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,53,1]es_power_in[ES_1,53]:
+      Value: 324.834954
     es_power_in_out_state[ES_1,53,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,54,1]es_power_in[ES_1,54]:
+      Value: 293.855866698716
     es_power_in_out_state[ES_1,54,1]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,55,1]es_power_in[ES_1,55]:
+      Value: 17.2352182782508
     es_power_in_out_state[ES_1,55,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,56,0]es_power_out[ES_1,56]:
-      Value: 625
+      Value: 607.764781721749
     es_power_in_out_state[ES_1,56,0]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,57,0]es_power_out[ES_1,57]:
-      Value: 1250
+      Value: 1232.76478172175
     es_power_in_out_state[ES_1,57,0]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,58,0]es_power_out[ES_1,58]:
@@ -1661,10 +1615,6 @@ Solution:
     es_power_in_out_state[ES_1,59,0]es_power_out[ES_1,59]:
       Value: 1250
     es_power_in_out_state[ES_1,59,0]indicator_var:
-      Value: 1
-    es_power_in_out_state[ES_1,6,1]es_power_in[ES_1,6]:
-      Value: 1250
-    es_power_in_out_state[ES_1,6,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,60,0]es_power_out[ES_1,60]:
       Value: 1250
@@ -1691,47 +1641,45 @@ Solution:
     es_power_in_out_state[ES_1,65,0]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,66,0]es_power_out[ES_1,66]:
-      Value: 1250
+      Value: 894.684236120877
     es_power_in_out_state[ES_1,66,0]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,67,0]es_power_out[ES_1,67]:
-      Value: 625
+      Value: 269.68423612088
     es_power_in_out_state[ES_1,67,0]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,68,1]es_power_in[ES_1,68]:
+      Value: 355.315763879119
     es_power_in_out_state[ES_1,68,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,69,1]es_power_in[ES_1,69]:
-      Value: 80.49037403
+      Value: 980.315763879119
     es_power_in_out_state[ES_1,69,1]indicator_var:
       Value: 1
-    es_power_in_out_state[ES_1,7,1]es_power_in[ES_1,7]:
-      Value: 1250
-    es_power_in_out_state[ES_1,7,1]indicator_var:
-      Value: 1
     es_power_in_out_state[ES_1,70,1]es_power_in[ES_1,70]:
-      Value: 55.43012115
+      Value: 1250
     es_power_in_out_state[ES_1,70,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,71,1]es_power_in[ES_1,71]:
-      Value: 43.62240883
+      Value: 625
     es_power_in_out_state[ES_1,71,1]indicator_var:
       Value: 1
-    es_power_in_out_state[ES_1,72,1]es_power_in[ES_1,72]:
-      Value: 31.8146965
     es_power_in_out_state[ES_1,72,1]indicator_var:
       Value: 1
-    es_power_in_out_state[ES_1,73,1]es_power_in[ES_1,73]:
-      Value: 21.03930465
-    es_power_in_out_state[ES_1,73,1]indicator_var:
+    es_power_in_out_state[ES_1,73,0]es_power_out[ES_1,73]:
+      Value: 625
+    es_power_in_out_state[ES_1,73,0]indicator_var:
       Value: 1
-    es_power_in_out_state[ES_1,74,1]es_power_in[ES_1,74]:
-      Value: 10.2639128
-    es_power_in_out_state[ES_1,74,1]indicator_var:
+    es_power_in_out_state[ES_1,74,0]es_power_out[ES_1,74]:
+      Value: 1250
+    es_power_in_out_state[ES_1,74,0]indicator_var:
       Value: 1
-    es_power_in_out_state[ES_1,75,1]indicator_var:
+    es_power_in_out_state[ES_1,75,0]es_power_out[ES_1,75]:
+      Value: 1250
+    es_power_in_out_state[ES_1,75,0]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,76,0]es_power_out[ES_1,76]:
-      Value: 625
+      Value: 1250
     es_power_in_out_state[ES_1,76,0]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,77,0]es_power_out[ES_1,77]:
@@ -1745,10 +1693,6 @@ Solution:
     es_power_in_out_state[ES_1,79,0]es_power_out[ES_1,79]:
       Value: 1250
     es_power_in_out_state[ES_1,79,0]indicator_var:
-      Value: 1
-    es_power_in_out_state[ES_1,8,1]es_power_in[ES_1,8]:
-      Value: 1250
-    es_power_in_out_state[ES_1,8,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,80,0]es_power_out[ES_1,80]:
       Value: 1250
@@ -1775,41 +1719,49 @@ Solution:
     es_power_in_out_state[ES_1,85,0]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,86,0]es_power_out[ES_1,86]:
-      Value: 1250
+      Value: 1239.89473684211
     es_power_in_out_state[ES_1,86,0]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,87,0]es_power_out[ES_1,87]:
-      Value: 625
+      Value: 614.894736842105
     es_power_in_out_state[ES_1,87,0]indicator_var:
       Value: 1
+    es_power_in_out_state[ES_1,88,1]es_power_in[ES_1,88]:
+      Value: 10.1052631578946
     es_power_in_out_state[ES_1,88,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,89,1]es_power_in[ES_1,89]:
-      Value: 346.228070928905
+      Value: 88.8095841255897
     es_power_in_out_state[ES_1,89,1]indicator_var:
       Value: 1
-    es_power_in_out_state[ES_1,9,1]es_power_in[ES_1,9]:
-      Value: 1250
-    es_power_in_out_state[ES_1,9,1]indicator_var:
+    es_power_in_out_state[ES_1,90,0]es_power_out[ES_1,90]:
+      Value: 33.1520297910161
+    es_power_in_out_state[ES_1,90,0]indicator_var:
       Value: 1
-    es_power_in_out_state[ES_1,90,1]indicator_var:
+    es_power_in_out_state[ES_1,91,0]es_power_out[ES_1,91]:
+      Value: 19.38959065
+    es_power_in_out_state[ES_1,91,0]indicator_var:
       Value: 1
-    es_power_in_out_state[ES_1,91,1]indicator_var:
-      Value: 1
+    es_power_in_out_state[ES_1,92,1]es_power_in[ES_1,92]:
+      Value: 477.734278148377
     es_power_in_out_state[ES_1,92,1]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,93,0]es_power_out[ES_1,93]:
-      Value: 625
+      Value: 147.265721851623
     es_power_in_out_state[ES_1,93,0]indicator_var:
       Value: 1
     es_power_in_out_state[ES_1,94,0]es_power_out[ES_1,94]:
-      Value: 1250
+      Value: 765.428886168905
     es_power_in_out_state[ES_1,94,0]indicator_var:
       Value: 1
-    es_power_out[ES_1,56]:
-      Value: 625
-    es_power_out[ES_1,57]:
+    es_power_in_out_state[ES_1,95,0]es_power_out[ES_1,95]:
       Value: 1250
+    es_power_in_out_state[ES_1,95,0]indicator_var:
+      Value: 1
+    es_power_out[ES_1,56]:
+      Value: 607.764781721749
+    es_power_out[ES_1,57]:
+      Value: 1232.76478172175
     es_power_out[ES_1,58]:
       Value: 1250
     es_power_out[ES_1,59]:
@@ -1827,11 +1779,17 @@ Solution:
     es_power_out[ES_1,65]:
       Value: 1250
     es_power_out[ES_1,66]:
-      Value: 1250
+      Value: 894.684236120877
     es_power_out[ES_1,67]:
+      Value: 269.68423612088
+    es_power_out[ES_1,73]:
       Value: 625
+    es_power_out[ES_1,74]:
+      Value: 1250
+    es_power_out[ES_1,75]:
+      Value: 1250
     es_power_out[ES_1,76]:
-      Value: 625
+      Value: 1250
     es_power_out[ES_1,77]:
       Value: 1250
     es_power_out[ES_1,78]:
@@ -1851,445 +1809,383 @@ Solution:
     es_power_out[ES_1,85]:
       Value: 1250
     es_power_out[ES_1,86]:
-      Value: 1250
+      Value: 1239.89473684211
     es_power_out[ES_1,87]:
-      Value: 625
+      Value: 614.894736842105
+    es_power_out[ES_1,90]:
+      Value: 33.1520297910161
+    es_power_out[ES_1,91]:
+      Value: 19.38959065
     es_power_out[ES_1,93]:
-      Value: 625
+      Value: 147.265721851623
     es_power_out[ES_1,94]:
+      Value: 765.428886168905
+    es_power_out[ES_1,95]:
       Value: 1250
-    gt_power[GT_1,0]:
-      Value: 50
-    gt_power[GT_1,10]:
-      Value: 50
-    gt_power[GT_1,11]:
-      Value: 50
-    gt_power[GT_1,12]:
-      Value: 50
-    gt_power[GT_1,13]:
-      Value: 50
-    gt_power[GT_1,14]:
-      Value: 50
-    gt_power[GT_1,15]:
-      Value: 50
-    gt_power[GT_1,16]:
-      Value: 50
-    gt_power[GT_1,17]:
-      Value: 50
-    gt_power[GT_1,18]:
-      Value: 50
-    gt_power[GT_1,19]:
-      Value: 50
-    gt_power[GT_1,1]:
-      Value: 50
-    gt_power[GT_1,20]:
-      Value: 50
-    gt_power[GT_1,21]:
-      Value: 50
-    gt_power[GT_1,22]:
-      Value: 50
-    gt_power[GT_1,23]:
-      Value: 50
-    gt_power[GT_1,24]:
-      Value: 50
-    gt_power[GT_1,25]:
-      Value: 50
-    gt_power[GT_1,26]:
-      Value: 50
-    gt_power[GT_1,27]:
-      Value: 50
-    gt_power[GT_1,28]:
-      Value: 50
-    gt_power[GT_1,29]:
-      Value: 50
-    gt_power[GT_1,2]:
-      Value: 50
-    gt_power[GT_1,30]:
-      Value: 50
-    gt_power[GT_1,31]:
-      Value: 50
-    gt_power[GT_1,32]:
-      Value: 50
-    gt_power[GT_1,33]:
-      Value: 50
-    gt_power[GT_1,34]:
-      Value: 50
-    gt_power[GT_1,35]:
-      Value: 50
-    gt_power[GT_1,36]:
-      Value: 50
-    gt_power[GT_1,37]:
-      Value: 50
-    gt_power[GT_1,38]:
-      Value: 50
-    gt_power[GT_1,39]:
-      Value: 50
-    gt_power[GT_1,3]:
-      Value: 50
-    gt_power[GT_1,40]:
-      Value: 50
-    gt_power[GT_1,41]:
-      Value: 50
-    gt_power[GT_1,42]:
-      Value: 50
-    gt_power[GT_1,43]:
-      Value: 50
-    gt_power[GT_1,44]:
-      Value: 50
-    gt_power[GT_1,45]:
-      Value: 50
-    gt_power[GT_1,46]:
-      Value: 50
-    gt_power[GT_1,47]:
-      Value: 50
-    gt_power[GT_1,48]:
-      Value: 50
-    gt_power[GT_1,49]:
-      Value: 50
-    gt_power[GT_1,4]:
-      Value: 50
-    gt_power[GT_1,50]:
-      Value: 50
-    gt_power[GT_1,51]:
-      Value: 50
-    gt_power[GT_1,52]:
-      Value: 50
-    gt_power[GT_1,53]:
-      Value: 50
-    gt_power[GT_1,54]:
-      Value: 50
-    gt_power[GT_1,55]:
-      Value: 50
+    gt_auxvar[GT_1,56]:
+      Value: 1
     gt_power[GT_1,56]:
-      Value: 1000
+      Value: 413.028656716418
     gt_power[GT_1,57]:
-      Value: 1000
+      Value: 682.640414670828
     gt_power[GT_1,58]:
-      Value: 1000
+      Value: 659.963979173898
     gt_power[GT_1,59]:
-      Value: 1000
-    gt_power[GT_1,5]:
-      Value: 50
+      Value: 662.694708781675
     gt_power[GT_1,60]:
-      Value: 1000
+      Value: 698.261259284974
     gt_power[GT_1,61]:
-      Value: 1000
+      Value: 753.450463033668
     gt_power[GT_1,62]:
-      Value: 1000
+      Value: 759.385935439083
     gt_power[GT_1,63]:
-      Value: 1000
+      Value: 753.461725789656
     gt_power[GT_1,64]:
-      Value: 1000
+      Value: 747.53751614023
     gt_power[GT_1,65]:
-      Value: 1000
+      Value: 692.258210343633
     gt_power[GT_1,66]:
-      Value: 1000
+      Value: 683.270916502974
     gt_power[GT_1,67]:
-      Value: 1000
+      Value: 489.245514176936
     gt_power[GT_1,68]:
       Value: 50
     gt_power[GT_1,69]:
-      Value: 50
-    gt_power[GT_1,6]:
       Value: 50
     gt_power[GT_1,70]:
       Value: 50
     gt_power[GT_1,71]:
       Value: 50
     gt_power[GT_1,72]:
-      Value: 50
+      Value: 296.727437880366
     gt_power[GT_1,73]:
-      Value: 50
+      Value: 325.010321427926
     gt_power[GT_1,74]:
-      Value: 50
+      Value: 450.1270217572
     gt_power[GT_1,75]:
-      Value: 50
+      Value: 900.737771802827
     gt_power[GT_1,76]:
-      Value: 1000
+      Value: 535.432716417911
     gt_power[GT_1,77]:
-      Value: 1000
+      Value: 530.757552238806
     gt_power[GT_1,78]:
-      Value: 1000
+      Value: 542.608
     gt_power[GT_1,79]:
-      Value: 1000
-    gt_power[GT_1,7]:
-      Value: 50
+      Value: 520.656597014926
     gt_power[GT_1,80]:
-      Value: 1000
+      Value: 495.438150642143
     gt_power[GT_1,81]:
-      Value: 1000
+      Value: 473.36042207567
     gt_power[GT_1,82]:
-      Value: 1000
+      Value: 533.372245748008
     gt_power[GT_1,83]:
-      Value: 1000
+      Value: 529.103545990978
     gt_power[GT_1,84]:
-      Value: 1000
+      Value: 525.034474140926
     gt_power[GT_1,85]:
-      Value: 1000
+      Value: 520.965402290874
     gt_power[GT_1,86]:
-      Value: 1000
+      Value: 516.896330440822
     gt_power[GT_1,87]:
-      Value: 1000
+      Value: 446.39143769524
     gt_power[GT_1,88]:
       Value: 50
     gt_power[GT_1,89]:
       Value: 50
-    gt_power[GT_1,8]:
-      Value: 50
     gt_power[GT_1,90]:
       Value: 50
     gt_power[GT_1,91]:
-      Value: 50.0000000000001
+      Value: 50
     gt_power[GT_1,92]:
       Value: 50
     gt_power[GT_1,93]:
       Value: 50
     gt_power[GT_1,94]:
       Value: 50
-    gt_power[GT_1,9]:
+    gt_power[GT_1,95]:
       Value: 50
-    high_heat[0]:
-      Value: 2623.4076
-    high_heat[10]:
-      Value: 2493.4076
-    high_heat[11]:
-      Value: 2420.4076
-    high_heat[12]:
-      Value: 2447.4076
-    high_heat[13]:
-      Value: 2374.4076
-    high_heat[14]:
-      Value: 2501.4076
-    high_heat[15]:
-      Value: 2528.4076
+    gt_state[GT_1,56]:
+      Value: 1
+    gt_state[GT_1,57]:
+      Value: 1
+    gt_state[GT_1,58]:
+      Value: 1
+    gt_state[GT_1,59]:
+      Value: 1
+    gt_state[GT_1,60]:
+      Value: 1
+    gt_state[GT_1,61]:
+      Value: 1
+    gt_state[GT_1,62]:
+      Value: 1
+    gt_state[GT_1,63]:
+      Value: 1
+    gt_state[GT_1,64]:
+      Value: 1
+    gt_state[GT_1,65]:
+      Value: 1
+    gt_state[GT_1,66]:
+      Value: 1
+    gt_state[GT_1,67]:
+      Value: 1
+    gt_state[GT_1,68]:
+      Value: 1
+    gt_state[GT_1,69]:
+      Value: 1
+    gt_state[GT_1,70]:
+      Value: 1
+    gt_state[GT_1,71]:
+      Value: 1
+    gt_state[GT_1,72]:
+      Value: 1
+    gt_state[GT_1,73]:
+      Value: 1
+    gt_state[GT_1,74]:
+      Value: 1
+    gt_state[GT_1,75]:
+      Value: 1
+    gt_state[GT_1,76]:
+      Value: 1
+    gt_state[GT_1,77]:
+      Value: 1
+    gt_state[GT_1,78]:
+      Value: 1
+    gt_state[GT_1,79]:
+      Value: 1
+    gt_state[GT_1,80]:
+      Value: 1
+    gt_state[GT_1,81]:
+      Value: 1
+    gt_state[GT_1,82]:
+      Value: 1
+    gt_state[GT_1,83]:
+      Value: 1
+    gt_state[GT_1,84]:
+      Value: 1
+    gt_state[GT_1,85]:
+      Value: 1
+    gt_state[GT_1,86]:
+      Value: 1
+    gt_state[GT_1,87]:
+      Value: 1
+    gt_state[GT_1,88]:
+      Value: 1
+    gt_state[GT_1,89]:
+      Value: 1
+    gt_state[GT_1,90]:
+      Value: 1
+    gt_state[GT_1,91]:
+      Value: 1
+    gt_state[GT_1,92]:
+      Value: 1
+    gt_state[GT_1,93]:
+      Value: 1
+    gt_state[GT_1,94]:
+      Value: 1
+    gt_state[GT_1,95]:
+      Value: 1
     high_heat[16]:
-      Value: 2555.4076
+      Value: 2853.9236
     high_heat[17]:
-      Value: 2582.4076
+      Value: 2883.9496
     high_heat[18]:
-      Value: 2589.4076
+      Value: 2900.9756
     high_heat[19]:
-      Value: 2536.4076
-    high_heat[1]:
-      Value: 2650.4076
+      Value: 2864.0016
     high_heat[20]:
-      Value: 2563.4076
+      Value: 2907.0276
     high_heat[21]:
-      Value: 2490.4076
+      Value: 2847.0536
     high_heat[22]:
-      Value: 2517.4076
+      Value: 2883.0796
     high_heat[23]:
-      Value: 2444.4076
+      Value: 2808.1056
     high_heat[24]:
-      Value: 2471.4076
+      Value: 2833.1316
     high_heat[25]:
-      Value: 2398.4076
+      Value: 2772.4276
     high_heat[26]:
-      Value: 2325.4076
+      Value: 2717.5776
     high_heat[27]:
-      Value: 2352.4076
+      Value: 2742.7276
     high_heat[28]:
-      Value: 2379.4076
+      Value: 2767.8776
     high_heat[29]:
-      Value: 2306.4076
-    high_heat[2]:
-      Value: 2677.4076
+      Value: 2693.0276
     high_heat[30]:
-      Value: 2333.4076
+      Value: 2718.1776
     high_heat[31]:
-      Value: 2360.4076
+      Value: 2743.3276
     high_heat[32]:
-      Value: 2287.4076
+      Value: 2668.4776
     high_heat[33]:
-      Value: 2214.4076
+      Value: 2593.6276
     high_heat[34]:
-      Value: 2141.4076
+      Value: 2518.7776
     high_heat[35]:
-      Value: 2068.4076
+      Value: 2443.9276
     high_heat[36]:
-      Value: 2195.4076
+      Value: 2569.0776
     high_heat[37]:
-      Value: 2280.502
+      Value: 2652.322
     high_heat[38]:
-      Value: 2247.272
+      Value: 2613.242
     high_heat[39]:
-      Value: 2414.042
-    high_heat[3]:
-      Value: 2704.4076
+      Value: 2775.162
     high_heat[40]:
-      Value: 2580.812
+      Value: 2925.082
     high_heat[41]:
-      Value: 2747.582
+      Value: 3081.002
     high_heat[42]:
-      Value: 2718.6344
+      Value: 3031.2044
     high_heat[43]:
-      Value: 2877.0659
+      Value: 3089.4523
     high_heat[44]:
-      Value: 3035.4974
+      Value: 3240.9646
     high_heat[45]:
-      Value: 3193.9289
+      Value: 3391.0369
     high_heat[46]:
-      Value: 3352.3604
+      Value: 3541.1092
     high_heat[47]:
-      Value: 3510.7919
+      Value: 3683.4055
     high_heat[48]:
-      Value: 4196.43692
+      Value: 4352.91532
     high_heat[49]:
-      Value: 4312.94948
-    high_heat[4]:
-      Value: 2731.4076
+      Value: 4454.99908
     high_heat[50]:
-      Value: 4429.46204
+      Value: 4597.08284
     high_heat[51]:
-      Value: 4545.9746
+      Value: 4702.133
     high_heat[52]:
-      Value: 4662.48716
+      Value: 4814.38316
     high_heat[53]:
-      Value: 4778.99972
+      Value: 4926.63332
     high_heat[54]:
-      Value: 4895.51228
+      Value: 5038.88348
     high_heat[55]:
-      Value: 5012.02484
+      Value: 5151.13364
     high_heat[56]:
-      Value: 5128.5374
+      Value: 5767.6462
     high_heat[57]:
-      Value: 5245.04996
+      Value: 6195.04996
     high_heat[58]:
-      Value: 5238.422
+      Value: 6188.422
     high_heat[59]:
-      Value: 5231.79404
-    high_heat[5]:
-      Value: 2758.4076
+      Value: 6181.79404
     high_heat[60]:
-      Value: 5225.16608
+      Value: 6175.16608
     high_heat[61]:
-      Value: 5218.53812
+      Value: 6168.53812
     high_heat[62]:
-      Value: 5211.91016
+      Value: 6161.91016
     high_heat[63]:
-      Value: 5205.2822
+      Value: 6155.2822
     high_heat[64]:
-      Value: 5198.65424
+      Value: 6148.65424
     high_heat[65]:
-      Value: 5192.02628
+      Value: 6142.02628
     high_heat[66]:
-      Value: 5185.39832
+      Value: 6135.39832
     high_heat[67]:
-      Value: 5178.77036
+      Value: 5868.20585090909
     high_heat[68]:
-      Value: 5172.1424
+      Value: 5361.57789090909
     high_heat[69]:
-      Value: 4898.4968
-    high_heat[6]:
-      Value: 2785.4076
+      Value: 5168.94189090909
     high_heat[70]:
-      Value: 4624.8512
+      Value: 4916.30589090909
     high_heat[71]:
-      Value: 4351.2056
+      Value: 4673.86029090909
     high_heat[72]:
-      Value: 3585.8894
+      Value: 4393.06524023197
     high_heat[73]:
-      Value: 3361.61435
+      Value: 4233.62157961263
     high_heat[74]:
-      Value: 3137.3393
+      Value: 4087.3393
     high_heat[75]:
-      Value: 2913.06425
+      Value: 3863.06425
     high_heat[76]:
-      Value: 2688.7892
+      Value: 3638.7892
     high_heat[77]:
-      Value: 2542.91676818182
+      Value: 3414.51415
     high_heat[78]:
-      Value: 2389.10571818182
+      Value: 3190.2391
     high_heat[79]:
-      Value: 2265.85146818182
-    high_heat[7]:
-      Value: 2652.4076
+      Value: 2965.96405
     high_heat[80]:
-      Value: 2388.19488484848
+      Value: 3088.62
     high_heat[81]:
-      Value: 2510.31155151515
+      Value: 3193.0492
     high_heat[82]:
-      Value: 2144.70421818182
+      Value: 2909.7544
     high_heat[83]:
-      Value: 2156.55475151515
+      Value: 2926.4596
     high_heat[84]:
-      Value: 2242.71195151515
+      Value: 3003.1648
     high_heat[85]:
-      Value: 2368.86915151515
+      Value: 3119.87
     high_heat[86]:
-      Value: 2311.02635151515
+      Value: 3052.57520000001
     high_heat[87]:
-      Value: 2353.18355151515
+      Value: 3004.3494909091
     high_heat[88]:
-      Value: 2167.98560000002
+      Value: 2537.05469090911
     high_heat[89]:
-      Value: 2200.69080000003
-    high_heat[8]:
-      Value: 2599.4076
+      Value: 2574.79189090912
     high_heat[90]:
-      Value: 2353.39600000004
+      Value: 2732.52909090913
     high_heat[91]:
-      Value: 2386.10120000004
+      Value: 2770.26629090913
     high_heat[92]:
-      Value: 2318.80640000005
+      Value: 2708.00349090914
     high_heat[93]:
-      Value: 2451.51160000006
+      Value: 2845.74069090915
     high_heat[94]:
-      Value: 2584.21680000007
-    high_heat[9]:
-      Value: 2566.4076
+      Value: 2983.47789090916
+    high_heat[95]:
+      Value: 3021.21509090917
     inv_ac[32]:
-      Value: 169.763628865
+      Value: 69.2557218882536
     inv_ac[33]:
-      Value: 185.8965665325
+      Value: 171.765403741803
     inv_ac[34]:
-      Value: 202.029504105
+      Value: 186.691922709647
     inv_ac[35]:
-      Value: 209.637268455
+      Value: 193.579407989886
     inv_ac[36]:
-      Value: 217.24503271
+      Value: 200.466893175114
     inv_ac[37]:
-      Value: 231.133860095
+      Value: 214.761301955467
     inv_ac[38]:
-      Value: 245.022687575
+      Value: 227.88966431919
     inv_ac[39]:
-      Value: 255.22934403
+      Value: 238.497437053254
     inv_ac[40]:
-      Value: 265.436000485
+      Value: 246.779628391975
     inv_ac[41]:
-      Value: 272.4141417425
+      Value: 251.832188254132
     inv_ac[42]:
-      Value: 279.392283
+      Value: 256.884748116279
     inv_ac[43]:
-      Value: 281.3076048375
+      Value: 258.531883907271
     inv_ac[44]:
-      Value: 283.222926675
+      Value: 260.179019698253
     inv_ac[45]:
-      Value: 289.571484075
+      Value: 266.203577098254
     inv_ac[46]:
-      Value: 295.920041475
+      Value: 272.228134498253
     inv_ac[47]:
-      Value: 302.968472615
+      Value: 278.651170289418
     inv_ac[48]:
-      Value: 310.01690366
-    inv_ac[49]:
-      Value: 310.99567859
-    inv_ac[50]:
-      Value: 311.97445352
-    inv_ac[51]:
-      Value: 311.94129035
-    inv_ac[52]:
-      Value: 311.908127085
-    inv_ac[53]:
-      Value: 308.5932063
+      Value: 282.360063575352
     inv_ac[54]:
-      Value: 305.27828542
+      Value: 26.1152120562199
     inv_ac[55]:
-      Value: 293.9942409475
+      Value: 277.620783583162
     inv_ac[56]:
-      Value: 876.460196475
+      Value: 860.086739110662
     inv_ac[57]:
-      Value: 1465.6544538525
+      Value: 1449.28099648816
     inv_ac[58]:
       Value: 1461.098711135
     inv_ac[59]:
@@ -2307,15 +2203,19 @@ Solution:
     inv_ac[65]:
       Value: 1349.8101163475
     inv_ac[66]:
-      Value: 1334.087435705
+      Value: 996.537460019833
     inv_ac[67]:
-      Value: 717.18026563
-    inv_ac[68]:
-      Value: 100.273095555
+      Value: 379.630289944836
+    inv_ac[72]:
+      Value: 30.223961675
+    inv_ac[73]:
+      Value: 613.7373394175
+    inv_ac[74]:
+      Value: 1197.25071716
     inv_ac[75]:
-      Value: 3.4756702375
+      Value: 1190.9756702375
     inv_ac[76]:
-      Value: 590.950623315
+      Value: 1184.700623315
     inv_ac[77]:
       Value: 1180.211578055
     inv_ac[78]:
@@ -2335,41 +2235,29 @@ Solution:
     inv_ac[85]:
       Value: 1168.9909120725
     inv_ac[86]:
-      Value: 1169.08624443
+      Value: 1159.48624443
     inv_ac[87]:
-      Value: 575.2337621825
+      Value: 565.6337621825
+    inv_ac[90]:
+      Value: 13.1165812114653
     inv_ac[93]:
-      Value: 575.2569596625
+      Value: 121.409395421542
     inv_ac[94]:
+      Value: 708.633736330459
+    inv_ac[95]:
       Value: 1168.97629447
-    inv_dc[0]:
-      Value: 1196.58825442778
-    inv_dc[10]:
-      Value: 1269.6946541
-    inv_dc[11]:
-      Value: 1269.63862545
-    inv_dc[12]:
-      Value: 1269.5825968
-    inv_dc[13]:
-      Value: 1269.554253775
-    inv_dc[14]:
-      Value: 1269.52591075
-    inv_dc[15]:
-      Value: 1268.43368125
     inv_dc[16]:
-      Value: 1267.34145175
+      Value: 1207.02936389471
     inv_dc[17]:
-      Value: 1264.43326875
+      Value: 1191.89391991279
     inv_dc[18]:
-      Value: 1261.52508575
+      Value: 1187.90317877327
     inv_dc[19]:
-      Value: 1256.50394117
-    inv_dc[1]:
-      Value: 571.366983077777
+      Value: 1182.90412721652
     inv_dc[20]:
-      Value: 1251.4827966
+      Value: 1177.90507566977
     inv_dc[21]:
-      Value: 1243.8455228
+      Value: 1178.99695331768
     inv_dc[22]:
       Value: 1236.208249
     inv_dc[23]:
@@ -2381,93 +2269,53 @@ Solution:
     inv_dc[26]:
       Value: 1202.60218405
     inv_dc[27]:
-      Value: 645.3360768
-    inv_dc[2]:
-      Value: 1196.14571172778
-    inv_dc[3]:
-      Value: 1269.1663123
-    inv_dc[4]:
-      Value: 1269.206954
-    inv_dc[5]:
-      Value: 1269.22133745
-    inv_dc[6]:
-      Value: 1269.2357209
-    inv_dc[7]:
-      Value: 1269.2726831
+      Value: 1182.2661073
+    inv_dc[28]:
+      Value: 1161.9300305
+    inv_dc[29]:
+      Value: 1132.7777633
+    inv_dc[30]:
+      Value: 1103.6254961
+    inv_dc[31]:
+      Value: 568.261266467628
+    inv_dc[68]:
+      Value: 249.765136979119
+    inv_dc[69]:
+      Value: 899.825389849119
+    inv_dc[70]:
+      Value: 1194.56987885
+    inv_dc[71]:
+      Value: 581.37759117
     inv_dc[88]:
-      Value: 19.5986527
+      Value: 29.7039158578946
     inv_dc[89]:
-      Value: 365.699948378905
-    inv_dc[8]:
-      Value: 1269.3096453
-    inv_dc[90]:
-      Value: 19.3451022
-    inv_dc[91]:
-      Value: 19.38959065
+      Value: 108.28146157559
     inv_dc[92]:
-      Value: 19.4340791
-    inv_dc[9]:
-      Value: 1269.5021497
-    inv_trans_state[0,0]indicator_var:
-      Value: 1
-    inv_trans_state[0,0]inv_dc[0]:
-      Value: 1196.58825442778
-    inv_trans_state[1,0]indicator_var:
-      Value: 1
-    inv_trans_state[1,0]inv_dc[1]:
-      Value: 571.366983077777
-    inv_trans_state[10,0]indicator_var:
-      Value: 1
-    inv_trans_state[10,0]inv_dc[10]:
-      Value: 1269.6946541
-    inv_trans_state[11,0]indicator_var:
-      Value: 1
-    inv_trans_state[11,0]inv_dc[11]:
-      Value: 1269.63862545
-    inv_trans_state[12,0]indicator_var:
-      Value: 1
-    inv_trans_state[12,0]inv_dc[12]:
-      Value: 1269.5825968
-    inv_trans_state[13,0]indicator_var:
-      Value: 1
-    inv_trans_state[13,0]inv_dc[13]:
-      Value: 1269.554253775
-    inv_trans_state[14,0]indicator_var:
-      Value: 1
-    inv_trans_state[14,0]inv_dc[14]:
-      Value: 1269.52591075
-    inv_trans_state[15,0]indicator_var:
-      Value: 1
-    inv_trans_state[15,0]inv_dc[15]:
-      Value: 1268.43368125
+      Value: 497.168357248377
     inv_trans_state[16,0]indicator_var:
       Value: 1
     inv_trans_state[16,0]inv_dc[16]:
-      Value: 1267.34145175
+      Value: 1207.02936389471
     inv_trans_state[17,0]indicator_var:
       Value: 1
     inv_trans_state[17,0]inv_dc[17]:
-      Value: 1264.43326875
+      Value: 1191.89391991279
     inv_trans_state[18,0]indicator_var:
       Value: 1
     inv_trans_state[18,0]inv_dc[18]:
-      Value: 1261.52508575
+      Value: 1187.90317877327
     inv_trans_state[19,0]indicator_var:
       Value: 1
     inv_trans_state[19,0]inv_dc[19]:
-      Value: 1256.50394117
-    inv_trans_state[2,0]indicator_var:
-      Value: 1
-    inv_trans_state[2,0]inv_dc[2]:
-      Value: 1196.14571172778
+      Value: 1182.90412721652
     inv_trans_state[20,0]indicator_var:
       Value: 1
     inv_trans_state[20,0]inv_dc[20]:
-      Value: 1251.4827966
+      Value: 1177.90507566977
     inv_trans_state[21,0]indicator_var:
       Value: 1
     inv_trans_state[21,0]inv_dc[21]:
-      Value: 1243.8455228
+      Value: 1178.99695331768
     inv_trans_state[22,0]indicator_var:
       Value: 1
     inv_trans_state[22,0]inv_dc[22]:
@@ -2491,131 +2339,117 @@ Solution:
     inv_trans_state[27,0]indicator_var:
       Value: 1
     inv_trans_state[27,0]inv_dc[27]:
-      Value: 645.3360768
-    inv_trans_state[28,1]indicator_var:
+      Value: 1182.2661073
+    inv_trans_state[28,0]indicator_var:
       Value: 1
-    inv_trans_state[29,1]indicator_var:
+    inv_trans_state[28,0]inv_dc[28]:
+      Value: 1161.9300305
+    inv_trans_state[29,0]indicator_var:
       Value: 1
-    inv_trans_state[3,0]indicator_var:
+    inv_trans_state[29,0]inv_dc[29]:
+      Value: 1132.7777633
+    inv_trans_state[30,0]indicator_var:
       Value: 1
-    inv_trans_state[3,0]inv_dc[3]:
-      Value: 1269.1663123
-    inv_trans_state[30,1]indicator_var:
+    inv_trans_state[30,0]inv_dc[30]:
+      Value: 1103.6254961
+    inv_trans_state[31,0]indicator_var:
       Value: 1
-    inv_trans_state[31,1]indicator_var:
-      Value: 1
+    inv_trans_state[31,0]inv_dc[31]:
+      Value: 568.261266467628
     inv_trans_state[32,1]indicator_var:
       Value: 1
     inv_trans_state[32,1]inv_ac[32]:
-      Value: 169.763628865
+      Value: 69.2557218882536
     inv_trans_state[33,1]indicator_var:
       Value: 1
     inv_trans_state[33,1]inv_ac[33]:
-      Value: 185.8965665325
+      Value: 171.765403741803
     inv_trans_state[34,1]indicator_var:
       Value: 1
     inv_trans_state[34,1]inv_ac[34]:
-      Value: 202.029504105
+      Value: 186.691922709647
     inv_trans_state[35,1]indicator_var:
       Value: 1
     inv_trans_state[35,1]inv_ac[35]:
-      Value: 209.637268455
+      Value: 193.579407989886
     inv_trans_state[36,1]indicator_var:
       Value: 1
     inv_trans_state[36,1]inv_ac[36]:
-      Value: 217.24503271
+      Value: 200.466893175114
     inv_trans_state[37,1]indicator_var:
       Value: 1
     inv_trans_state[37,1]inv_ac[37]:
-      Value: 231.133860095
+      Value: 214.761301955467
     inv_trans_state[38,1]indicator_var:
       Value: 1
     inv_trans_state[38,1]inv_ac[38]:
-      Value: 245.022687575
+      Value: 227.88966431919
     inv_trans_state[39,1]indicator_var:
       Value: 1
     inv_trans_state[39,1]inv_ac[39]:
-      Value: 255.22934403
-    inv_trans_state[4,0]indicator_var:
-      Value: 1
-    inv_trans_state[4,0]inv_dc[4]:
-      Value: 1269.206954
+      Value: 238.497437053254
     inv_trans_state[40,1]indicator_var:
       Value: 1
     inv_trans_state[40,1]inv_ac[40]:
-      Value: 265.436000485
+      Value: 246.779628391975
     inv_trans_state[41,1]indicator_var:
       Value: 1
     inv_trans_state[41,1]inv_ac[41]:
-      Value: 272.4141417425
+      Value: 251.832188254132
     inv_trans_state[42,1]indicator_var:
       Value: 1
     inv_trans_state[42,1]inv_ac[42]:
-      Value: 279.392283
+      Value: 256.884748116279
     inv_trans_state[43,1]indicator_var:
       Value: 1
     inv_trans_state[43,1]inv_ac[43]:
-      Value: 281.3076048375
+      Value: 258.531883907271
     inv_trans_state[44,1]indicator_var:
       Value: 1
     inv_trans_state[44,1]inv_ac[44]:
-      Value: 283.222926675
+      Value: 260.179019698253
     inv_trans_state[45,1]indicator_var:
       Value: 1
     inv_trans_state[45,1]inv_ac[45]:
-      Value: 289.571484075
+      Value: 266.203577098254
     inv_trans_state[46,1]indicator_var:
       Value: 1
     inv_trans_state[46,1]inv_ac[46]:
-      Value: 295.920041475
+      Value: 272.228134498253
     inv_trans_state[47,1]indicator_var:
       Value: 1
     inv_trans_state[47,1]inv_ac[47]:
-      Value: 302.968472615
+      Value: 278.651170289418
     inv_trans_state[48,1]indicator_var:
       Value: 1
     inv_trans_state[48,1]inv_ac[48]:
-      Value: 310.01690366
+      Value: 282.360063575352
     inv_trans_state[49,1]indicator_var:
       Value: 1
-    inv_trans_state[49,1]inv_ac[49]:
-      Value: 310.99567859
-    inv_trans_state[5,0]indicator_var:
-      Value: 1
-    inv_trans_state[5,0]inv_dc[5]:
-      Value: 1269.22133745
     inv_trans_state[50,1]indicator_var:
       Value: 1
-    inv_trans_state[50,1]inv_ac[50]:
-      Value: 311.97445352
     inv_trans_state[51,1]indicator_var:
       Value: 1
-    inv_trans_state[51,1]inv_ac[51]:
-      Value: 311.94129035
     inv_trans_state[52,1]indicator_var:
       Value: 1
-    inv_trans_state[52,1]inv_ac[52]:
-      Value: 311.908127085
     inv_trans_state[53,1]indicator_var:
       Value: 1
-    inv_trans_state[53,1]inv_ac[53]:
-      Value: 308.5932063
     inv_trans_state[54,1]indicator_var:
       Value: 1
     inv_trans_state[54,1]inv_ac[54]:
-      Value: 305.27828542
+      Value: 26.1152120562199
     inv_trans_state[55,1]indicator_var:
       Value: 1
     inv_trans_state[55,1]inv_ac[55]:
-      Value: 293.9942409475
+      Value: 277.620783583162
     inv_trans_state[56,1]indicator_var:
       Value: 1
     inv_trans_state[56,1]inv_ac[56]:
-      Value: 876.460196475
+      Value: 860.086739110662
     inv_trans_state[57,1]indicator_var:
       Value: 1
     inv_trans_state[57,1]inv_ac[57]:
-      Value: 1465.6544538525
+      Value: 1449.28099648816
     inv_trans_state[58,1]indicator_var:
       Value: 1
     inv_trans_state[58,1]inv_ac[58]:
@@ -2624,10 +2458,6 @@ Solution:
       Value: 1
     inv_trans_state[59,1]inv_ac[59]:
       Value: 1440.7553703325
-    inv_trans_state[6,0]indicator_var:
-      Value: 1
-    inv_trans_state[6,0]inv_dc[6]:
-      Value: 1269.2357209
     inv_trans_state[60,1]indicator_var:
       Value: 1
     inv_trans_state[60,1]inv_ac[60]:
@@ -2655,39 +2485,47 @@ Solution:
     inv_trans_state[66,1]indicator_var:
       Value: 1
     inv_trans_state[66,1]inv_ac[66]:
-      Value: 1334.087435705
+      Value: 996.537460019833
     inv_trans_state[67,1]indicator_var:
       Value: 1
     inv_trans_state[67,1]inv_ac[67]:
-      Value: 717.18026563
-    inv_trans_state[68,1]indicator_var:
+      Value: 379.630289944836
+    inv_trans_state[68,0]indicator_var:
       Value: 1
-    inv_trans_state[68,1]inv_ac[68]:
-      Value: 100.273095555
-    inv_trans_state[69,1]indicator_var:
+    inv_trans_state[68,0]inv_dc[68]:
+      Value: 249.765136979119
+    inv_trans_state[69,0]indicator_var:
       Value: 1
-    inv_trans_state[7,0]indicator_var:
+    inv_trans_state[69,0]inv_dc[69]:
+      Value: 899.825389849119
+    inv_trans_state[70,0]indicator_var:
       Value: 1
-    inv_trans_state[7,0]inv_dc[7]:
-      Value: 1269.2726831
-    inv_trans_state[70,1]indicator_var:
+    inv_trans_state[70,0]inv_dc[70]:
+      Value: 1194.56987885
+    inv_trans_state[71,0]indicator_var:
       Value: 1
-    inv_trans_state[71,1]indicator_var:
-      Value: 1
+    inv_trans_state[71,0]inv_dc[71]:
+      Value: 581.37759117
     inv_trans_state[72,1]indicator_var:
       Value: 1
+    inv_trans_state[72,1]inv_ac[72]:
+      Value: 30.223961675
     inv_trans_state[73,1]indicator_var:
       Value: 1
+    inv_trans_state[73,1]inv_ac[73]:
+      Value: 613.7373394175
     inv_trans_state[74,1]indicator_var:
       Value: 1
+    inv_trans_state[74,1]inv_ac[74]:
+      Value: 1197.25071716
     inv_trans_state[75,1]indicator_var:
       Value: 1
     inv_trans_state[75,1]inv_ac[75]:
-      Value: 3.4756702375
+      Value: 1190.9756702375
     inv_trans_state[76,1]indicator_var:
       Value: 1
     inv_trans_state[76,1]inv_ac[76]:
-      Value: 590.950623315
+      Value: 1184.700623315
     inv_trans_state[77,1]indicator_var:
       Value: 1
     inv_trans_state[77,1]inv_ac[77]:
@@ -2700,10 +2538,6 @@ Solution:
       Value: 1
     inv_trans_state[79,1]inv_ac[79]:
       Value: 1174.32036236375
-    inv_trans_state[8,0]indicator_var:
-      Value: 1
-    inv_trans_state[8,0]inv_dc[8]:
-      Value: 1269.3096453
     inv_trans_state[80,1]indicator_var:
       Value: 1
     inv_trans_state[80,1]inv_ac[80]:
@@ -2731,411 +2565,349 @@ Solution:
     inv_trans_state[86,1]indicator_var:
       Value: 1
     inv_trans_state[86,1]inv_ac[86]:
-      Value: 1169.08624443
+      Value: 1159.48624443
     inv_trans_state[87,1]indicator_var:
       Value: 1
     inv_trans_state[87,1]inv_ac[87]:
-      Value: 575.2337621825
+      Value: 565.6337621825
     inv_trans_state[88,0]indicator_var:
       Value: 1
     inv_trans_state[88,0]inv_dc[88]:
-      Value: 19.5986527
+      Value: 29.7039158578946
     inv_trans_state[89,0]indicator_var:
       Value: 1
     inv_trans_state[89,0]inv_dc[89]:
-      Value: 365.699948378905
-    inv_trans_state[9,0]indicator_var:
+      Value: 108.28146157559
+    inv_trans_state[90,1]indicator_var:
       Value: 1
-    inv_trans_state[9,0]inv_dc[9]:
-      Value: 1269.5021497
-    inv_trans_state[90,0]indicator_var:
+    inv_trans_state[90,1]inv_ac[90]:
+      Value: 13.1165812114653
+    inv_trans_state[91,1]indicator_var:
       Value: 1
-    inv_trans_state[90,0]inv_dc[90]:
-      Value: 19.3451022
-    inv_trans_state[91,0]indicator_var:
-      Value: 1
-    inv_trans_state[91,0]inv_dc[91]:
-      Value: 19.38959065
     inv_trans_state[92,0]indicator_var:
       Value: 1
     inv_trans_state[92,0]inv_dc[92]:
-      Value: 19.4340791
+      Value: 497.168357248377
     inv_trans_state[93,1]indicator_var:
       Value: 1
     inv_trans_state[93,1]inv_ac[93]:
-      Value: 575.2569596625
+      Value: 121.409395421542
     inv_trans_state[94,1]indicator_var:
       Value: 1
     inv_trans_state[94,1]inv_ac[94]:
+      Value: 708.633736330459
+    inv_trans_state[95,1]indicator_var:
+      Value: 1
+    inv_trans_state[95,1]inv_ac[95]:
       Value: 1168.97629447
-    low_heat[0]:
-      Value: 971.175007272727
-    low_heat[10]:
-      Value: 911.343007272727
-    low_heat[11]:
-      Value: 876.859807272727
-    low_heat[12]:
-      Value: 879.376607272727
-    low_heat[13]:
-      Value: 846.188407272727
-    low_heat[14]:
-      Value: 871.670207272727
-    low_heat[15]:
-      Value: 867.152007272727
     low_heat[16]:
-      Value: 875.933807272727
+      Value: 1066.62228
     low_heat[17]:
-      Value: 881.915607272727
+      Value: 1074.72228
     low_heat[18]:
-      Value: 876.997407272727
+      Value: 1076.82228
     low_heat[19]:
-      Value: 849.879207272727
-    low_heat[1]:
-      Value: 980.691807272727
+      Value: 1060.92228
     low_heat[20]:
-      Value: 846.761007272727
+      Value: 1069.02228
     low_heat[21]:
-      Value: 815.742807272728
+      Value: 1047.12228
     low_heat[22]:
-      Value: 817.524607272727
+      Value: 1055.22228
     low_heat[23]:
-      Value: 797.006407272727
+      Value: 1033.32228
     low_heat[24]:
-      Value: 806.488207272727
+      Value: 1041.42228
     low_heat[25]:
-      Value: 775.981007272727
+      Value: 1019.52228
     low_heat[26]:
-      Value: 741.376007272727
+      Value: 997.62228
     low_heat[27]:
-      Value: 750.771007272727
+      Value: 1005.72228
     low_heat[28]:
-      Value: 760.166007272727
+      Value: 1013.82228
     low_heat[29]:
-      Value: 739.561007272727
-    low_heat[2]:
-      Value: 990.208607272727
+      Value: 991.92228
     low_heat[30]:
-      Value: 748.956007272727
+      Value: 1000.02228
     low_heat[31]:
-      Value: 758.351007272727
+      Value: 1008.12228
     low_heat[32]:
-      Value: 737.746007272727
+      Value: 986.22228
     low_heat[33]:
-      Value: 717.141007272727
+      Value: 964.32228
     low_heat[34]:
-      Value: 696.536007272727
+      Value: 942.42228
     low_heat[35]:
-      Value: 675.931007272727
+      Value: 920.52228
     low_heat[36]:
-      Value: 715.326007272727
+      Value: 958.62228
     low_heat[37]:
-      Value: 742.149327272727
+      Value: 984.1506
     low_heat[38]:
-      Value: 736.275327272727
+      Value: 974.1816
     low_heat[39]:
-      Value: 789.701327272727
-    low_heat[3]:
-      Value: 999.725407272727
+      Value: 1024.2126
     low_heat[40]:
-      Value: 851.527327272727
+      Value: 1074.2436
     low_heat[41]:
-      Value: 909.153327272727
+      Value: 1124.2746
     low_heat[42]:
-      Value: 915.064047272727
+      Value: 1115.59032
     low_heat[43]:
-      Value: 1032.72201727273
+      Value: 1163.11977
     low_heat[44]:
-      Value: 1085.09490727273
+      Value: 1210.64922
     low_heat[45]:
-      Value: 1138.47579727273
+      Value: 1258.17867
     low_heat[46]:
-      Value: 1191.85668727273
+      Value: 1305.70812
     low_heat[47]:
-      Value: 1250.68077727273
+      Value: 1353.23757
     low_heat[48]:
-      Value: 1467.66892327273
+      Value: 1558.931076
     low_heat[49]:
-      Value: 1512.72285127273
-    low_heat[4]:
-      Value: 995.242207272727
+      Value: 1593.884844
     low_heat[50]:
-      Value: 1529.77677927273
+      Value: 1628.838612
     low_heat[51]:
-      Value: 1572.75422727273
+      Value: 1663.79238
     low_heat[52]:
-      Value: 1610.69167527273
+      Value: 1698.746148
     low_heat[53]:
-      Value: 1648.62912327273
+      Value: 1733.699916
     low_heat[54]:
-      Value: 1686.56657127273
+      Value: 1768.653684
     low_heat[55]:
-      Value: 1724.50401927273
+      Value: 1803.607452
     low_heat[56]:
-      Value: 2108.84040545455
+      Value: 2341.70522
     low_heat[57]:
-      Value: 2161.24937345455
+      Value: 2705.0951295081
     low_heat[58]:
-      Value: 2154.03618545454
+      Value: 2675.48272008457
     low_heat[59]:
-      Value: 2154.63051745455
-    low_heat[5]:
-      Value: 997.759007272727
+      Value: 2676.82085724313
     low_heat[60]:
-      Value: 2183.22484945455
+      Value: 2718.1589944017
     low_heat[61]:
-      Value: 2228.54862145455
+      Value: 2783.40109096829
     low_heat[62]:
-      Value: 2231.87239345455
+      Value: 2788.64318753488
     low_heat[63]:
-      Value: 2224.58192545454
+      Value: 2779.43803505285
     low_heat[64]:
-      Value: 2217.29145745455
+      Value: 2770.23288257083
     low_heat[65]:
-      Value: 2167.91026945454
+      Value: 2700.9042493277
     low_heat[66]:
-      Value: 2160.52908145454
+      Value: 2687.96770337635
     low_heat[67]:
-      Value: 2156.42893345455
+      Value: 2449.62109799736
     low_heat[68]:
-      Value: 1779.94696727273
+      Value: 1912.55181090909
     low_heat[69]:
-      Value: 1641.14656727273
-    low_heat[6]:
-      Value: 1000.27580727273
+      Value: 1830.45813090909
     low_heat[70]:
-      Value: 1544.34616727273
+      Value: 1748.36445090909
     low_heat[71]:
-      Value: 1440.41248727273
+      Value: 1666.27077090909
     low_heat[72]:
-      Value: 1188.97762727273
+      Value: 1737.23478978154
     low_heat[73]:
-      Value: 1120.85511227273
+      Value: 1704.40596928493
     low_heat[74]:
-      Value: 1052.73259727273
+      Value: 1789.53834377695
     low_heat[75]:
-      Value: 984.610082272727
+      Value: 1960.51606796794
     low_heat[76]:
-      Value: 1263.66938545455
+      Value: 1758.89116
     low_heat[77]:
-      Value: 1247.28206318182
+      Value: 1685.913445
     low_heat[78]:
-      Value: 1239.42954818182
+      Value: 1633.06693
     low_heat[79]:
-      Value: 1224.14303318182
-    low_heat[7]:
-      Value: 961.792607272727
+      Value: 1539.043615
     low_heat[80]:
-      Value: 1254.60248484848
+      Value: 1545.11974714588
     low_heat[81]:
-      Value: 1279.59391151515
+      Value: 1549.55381961945
     low_heat[82]:
-      Value: 1188.26813818182
+      Value: 1537.67069209303
     low_heat[83]:
-      Value: 1186.35903151515
+      Value: 1537.48219966174
     low_heat[84]:
-      Value: 1212.46459151515
+      Value: 1555.53689031713
     low_heat[85]:
-      Value: 1250.57015151515
+      Value: 1585.59158097252
     low_heat[86]:
-      Value: 1233.47571151515
+      Value: 1560.44627162791
     low_heat[87]:
-      Value: 1246.38127151515
+      Value: 1484.37005319239
     low_heat[88]:
-      Value: 752.956407272733
+      Value: 1011.3047709091
     low_heat[89]:
-      Value: 759.245567272736
-    low_heat[8]:
-      Value: 940.309407272727
+      Value: 1021.1163309091
     low_heat[90]:
-      Value: 801.534727272739
+      Value: 1066.9278909091
     low_heat[91]:
-      Value: 807.823887272739
+      Value: 1076.7394509091
     low_heat[92]:
-      Value: 784.113047272742
+      Value: 1056.55101090911
     low_heat[93]:
-      Value: 820.402207272745
+      Value: 1096.36257090911
     low_heat[94]:
-      Value: 856.691367272748
-    low_heat[9]:
-      Value: 924.826207272727
-    medium_heat[0]:
-      Value: 1147.93137090909
-    medium_heat[10]:
-      Value: 1108.93137090909
-    medium_heat[11]:
-      Value: 1087.03137090909
-    medium_heat[12]:
-      Value: 1095.13137090909
-    medium_heat[13]:
-      Value: 1073.23137090909
-    medium_heat[14]:
-      Value: 1111.33137090909
-    medium_heat[15]:
-      Value: 1119.43137090909
+      Value: 1136.17413090911
+    low_heat[95]:
+      Value: 1145.98569090911
     medium_heat[16]:
-      Value: 1127.53137090909
+      Value: 1066.62228
     medium_heat[17]:
-      Value: 1135.63137090909
+      Value: 1074.72228
     medium_heat[18]:
-      Value: 1137.73137090909
+      Value: 1076.82228
     medium_heat[19]:
-      Value: 1121.83137090909
-    medium_heat[1]:
-      Value: 1156.03137090909
+      Value: 1060.92228
     medium_heat[20]:
-      Value: 1129.93137090909
+      Value: 1069.02228
     medium_heat[21]:
-      Value: 1108.03137090909
+      Value: 1047.12228
     medium_heat[22]:
-      Value: 1116.13137090909
+      Value: 1055.22228
     medium_heat[23]:
-      Value: 1094.23137090909
+      Value: 1033.32228
     medium_heat[24]:
-      Value: 1102.33137090909
+      Value: 1041.42228
     medium_heat[25]:
-      Value: 1080.43137090909
+      Value: 1019.52228
     medium_heat[26]:
-      Value: 1058.53137090909
+      Value: 997.62228
     medium_heat[27]:
-      Value: 1066.63137090909
+      Value: 1005.72228
     medium_heat[28]:
-      Value: 1074.73137090909
+      Value: 1013.82228
     medium_heat[29]:
-      Value: 1052.83137090909
-    medium_heat[2]:
-      Value: 1164.13137090909
+      Value: 991.92228
     medium_heat[30]:
-      Value: 1060.93137090909
+      Value: 1000.02228
     medium_heat[31]:
-      Value: 1069.03137090909
+      Value: 1008.12228
     medium_heat[32]:
-      Value: 1047.13137090909
+      Value: 986.22228
     medium_heat[33]:
-      Value: 1025.23137090909
+      Value: 964.32228
     medium_heat[34]:
-      Value: 1003.33137090909
+      Value: 942.42228
     medium_heat[35]:
-      Value: 981.431370909091
+      Value: 920.52228
     medium_heat[36]:
-      Value: 1019.53137090909
+      Value: 958.62228
     medium_heat[37]:
-      Value: 1045.05969090909
+      Value: 984.1506
     medium_heat[38]:
-      Value: 1035.09069090909
+      Value: 974.1816
     medium_heat[39]:
-      Value: 1085.12169090909
-    medium_heat[3]:
-      Value: 1172.23137090909
+      Value: 1024.2126
     medium_heat[40]:
-      Value: 1135.15269090909
+      Value: 1074.2436
     medium_heat[41]:
-      Value: 1185.18369090909
+      Value: 1124.2746
     medium_heat[42]:
-      Value: 1176.49941090909
+      Value: 1115.59032
     medium_heat[43]:
-      Value: 1224.02886090909
+      Value: 1163.11977
     medium_heat[44]:
-      Value: 1271.55831090909
+      Value: 1210.64922
     medium_heat[45]:
-      Value: 1319.08776090909
+      Value: 1258.17867
     medium_heat[46]:
-      Value: 1366.61721090909
+      Value: 1305.70812
     medium_heat[47]:
-      Value: 1414.14666090909
+      Value: 1353.23757
     medium_heat[48]:
-      Value: 1619.84016690909
+      Value: 1558.931076
     medium_heat[49]:
-      Value: 1654.79393490909
-    medium_heat[4]:
-      Value: 1180.33137090909
+      Value: 1593.884844
     medium_heat[50]:
-      Value: 1689.74770290909
+      Value: 1628.838612
     medium_heat[51]:
-      Value: 1724.70147090909
+      Value: 1663.79238
     medium_heat[52]:
-      Value: 1759.65523890909
+      Value: 1698.746148
     medium_heat[53]:
-      Value: 1794.60900690909
+      Value: 1733.699916
     medium_heat[54]:
-      Value: 1829.56277490909
+      Value: 1768.653684
     medium_heat[55]:
-      Value: 1864.51654290909
+      Value: 1803.607452
     medium_heat[56]:
-      Value: 3056.74303818182
+      Value: 2341.70522
     medium_heat[57]:
-      Value: 3091.69680618182
+      Value: 2705.0951295081
     medium_heat[58]:
-      Value: 3089.70841818182
+      Value: 2675.48272008457
     medium_heat[59]:
-      Value: 3087.72003018182
-    medium_heat[5]:
-      Value: 1188.43137090909
+      Value: 2676.82085724313
     medium_heat[60]:
-      Value: 3085.73164218182
+      Value: 2718.1589944017
     medium_heat[61]:
-      Value: 3083.74325418182
+      Value: 2783.40109096829
     medium_heat[62]:
-      Value: 3081.75486618182
+      Value: 2788.64318753488
     medium_heat[63]:
-      Value: 3079.76647818182
+      Value: 2779.43803505285
     medium_heat[64]:
-      Value: 3077.77809018182
+      Value: 2770.23288257083
     medium_heat[65]:
-      Value: 3075.78970218182
+      Value: 2700.9042493277
     medium_heat[66]:
-      Value: 3073.80131418182
+      Value: 2687.96770337635
     medium_heat[67]:
-      Value: 3071.81292618182
+      Value: 2449.62109799736
     medium_heat[68]:
       Value: 1912.55181090909
     medium_heat[69]:
       Value: 1830.45813090909
-    medium_heat[6]:
-      Value: 1196.53137090909
     medium_heat[70]:
       Value: 1748.36445090909
     medium_heat[71]:
       Value: 1666.27077090909
     medium_heat[72]:
-      Value: 1436.67591090909
+      Value: 1737.23478978154
     medium_heat[73]:
-      Value: 1369.39339590909
+      Value: 1704.40596928493
     medium_heat[74]:
-      Value: 1302.11088090909
+      Value: 1789.53834377695
     medium_heat[75]:
-      Value: 1234.82836590909
+      Value: 2271.18165155981
     medium_heat[76]:
-      Value: 2324.81857818182
+      Value: 1758.89116
     medium_heat[77]:
-      Value: 2257.53606318182
+      Value: 1685.913445
     medium_heat[78]:
-      Value: 2190.25354818182
+      Value: 1633.06693
     medium_heat[79]:
-      Value: 2122.97103318182
-    medium_heat[7]:
-      Value: 1156.63137090909
+      Value: 1539.043615
     medium_heat[80]:
-      Value: 2159.76781818182
+      Value: 1545.11974714588
     medium_heat[81]:
-      Value: 2191.09657818182
+      Value: 1549.55381961945
     medium_heat[82]:
-      Value: 2106.10813818182
+      Value: 1537.67069209303
     medium_heat[83]:
-      Value: 2111.11969818182
+      Value: 1537.48219966174
     medium_heat[84]:
-      Value: 2134.13125818182
+      Value: 1555.53689031713
     medium_heat[85]:
-      Value: 2169.14281818182
+      Value: 1585.59158097252
     medium_heat[86]:
-      Value: 2148.95437818182
+      Value: 1560.44627162791
     medium_heat[87]:
-      Value: 2158.76593818182
+      Value: 1484.37005319239
     medium_heat[88]:
       Value: 1011.3047709091
     medium_heat[89]:
       Value: 1021.1163309091
-    medium_heat[8]:
-      Value: 1140.73137090909
     medium_heat[90]:
       Value: 1066.9278909091
     medium_heat[91]:
@@ -3146,196 +2918,166 @@ Solution:
       Value: 1096.36257090911
     medium_heat[94]:
       Value: 1136.17413090911
-    medium_heat[9]:
-      Value: 1130.83137090909
-    utility_power[0]:
-      Value: 6500.28549363872
-    utility_power[10]:
-      Value: 6486.60890088243
-    utility_power[11]:
-      Value: 6691.30080707705
-    utility_power[12]:
-      Value: 7098.78341094608
-    utility_power[13]:
-      Value: 6649.02073897362
-    utility_power[14]:
-      Value: 6371.98364839651
-    utility_power[15]:
-      Value: 6947.15415584358
+    medium_heat[95]:
+      Value: 1145.98569090911
     utility_power[16]:
-      Value: 6771.63353053169
+      Value: 6946.33293574663
     utility_power[17]:
-      Value: 6780.69293643133
+      Value: 6956.2600625765
     utility_power[18]:
-      Value: 6114.54304000538
+      Value: 6291.7685847552
     utility_power[19]:
-      Value: 6065.25036884406
-    utility_power[1]:
-      Value: 5368.18779307446
+      Value: 6246.97154150086
     utility_power[20]:
-      Value: 6015.95769769326
+      Value: 6202.17449825704
     utility_power[21]:
-      Value: 5759.74841560268
+      Value: 5949.62363477111
     utility_power[22]:
-      Value: 5504.65541258188
+      Value: 5697.07277128519
     utility_power[23]:
-      Value: 5652.3697089503
+      Value: 5844.25943974663
     utility_power[24]:
-      Value: 5800.08400531872
+      Value: 5991.44610820808
     utility_power[25]:
-      Value: 5687.73198075838
+      Value: 5882.54878132215
     utility_power[26]:
-      Value: 5573.74628178996
+      Value: 5773.65145444676
     utility_power[27]:
-      Value: 4980.63177477037
+      Value: 5745.23342996083
     utility_power[28]:
-      Value: 4294.81203664553
+      Value: 5716.81540542228
     utility_power[29]:
-      Value: 4582.53761804087
-    utility_power[2]:
-      Value: 5551.87956619442
+      Value: 5972.19857581151
     utility_power[30]:
-      Value: 4893.51901338971
+      Value: 6252.0003508519
     utility_power[31]:
-      Value: 4994.50040873855
+      Value: 5773.31539870392
     utility_power[32]:
-      Value: 4759.05150855572
+      Value: 5032.90241764663
     utility_power[33]:
-      Value: 4748.89996623706
+      Value: 4935.85785207215
     utility_power[34]:
-      Value: 4762.41167982735
+      Value: 4950.05970519733
     utility_power[35]:
-      Value: 5039.72577594246
+      Value: 5227.57780131244
     utility_power[36]:
-      Value: 5097.03987215258
+      Value: 5285.09589752256
     utility_power[37]:
-      Value: 5075.55569593037
+      Value: 5262.68986083523
     utility_power[38]:
-      Value: 5178.50872891549
+      Value: 5364.77080079709
     utility_power[39]:
-      Value: 5011.63323525118
-    utility_power[3]:
-      Value: 6354.77330975881
+      Value: 5196.14070248163
     utility_power[40]:
-      Value: 5094.61820670316
+      Value: 5276.34781346849
     utility_power[41]:
-      Value: 5279.17960032938
+      Value: 5459.80688151331
     utility_power[42]:
-      Value: 5666.53169163002
+      Value: 5843.26594955814
     utility_power[43]:
-      Value: 5422.93830467624
+      Value: 5571.98253469738
     utility_power[44]:
-      Value: 5353.31764330386
+      Value: 5500.69911983663
     utility_power[45]:
-      Value: 5680.78188590386
+      Value: 5826.15456243663
     utility_power[46]:
-      Value: 5608.24612850386
+      Value: 5751.61000503663
     utility_power[47]:
-      Value: 5493.20845085223
+      Value: 5632.69487622221
     utility_power[48]:
-      Value: 5378.1707732956
+      Value: 5516.49388991302
     utility_power[49]:
-      Value: 5242.40375650514
-    utility_power[4]:
-      Value: 7075.26464863519
+      Value: 5690.1088
     utility_power[50]:
-      Value: 5095.473949017
+      Value: 5556.9424
     utility_power[51]:
-      Value: 5207.59150288467
+      Value: 5670.3152
     utility_power[52]:
-      Value: 5217.69975452177
+      Value: 5683.688
     utility_power[53]:
-      Value: 5281.08418228351
+      Value: 5747.0524
     utility_power[54]:
-      Value: 5344.46861014025
+      Value: 5810.4168
     utility_power[55]:
-      Value: 5356.0057590525
+      Value: 5520.0513590525
     utility_power[56]:
-      Value: 3990.93702635798
+      Value: 4978.0746816923
     utility_power[57]:
-      Value: 3462.21793177118
+      Value: 4166.89347256194
     utility_power[58]:
-      Value: 3518.20697681426
+      Value: 4231.2684724818
     utility_power[59]:
-      Value: 3695.54090366327
-    utility_power[5]:
-      Value: 6848.51904492283
+      Value: 4404.84201390908
     utility_power[60]:
-      Value: 3784.03762130496
+      Value: 4445.57973453584
     utility_power[61]:
-      Value: 3873.88519760781
+      Value: 4461.37611639232
     utility_power[62]:
-      Value: 3946.98858795914
+      Value: 4526.42622968708
     utility_power[63]:
-      Value: 3901.33999517816
+      Value: 4488.81563260203
     utility_power[64]:
-      Value: 3855.69140249217
+      Value: 4451.20503561198
     utility_power[65]:
-      Value: 3796.54785067153
+      Value: 4466.23492912282
     utility_power[66]:
-      Value: 3754.1484848024
+      Value: 4772.52278626789
     utility_power[67]:
-      Value: 3298.92166417973
+      Value: 4533.69597508638
     utility_power[68]:
-      Value: 4922.88723256339
+      Value: 5385.41155403602
     utility_power[69]:
-      Value: 5214.26648625793
-    utility_power[6]:
-      Value: 6621.77344121046
+      Value: 6275.17430442549
     utility_power[70]:
-      Value: 5422.11683044397
+      Value: 6787.63877773684
     utility_power[71]:
-      Value: 5505.06008625793
+      Value: 6241.87343691749
     utility_power[72]:
-      Value: 5588.00334207188
+      Value: 5317.79774184857
     utility_power[73]:
-      Value: 5581.21078393235
+      Value: 4675.26908334062
     utility_power[74]:
-      Value: 5574.41822579281
+      Value: 4021.93630609582
     utility_power[75]:
-      Value: 6071.91464857857
+      Value: 3934.58367859971
     utility_power[76]:
-      Value: 4209.049376685
+      Value: 4405.54833468569
     utility_power[77]:
-      Value: 3816.788421945
+      Value: 4586.83486970619
     utility_power[78]:
-      Value: 3664.277467205
+      Value: 4397.5957927864
     utility_power[79]:
-      Value: 3745.67963763625
-    utility_power[7]:
-      Value: 6590.34230227778
+      Value: 4497.88025617749
     utility_power[80]:
-      Value: 3827.0818080675
+      Value: 4692.50691323931
     utility_power[81]:
-      Value: 3928.14566977125
+      Value: 4818.17501513744
     utility_power[82]:
-      Value: 4079.209531475
+      Value: 4911.75356479676
     utility_power[83]:
-      Value: 3680.15697588
+      Value: 4519.72877872623
     utility_power[84]:
-      Value: 3781.104420285
+      Value: 4623.51180660919
     utility_power[85]:
-      Value: 3981.0090879275
+      Value: 4826.25205772965
     utility_power[86]:
-      Value: 3580.91375557
+      Value: 4438.59230885011
     utility_power[87]:
-      Value: 3924.7662378175
+      Value: 4851.7161954711
     utility_power[88]:
-      Value: 5980.14204234361
+      Value: 6111.900582176
     utility_power[89]:
-      Value: 6666.82142824797
-    utility_power[8]:
-      Value: 6546.35302381022
+      Value: 6653.28189116523
     utility_power[90]:
-      Value: 6624.59961219673
+      Value: 6728.04297674419
     utility_power[91]:
-      Value: 6247.00867470224
+      Value: 6351.7478139535
     utility_power[92]:
-      Value: 5869.41773720775
+      Value: 6633.31340995227
     utility_power[93]:
-      Value: 5371.06608473497
+      Value: 6074.1574883721
     utility_power[94]:
-      Value: 4708.42991271817
-    utility_power[9]:
-      Value: 6510.78328792772
+      Value: 5547.63603111141
+    utility_power[95]:
+      Value: 4880.49784506489
   Constraint: No values
