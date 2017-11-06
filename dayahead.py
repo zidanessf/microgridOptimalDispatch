@@ -19,7 +19,7 @@ solver.solve(optimalDispatch)
 '''Retrieve the result'''
 result = optimizationModel.retriveResult(microgrid_data,case,optimalDispatch)
 result.to_excel('output.xlsx')
-result.plot()
+optimizationModel.extendedResult(result)
 '''Interaction process'''
 '''Electric DR'''
 writer = pd.ExcelWriter('DayAhead Electric DR.xlsx')

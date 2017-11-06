@@ -19,12 +19,12 @@ solver.solve(optimalDispatch)
 '''Retrieve the result'''
 result = optimizationModel.retriveResult(microgrid_data,case,optimalDispatch)
 result.to_excel('dayin.xlsx')
-result.plot()
+optimizationModel.extendedResult(result)
 '''Interaction process'''
 '''Electric DR'''
 writer = pd.ExcelWriter('DayIn Electric DR.xlsx')
-peak = range(72, 76)
-(max_model,max_amount) = optimizationModel.getMaxAmount(optimalDispatch,case,peak=peak,amount = None,mode='E',ref = contract['期望电功率'].loc[peak])
+peak = range(82, 86)
+(max_model,max_amount) = optimizationModel.getMaxAmount(optimalDispatch,case,peak=peak,amount = [3000]*len(peak),mode='E')
 max_result = optimizationModel.retriveResult(microgrid_data,case,max_model)
 max_result.to_excel(writer,sheet_name = '1')
 for e in [0.8,0.6,0.4,0.2]:
@@ -42,7 +42,7 @@ for e in [0.8,0.6,0.4,0.2]:
 writer.save()
 '''Heat DR'''
 writer = pd.ExcelWriter('DayIn Heat DR.xlsx')
-peak = range(72, 76)
+peak = range(82, 86)
 (max_model,max_amount) = optimizationModel.getMaxAmount(optimalDispatch,case,peak=peak,amount = [3000]*len(peak),mode='H')
 max_result = optimizationModel.retriveResult(microgrid_data,case,max_model)
 max_result.to_excel(writer,sheet_name = '1')
