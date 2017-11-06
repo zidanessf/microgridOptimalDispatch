@@ -146,12 +146,12 @@ def DayAheadModel(microgrid_data,case):
     optimalDispatch.ht = Var(T)
     #optimalDispatch.heatPowerBalance = Constraint(T, rule=heatPowerBalance)
     optimalDispatch.HPB1 = Constraint(T, rule=lambda mdl, t: mdl.ht[t] == mdl.high_heat[t] + sum(
-        mdl.bol_power[n_bol, t] for n_bol in N_bol) + sum(mdl.gt_power[n_gt, t] * microgrid_device[n_gt].HER * microgrid_device[n_gt].low_heat_recycle for n_gt in N_gt))
+        mdl.bol_power[n_bol, t] for n_bol in N_bol) + sum(mdl.gt_power[n_gt, t] * microgrid_device[n_gt].HER * microgrid_device[n_gt].heat_recycle for n_gt in N_gt))
     optimalDispatch.HPB2 = Constraint(T,rule = lambda mdl,t:mdl.ht[t] >= steam_heat_load[t])
-    optimalDispatch.HPB3 = Constraint(T, rule=lambda mdl, t: mdl.medium_heat[t] == steam_heat_load[t] + sum(mdl.gt_power[n_gt, t] * microgrid_device[n_gt].HER * microgrid_device[n_gt].heat_recycle for n_gt in N_gt))
+    optimalDispatch.HPB3 = Constraint(T, rule=lambda mdl, t: mdl.medium_heat[t] == sum(mdl.gt_power[n_gt, t] * microgrid_device[n_gt].HER * microgrid_device[n_gt].heat_recycle for n_gt in N_gt))
     optimalDispatch.HPB4 = Constraint(T, rule=lambda mdl, t: mdl.medium_heat[t] + mdl.ht[t] >= steam_heat_load[t] + water_heat_load[t])
     optimalDispatch.HPB5 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] == (H2M) * steam_heat_load[t])
-    optimalDispatch.HPB6 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] + mdl.ht[t] + mdl.medium_heat[t] >= steam_heat_load[t]/H2M + water_heat_load[t] + sum(mdl.absc_heat_in[n_absc, t] for n_absc in N_absc))
+    optimalDispatch.HPB6 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] + mdl.ht[t] + mdl.medium_heat[t] >= steam_heat_load[t] + water_heat_load[t] + sum(mdl.absc_heat_in[n_absc, t] for n_absc in N_absc))
 
     # TODO 完善高中低品味热模型
     '''冷功率平衡约束'''
@@ -357,7 +357,7 @@ def retriveResult(microgrid_data,case,model):
     except Exception as e:
         pass
     return df
-def responseModel(mdl,case,peak,amount,mode):
+def responseModel(mdl,case,peak,amount,mode,ref = list()):
     model = copy.deepcopy(mdl)
     tmp = ConcreteModel()
     microgrid_device = case.device
@@ -381,14 +381,20 @@ def responseModel(mdl,case,peak,amount,mode):
     if mode == 'E':
         for t in wT:
             if t in peak:
-                model.P_ref.append(value(model.utility_power[t]) - amount[t-peak[0]])
+                if ref.__len__() == 0:
+                    model.P_ref.append(value(model.utility_power[t]) - amount[t - peak[0]])
+                else:
+                    model.P_ref.append(ref[t])
             else:
                 model.P_ref.append(8000)
         model.H_ref = [1000]*len(wT)
     elif mode == 'H':
         for t in wT:
             if t in peak:
-                model.H_ref.append(value(model.high_heat[t]) + amount[t-peak[0]])
+                if ref.__len__() == 0:
+                    model.H_ref.append(value(model.high_heat[t]) + amount[t - peak[0]])
+                else:
+                    model.H_ref.append(ref[t])
             else:
                 model.H_ref.append(1000)
         model.P_ref = [8000]*len(wT)
@@ -423,8 +429,8 @@ def responseModel(mdl,case,peak,amount,mode):
     solver.solve(model)
     return model
 #TODO 补充最大可调容量
-def getMaxAmount(mdl,case,peak,amount,mode):
-    model = responseModel(mdl,case,peak,amount,mode)
+def getMaxAmount(mdl,case,peak,amount,mode,ref=list()):
+    model = responseModel(mdl,case,peak,amount,mode,ref = ref)
     if mode == 'E':
         MaxAmount = [model.P_0[t] - value(model.utility_power[t]) for t in peak]
     elif mode == 'H':
@@ -458,10 +464,10 @@ def DayInModel(microgrid_data,case,nowtime,data,realdata):
     optimalDispatch.T = T
     '''日内设备初始化（储能设备）'''
     for n in N_es:
-        cap = realdata[n+'电池电量'].loc[nowtime-1]*(1-microgrid_device[n].selfRelease) + step*(realdata[n+'电储能充电功率'].loc[nowtime-1] - realdata[n+'电储能放电功率'].loc[nowtime-1])
+        cap = realdata[n+'电池电量'].loc[nowtime-1]*(1-microgrid_device[n].selfRelease) + step*(microgrid_device[n].efficiency*realdata[n+'电储能充电功率'].loc[nowtime-1] - realdata[n+'电储能放电功率'].loc[nowtime-1]/microgrid_device[n].efficiency)
         microgrid_device[n].SOCint = cap/microgrid_device[n].capacity
     for n in N_cs:
-        cap = realdata[n+'冰蓄冷储冷量'].loc[nowtime-1]*(1-microgrid_device[n].selfRelease) + step*(realdata[n+'冰蓄冷储冷功率'].loc[nowtime-1] - realdata[n+'冰蓄冷供冷功率'].loc[nowtime-1])
+        cap = realdata[n+'冰蓄冷储冷量'].loc[nowtime-1]*(1-microgrid_device[n].selfRelease) + step*(microgrid_device[n].efficiency*realdata[n+'冰蓄冷储冷功率'].loc[nowtime-1] - realdata[n+'冰蓄冷供冷功率'].loc[nowtime-1]/microgrid_device[n].efficiency)
         microgrid_device[n].Tint = cap/microgrid_device[n].capacity
 
     '''define variables'''
@@ -577,9 +583,10 @@ def DayInModel(microgrid_data,case,nowtime,data,realdata):
     def ACPowerBalance(mdl, t):
         power_supply = sum(mdl.gt_power[i, t] for i in N_gt) \
                        + mdl.utility_power[t] + mdl.inv_ac[t]
-        power_demand = sum(mdl.cs_power[i, t] for i in N_cs) \
-                       + sum(mdl.ac_power[i, t] for i in N_ac) \
-                       + acLoad[t] + (1 / microgrid_device['inv'].ac_dc_efficiency) * mdl.inv_dc[t]
+        power_demand = 1.05 * sum(mdl.cs_power[i, t] for i in N_cs) \
+                       + 1.05 * sum(mdl.ac_power[i, t] for i in N_ac) \
+                       + acLoad[t] + (1 / microgrid_device['inv'].ac_dc_efficiency) * mdl.inv_dc[t] \
+                       + sum(microgrid_device[i].ElecCost * mdl.absc_heat_in[i, t] for i in N_absc)
         return power_supply == power_demand
 
     def DCPowerBalance(mdl, t):
@@ -590,7 +597,7 @@ def DayInModel(microgrid_data,case,nowtime,data,realdata):
 
     optimalDispatch.ACPowerBalance = Constraint(T, rule=ACPowerBalance)
     optimalDispatch.DCPowerBalance = Constraint(T, rule=DCPowerBalance)
-    '''热功率平衡约束'''
+
     '''热功率平衡约束'''
     H2M = 0.2
 
@@ -604,12 +611,13 @@ def DayInModel(microgrid_data,case,nowtime,data,realdata):
     optimalDispatch.ht = Var(T)
     #optimalDispatch.heatPowerBalance = Constraint(T, rule=heatPowerBalance)
     optimalDispatch.HPB1 = Constraint(T, rule=lambda mdl, t: mdl.ht[t] == mdl.high_heat[t] + sum(
-        mdl.bol_power[n_bol, t] for n_bol in N_bol) + sum(mdl.gt_power[n_gt, t] * microgrid_device[n_gt].HER * microgrid_device[n_gt].low_heat_recycle for n_gt in N_gt))
+        mdl.bol_power[n_bol, t] for n_bol in N_bol) + sum(mdl.gt_power[n_gt, t] * microgrid_device[n_gt].HER * microgrid_device[n_gt].heat_recycle for n_gt in N_gt))
     optimalDispatch.HPB2 = Constraint(T,rule = lambda mdl,t:mdl.ht[t] >= steam_heat_load[t])
-    optimalDispatch.HPB3 = Constraint(T, rule=lambda mdl, t: mdl.medium_heat[t] == steam_heat_load[t] + sum(mdl.gt_power[n_gt, t] * microgrid_device[n_gt].HER * microgrid_device[n_gt].heat_recycle for n_gt in N_gt))
+    optimalDispatch.HPB3 = Constraint(T, rule=lambda mdl, t: mdl.medium_heat[t] == sum(mdl.gt_power[n_gt, t] * microgrid_device[n_gt].HER * microgrid_device[n_gt].heat_recycle for n_gt in N_gt))
     optimalDispatch.HPB4 = Constraint(T, rule=lambda mdl, t: mdl.medium_heat[t] + mdl.ht[t] >= steam_heat_load[t] + water_heat_load[t])
     optimalDispatch.HPB5 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] == (H2M) * steam_heat_load[t])
-    optimalDispatch.HPB6 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] + mdl.ht[t] + mdl.medium_heat[t] >= steam_heat_load[t]/H2M + water_heat_load[t] + sum(mdl.absc_heat_in[n_absc, t] for n_absc in N_absc))
+    optimalDispatch.HPB6 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] + mdl.ht[t] + mdl.medium_heat[t] >= steam_heat_load[t] + water_heat_load[t] + sum(mdl.absc_heat_in[n_absc, t] for n_absc in N_absc))
+
     # TODO 完善高中低品味热模型
     '''冷功率平衡约束'''
 
@@ -751,7 +759,7 @@ def DayInModel(microgrid_data,case,nowtime,data,realdata):
         div = sum(abs(data['电网购热功率'].loc[t] - realdata['电网购热功率'].loc[t]) for t in whole_day if t not in T) + sum(mdl.HBauxvar[t] for t in T)
         return 0.8*div
     def obj_Economical(mdl):
-        return OM_Cost(mdl) + Dep_Cost(mdl) + Fuel_Cost(mdl) + ElectricalFee(mdl) + HeatFee(mdl) + StartShutdownFee(mdl) + ElecBreakFee(mdl) + HeatBreakFee(mdl)
+        return OM_Cost(mdl) + Dep_Cost(mdl) + Fuel_Cost(mdl) + ElectricalFee(mdl) + HeatFee(mdl)+StartShutdownFee(mdl)+HeatBreakFee(mdl)+ElecBreakFee(mdl)
 
     optimalDispatch.objective = Objective(rule=obj_Economical)
     return optimalDispatch#TODO 补充完整日内修正模型
