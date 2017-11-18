@@ -370,6 +370,7 @@ def extendedResult(result):
     sheet1 = pd.DataFrame()
     sheet1['电负荷'] = -result['交流负荷']-result['直流负荷']
     sheet1['购电功率'] = result['购电功率']
+    sheet1['光伏出力'] = result['光伏出力']
     sheet1['电储能放电功率'] = df_sum(result,[col for col in result.columns if '电储能放电功率' in col])
     sheet1['燃气轮机发电功率'] = df_sum(result,[col for col in result.columns if '机组出力' in col])
     sheet1['冰蓄冷耗电功率'] = -df_sum(result,[col for col in result.columns if '冰蓄冷耗电功率' in col])
@@ -380,12 +381,18 @@ def extendedResult(result):
     plt.figure(1)
     plt.rcParams['font.sans-serif'] = ['SimHei']
     load, = plt.plot(-sheet1['电负荷'],linewidth=3.0, linestyle='--', label='电负荷')
-    sheet1colors = ['#f4f441','#42f486','#f442ee','#41b8f4','#4194f4','#7f41f4']
-    plt.stackplot(result.index.values.tolist(),sheet1['购电功率'],sheet1['燃气轮机发电功率'],sheet1['电储能放电功率'],sheet1['电储能充电功率'],sheet1['冰蓄冷耗电功率'],sheet1['空调制冷耗电功率'],
-                  colors = sheet1colors)
+    sheet1colors = ['#f4f441','#42f486','#f442ee','#f441ee','#41b8f4','#4194f4','#7f41f4']
+    plt.bar(result.index.values.tolist(),sheet1['购电功率'],color = '#f4f441')
+    plt.bar(result.index.values.tolist(),sheet1['燃气轮机发电功率'],bottom=sheet1['购电功率'],color = '#42f486')
+    plt.bar(result.index.values.tolist(),sheet1['电储能放电功率'],bottom=sheet1['燃气轮机发电功率']+sheet1['购电功率'],color = '#f442ee')
+    plt.bar(result.index.values.tolist(), sheet1['光伏出力'], bottom=sheet1['燃气轮机发电功率'] + sheet1['购电功率']+sheet1['电储能放电功率'],
+            color='#f441ee')
+    plt.bar(result.index.values.tolist(),sheet1['电储能充电功率'],color = '#41b8f4')
+    plt.bar(result.index.values.tolist(),sheet1['冰蓄冷耗电功率'],bottom=sheet1['电储能充电功率'],color = '#4194f4')
+    plt.bar(result.index.values.tolist(),sheet1['空调制冷耗电功率'],bottom=sheet1['冰蓄冷耗电功率']+sheet1['电储能充电功率'],color ='#7f41f4' )
     first_legend = plt.legend([load],('电负荷',))
     ax = plt.gca().add_artist(first_legend)
-    plt.legend([mpatches.Patch(color = c) for c in sheet1colors],['购电功率','燃气轮机发电功率','电储能放电功率','电储能充电功率','冰蓄冷耗电功率','空调制冷耗电功率'])
+    plt.legend([mpatches.Patch(color = c) for c in sheet1colors],['购电功率','燃气轮机发电功率','电储能放电功率','光伏出力','电储能充电功率','冰蓄冷耗电功率','空调制冷耗电功率'])
     plt.xlabel('时间(h)')
     plt.ylabel('功率(kW)')
     plt.show()
