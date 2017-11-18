@@ -143,8 +143,7 @@ def DayAheadModel(microgrid_data,case):
         heat_supply = sum(mdl.bol_power[i, t] for i in N_bol) \
                       + sum(
             microgrid_device[i].HER * microgrid_device[i].heat_recycle * mdl.gt_power[i, t] for i in N_gt)
-        heat_demand = sum(mdl.absc_heat_in[i, t] for i in N_absc) \
-                      + water_heat_load[t]
+        heat_demand = sum(mdl.absc_heat_in[i, t] for i in N_absc)
         return heat_supply >= heat_demand
     optimalDispatch.ht = Var(T)
     #optimalDispatch.heatPowerBalance = Constraint(T, rule=heatPowerBalance)
@@ -152,9 +151,9 @@ def DayAheadModel(microgrid_data,case):
         mdl.bol_power[n_bol, t] for n_bol in N_bol) + sum(mdl.gt_power[n_gt, t] * microgrid_device[n_gt].HER * microgrid_device[n_gt].heat_recycle for n_gt in N_gt))
     optimalDispatch.HPB2 = Constraint(T,rule = lambda mdl,t:mdl.ht[t] >= steam_heat_load[t])
     optimalDispatch.HPB3 = Constraint(T, rule=lambda mdl, t: mdl.medium_heat[t] == sum(mdl.gt_power[n_gt, t] * microgrid_device[n_gt].HER * microgrid_device[n_gt].low_heat_recycle for n_gt in N_gt))
-    optimalDispatch.HPB4 = Constraint(T, rule=lambda mdl, t: mdl.medium_heat[t] + mdl.ht[t] >= steam_heat_load[t] + water_heat_load[t])
+    optimalDispatch.HPB4 = Constraint(T, rule=lambda mdl, t: mdl.medium_heat[t] + mdl.ht[t] >= steam_heat_load[t] )
     optimalDispatch.HPB5 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] == (H2M) * steam_heat_load[t])
-    optimalDispatch.HPB6 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] + mdl.ht[t] + mdl.medium_heat[t] >= steam_heat_load[t] + water_heat_load[t] + sum(mdl.absc_heat_in[n_absc, t] for n_absc in N_absc))
+    optimalDispatch.HPB6 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] + mdl.ht[t] + mdl.medium_heat[t] >= steam_heat_load[t] + sum(mdl.absc_heat_in[n_absc, t] for n_absc in N_absc))
 
     # TODO 完善高中低品味热模型
     '''冷功率平衡约束'''
@@ -321,7 +320,6 @@ def retriveResult(microgrid_data,case,model):
     df['直流负荷'] = pd.Series([dcLoad[t] for t in T],index=T)
     df['冷负荷'] = microgrid_data['冷负荷'].loc[T]
     df['蒸汽负荷'] =  microgrid_data['蒸汽负荷'].loc[T]
-    df['热水负荷'] = microgrid_data['热水负荷'].loc[T]
     df['电价'] = pd.Series(microgrid_device['ut'].buy_price).loc[T]
     df['购电功率'] = pd.Series([value(model.utility_power[t]) for t in T],index=T)
     df['购热功率'] = pd.Series([value(model.high_heat[t]) for t in T],index=T)
@@ -381,12 +379,12 @@ def extendedResult(result):
     plt.figure(1)
     plt.rcParams['font.sans-serif'] = ['SimHei']
     load, = plt.plot(-sheet1['电负荷'],linewidth=3.0, linestyle='--', label='电负荷')
-    sheet1colors = ['#f4f441','#42f486','#f442ee','#f441ee','#41b8f4','#4194f4','#7f41f4']
+    sheet1colors = ['#f4f441','#42f486','#f412ee','#CC9966','#41b8f4','#4194f4','#7f41f4']
     plt.bar(result.index.values.tolist(),sheet1['购电功率'],color = '#f4f441')
     plt.bar(result.index.values.tolist(),sheet1['燃气轮机发电功率'],bottom=sheet1['购电功率'],color = '#42f486')
     plt.bar(result.index.values.tolist(),sheet1['电储能放电功率'],bottom=sheet1['燃气轮机发电功率']+sheet1['购电功率'],color = '#f442ee')
     plt.bar(result.index.values.tolist(), sheet1['光伏出力'], bottom=sheet1['燃气轮机发电功率'] + sheet1['购电功率']+sheet1['电储能放电功率'],
-            color='#f441ee')
+            color='#CC9966')
     plt.bar(result.index.values.tolist(),sheet1['电储能充电功率'],color = '#41b8f4')
     plt.bar(result.index.values.tolist(),sheet1['冰蓄冷耗电功率'],bottom=sheet1['电储能充电功率'],color = '#4194f4')
     plt.bar(result.index.values.tolist(),sheet1['空调制冷耗电功率'],bottom=sheet1['冰蓄冷耗电功率']+sheet1['电储能充电功率'],color ='#7f41f4' )
@@ -430,8 +428,7 @@ def extendedResult(result):
     sheet4['余热锅炉回收热功率'] = df_sum(result,[col for col in result.columns if '余热锅炉' in col])
     sheet4['吸收式制冷机耗热功率'] = df_sum(result, [col for col in result.columns if '吸收式制冷机制冷功率' in col])/0.8
     sheet4['蒸汽驱动负荷'] = -result['蒸汽负荷']
-    sheet4['热水负荷']=-result['热水负荷']
-    sheet4['热负荷'] = sheet4['蒸汽驱动负荷']+sheet4['热水负荷']
+    sheet4['热负荷'] = sheet4['蒸汽驱动负荷']
     sheet4['电价'] = result['电价']
     sheet4.to_excel(writer, sheet_name='不考虑热品位热平衡')
     '''----------------华丽的分割线--------------------'''
@@ -443,8 +440,7 @@ def extendedResult(result):
     sheet5['中品位热功率'] = result['中品位热功率']
     sheet5['低品位热功率'] = result['低品位热功率']
     sheet5['蒸汽驱动负荷'] = -result['蒸汽负荷']
-    sheet5['热水负荷'] = -result['热水负荷']
-    sheet5['热负荷'] = sheet5['蒸汽驱动负荷'] + sheet5['热水负荷']
+    sheet5['热负荷'] = sheet5['蒸汽驱动负荷']
     sheet5['吸收式制冷机耗热功率'] = -df_sum(result, [col for col in result.columns if '吸收式制冷机制冷功率' in col]) / 0.8
     sheet5['吸收式制冷机制冷功率'] = df_sum(result, [col for col in result.columns if '吸收式制冷机制冷功率' in col])
     sheet5.to_excel(writer, sheet_name='考虑热品位热平衡')
@@ -703,8 +699,7 @@ def DayInModel(microgrid_data,case,nowtime,data,realdata):
         heat_supply = sum(mdl.bol_power[i, t] for i in N_bol) \
                       + sum(
             microgrid_device[i].HER * microgrid_device[i].heat_recycle * mdl.gt_power[i, t] for i in N_gt)
-        heat_demand = sum(mdl.absc_heat_in[i, t] for i in N_absc) \
-                      + water_heat_load[t]
+        heat_demand = sum(mdl.absc_heat_in[i, t] for i in N_absc)
         return heat_supply >= heat_demand
     optimalDispatch.ht = Var(T)
     #optimalDispatch.heatPowerBalance = Constraint(T, rule=heatPowerBalance)
@@ -712,9 +707,9 @@ def DayInModel(microgrid_data,case,nowtime,data,realdata):
         mdl.bol_power[n_bol, t] for n_bol in N_bol) + sum(mdl.gt_power[n_gt, t] * microgrid_device[n_gt].HER * microgrid_device[n_gt].heat_recycle for n_gt in N_gt))
     optimalDispatch.HPB2 = Constraint(T,rule = lambda mdl,t:mdl.ht[t] >= steam_heat_load[t])
     optimalDispatch.HPB3 = Constraint(T, rule=lambda mdl, t: mdl.medium_heat[t] == sum(mdl.gt_power[n_gt, t] * microgrid_device[n_gt].HER * microgrid_device[n_gt].low_heat_recycle for n_gt in N_gt))
-    optimalDispatch.HPB4 = Constraint(T, rule=lambda mdl, t: mdl.medium_heat[t] + mdl.ht[t] >= steam_heat_load[t] + water_heat_load[t])
+    optimalDispatch.HPB4 = Constraint(T, rule=lambda mdl, t: mdl.medium_heat[t] + mdl.ht[t] >= steam_heat_load[t] )
     optimalDispatch.HPB5 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] == (H2M) * steam_heat_load[t])
-    optimalDispatch.HPB6 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] + mdl.ht[t] + mdl.medium_heat[t] >= steam_heat_load[t] + water_heat_load[t] + sum(mdl.absc_heat_in[n_absc, t] for n_absc in N_absc))
+    optimalDispatch.HPB6 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] + mdl.ht[t] + mdl.medium_heat[t] >= steam_heat_load[t]  + sum(mdl.absc_heat_in[n_absc, t] for n_absc in N_absc))
 
     # TODO 完善高中低品味热模型
     '''冷功率平衡约束'''
