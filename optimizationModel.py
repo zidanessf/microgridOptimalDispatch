@@ -4,7 +4,7 @@ import pandas as pd
 import copy
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
-H2M = 0.5
+H2M = 0.2
 def DayAheadModel(microgrid_data,case):
     microgrid_device = case.device
     N_T = case.NumOfTime
@@ -137,7 +137,7 @@ def DayAheadModel(microgrid_data,case):
     optimalDispatch.ACPowerBalance = Constraint(T, rule=ACPowerBalance)
     optimalDispatch.DCPowerBalance = Constraint(T, rule=DCPowerBalance)
     '''热功率平衡约束'''
-    H2M = 0.5
+    H2M = 0.2
 
     def heatPowerBalance(mdl, t):
         heat_supply = sum(mdl.bol_power[i, t] for i in N_bol) \
@@ -375,16 +375,16 @@ def extendedResult(result):
     sheet1['电储能充电功率'] = -df_sum(result,[col for col in result.columns if '电储能充电功率' in col])
     sheet1['空调制冷耗电功率'] = -df_sum(result,[col for col in result.columns if '空调制冷耗电功率' in col])
     sheet1['电价'] =result['电价']
-    sheet1.to_excel(writer,sheet_name='考虑热品位的电平衡')
+    sheet1.to_excel(writer,sheet_name='电平衡优化调度结果')
     plt.figure(1)
     plt.rcParams['font.sans-serif'] = ['SimHei']
     load, = plt.plot(-sheet1['电负荷'],linewidth=3.0, linestyle='--', label='电负荷')
-    sheet1colors = ['#f4f441','#42f486','#f412ee','#CC9966','#41b8f4','#4194f4','#7f41f4']
+    sheet1colors = ['#f4f441','#42f486','#f412ee','#ff8000','#41b8f4','#4194f4','#7f41f4']
     plt.bar(result.index.values.tolist(),sheet1['购电功率'],color = '#f4f441')
     plt.bar(result.index.values.tolist(),sheet1['燃气轮机发电功率'],bottom=sheet1['购电功率'],color = '#42f486')
     plt.bar(result.index.values.tolist(),sheet1['电储能放电功率'],bottom=sheet1['燃气轮机发电功率']+sheet1['购电功率'],color = '#f442ee')
     plt.bar(result.index.values.tolist(), sheet1['光伏出力'], bottom=sheet1['燃气轮机发电功率'] + sheet1['购电功率']+sheet1['电储能放电功率'],
-            color='#CC9966')
+            color='#ff8000')
     plt.bar(result.index.values.tolist(),sheet1['电储能充电功率'],color = '#41b8f4')
     plt.bar(result.index.values.tolist(),sheet1['冰蓄冷耗电功率'],bottom=sheet1['电储能充电功率'],color = '#4194f4')
     plt.bar(result.index.values.tolist(),sheet1['空调制冷耗电功率'],bottom=sheet1['冰蓄冷耗电功率']+sheet1['电储能充电功率'],color ='#7f41f4' )
@@ -401,19 +401,21 @@ def extendedResult(result):
     sheet2['吸收式制冷机制冷功率'] = df_sum(result,[col for col in result.columns if '吸收式制冷机制冷功率' in col])
     sheet2['冷负荷'] = -result['冷负荷']
     sheet2['电价'] = result['电价']
-    sheet2.to_excel(writer, sheet_name='考虑热品位冷平衡')
+    sheet2.to_excel(writer, sheet_name='冷平衡优化调度结果')
     plt.figure(2)
     plt.rcParams['font.sans-serif'] = ['SimHei']
     load, = plt.plot(-sheet2['冷负荷'], linewidth=3.0, linestyle='--', label='冷负荷')
     sheet2colors = ['#f4f441', '#42f486', '#f442ee']
-    plt.stackplot(result.index.values.tolist(), sheet2['空调制冷功率'], sheet2['冰蓄冷供冷功率'], sheet2['吸收式制冷机制冷功率'],colors=sheet2colors)
+    #plt.stackplot(result.index.values.tolist(), sheet2['空调制冷功率'], sheet2['冰蓄冷供冷功率'], sheet2['吸收式制冷机制冷功率'],colors=sheet2colors)
+    plt.bar(result.index.values.tolist(), sheet2['空调制冷功率'], color='#f4f441')
+    plt.bar(result.index.values.tolist(), sheet2['冰蓄冷供冷功率'], bottom=sheet2['空调制冷功率'], color='#42f486')
+    plt.bar(result.index.values.tolist(), sheet2['吸收式制冷机制冷功率'], bottom=sheet2['冰蓄冷供冷功率'] + sheet2['空调制冷功率'],color='#f442ee')
     first_legend = plt.legend([load], ('冷负荷',))
     ax = plt.gca().add_artist(first_legend)
     plt.legend([mpatches.Patch(color = c) for c in sheet1colors],['空调制冷功率','冰蓄冷供冷功率','吸收式制冷机制冷功率'])
     plt.xlabel('时间(h)')
     plt.ylabel('功率(kW)')
     plt.show()
-
     '''----------------华丽的分割线--------------------'''
     sheet3 = pd.DataFrame()
     sheet3['冰蓄冷供冷功率'] = df_sum(result, [col for col in result.columns if '冰蓄冷供冷功率' in col])+ df_sum(result,[col for col in result.columns if '冰蓄冷制冷机直接供冷耗电功率' in col])
@@ -448,11 +450,30 @@ def extendedResult(result):
     plt.rcParams['font.sans-serif'] = ['SimHei']
     load, = plt.plot(-sheet5['热负荷'], linewidth=3.0, linestyle='--', label='热负荷')
     sheet5colors = ['#f4f441', '#42f486', '#f442ee','#41b8f4','#4194f4']
-    plt.stackplot(result.index.values.tolist(), sheet5['购热功率'], sheet5['余热锅炉中品位热功率'], sheet5['余热锅炉低品位热功率'],sheet5['蒸汽回收低品位热'],sheet5['吸收式制冷机耗热功率'],
-                  colors=sheet5colors)
+    #plt.stackplot(result.index.values.tolist(), sheet5['购热功率'], sheet5['余热锅炉中品位热功率'], sheet5['余热锅炉低品位热功率'],sheet5['蒸汽回收低品位热'],sheet5['吸收式制冷机耗热功率'],
+                  #colors=sheet5colors)
+    plt.stackplot(result.index.values.tolist(), sheet5['购热功率'], color='#f4f441')
+    plt.stackplot(result.index.values.tolist(), sheet5['余热锅炉中品位热功率'], bottom=sheet5['购热功率'], color='#42f486')
     first_legend = plt.legend([load], ('热负荷',))
     ax = plt.gca().add_artist(first_legend)
     plt.legend([mpatches.Patch(color=c) for c in sheet5colors], ['购热功率', '余热锅炉中品位热功率', '吸收式制冷机制冷功率','蒸汽回收低品位热','吸收式制冷机耗热功率'])
+    plt.xlabel('时间(h)')
+    plt.ylabel('功率(kW)')
+    plt.show()
+    '''----------------华丽的分割线--------------------'''
+    sheet6 = pd.DataFrame()
+    sheet6['蒸汽回收低品位热'] = H2M * result['蒸汽负荷']
+    sheet6['吸收式制冷机耗热功率'] = df_sum(result, [col for col in result.columns if '吸收式制冷机制冷功率' in col])/0.8
+    sheet6['电价'] = result['电价']
+    sheet6.to_excel(writer, sheet_name='吸收式制冷机耗热情况')
+    plt.figure(4)
+    plt.rcParams['font.sans-serif'] = ['SimHei']
+    load, = plt.plot(sheet6['吸收式制冷机耗热功率'], linewidth=3.0, linestyle='--', label='吸收式制冷机耗热功率')
+    sheet6colors = ['#f4f441']
+    plt.bar(result.index.values.tolist(), sheet6['蒸汽回收低品位热'], color='#f4f441')
+    first_legend = plt.legend([load], ('吸收式制冷机耗热功率'))
+    ax = plt.gca().add_artist(first_legend)
+    plt.legend([mpatches.Patch(color=c) for c in sheet6colors], ['蒸汽回收低品位热'])
     plt.xlabel('时间(h)')
     plt.ylabel('功率(kW)')
     plt.show()
