@@ -32,6 +32,7 @@ def DayAheadModel(microgrid_data,case):
     # electrical storage
     optimalDispatch.es_power_in = Var(N_es, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax_in))
     optimalDispatch.es_power_out = Var(N_es, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax_out))
+    optimalDispatch.es_power_out_0 = Constraint(N_es,rule=lambda mdl,i: mdl.es_power_out[i,T[-1]] == 0)
     optimalDispatch.es_energy = Var(N_es, T, bounds=lambda mdl, i, T: (
     microgrid_device[i].SOCmin * microgrid_device[i].capacity,
     microgrid_device[i].SOCmax * microgrid_device[i].capacity))
@@ -51,6 +52,7 @@ def DayAheadModel(microgrid_data,case):
     optimalDispatch.cs_power = Var(N_cs, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax))
     optimalDispatch.cs_cold_in = Var(N_cs, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Hin))
     optimalDispatch.cs_cold_out = Var(N_cs, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Hout))
+    optimalDispatch.cs_cold_out_0 = Constraint(N_cs, rule = lambda  mdl,i: mdl.cs_cold_out[i,T[-1]] == 0)
     optimalDispatch.cs_cold_stored = Var(N_cs, T, bounds=lambda mdl, i, T: (
     microgrid_device[i].Tmin * microgrid_device[i].capacity, microgrid_device[i].Tmax * microgrid_device[i].capacity))
     # air conditioner
@@ -589,6 +591,7 @@ def DayInModel(microgrid_data,case,nowtime,data,realdata):
     # electrical storage
     optimalDispatch.es_power_in = Var(N_es, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax_in))
     optimalDispatch.es_power_out = Var(N_es, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax_out))
+    optimalDispatch.es_power_out_0 = Constraint(expr = optimalDispatch.es_power_out[T[-1]]==0)
     optimalDispatch.es_energy = Var(N_es, T, bounds=lambda mdl, i, T: (
         microgrid_device[i].SOCmin * microgrid_device[i].capacity,
         microgrid_device[i].SOCmax * microgrid_device[i].capacity))
@@ -612,6 +615,7 @@ def DayInModel(microgrid_data,case,nowtime,data,realdata):
     optimalDispatch.cs_power = Var(N_cs, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax))
     optimalDispatch.cs_cold_in = Var(N_cs, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Hin))
     optimalDispatch.cs_cold_out = Var(N_cs, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Hout))
+    optimalDispatch.cs_cold_out_0 = Constraint(N_cs, rule=lambda mdl, i: mdl.cs_cold_out[i, T[-1]] == 0)
     optimalDispatch.cs_cold_stored = Var(N_cs, T, bounds=lambda mdl, i, T: (
         microgrid_device[i].Tmin * microgrid_device[i].capacity,
         microgrid_device[i].Tmax * microgrid_device[i].capacity))
