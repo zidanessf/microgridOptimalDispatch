@@ -4,9 +4,8 @@ driver = GraphDatabase.driver("bolt://localhost:7687", auth=("zidanessf", "12345
 G = nx.Graph()
 def get_node(tx,keyword,graph):
     mylist = list()
-    for record in  tx.run("MATCH (n:{}) RETURN n",):
+    for record in tx.run("MATCH (n:{}) RETURN n".format(keyword)):
         graph.add_node(record._values[0].id,record._values[0].properties)
     return graph
 s = driver.session()
-result = s.read_transaction(get_node,G)
-1
+s.read_transaction(get_node,'ENERGYCONSUMER',G)
