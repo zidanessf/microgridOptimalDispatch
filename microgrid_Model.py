@@ -7,7 +7,7 @@ class PV:
 
 
 class electricStorage:
-    def __init__(self, om = 0.005, Cbw = 0.00075 , capacity = 9600, SOCmin = 0.1, SOCmax = 0.9, SOCint = 0.1, Pmax_in = 1250, Pmax_out = 1250, efficiency = 0.95, selfRelease = 0.0025):
+    def __init__(self, om = 0.005, Cbw = 0.00075 , capacity = 13000, SOCmin = 0.1, SOCmax = 0.9, SOCint = 0.1, Pmax_in = 1250, Pmax_out = 1250, efficiency = 0.95, selfRelease = 0.0025):
         self.om = om
         self.Cbw = Cbw
         self.capacity = capacity
@@ -170,7 +170,7 @@ class utility:
                 "gas_price":self.gas_price}
 
 class inverter:
-    def __init__(self, ac_dc = 0.95 , dc_ac = 0.95,maxP = 5000):
+    def __init__(self, ac_dc = 1 , dc_ac = 1,maxP = 5000):
         self.ac_dc_efficiency = ac_dc
         self.dc_ac_efficiency = dc_ac
         self.maxP = maxP
