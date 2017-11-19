@@ -32,7 +32,7 @@ def DayAheadModel(microgrid_data,case):
     # electrical storage
     optimalDispatch.es_power_in = Var(N_es, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax_in))
     optimalDispatch.es_power_out = Var(N_es, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax_out))
-    optimalDispatch.es_power_out_0 = Constraint(N_es,rule=lambda mdl,i: mdl.es_power_out[i,T[-1]] == 0)
+    #optimalDispatch.es_power_out_0 = Constraint(N_es,rule=lambda mdl,i: mdl.es_power_out[i,T[-1]] == 0)
     optimalDispatch.es_energy = Var(N_es, T, bounds=lambda mdl, i, T: (
     microgrid_device[i].SOCmin * microgrid_device[i].capacity,
     microgrid_device[i].SOCmax * microgrid_device[i].capacity))
@@ -52,7 +52,7 @@ def DayAheadModel(microgrid_data,case):
     optimalDispatch.cs_power = Var(N_cs, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax))
     optimalDispatch.cs_cold_in = Var(N_cs, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Hin))
     optimalDispatch.cs_cold_out = Var(N_cs, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Hout))
-    optimalDispatch.cs_cold_out_0 = Constraint(N_cs, rule = lambda  mdl,i: mdl.cs_cold_out[i,T[-1]] == 0)
+    #optimalDispatch.cs_cold_out_0 = Constraint(N_cs, rule = lambda  mdl,i: mdl.cs_cold_out[i,T[-1]] == 0)
     optimalDispatch.cs_cold_stored = Var(N_cs, T, bounds=lambda mdl, i, T: (
     microgrid_device[i].Tmin * microgrid_device[i].capacity, microgrid_device[i].Tmax * microgrid_device[i].capacity))
     # air conditioner
@@ -184,7 +184,8 @@ def DayAheadModel(microgrid_data,case):
             bat.efficiency * mdl.es_power_in[n_es, t - 1] - (1 / bat.efficiency) * mdl.es_power_out[n_es, t - 1])
 
     optimalDispatch.batteryEnergyBalance = Constraint(N_es, T, rule=batteryEnergyBalance)
-    optimalDispatch.bat_zero = Constraint(N_es,rule = lambda mdl,n:mdl.es_energy[n, T[-1]] == mdl.es_energy[n, T[0]])
+    optimalDispatch.batteryEnergyBalance0 = Constraint(N_es, rule=lambda mdl,n:mdl.es_energy[n, T[-1]]* (1 - microgrid_device[n].selfRelease) \
+                                             + step * (microgrid_device[n].efficiency * mdl.es_power_in[n, T[-1]] - (1 / microgrid_device[n].efficiency) * mdl.es_power_out[n, T[-1]]) == mdl.es_energy[n,0])
 
     def batteryRampLimit(mdl, n_es, t):
         if t == 0:
@@ -206,7 +207,8 @@ def DayAheadModel(microgrid_data,case):
             ice.efficiency * mdl.cs_cold_in[n_cs, t - 1] - (1 / ice.efficiency) * mdl.cs_cold_out[n_cs, t - 1])
 
     optimalDispatch.coldStorageEnergyBalance = Constraint(N_cs, T, rule=coldStorageEnergyBalance)
-    optimalDispatch.coldzero = Constraint(N_cs,rule = lambda mdl,n:mdl.cs_cold_stored[n, T[-1]] == mdl.cs_cold_stored[n, T[0]])
+    optimalDispatch.coldStorageEnergyBalance0 = Constraint(N_cs, rule=lambda mdl,n:mdl.cs_cold_stored[n, T[-1]]* (1 - microgrid_device[n].selfRelease) \
+                                             + step * (microgrid_device[n].efficiency * mdl.cs_cold_in[n, T[-1]] - (1 / microgrid_device[n].efficiency) * mdl.cs_cold_out[n, T[-1]]) == mdl.cs_cold_stored[n,0])
     def coldStorageRampLimit(mdl, n_cs, t):
         if t == 0:
             return Constraint.Skip
@@ -592,7 +594,7 @@ def DayInModel(microgrid_data,case,nowtime,data,realdata):
     # electrical storage
     optimalDispatch.es_power_in = Var(N_es, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax_in))
     optimalDispatch.es_power_out = Var(N_es, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax_out))
-    optimalDispatch.es_power_out_0 = Constraint(N_es,rule = lambda  mdl,i:mdl.es_power_out[i,T[-1]]==0)
+    #optimalDispatch.es_power_out_0 = Constraint(N_es,rule = lambda  mdl,i:mdl.es_power_out[i,T[-1]]==0)
     optimalDispatch.es_energy = Var(N_es, T, bounds=lambda mdl, i, T: (
         microgrid_device[i].SOCmin * microgrid_device[i].capacity,
         microgrid_device[i].SOCmax * microgrid_device[i].capacity))
@@ -616,7 +618,7 @@ def DayInModel(microgrid_data,case,nowtime,data,realdata):
     optimalDispatch.cs_power = Var(N_cs, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax))
     optimalDispatch.cs_cold_in = Var(N_cs, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Hin))
     optimalDispatch.cs_cold_out = Var(N_cs, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Hout))
-    optimalDispatch.cs_cold_out_0 = Constraint(N_cs, rule=lambda mdl, i: mdl.cs_cold_out[i, T[-1]] == 0)
+    #optimalDispatch.cs_cold_out_0 = Constraint(N_cs, rule=lambda mdl, i: mdl.cs_cold_out[i, T[-1]] == 0)
     optimalDispatch.cs_cold_stored = Var(N_cs, T, bounds=lambda mdl, i, T: (
         microgrid_device[i].Tmin * microgrid_device[i].capacity,
         microgrid_device[i].Tmax * microgrid_device[i].capacity))
@@ -755,9 +757,7 @@ def DayInModel(microgrid_data,case,nowtime,data,realdata):
 
     def batteryEnergyBalance(mdl, n_es, t):
         bat = microgrid_device[n_es]
-        if t == 95:
-            return mdl.es_energy[n_es, t] == realdata[n_es+'电池电量'].loc[0]
-        elif t == nowtime:
+        if t == nowtime:
             return mdl.es_energy[n_es, t] == bat.SOCint * bat.capacity
         else:
             return mdl.es_energy[n_es, t] == mdl.es_energy[n_es, t - 1] * (1 - bat.selfRelease) \
@@ -765,6 +765,8 @@ def DayInModel(microgrid_data,case,nowtime,data,realdata):
                 bat.efficiency * mdl.es_power_in[n_es, t - 1] - (1 / bat.efficiency) * mdl.es_power_out[n_es, t - 1])
 
     optimalDispatch.batteryEnergyBalance = Constraint(N_es, T, rule=batteryEnergyBalance)
+    optimalDispatch.batteryEnergyBalance0 = Constraint(N_es, rule=lambda mdl,n:mdl.es_energy[n, T[-1]]* (1 - microgrid_device[n].selfRelease) \
+                                             + step * (microgrid_device[n].efficiency * mdl.es_power_in[n, T[-1]] - (1 / microgrid_device[n].efficiency) * mdl.es_power_out[n, T[-1]]) == realdata[n+'电池电量'].loc[0])
 
     def batteryRampLimit(mdl, n_es, t):
         if t == nowtime:
@@ -780,14 +782,14 @@ def DayInModel(microgrid_data,case,nowtime,data,realdata):
         ice = microgrid_device[n_cs]
         if t == nowtime:
             return mdl.cs_cold_stored[n_cs, t] == ice.Tint * ice.capacity
-        elif t == 95:
-            return mdl.cs_cold_stored[n_cs, t] == realdata[n_cs+'冰蓄冷储冷量'].loc[0]
         else:
             return mdl.cs_cold_stored[n_cs, t] == mdl.cs_cold_stored[n_cs, t - 1] * (1 - ice.selfRelease) \
                                                   + step * (
                 ice.efficiency * mdl.cs_cold_in[n_cs, t - 1] - (1 / ice.efficiency) * mdl.cs_cold_out[n_cs, t - 1])
 
     optimalDispatch.coldStorageEnergyBalance = Constraint(N_cs, T, rule=coldStorageEnergyBalance)
+    optimalDispatch.coldStorageEnergyBalance0 = Constraint(N_cs, rule=lambda mdl,n:mdl.cs_cold_stored[n, T[-1]]* (1 - microgrid_device[n].selfRelease) \
+                                             + step * (microgrid_device[n].efficiency * mdl.cs_cold_in[n, T[-1]] - (1 / microgrid_device[n].efficiency) * mdl.cs_cold_out[n, T[-1]]) == realdata[n+'冰蓄冷储冷量'].loc[0])
 
     def coldStorageRampLimit(mdl, n_cs, t):
         if t == nowtime:
