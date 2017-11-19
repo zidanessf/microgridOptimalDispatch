@@ -1,5 +1,25 @@
 from microgrid_Model import *
+import networkx as nx
 '''Initialize a special case of microgrid'''
+from neo4j.v1 import GraphDatabase
+
+driver = GraphDatabase.driver("bolt://localhost:7687", auth=("zidanessf", "123456"))
+graph = nx.Graph()
+def get_node(tx, name, graph):
+    return tx.run("MATCH (n:$name) RETURN n",name = name)
+
+
+def get_branch(tx, name):
+    for record in tx.run("MATCH (a:Person)-[:KNOWS]->(friend) WHERE a.name = $name "
+                         "RETURN friend.name ORDER BY friend.name", name=name):
+        print(record["friend.name"])
+
+with driver.session() as session:
+    session.write_transaction(add_friends, "Arthur", "Guinevere")
+    session.write_transaction(add_friends, "Arthur", "Lancelot")
+    session.write_transaction(add_friends, "Arthur", "Merlin")
+    session.read_transaction(print_friends, "Arthur")
+
 class MicrogridCase:
     def __init__(self):
         microgrid_device = dict()
