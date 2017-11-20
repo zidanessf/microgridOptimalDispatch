@@ -144,7 +144,7 @@ def DayAheadModel(microgrid_data,case):
     def heatPowerBalance(mdl, t):
         heat_supply = sum(mdl.bol_power[i, t] for i in N_bol) \
                       + sum(
-            microgrid_device[i].HER * microgrid_device[i].heat_recycle * mdl.gt_power[i, t] for i in N_gt)
+            microgrid_device[i].HER * microgrid_device[i].heat_recycle * mdl.gt_power[i, t] for i in N_gt) + mdl.high_heat[t]
         heat_demand = sum(mdl.absc_heat_in[i, t] for i in N_absc)
         return heat_supply >= heat_demand
     optimalDispatch.ht = Var(T)
@@ -381,14 +381,14 @@ def extendedResult(result):
     plt.figure(1)
     plt.rcParams['font.sans-serif'] = ['SimHei']
     load, = plt.plot(-sheet1['电负荷'],linewidth=3.0, linestyle='--', label='电负荷')
-    sheet1colors = ['#f4f441','#42f486','#f412ee','#ff8000','#41b8f4','#4194f4','#7f41f4']
+    sheet1colors = ['#f4f441','#42f486','#f412ee','#ff8000','#41b8f4','#408080','#7f41f4']
     plt.bar(result.index.values.tolist(),sheet1['购电功率'],color = '#f4f441')
     plt.bar(result.index.values.tolist(),sheet1['燃气轮机发电功率'],bottom=sheet1['购电功率'],color = '#42f486')
     plt.bar(result.index.values.tolist(),sheet1['电储能放电功率'],bottom=sheet1['燃气轮机发电功率']+sheet1['购电功率'],color = '#f442ee')
     plt.bar(result.index.values.tolist(), sheet1['光伏出力'], bottom=sheet1['燃气轮机发电功率'] + sheet1['购电功率']+sheet1['电储能放电功率'],
             color='#ff8000')
     plt.bar(result.index.values.tolist(),sheet1['电储能充电功率'],color = '#41b8f4')
-    plt.bar(result.index.values.tolist(),sheet1['冰蓄冷耗电功率'],bottom=sheet1['电储能充电功率'],color = '#4194f4')
+    plt.bar(result.index.values.tolist(),sheet1['冰蓄冷耗电功率'],bottom=sheet1['电储能充电功率'],color = '#408080')
     plt.bar(result.index.values.tolist(),sheet1['空调制冷耗电功率'],bottom=sheet1['冰蓄冷耗电功率']+sheet1['电储能充电功率'],color ='#7f41f4' )
     first_legend = plt.legend([load],('电负荷',))
     ax = plt.gca().add_artist(first_legend)
