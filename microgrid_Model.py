@@ -5,6 +5,10 @@ class PV:
     def show(self):
         return {"om":self.om}
 
+class DRHeatLoad:
+    def __init__(self,upper_bound=1000,lower_bound=-1000):
+        self.upper_bound = 1000
+        self.lower_bound = 1000
 
 class electricStorage:
     def __init__(self, om = 0.005, Cbw = 0.00075 , capacity = 13000, SOCmin = 0.1, SOCmax = 0.9, SOCint = 0.1, Pmax_in = 1250, Pmax_out = 1250, efficiency = 0.95, selfRelease = 0.0025):
@@ -165,6 +169,8 @@ class utility:
         self.gas_utility = {}
         self.CO2_utility = CO2_utility
         self.CO2_user = CO2_user
+        self.PCC = {'maxP':10000,
+                    'maxH':10000}
     def show(self):
         return {"sell_price":self.sell_price,
                 "gas_price":self.gas_price}

@@ -1,4 +1,3 @@
-import pyomo.core.base.log_config
 from pyomo.core.base.config import PyomoOptions
 
 from pyomo.core.base.expr import *
@@ -37,7 +36,6 @@ from pyomo.core.base.rangeset import *
 
 from pyomo.core.base.instance2dat import *
 
-from pyomo.core.base.register_numpy_types import *
 from pyomo.gdp import *
 #
 # This is a hack to strip out modules, which shouldn't have been included in these imports
