@@ -69,7 +69,7 @@ class boiler:
                 "efficiency":self.efficiency}
 
 class heatStorage:
-    def __init__(self, om = 0.04, capacity = 2000, Tmin = 0, Tmax = 0.95, Tint = 0.1, Hmax_in = 1500, Hmax_out = 1500, selfRelease = 0.003):
+    def __init__(self, om = 0.04, capacity = 4000, Tmin = 0, Tmax = 0.95, Tint = 0.1, Hmax_in = 2500, Hmax_out = 2500, selfRelease = 0.003,efficiency=0.95):
         self.om = om
         self.capacity = capacity
         self.Tmin = Tmin
@@ -78,6 +78,7 @@ class heatStorage:
         self.Hmax_in = Hmax_in
         self.Hmax_out = Hmax_out
         self.selfRelease = selfRelease
+        self.efficiency = efficiency
         self.maxDetP = self.Hmax_in * 0.4
         self.result = {}
     def show(self):
@@ -169,8 +170,8 @@ class utility:
         self.gas_utility = {}
         self.CO2_utility = CO2_utility
         self.CO2_user = CO2_user
-        self.PCC = {'maxP':10000,
-                    'maxH':10000}
+        self.PCC = {'maxP':0,
+                    'maxH':0}
     def show(self):
         return {"sell_price":self.sell_price,
                 "gas_price":self.gas_price}
