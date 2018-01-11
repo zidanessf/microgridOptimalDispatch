@@ -38,10 +38,13 @@ def NBI_solver(mdl,objs,max_layer=3):
         xfrm = TransformationFactory('gdp.chull')
         xfrm.apply_to(ins)
         solver = SolverFactory('gurobi')
-        solver.solve(ins)
-        res = [{'point':np.array([value(obj(ins)) for obj in objs]),
-                      'result':optimizationModel.retriveResult(microgrid_data,case,ins),
-                      'objective':ins.name}]
+        result = solver.solve(ins)
+        if result.solver.termination_condition == TerminationCondition.optimal:
+            res = [{'point': np.array([value(obj(ins)) for obj in objs]),
+                    'result': optimizationModel.retriveResult(microgrid_data, case, ins),
+                    'objective': ins.name}]
+        else:
+            res = []
         if now_layer >= max_layer:
             return res
         else:
@@ -68,6 +71,6 @@ obj_min_cost = optimalDispatch.obj_Economical#最小化运行成本
 def obj_min_CO2(mdl):
     return case.device['ut'].CO2_gas*mdl.Fuel_Cost(mdl)/case.device['ut'].gas_price
 '''Solve the model'''
-CHULL = NBI_solver(optimalDispatch,[obj_min_cost,obj_max_wind,obj_min_CO2],max_layer=2)
+CHULL = NBI_solver(optimalDispatch,[obj_min_cost,obj_max_wind,obj_min_CO2],max_layer=4)
 for c in CHULL:
     print(c['objective'],' : ',c['point'])
