@@ -164,12 +164,25 @@ def DayAheadModel(microgrid_data,case):
     optimalDispatch.ACPowerBalance = Constraint(T, rule=ACPowerBalance)
     optimalDispatch.DCPowerBalance = Constraint(T, rule=DCPowerBalance)
     '''热功率平衡约束'''
+    optimalDispatch.net_heat_plant = Var(T,domain=PositiveReals)
+    optimalDispatch.net_heat_load = Var(T,domain=PositiveReals)
+    def heatPowerBalance_inside_plant(mdl,t):
+        heat_supply = sum(mdl.bol_power[i, t] for i in N_bol) \
+                      + sum(microgrid_device[i].HER * microgrid_device[i].heat_recycle * mdl.gt_power[i, t] for i in N_gt)\
+
+        heat_demand =   mdl.net_heat_plant[t]
+        return heat_supply == heat_demand
+
+    optimalDispatch.heatPowerBalance_inside_plant = Constraint(T, rule=heatPowerBalance_inside_plant)
+    def heatPowerBalance_inside_load(mdl,t):
+        heat_supply = mdl.net_heat_load[t] + 0.9*sum(mdl.ac_power[i, t] for i in N_ac)+ sum(mdl.hs_heat_out[i,t] for i in N_hs)
+        heat_demand = steam_heat_load[t] + water_heat_load[t] + sum(mdl.hs_heat_in[i,t] for i in N_hs)
+        return heat_supply == heat_demand
+    optimalDispatch.heatPowerBalance_inside_load = Constraint(T, rule=heatPowerBalance_inside_load)
     def heatPowerBalance(mdl, t):
         heat_supply = sum(mdl.ac_power[i, t] * microgrid_device[i].COP for i in N_ac)\
-                      +sum(mdl.bol_power[i, t] for i in N_bol) \
-                      + sum(
-            microgrid_device[i].HER * microgrid_device[i].heat_recycle * mdl.gt_power[i, t] for i in N_gt) + mdl.buy_heat[t] + sum(mdl.hs_heat_out[i,t] for i in N_hs)
-        heat_demand = sum(mdl.absc_heat_in[i, t] for i in N_absc) + steam_heat_load[t] + water_heat_load[t] + sum(mdl.hs_heat_in[i,t] for i in N_hs)
+                      + mdl.net_heat_plant[t]
+        heat_demand = sum(mdl.absc_heat_in[i, t] for i in N_absc) + mdl.net_heat_load[t]
         return heat_supply == heat_demand
 
     optimalDispatch.heatPowerBalance = Constraint(T, rule=heatPowerBalance)
@@ -289,10 +302,10 @@ def DayAheadModel(microgrid_data,case):
             if (id in N_ac):
                 om_cost += microgrid_device[id].om * step * sum(mdl.ac_power[id, t] for t in T)
         return om_cost
-
+    optimalDispatch.OM_Cost = OM_Cost
     def Dep_Cost(mdl):
         return sum(sum(microgrid_device[id].Cbw * step * mdl.es_power_out[id, t] for id in N_es) for t in T)
-
+    optimalDispatch.Dep_Cost = Dep_Cost
     def Fuel_Cost(mdl):
         fuel_cost = 0
         for id in N_gt:
@@ -303,19 +316,22 @@ def DayAheadModel(microgrid_data,case):
                 mdl.bol_power[id, t] for t in T)
         return fuel_cost
 
+    optimalDispatch.Fuel_Cost = Fuel_Cost
     def ElectricalFee(mdl):
         return step * sum(mdl.utility_power[t] * microgrid_device['ut'].buy_price[t] for t in T)
 
+    optimalDispatch.ElectricalFee = ElectricalFee
     def HeatFee(mdl):
         return step * sum(mdl.buy_heat[t] for t in T) * microgrid_device['ut'].steam_price
+
+    optimalDispatch.HeatFee = HeatFee
     def StartShutdownFee(mdl):
         return sum(microgrid_device[n].ON_OFF_COST*sum(mdl.gt_auxvar[n,t] for t in T) for n in N_gt) + sum(microgrid_device[n].ON_OFF_COST*sum(mdl.bol_auxvar[n,t] for t in T) for n in N_bol)
+
+    optimalDispatch.StartShutdownFee = StartShutdownFee
     def obj_Economical(mdl):
         return OM_Cost(mdl) + Dep_Cost(mdl) + Fuel_Cost(mdl) + ElectricalFee(mdl) + HeatFee(mdl)+StartShutdownFee(mdl)
-
-    def obj_maxwind(mdl):
-        return -sum(mdl.wind[t] for t in T)
-    optimalDispatch.objective = Objective(rule=obj_maxwind)
+    optimalDispatch.obj_Economical = obj_Economical
     return optimalDispatch
 def retriveResult(microgrid_data,case,model):
     microgrid_device = case.device
@@ -354,18 +370,19 @@ def retriveResult(microgrid_data,case,model):
         df[es + '电储能放电功率'] = pd.Series([value(model.es_power_out[es, t]) for t in T],index=T)
     for hs in N_hs:
         df[hs + '储热量'] = pd.Series([value(model.hs_heat_stored[hs,t]) for t in T])
-        df[hs + '储冷功率'] = pd.Series([value(model.hs_heat_in[hs, t]) for t in T],index=T)
+        df[hs + '储热功率'] = pd.Series([value(model.hs_heat_in[hs, t]) for t in T],index=T)
         df[hs + '供热功率'] = pd.Series([value(model.hs_heat_out[hs, t]) for t in T],index=T)
+    df['风机最大出力'] = pd.Series(pv_output)
+    df['风机实际出力'] = pd.Series([value(model.wind[t]) for t in T], index=T)
     for gt in N_gt:
         df[gt + '机组出力'] = pd.Series([value(model.gt_power[gt, t]) for t in T],index=T)
         df[gt + '余热锅炉热功率'] = pd.Series(
             [value(model.gt_power[gt, t]) * microgrid_device[gt].HER * microgrid_device[gt].heat_recycle for t
              in T],index=T)
-    df['风机最大出力'] = pd.Series(pv_output)
-    df['风机实际出力'] = pd.Series([value(model.wind[t]) for t in T],index=T)
+
     for ac in N_ac:
         df[ac + '空调制热耗电功率'] = pd.Series([value(model.ac_power[ac, t]) for t in T],index=T)
-        df[ac + '空调制热功率'] = df[ac + '空调制热耗电功率'] * microgrid_device[ac].EER
+        df[ac + '空调制热功率'] = df[ac + '空调制热耗电功率'] * microgrid_device[ac].COP
     for cs in N_cs:
         df[cs + '冰蓄冷耗电功率'] = pd.Series([value(model.cs_power[cs, t]) for t in T],index=T)
         df[cs + '冰蓄冷储冷功率'] = pd.Series([value(model.cs_cold_in[cs, t]) for t in T],index=T)

@@ -140,7 +140,7 @@ class airConditioner:## P>=0 cooling, P<0 heating
                 "COP":self.COP}
 
 class gasTurbine:
-    def __init__(self, om = 0.063, Pmax = 1000, Pmin = 50, efficiency = 0.33, heat_recycle = 0.6,maxDetP=500,ON_OFF_COST=200):
+    def __init__(self, om = 0.063, Pmax = 1000, Pmin = 50, efficiency = 0.33, heat_recycle = 0.8,maxDetP=500,ON_OFF_COST=200):
         self.om = om
         self.Pmax = Pmax
         self.Pmin = Pmin
@@ -161,7 +161,7 @@ class gasTurbine:
 
 
 class utility:
-    def __init__(self, buy_price = 0.8, sell_price = 0, gas_price = 0.349,steam_price = 348/996, CO2_utility = 0.997, CO2_user = 0.18):
+    def __init__(self, buy_price = 0.8, sell_price = 0, gas_price = 0.349,steam_price = 348/996, CO2_utility = 0.997, CO2_gas = 0.18):
         self.buy_price = buy_price
         self.sell_price = sell_price
         self.gas_price = gas_price
@@ -169,7 +169,7 @@ class utility:
         self.steam_price = steam_price
         self.gas_utility = {}
         self.CO2_utility = CO2_utility
-        self.CO2_user = CO2_user
+        self.CO2_gas = CO2_gas #每立方米燃气的CO2排放量
         self.PCC = {'maxP':0,
                     'maxH':0}
     def show(self):
