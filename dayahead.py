@@ -13,7 +13,7 @@ optimalDispatch = optimizationModel.DayAheadModel(microgrid_data,case)
 '''Solve the base model'''
 xfrm = TransformationFactory('gdp.chull')
 xfrm.apply_to(optimalDispatch)
-solver = SolverFactory('glpk')
+solver = SolverFactory('gurobi')
 solver.solve(optimalDispatch)
 print('自趋优：'+str(value(optimalDispatch.objective)))
 '''Retrieve the result'''

@@ -20,14 +20,14 @@ class MicrogridCase:
         microgrid_device['PV_1'] = PV()
         #microgrid_device['ES_1'] = electricStorage()
         #microgrid_device['ABSC_1'] = absorptionChiller()
-        microgrid_device['Boiler_1'] = boiler(Pmax=3000)
+        microgrid_device['Boiler_1'] = boiler(Pmax=100)
         #microgrid_device['CS_1'] = coldStorage()
-        microgrid_device['AC_1'] = airConditioner(Pmax=1500)
-        microgrid_device['GT_1'] = gasTurbine()
+        microgrid_device['AC_1'] = airConditioner(Pmax=140,COP=1.05)
+        microgrid_device['GT_1'] = gasTurbine(heat_recycle=0.8)
         #microgrid_device['DR_Heat_Load'] = DRHeatLoad()
         microgrid_device['ut'] = utility()
-        microgrid_device['inv'] = inverter(maxP=100000)
-        microgrid_device['HS_1'] = heatStorage(capacity=10000)
+        microgrid_device['inv'] = inverter(maxP=1000)
+        microgrid_device['HS_1'] = heatStorage(capacity=1350,Hmax_in=150,Hmax_out=150)
         self.device = microgrid_device
         self.NumOfTime = 96
     def getKey(self,type):

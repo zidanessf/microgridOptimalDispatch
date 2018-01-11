@@ -79,7 +79,7 @@ def DayAheadModel(microgrid_data,case):
     optimalDispatch.inv_dc = Var(T, bounds=(
     0, microgrid_device['inv'].maxP))  # inv_dc > 0 means energy flows from inverter to dc side
     # utility power
-    optimalDispatch.utility_power = Var(T, domain=PositiveReals)
+    optimalDispatch.utility_power = Var(T, bounds=(0,0))
 
     '''define disjuncts(states)'''
     '''Battery'''
@@ -165,7 +165,7 @@ def DayAheadModel(microgrid_data,case):
     optimalDispatch.DCPowerBalance = Constraint(T, rule=DCPowerBalance)
     '''热功率平衡约束'''
     def heatPowerBalance(mdl, t):
-        heat_supply = sum(mdl.ac_power[i, t] * microgrid_device[i].EER for i in N_ac)\
+        heat_supply = sum(mdl.ac_power[i, t] * microgrid_device[i].COP for i in N_ac)\
                       +sum(mdl.bol_power[i, t] for i in N_bol) \
                       + sum(
             microgrid_device[i].HER * microgrid_device[i].heat_recycle * mdl.gt_power[i, t] for i in N_gt) + mdl.buy_heat[t] + sum(mdl.hs_heat_out[i,t] for i in N_hs)
@@ -358,12 +358,9 @@ def retriveResult(microgrid_data,case,model):
         df[hs + '供热功率'] = pd.Series([value(model.hs_heat_out[hs, t]) for t in T],index=T)
     for gt in N_gt:
         df[gt + '机组出力'] = pd.Series([value(model.gt_power[gt, t]) for t in T],index=T)
-        df[gt + '余热锅炉中品位热功率'] = pd.Series(
+        df[gt + '余热锅炉热功率'] = pd.Series(
             [value(model.gt_power[gt, t]) * microgrid_device[gt].HER * microgrid_device[gt].heat_recycle for t
              in T],index=T)
-        df[gt + '余热锅炉低品位热功率'] = pd.Series(
-            [value(model.gt_power[gt, t]) * microgrid_device[gt].HER * microgrid_device[gt].low_heat_recycle for t
-             in T], index=T)
     df['风机最大出力'] = pd.Series(pv_output)
     df['风机实际出力'] = pd.Series([value(model.wind[t]) for t in T],index=T)
     for ac in N_ac:
