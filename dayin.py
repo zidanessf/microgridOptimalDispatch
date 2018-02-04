@@ -7,15 +7,30 @@ import optimizationModel,microgridStructure
 case = microgridStructure.MicrogridCase()
 '''Load input data'''
 microgrid_data = pd.read_excel('input.xlsx')
-contract = pd.read_excel('DayAhead Electric DR.xlsx',sheetname='1')
-actual = pd.read_excel('DayAhead Electric DR.xlsx',sheetname='1')
+Econtract = pd.read_excel('DayAhead Electric DR.xlsx',sheetname='1')
+Hcontract = []
+case.SOCUpdate(plan = Econtract, nowtime = 4)
+input_data = {
+    "microgrid_data" : microgrid_data,
+    "case" : case,
+    "refE" : Econtract['购电功率'],
+    "refH" : [],
+    "refSS" : {
+        'GT_1':[1 if p > 0.1 else 0 for p in Econtract['GT_1机组出力']],
+        'Boiler_1':[1 if p > 0.1 else 0 for p in Econtract['Boiler_1燃气锅炉热功率']]
+    },
+    "peak" : range(72,76),
+    "T_range" : range(4,96)
+}
 '''Construct base model'''
-optimalDispatch = optimizationModel.DayInModel(microgrid_data,case,nowtime=16,data=contract,realdata=actual)
+optimalDispatch = optimizationModel.DayInModel(**input_data)
 '''Solve the base model'''
 xfrm = TransformationFactory('gdp.chull')
 xfrm.apply_to(optimalDispatch)
 solver = SolverFactory('glpk')
 solver.solve(optimalDispatch)
+# optimalDispatch.P_0 = [value(optimalDispatch.utility_power[t]) for t in optimalDispatch.T]
+# optimalDispatch.H_0 = [value(optimalDispatch.buy_heat[t]) for t in optimalDispatch.T]
 print('自趋优：'+str(value(optimalDispatch.objective)))
 '''Retrieve the result'''
 result = optimizationModel.retriveResult(microgrid_data,case,optimalDispatch)

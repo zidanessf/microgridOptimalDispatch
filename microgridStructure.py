@@ -31,3 +31,8 @@ class MicrogridCase:
         self.NumOfTime = 96
     def getKey(self,type):
         return [key for key in self.device.keys() if isinstance(self.device[key], type)]
+    def SOCUpdate(self, plan, nowtime):
+        N_es = self.getKey(electricStorage)
+        for es in N_es:
+            self.device[es].SOCnow = plan[es + '电池电量'].loc[nowtime] / self.device[es].capacity
+

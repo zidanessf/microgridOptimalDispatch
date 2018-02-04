@@ -7,8 +7,8 @@ class PV:
 
 class DRHeatLoad:
     def __init__(self,upper_bound=1000,lower_bound=-1000):
-        self.upper_bound = 1000
-        self.lower_bound = 1000
+        self.upper_bound = upper_bound
+        self.lower_bound = lower_bound
 
 class electricStorage:
     def __init__(self, om = 0.005, Cbw = 0.00075 , capacity = 13000, SOCmin = 0.1, SOCmax = 0.9, SOCint = 0.1, Pmax_in = 1250, Pmax_out = 1250, efficiency = 0.95, selfRelease = 0.0025):
@@ -26,6 +26,7 @@ class electricStorage:
         self.power_into = {}
         self.power_outof = {}
         self.energy = {}
+        self.SOCnow = SOCint
     def show(self):
         return {"om":self.om,
                 "Cbw":self.Cbw,
