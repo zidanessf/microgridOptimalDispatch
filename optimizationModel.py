@@ -30,6 +30,7 @@ def DayAheadModel(microgrid_data,case,T_range):
     optimalDispatch.T = T
     optimalDispatch.T_range = T_range
     optimalDispatch.input = microgrid_data
+    optimalDispatch.case = case
     '''define variables'''
     # electrical storage
     optimalDispatch.es_power_in = Var(N_es, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax_in))
@@ -146,8 +147,8 @@ def DayAheadModel(microgrid_data,case,T_range):
     optimalDispatch.HPB1 = Constraint(T, rule=lambda mdl, t: mdl.medium_heat[t] == mdl.buy_heat[t] + sum(
         mdl.bol_power[n_bol, t] for n_bol in N_bol) + sum(mdl.gt_power[n_gt, t] * microgrid_device[n_gt].HER * microgrid_device[n_gt].heat_recycle for n_gt in N_gt))
     optimalDispatch.HPB2 = Constraint(T,rule = lambda mdl,t:mdl.medium_heat[t] >= steam_heat_load[t])
-    optimalDispatch.HPB3 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] <= (H2M) * steam_heat_load[t])
-    optimalDispatch.HPB4 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] + mdl.medium_heat[t] == water_heat_load[t] + steam_heat_load[t] + sum(mdl.absc_heat_in[n_absc, t] for n_absc in N_absc))
+    optimalDispatch.HPB3 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] == (H2M) * steam_heat_load[t])
+    optimalDispatch.HPB4 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] + mdl.medium_heat[t] >= water_heat_load[t] + steam_heat_load[t] + sum(mdl.absc_heat_in[n_absc, t] for n_absc in N_absc))
     # TODO 完善高中低品味热模型
     '''冷功率平衡约束'''
 
@@ -506,6 +507,7 @@ def responseModel(mdl,case,peak,amount,mode):
         model.P_ref = [8000]*len(T)
     model.DRHeatLoad = Var(peak,bounds=(case.device['DR_Heat_Load'].lower_bound,case.device['DR_Heat_Load'].upper_bound))
     steam_heat_load = microgrid_data['蒸汽负荷'].tolist()
+    water_heat_load = microgrid_data['热水负荷'].tolist()
     # '''热损失惩罚函数'''
     # def wastingHeatPenalty(mdl):
     #     return 100000*sum(mdl.medium_heat[t] - steam_heat_load[t] for t in mdl.T)
@@ -537,10 +539,28 @@ def responseModel(mdl,case,peak,amount,mode):
         del model.HPB2_index
         del model.HPB3
         del model.HPB3_index
-        model.HPB2 = Constraint(T,rule=lambda mdl,t:mdl.medium_heat[t] == steam_heat_load[t] + mdl.DRHeatLoad[t] if t in peak else
-        model.medium_heat[t] >= steam_heat_load[t])
-        model.HPB3 = Constraint(T,rule=lambda mdl,t:mdl.low_heat[t] <= H2M*(steam_heat_load[t] + mdl.DRHeatLoad[t]) if t in peak else
-        model.low_heat[t] <= H2M * (steam_heat_load[t]))
+        del model.HPB4
+        del model.HPB4_index
+        N_absc = model.case.getKey(absorptionChiller)
+        def low_heat_enough_or_not(b, t, indicator):
+            m = b.model()
+            if indicator == 0:  # low heat is not enough
+                b.low_heat_state = Constraint(expr=m.low_heat[t] <= water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc))
+                b.HPB2 = Constraint(T,rule=lambda mdl, t: m.medium_heat[t] + m.low_heat[t]==
+                                                              steam_heat_load[t] + m.DRHeatLoad[t] + water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc) if t in peak else
+                m.medium_heat[t] == steam_heat_load[t] + water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc))
+            else:
+                b.low_heat_state = Constraint(expr=m.low_heat[t] >= water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc))
+                b.HPB2 = Constraint(T,rule=lambda mdl, t: m.medium_heat[t] + m.low_heat[t] == steam_heat_load[t] + m.DRHeatLoad[t] if t in peak else
+                m.medium_heat[t] >= steam_heat_load[t])
+        model.low_heat_enough_or_not = Disjunct(T, [0, 1], rule=low_heat_enough_or_not)
+
+        def low_heat_enough_disjunct(mdl, t):
+            return [mdl.low_heat_enough_or_not[t, 0], mdl.low_heat_enough_or_not[t, 1]]
+
+        model.low_heat_enough_disjunct = Disjunction(T, rule=low_heat_enough_disjunct)
+        model.HPB3 = Constraint(T,rule=lambda mdl,t:mdl.low_heat[t] == H2M*(steam_heat_load[t] + mdl.DRHeatLoad[t]) if t in peak else
+        model.low_heat[t] == H2M * (steam_heat_load[t]))
     model.mode = mode
     xfrm = TransformationFactory('gdp.chull')
     xfrm.apply_to(model)
