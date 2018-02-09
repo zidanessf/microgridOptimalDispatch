@@ -539,28 +539,33 @@ def responseModel(mdl,case,peak,amount,mode):
         del model.HPB2_index
         del model.HPB3
         del model.HPB3_index
-        del model.HPB4
-        del model.HPB4_index
+        # del model.HPB4
+        # del model.HPB4_index
         N_absc = model.case.getKey(absorptionChiller)
-        def low_heat_enough_or_not(b, t, indicator):
-            m = b.model()
-            if indicator == 0:  # low heat is not enough
-                b.low_heat_state = Constraint(expr=m.low_heat[t] <= water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc))
-                b.HPB2 = Constraint(T,rule=lambda mdl, t: m.medium_heat[t] + m.low_heat[t]==
-                                                              steam_heat_load[t] + m.DRHeatLoad[t] + water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc) if t in peak else
-                m.medium_heat[t] == steam_heat_load[t] + water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc))
-            else:
-                b.low_heat_state = Constraint(expr=m.low_heat[t] >= water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc))
-                b.HPB2 = Constraint(T,rule=lambda mdl, t: m.medium_heat[t] + m.low_heat[t] == steam_heat_load[t] + m.DRHeatLoad[t] if t in peak else
-                m.medium_heat[t] >= steam_heat_load[t])
-        model.low_heat_enough_or_not = Disjunct(T, [0, 1], rule=low_heat_enough_or_not)
-
-        def low_heat_enough_disjunct(mdl, t):
-            return [mdl.low_heat_enough_or_not[t, 0], mdl.low_heat_enough_or_not[t, 1]]
-
-        model.low_heat_enough_disjunct = Disjunction(T, rule=low_heat_enough_disjunct)
+        # def low_heat_enough_or_not(b, t, indicator):
+        #     m = b.model()
+        #     if indicator == 0:  # low heat is not enough
+        #         b.low_heat_state = Constraint(expr=m.low_heat[t] <= water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc))
+        #         b.HPB2 = Constraint(T,rule=lambda mdl, t: m.medium_heat[t] + m.low_heat[t]==
+        #                                                       steam_heat_load[t] + m.DRHeatLoad[t] + water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc) if t in peak else
+        #         m.medium_heat[t] == steam_heat_load[t] + water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc))
+        #     else:
+        #         b.low_heat_state = Constraint(expr=m.low_heat[t] >= water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc))
+        #         b.HPB2 = Constraint(T,rule=lambda mdl, t: m.medium_heat[t] + m.low_heat[t] == steam_heat_load[t] + m.DRHeatLoad[t] if t in peak else
+        #         m.medium_heat[t] >= steam_heat_load[t])
+        # model.low_heat_enough_or_not = Disjunct(T, [0, 1], rule=low_heat_enough_or_not)
+        #
+        # def low_heat_enough_disjunct(mdl, t):
+        #     return [mdl.low_heat_enough_or_not[t, 0], mdl.low_heat_enough_or_not[t, 1]]
+        #
+        # model.low_heat_enough_disjunct = Disjunction(T, rule=low_heat_enough_disjunct)
+        model.HPB2_1 = Constraint(T,rule = lambda mdl,t:mdl.medium_heat[t] >= steam_heat_load[t] + mdl.DRHeatLoad[t] if t in peak else
+                                  mdl.medium_heat[t] >= steam_heat_load[t])
+        model.HPB2_2 = Constraint(T,rule = lambda mdl,t:mdl.medium_heat[t] <= steam_heat_load[t] + mdl.DRHeatLoad[t] + sum(mdl.absc_heat_in[n_absc, t] for n_absc in N_absc) if t in peak else
+                                  Constraint.Skip)
         model.HPB3 = Constraint(T,rule=lambda mdl,t:mdl.low_heat[t] == H2M*(steam_heat_load[t] + mdl.DRHeatLoad[t]) if t in peak else
         model.low_heat[t] == H2M * (steam_heat_load[t]))
+
     model.mode = mode
     xfrm = TransformationFactory('gdp.chull')
     xfrm.apply_to(model)
