@@ -9,14 +9,13 @@ case = microgridStructure.MicrogridCase()
 microgrid_data = pd.read_excel('input.xlsx')
 '''Construct base model'''
 optimalDispatch = optimizationModel.DayAheadModel(microgrid_data,case,range(96))
+
 '''Solve the base model'''
 xfrm = TransformationFactory('gdp.chull')
 xfrm.apply_to(optimalDispatch)
 solver = SolverFactory('glpk')
 solver.solve(optimalDispatch)
 print('自趋优：'+str(value(optimalDispatch.objective)))
-raise Exception('优化结束')
-
 '''Retrieve the result'''
 result = optimizationModel.retriveResult(microgrid_data,case,optimalDispatch)
 result.to_excel('output.xlsx')
