@@ -5,7 +5,7 @@
 #   Problem Information
 # ----------------------------------------------------------
 Problem: 
-- Name: unknown
+- Name: IES_optimalDispatch
   Lower bound: -inf
   Upper bound: inf
   Number of objectives: None
@@ -21,31 +21,5 @@ Problem:
 Solver: 
 - Name: None
   Status: ok
-  Wallclock time: 0.15349435806274414
+  Wallclock time: 0.25035881996154785
   Termination condition: optimal
-# ----------------------------------------------------------
-#   Solution Information
-# ----------------------------------------------------------
-Solution: 
-- number of solutions: 1
-  number of solutions displayed: 1
-- Gap: 0.0
-  Status: optimal
-  Message: Model was solved to optimality (subject to tolerances), and an optimal solution is available.
-  Objective:
-    o:
-      Value: 3
-    sub.o:
-      Value: 2.5
-  Variable:
-    sub.t:
-      Value: 1
-    sub.w:
-      Value: 0.5
-    sub.y:
-      Value: 1
-    v:
-      Value: 1
-    x:
-      Value: 1
-  Constraint: No values
