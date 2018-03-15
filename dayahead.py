@@ -11,7 +11,8 @@ microgrid_data = pd.read_excel('input.xlsx')
 optimalDispatch = optimizationModel.DayAheadModel(microgrid_data,case,range(96))
 
 '''Solve the base model'''
-xfrm = TransformationFactory('gdp.chull')
+# xfrm = TransformationFactory('gdp.chull')
+xfrm = TransformationFactory('mpec.simple_disjunction')
 xfrm.apply_to(optimalDispatch)
 solver = SolverFactory('glpk')
 solver.solve(optimalDispatch)
