@@ -41,7 +41,7 @@ class electricStorage:
 
 
 class absorptionChiller:
-    def __init__(self, om = 0.00008, COP_htc = 0.8, COP_hth = 1, Hmin = 0, Hmax = 1000, ElecCost = 0.02):
+    def __init__(self, om = 0.00008, COP_htc = 0.8, COP_hth = 1, Hmin = 0, Hmax = 1000, ElecCost = 0.002):
         self.om = om
         self.COP_htc = COP_htc
         self.COP_hth = COP_hth

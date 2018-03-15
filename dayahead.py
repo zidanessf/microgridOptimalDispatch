@@ -1,4 +1,5 @@
 from importFile import *
+from pyomo.bilevel import *
 from microgrid_Model import *
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -10,13 +11,16 @@ microgrid_data = pd.read_excel('input.xlsx')
 '''Construct base model'''
 optimalDispatch = optimizationModel.DayAheadModel(microgrid_data,case,range(96))
 '''Solve the base model'''
-xfrm = TransformationFactory('gdp.chull')
+xfrm = TransformationFactory('bilevel.linear_mpec')
 xfrm.apply_to(optimalDispatch)
-solver = SolverFactory('glpk')
+xfrm = TransformationFactory('bilevel.linear_mpec')
+xfrm.apply_to(optimalDispatch)
+solver = SolverFactory('gurobi')
 solver.solve(optimalDispatch)
 print('-------经济性最优----------')
-print('总运行成本：'+str(value(optimalDispatch.obj_Economical(optimalDispatch))))
-print('能效： '+str(1/value(optimalDispatch.obj_Efficiency(optimalDispatch))))
+print('总运行成本：'+str(value(optimalDispatch.sub.obj_Economical(optimalDispatch))))
+print('能效： '+str(1/value(optimalDispatch.sub.obj_Efficiency(optimalDispatch))))
+raise Exception
 c11 = value(optimalDispatch.obj_Economical(optimalDispatch))
 c12 = value(optimalDispatch.obj_Efficiency(optimalDispatch))
 del optimalDispatch.objective

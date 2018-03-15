@@ -1,11 +1,13 @@
-from neo4j.v1 import GraphDatabase
-import networkx as nx
-driver = GraphDatabase.driver("bolt://localhost:7687", auth=("zidanessf", "123456"))
-G = nx.Graph()
-def get_node(tx,keyword,graph):
-    mylist = list()
-    for record in tx.run("MATCH (n:{}) RETURN n".format(keyword)):
-        graph.add_node(record._values[0].id,record._values[0].properties)
-    return graph
-s = driver.session()
-s.read_transaction(get_node,'ENERGYCONSUMER',G)
+from importFile import *
+from pyomo.bilevel import *
+model = ConcreteModel()
+model.x = Var(bounds=(1,2))
+model.v = Var(bounds=(1,2))
+model.sub = SubModel()
+model.sub.y = Var(bounds=(1,2))
+model.sub.t = Var(within=Binary)
+model.sub.w = Var(bounds=(-1,1))
+model.o = Objective(expr=model.x + model.sub.y + model.v)
+model.c = Constraint(expr=model.x + model.v >= 1.5)
+model.sub.o = Objective(expr=model.x + model.sub.w+model.sub.t, sense=maximize)
+model.sub.c = Constraint(expr=model.sub.y + model.sub.w + model.sub.t<= 2.5)
