@@ -15,7 +15,7 @@ def get_branch(tx, name):
         print(record["friend.name"])
 
 class MicrogridCase:
-    def __init__(self):
+    def __init__(self,device,NumOfTime,graph=None):
         microgrid_device = dict()
         microgrid_device['PV_1'] = PV()
         microgrid_device['ES_1'] = electricStorage()
@@ -36,3 +36,30 @@ class MicrogridCase:
         for es in N_es:
             self.device[es].SOCnow = plan[es + '电池电量'].loc[nowtime] / self.device[es].capacity
 
+device_IES = {
+    'PV_1' : PV(),
+    'ES_1' : electricStorage(),
+    'ABSC_1' : absorptionChiller(),
+    'BOL_1' : boiler(),
+    'CS_1' : coldStorage(),
+    'AC_1' : airConditioner(),
+    'GT_1' : gasTurbine(),
+    'DR_Heat_Load' : DRHeatLoad(),
+    'ut' : utility(),
+    'inv' : inverter()
+}
+case_IES = MicrogridCase(device=device_IES,NumOfTime=96)
+
+device_PS = {
+    'PV_1' : PV(),
+    'ES_1' : electricStorage(),
+    'ABSC_1' : absorptionChiller(),
+    'BOL_1' : boiler(),
+    'CS_1' : coldStorage(),
+    'AC_1' : airConditioner(),
+    'GT_1' : gasTurbine(),
+    'DR_Heat_Load' : DRHeatLoad(),
+    'ut' : utility(),
+    'inv' : inverter()
+}
+graph_PS = nx.Graph()
