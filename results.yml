@@ -21,5 +21,2591 @@ Problem:
 Solver: 
 - Name: None
   Status: ok
-  Wallclock time: 0.25035881996154785
+  Wallclock time: 22.780288696289062
   Termination condition: optimal
+# ----------------------------------------------------------
+#   Solution Information
+# ----------------------------------------------------------
+Solution: 
+- number of solutions: 1
+  number of solutions displayed: 1
+- Gap: 0.0
+  Status: optimal
+  Message: Model was solved to optimality (subject to tolerances), and an optimal solution is available.
+  Objective:
+    objective:
+      Value: -121767.97595423306
+    sub.objective:
+      Value: 121767.97595423306
+  Variable:
+    sub.absc_heat_in[ABSC_1,15]:
+      Value: 5.17252
+    sub.absc_heat_in[ABSC_1,16]:
+      Value: 9.59852
+    sub.absc_heat_in[ABSC_1,17]:
+      Value: 18.02452
+    sub.absc_heat_in[ABSC_1,18]:
+      Value: 29.45052
+    sub.absc_heat_in[ABSC_1,19]:
+      Value: 34.87652
+    sub.absc_heat_in[ABSC_1,20]:
+      Value: 56.30252
+    sub.absc_heat_in[ABSC_1,21]:
+      Value: 54.72852
+    sub.absc_heat_in[ABSC_1,22]:
+      Value: 69.15452
+    sub.absc_heat_in[ABSC_1,23]:
+      Value: 52.58052
+    sub.absc_heat_in[ABSC_1,24]:
+      Value: 56.00652
+    sub.absc_heat_in[ABSC_1,25]:
+      Value: 53.70252
+    sub.absc_heat_in[ABSC_1,26]:
+      Value: 57.25252
+    sub.absc_heat_in[ABSC_1,27]:
+      Value: 60.80252
+    sub.absc_heat_in[ABSC_1,28]:
+      Value: 64.35252
+    sub.absc_heat_in[ABSC_1,29]:
+      Value: 47.90252
+    sub.absc_heat_in[ABSC_1,30]:
+      Value: 51.45252
+    sub.absc_heat_in[ABSC_1,31]:
+      Value: 55.00252
+    sub.absc_heat_in[ABSC_1,32]:
+      Value: 38.55252
+    sub.absc_heat_in[ABSC_1,33]:
+      Value: 22.10252
+    sub.absc_heat_in[ABSC_1,34]:
+      Value: 5.65252
+    sub.absc_heat_in[ABSC_1,36]:
+      Value: 12.75252
+    sub.absc_heat_in[ABSC_1,37]:
+      Value: 27.9214
+    sub.absc_heat_in[ABSC_1,38]:
+      Value: 15.4254
+    sub.absc_heat_in[ABSC_1,39]:
+      Value: 43.9294
+    sub.absc_heat_in[ABSC_1,40]:
+      Value: 60.4334
+    sub.absc_heat_in[ABSC_1,41]:
+      Value: 82.9374
+    sub.absc_heat_in[ABSC_1,42]:
+      Value: 56.29788
+    sub.absc_heat_in[ABSC_1,44]:
+      Value: 12.56768
+    sub.absc_heat_in[ABSC_1,45]:
+      Value: 35.89478
+    sub.absc_heat_in[ABSC_1,46]:
+      Value: 59.22188
+    sub.absc_heat_in[ABSC_1,47]:
+      Value: 74.77298
+    sub.absc_heat_in[ABSC_1,48]:
+      Value: 195.766784
+    sub.absc_heat_in[ABSC_1,49]:
+      Value: 204.640496
+    sub.absc_heat_in[ABSC_1,50]:
+      Value: 253.514208
+    sub.absc_heat_in[ABSC_1,51]:
+      Value: 265.35432
+    sub.absc_heat_in[ABSC_1,52]:
+      Value: 284.394432
+    sub.absc_heat_in[ABSC_1,53]:
+      Value: 303.434544
+    sub.absc_heat_in[ABSC_1,54]:
+      Value: 322.474656
+    sub.absc_heat_in[ABSC_1,55]:
+      Value: 341.514768
+    sub.absc_heat_in[ABSC_1,56]:
+      Value: 361.67328
+    sub.absc_heat_in[ABSC_1,57]:
+      Value: 360.039792
+    sub.absc_heat_in[ABSC_1,58]:
+      Value: 366.1782
+    sub.absc_heat_in[ABSC_1,59]:
+      Value: 361.163008
+    sub.absc_heat_in[ABSC_1,60]:
+      Value: 316.147816
+    sub.absc_heat_in[ABSC_1,61]:
+      Value: 247.233424
+    sub.absc_heat_in[ABSC_1,62]:
+      Value: 238.319032
+    sub.absc_heat_in[ABSC_1,63]:
+      Value: 244.56784
+    sub.absc_heat_in[ABSC_1,64]:
+      Value: 250.816648
+    sub.absc_heat_in[ABSC_1,65]:
+      Value: 317.195056
+    sub.absc_heat_in[ABSC_1,66]:
+      Value: 323.573464
+    sub.absc_heat_in[ABSC_1,67]:
+      Value: 325.264672
+    sub.absc_heat_in[ABSC_1,68]:
+      Value: 362.95588
+    sub.absc_heat_in[ABSC_1,69]:
+      Value: 389.23636
+    sub.absc_heat_in[ABSC_1,70]:
+      Value: 355.51684
+    sub.absc_heat_in[ABSC_1,71]:
+      Value: 331.98772
+    sub.absc_heat_in[ABSC_1,72]:
+      Value: 210.12448
+    sub.absc_heat_in[ABSC_1,73]:
+      Value: 166.46947
+    sub.absc_heat_in[ABSC_1,74]:
+      Value: 122.81446
+    sub.absc_heat_in[ABSC_1,75]:
+      Value: 79.15945
+    sub.absc_heat_in[ABSC_1,76]:
+      Value: 35.50444
+    sub.absc_heat_in[ABSC_1,91]:
+      Value: 0.47724000001
+    sub.absc_heat_in[ABSC_1,93]:
+      Value: 23.62332
+    sub.absc_heat_in[ABSC_1,94]:
+      Value: 55.19636
+    sub.absc_heat_in[ABSC_1,95]:
+      Value: 66.7694
+    sub.ac_power[AC_1,0]:
+      Value: 244.018372093
+    sub.ac_power[AC_1,10]:
+      Value: 231.692790698
+    sub.ac_power[AC_1,11]:
+      Value: 231.460232558
+    sub.ac_power[AC_1,12]:
+      Value: 231.227674419
+    sub.ac_power[AC_1,13]:
+      Value: 230.995116279
+    sub.ac_power[AC_1,14]:
+      Value: 204.018372093
+    sub.ac_power[AC_1,15]:
+      Value: 203.52115907
+    sub.ac_power[AC_1,16]:
+      Value: 358.305631659
+    sub.ac_power[AC_1,17]:
+      Value: 434.618461395
+    sub.ac_power[AC_1,18]:
+      Value: 409.701996279
+    sub.ac_power[AC_1,19]:
+      Value: 409.157624186
+    sub.ac_power[AC_1,1]:
+      Value: 244.483488372
+    sub.ac_power[AC_1,20]:
+      Value: 405.636507907
+    sub.ac_power[AC_1,21]:
+      Value: 406.394461395
+    sub.ac_power[AC_1,22]:
+      Value: 404.175670698
+    sub.ac_power[AC_1,23]:
+      Value: 407.72432186
+    sub.ac_power[AC_1,24]:
+      Value: 407.552042791
+    sub.ac_power[AC_1,25]:
+      Value: 408.445810233
+    sub.ac_power[AC_1,26]:
+      Value: 408.250461395
+    sub.ac_power[AC_1,27]:
+      Value: 408.055112558
+    sub.ac_power[AC_1,28]:
+      Value: 407.859763721
+    sub.ac_power[AC_1,29]:
+      Value: 388.129531163
+    sub.ac_power[AC_1,2]:
+      Value: 244.948604651
+    sub.ac_power[AC_1,30]:
+      Value: 387.934182326
+    sub.ac_power[AC_1,31]:
+      Value: 387.738833488
+    sub.ac_power[AC_1,32]:
+      Value: 158.706275349
+    sub.ac_power[AC_1,33]:
+      Value: 162.231856744
+    sub.ac_power[AC_1,34]:
+      Value: 189.420693953
+    sub.ac_power[AC_1,35]:
+      Value: 204.877906977
+    sub.ac_power[AC_1,36]:
+      Value: 216.910926512
+    sub.ac_power[AC_1,37]:
+      Value: 205.977181395
+    sub.ac_power[AC_1,38]:
+      Value: 283.587025411
+    sub.ac_power[AC_1,39]:
+      Value: 442.744065116
+    sub.ac_power[AC_1,3]:
+      Value: 245.41372093
+    sub.ac_power[AC_1,40]:
+      Value: 478.162855814
+    sub.ac_power[AC_1,41]:
+      Value: 500
+    sub.ac_power[AC_1,42]:
+      Value: 500
+    sub.ac_power[AC_1,43]:
+      Value: 500
+    sub.ac_power[AC_1,44]:
+      Value: 500
+    sub.ac_power[AC_1,45]:
+      Value: 500
+    sub.ac_power[AC_1,46]:
+      Value: 500
+    sub.ac_power[AC_1,47]:
+      Value: 500
+    sub.ac_power[AC_1,48]:
+      Value: 500
+    sub.ac_power[AC_1,49]:
+      Value: 500
+    sub.ac_power[AC_1,4]:
+      Value: 245.878837209
+    sub.ac_power[AC_1,50]:
+      Value: 500
+    sub.ac_power[AC_1,51]:
+      Value: 500
+    sub.ac_power[AC_1,52]:
+      Value: 500
+    sub.ac_power[AC_1,53]:
+      Value: 500
+    sub.ac_power[AC_1,54]:
+      Value: 500
+    sub.ac_power[AC_1,55]:
+      Value: 500
+    sub.ac_power[AC_1,56]:
+      Value: 378.01032
+    sub.ac_power[AC_1,57]:
+      Value: 381.830503814
+    sub.ac_power[AC_1,58]:
+      Value: 384.204753488
+    sub.ac_power[AC_1,59]:
+      Value: 391.098742698
+    sub.ac_power[AC_1,5]:
+      Value: 246.343953488
+    sub.ac_power[AC_1,60]:
+      Value: 405.434592372
+    sub.ac_power[AC_1,61]:
+      Value: 424.138665302
+    sub.ac_power[AC_1,62]:
+      Value: 431.679947535
+    sub.ac_power[AC_1,63]:
+      Value: 424.645750698
+    sub.ac_power[AC_1,64]:
+      Value: 417.61155386
+    sub.ac_power[AC_1,65]:
+      Value: 399.289989581
+    sub.ac_power[AC_1,66]:
+      Value: 392.131216
+    sub.ac_power[AC_1,67]:
+      Value: 375.524479628
+    sub.ac_power[AC_1,68]:
+      Value: 500
+    sub.ac_power[AC_1,69]:
+      Value: 500
+    sub.ac_power[AC_1,6]:
+      Value: 246.809069767
+    sub.ac_power[AC_1,70]:
+      Value: 500
+    sub.ac_power[AC_1,71]:
+      Value: 500
+    sub.ac_power[AC_1,72]:
+      Value: 500
+    sub.ac_power[AC_1,73]:
+      Value: 500
+    sub.ac_power[AC_1,74]:
+      Value: 500
+    sub.ac_power[AC_1,75]:
+      Value: 500
+    sub.ac_power[AC_1,76]:
+      Value: 303.567313488
+    sub.ac_power[AC_1,77]:
+      Value: 286.479767442
+    sub.ac_power[AC_1,78]:
+      Value: 262.786744186
+    sub.ac_power[AC_1,79]:
+      Value: 242.05744186
+    sub.ac_power[AC_1,7]:
+      Value: 247.274186047
+    sub.ac_power[AC_1,80]:
+      Value: 244.583953488
+    sub.ac_power[AC_1,81]:
+      Value: 247.110465116
+    sub.ac_power[AC_1,82]:
+      Value: 421.558129452
+    sub.ac_power[AC_1,83]:
+      Value: 484.954186047
+    sub.ac_power[AC_1,84]:
+      Value: 483.720697674
+    sub.ac_power[AC_1,85]:
+      Value: 482.487209302
+    sub.ac_power[AC_1,86]:
+      Value: 481.25372093
+    sub.ac_power[AC_1,87]:
+      Value: 480.020232558
+    sub.ac_power[AC_1,88]:
+      Value: 478.786744186
+    sub.ac_power[AC_1,89]:
+      Value: 477.553255814
+    sub.ac_power[AC_1,8]:
+      Value: 237.971860465
+    sub.ac_power[AC_1,90]:
+      Value: 476.319767442
+    sub.ac_power[AC_1,91]:
+      Value: 474.997490233
+    sub.ac_power[AC_1,92]:
+      Value: 473.852790698
+    sub.ac_power[AC_1,93]:
+      Value: 468.224266047
+    sub.ac_power[AC_1,94]:
+      Value: 461.116723721
+    sub.ac_power[AC_1,95]:
+      Value: 225.171972093
+    sub.ac_power[AC_1,9]:
+      Value: 231.925348837
+    sub.bol_power[Boiler_1,0]:
+      Value: 50
+    sub.bol_power[Boiler_1,10]:
+      Value: 50
+    sub.bol_power[Boiler_1,11]:
+      Value: 50
+    sub.bol_power[Boiler_1,12]:
+      Value: 50
+    sub.bol_power[Boiler_1,13]:
+      Value: 50
+    sub.bol_power[Boiler_1,14]:
+      Value: 50
+    sub.bol_power[Boiler_1,15]:
+      Value: 50
+    sub.bol_power[Boiler_1,16]:
+      Value: 50
+    sub.bol_power[Boiler_1,17]:
+      Value: 50
+    sub.bol_power[Boiler_1,18]:
+      Value: 50
+    sub.bol_power[Boiler_1,19]:
+      Value: 50
+    sub.bol_power[Boiler_1,1]:
+      Value: 50
+    sub.bol_power[Boiler_1,20]:
+      Value: 50
+    sub.bol_power[Boiler_1,21]:
+      Value: 50
+    sub.bol_power[Boiler_1,22]:
+      Value: 50
+    sub.bol_power[Boiler_1,23]:
+      Value: 50
+    sub.bol_power[Boiler_1,24]:
+      Value: 50
+    sub.bol_power[Boiler_1,25]:
+      Value: 50
+    sub.bol_power[Boiler_1,26]:
+      Value: 50
+    sub.bol_power[Boiler_1,27]:
+      Value: 50
+    sub.bol_power[Boiler_1,28]:
+      Value: 50
+    sub.bol_power[Boiler_1,29]:
+      Value: 50
+    sub.bol_power[Boiler_1,2]:
+      Value: 50
+    sub.bol_power[Boiler_1,30]:
+      Value: 50
+    sub.bol_power[Boiler_1,31]:
+      Value: 50
+    sub.bol_power[Boiler_1,32]:
+      Value: 50
+    sub.bol_power[Boiler_1,33]:
+      Value: 50
+    sub.bol_power[Boiler_1,34]:
+      Value: 50
+    sub.bol_power[Boiler_1,35]:
+      Value: 50
+    sub.bol_power[Boiler_1,36]:
+      Value: 50
+    sub.bol_power[Boiler_1,37]:
+      Value: 50
+    sub.bol_power[Boiler_1,38]:
+      Value: 50
+    sub.bol_power[Boiler_1,39]:
+      Value: 50
+    sub.bol_power[Boiler_1,3]:
+      Value: 50
+    sub.bol_power[Boiler_1,40]:
+      Value: 50
+    sub.bol_power[Boiler_1,41]:
+      Value: 50
+    sub.bol_power[Boiler_1,42]:
+      Value: 50
+    sub.bol_power[Boiler_1,43]:
+      Value: 50
+    sub.bol_power[Boiler_1,44]:
+      Value: 50
+    sub.bol_power[Boiler_1,45]:
+      Value: 50
+    sub.bol_power[Boiler_1,46]:
+      Value: 50
+    sub.bol_power[Boiler_1,47]:
+      Value: 50
+    sub.bol_power[Boiler_1,48]:
+      Value: 50
+    sub.bol_power[Boiler_1,49]:
+      Value: 50
+    sub.bol_power[Boiler_1,4]:
+      Value: 50
+    sub.bol_power[Boiler_1,50]:
+      Value: 50
+    sub.bol_power[Boiler_1,51]:
+      Value: 50
+    sub.bol_power[Boiler_1,52]:
+      Value: 50
+    sub.bol_power[Boiler_1,53]:
+      Value: 50
+    sub.bol_power[Boiler_1,54]:
+      Value: 50
+    sub.bol_power[Boiler_1,55]:
+      Value: 50
+    sub.bol_power[Boiler_1,56]:
+      Value: 50
+    sub.bol_power[Boiler_1,57]:
+      Value: 50
+    sub.bol_power[Boiler_1,58]:
+      Value: 50
+    sub.bol_power[Boiler_1,59]:
+      Value: 50
+    sub.bol_power[Boiler_1,5]:
+      Value: 50
+    sub.bol_power[Boiler_1,60]:
+      Value: 50
+    sub.bol_power[Boiler_1,61]:
+      Value: 50
+    sub.bol_power[Boiler_1,62]:
+      Value: 50
+    sub.bol_power[Boiler_1,63]:
+      Value: 50
+    sub.bol_power[Boiler_1,64]:
+      Value: 50
+    sub.bol_power[Boiler_1,65]:
+      Value: 50
+    sub.bol_power[Boiler_1,66]:
+      Value: 50
+    sub.bol_power[Boiler_1,67]:
+      Value: 50
+    sub.bol_power[Boiler_1,68]:
+      Value: 50
+    sub.bol_power[Boiler_1,69]:
+      Value: 50
+    sub.bol_power[Boiler_1,6]:
+      Value: 50
+    sub.bol_power[Boiler_1,70]:
+      Value: 50
+    sub.bol_power[Boiler_1,71]:
+      Value: 50
+    sub.bol_power[Boiler_1,72]:
+      Value: 50
+    sub.bol_power[Boiler_1,73]:
+      Value: 50
+    sub.bol_power[Boiler_1,74]:
+      Value: 50
+    sub.bol_power[Boiler_1,75]:
+      Value: 50
+    sub.bol_power[Boiler_1,76]:
+      Value: 50
+    sub.bol_power[Boiler_1,77]:
+      Value: 50
+    sub.bol_power[Boiler_1,78]:
+      Value: 50
+    sub.bol_power[Boiler_1,79]:
+      Value: 50
+    sub.bol_power[Boiler_1,7]:
+      Value: 50
+    sub.bol_power[Boiler_1,80]:
+      Value: 50
+    sub.bol_power[Boiler_1,81]:
+      Value: 50
+    sub.bol_power[Boiler_1,82]:
+      Value: 50
+    sub.bol_power[Boiler_1,83]:
+      Value: 50
+    sub.bol_power[Boiler_1,84]:
+      Value: 50
+    sub.bol_power[Boiler_1,85]:
+      Value: 50
+    sub.bol_power[Boiler_1,86]:
+      Value: 50
+    sub.bol_power[Boiler_1,87]:
+      Value: 50
+    sub.bol_power[Boiler_1,88]:
+      Value: 50
+    sub.bol_power[Boiler_1,89]:
+      Value: 50
+    sub.bol_power[Boiler_1,8]:
+      Value: 50
+    sub.bol_power[Boiler_1,90]:
+      Value: 50
+    sub.bol_power[Boiler_1,91]:
+      Value: 50
+    sub.bol_power[Boiler_1,92]:
+      Value: 50
+    sub.bol_power[Boiler_1,93]:
+      Value: 50
+    sub.bol_power[Boiler_1,94]:
+      Value: 50
+    sub.bol_power[Boiler_1,95]:
+      Value: 50
+    sub.bol_power[Boiler_1,9]:
+      Value: 50
+    sub.buy_heat[0]:
+      Value: 3818.03317091
+    sub.buy_heat[10]:
+      Value: 3684.27317091
+    sub.buy_heat[11]:
+      Value: 3607.89717091
+    sub.buy_heat[12]:
+      Value: 3621.52117091
+    sub.buy_heat[13]:
+      Value: 3546.99517091
+    sub.buy_heat[14]:
+      Value: 3630.56917091
+    sub.buy_heat[15]:
+      Value: 3639.31569091
+    sub.buy_heat[16]:
+      Value: 3666.31569091
+    sub.buy_heat[17]:
+      Value: 3693.31569091
+    sub.buy_heat[18]:
+      Value: 3700.31569091
+    sub.buy_heat[19]:
+      Value: 3647.31569091
+    sub.buy_heat[1]:
+      Value: 3841.65717091
+    sub.buy_heat[20]:
+      Value: 3674.31569091
+    sub.buy_heat[21]:
+      Value: 3601.31569091
+    sub.buy_heat[22]:
+      Value: 3628.31569091
+    sub.buy_heat[23]:
+      Value: 3555.31569091
+    sub.buy_heat[24]:
+      Value: 3582.31569091
+    sub.buy_heat[25]:
+      Value: 3509.31569091
+    sub.buy_heat[26]:
+      Value: 3436.31569091
+    sub.buy_heat[27]:
+      Value: 3463.31569091
+    sub.buy_heat[28]:
+      Value: 3490.31569091
+    sub.buy_heat[29]:
+      Value: 3417.31569091
+    sub.buy_heat[2]:
+      Value: 3865.28117091
+    sub.buy_heat[30]:
+      Value: 3444.31569091
+    sub.buy_heat[31]:
+      Value: 3471.31569091
+    sub.buy_heat[32]:
+      Value: 3398.31569091
+    sub.buy_heat[33]:
+      Value: 3325.31569091
+    sub.buy_heat[34]:
+      Value: 3252.31569091
+    sub.buy_heat[35]:
+      Value: 3190.11317091
+    sub.buy_heat[36]:
+      Value: 3306.31569091
+    sub.buy_heat[37]:
+      Value: 3391.41009091
+    sub.buy_heat[38]:
+      Value: 3358.18009091
+    sub.buy_heat[39]:
+      Value: 3524.95009091
+    sub.buy_heat[3]:
+      Value: 3888.90517091
+    sub.buy_heat[40]:
+      Value: 3691.72009091
+    sub.buy_heat[41]:
+      Value: 3858.49009091
+    sub.buy_heat[42]:
+      Value: 3829.54249091
+    sub.buy_heat[43]:
+      Value: 4000.17341091
+    sub.buy_heat[44]:
+      Value: 4146.40549091
+    sub.buy_heat[45]:
+      Value: 4304.83699091
+    sub.buy_heat[46]:
+      Value: 4463.26849091
+    sub.buy_heat[47]:
+      Value: 4621.69999091
+    sub.buy_heat[48]:
+      Value: 5307.34501091
+    sub.buy_heat[49]:
+      Value: 5423.85757091
+    sub.buy_heat[4]:
+      Value: 3892.52917091
+    sub.buy_heat[50]:
+      Value: 5540.37013091
+    sub.buy_heat[51]:
+      Value: 5656.88269091
+    sub.buy_heat[52]:
+      Value: 5773.39525091
+    sub.buy_heat[53]:
+      Value: 5889.90781091
+    sub.buy_heat[54]:
+      Value: 6006.42037091
+    sub.buy_heat[55]:
+      Value: 6122.93293091
+    sub.buy_heat[56]:
+      Value: 6239.44549091
+    sub.buy_heat[57]:
+      Value: 6355.95805091
+    sub.buy_heat[58]:
+      Value: 6349.33009091
+    sub.buy_heat[59]:
+      Value: 6342.70213091
+    sub.buy_heat[5]:
+      Value: 3906.15317091
+    sub.buy_heat[60]:
+      Value: 6336.07417091
+    sub.buy_heat[61]:
+      Value: 6329.44621091
+    sub.buy_heat[62]:
+      Value: 6322.81825091
+    sub.buy_heat[63]:
+      Value: 6316.19029091
+    sub.buy_heat[64]:
+      Value: 6309.56233091
+    sub.buy_heat[65]:
+      Value: 6302.93437091
+    sub.buy_heat[66]:
+      Value: 6296.30641091
+    sub.buy_heat[67]:
+      Value: 6289.67845091
+    sub.buy_heat[68]:
+      Value: 6283.05049091
+    sub.buy_heat[69]:
+      Value: 6009.40489091
+    sub.buy_heat[6]:
+      Value: 3919.77717091
+    sub.buy_heat[70]:
+      Value: 5735.75929091
+    sub.buy_heat[71]:
+      Value: 5462.11369091
+    sub.buy_heat[72]:
+      Value: 4696.79749091
+    sub.buy_heat[73]:
+      Value: 4472.52244091
+    sub.buy_heat[74]:
+      Value: 4248.24739091
+    sub.buy_heat[75]:
+      Value: 4023.97234091
+    sub.buy_heat[76]:
+      Value: 3799.69729091
+    sub.buy_heat[77]:
+      Value: 3579.07761091
+    sub.buy_heat[78]:
+      Value: 3414.09357091
+    sub.buy_heat[79]:
+      Value: 3207.93273091
+    sub.buy_heat[7]:
+      Value: 3815.40117091
+    sub.buy_heat[80]:
+      Value: 3297.31669091
+    sub.buy_heat[81]:
+      Value: 3354.11925091
+    sub.buy_heat[82]:
+      Value: 3200.74261091
+    sub.buy_heat[83]:
+      Value: 3209.07477091
+    sub.buy_heat[84]:
+      Value: 3265.40693091
+    sub.buy_heat[85]:
+      Value: 3353.73909091
+    sub.buy_heat[86]:
+      Value: 3294.87125091
+    sub.buy_heat[87]:
+      Value: 3316.00341091
+    sub.buy_heat[88]:
+      Value: 3337.13557091
+    sub.buy_heat[89]:
+      Value: 3358.26773091
+    sub.buy_heat[8]:
+      Value: 3765.02517091
+    sub.buy_heat[90]:
+      Value: 3475.39989091
+    sub.buy_heat[91]:
+      Value: 3497.00929091
+    sub.buy_heat[92]:
+      Value: 3437.66421091
+    sub.buy_heat[93]:
+      Value: 3562.41969091
+    sub.buy_heat[94]:
+      Value: 3695.12489091
+    sub.buy_heat[95]:
+      Value: 3727.83009091
+    sub.buy_heat[9]:
+      Value: 3730.64917091
+    sub.cs_cold[CS_1,0]:
+      Value: 500
+    sub.cs_cold[CS_1,10]:
+      Value: 500
+    sub.cs_cold[CS_1,11]:
+      Value: 500
+    sub.cs_cold[CS_1,12]:
+      Value: 500
+    sub.cs_cold[CS_1,13]:
+      Value: 500
+    sub.cs_cold[CS_1,14]:
+      Value: 500
+    sub.cs_cold[CS_1,15]:
+      Value: 500
+    sub.cs_cold[CS_1,16]:
+      Value: -167.114032134
+    sub.cs_cold[CS_1,17]:
+      Value: -500
+    sub.cs_cold[CS_1,18]:
+      Value: -500
+    sub.cs_cold[CS_1,19]:
+      Value: -500
+    sub.cs_cold[CS_1,1]:
+      Value: 500
+    sub.cs_cold[CS_1,20]:
+      Value: -500
+    sub.cs_cold[CS_1,21]:
+      Value: -500
+    sub.cs_cold[CS_1,22]:
+      Value: -500
+    sub.cs_cold[CS_1,23]:
+      Value: -500
+    sub.cs_cold[CS_1,24]:
+      Value: -500
+    sub.cs_cold[CS_1,25]:
+      Value: -500
+    sub.cs_cold[CS_1,26]:
+      Value: -500
+    sub.cs_cold[CS_1,27]:
+      Value: -500
+    sub.cs_cold[CS_1,28]:
+      Value: -500
+    sub.cs_cold[CS_1,29]:
+      Value: -500
+    sub.cs_cold[CS_1,2]:
+      Value: 500
+    sub.cs_cold[CS_1,30]:
+      Value: -500
+    sub.cs_cold[CS_1,31]:
+      Value: -500
+    sub.cs_cold[CS_1,32]:
+      Value: 500
+    sub.cs_cold[CS_1,33]:
+      Value: 500
+    sub.cs_cold[CS_1,34]:
+      Value: 500
+    sub.cs_cold[CS_1,35]:
+      Value: 500
+    sub.cs_cold[CS_1,36]:
+      Value: 500
+    sub.cs_cold[CS_1,37]:
+      Value: 500
+    sub.cs_cold[CS_1,38]:
+      Value: 241.674470732
+    sub.cs_cold[CS_1,39]:
+      Value: -500
+    sub.cs_cold[CS_1,3]:
+      Value: 500
+    sub.cs_cold[CS_1,40]:
+      Value: -500
+    sub.cs_cold[CS_1,41]:
+      Value: -446.30292
+    sub.cs_cold[CS_1,42]:
+      Value: -259.391304
+    sub.cs_cold[CS_1,43]:
+      Value: -191.289
+    sub.cs_cold[CS_1,44]:
+      Value: -178.279144
+    sub.cs_cold[CS_1,45]:
+      Value: -169.076824
+    sub.cs_cold[CS_1,46]:
+      Value: -159.874504
+    sub.cs_cold[CS_1,47]:
+      Value: -118.531384
+    sub.cs_cold[CS_1,48]:
+      Value: -161.5424272
+    sub.cs_cold[CS_1,49]:
+      Value: -120.5453968
+    sub.cs_cold[CS_1,4]:
+      Value: 500
+    sub.cs_cold[CS_1,50]:
+      Value: -111.5483664
+    sub.cs_cold[CS_1,51]:
+      Value: -82.812456
+    sub.cs_cold[CS_1,52]:
+      Value: -59.8365456
+    sub.cs_cold[CS_1,53]:
+      Value: -36.8846352
+    sub.cs_cold[CS_1,54]:
+      Value: -13.9327248
+    sub.cs_cold[CS_1,55]:
+      Value: -18.7968144
+    sub.cs_cold[CS_1,56]:
+      Value: 500
+    sub.cs_cold[CS_1,57]:
+      Value: 500
+    sub.cs_cold[CS_1,58]:
+      Value: 500
+    sub.cs_cold[CS_1,59]:
+      Value: 500
+    sub.cs_cold[CS_1,5]:
+      Value: 500
+    sub.cs_cold[CS_1,60]:
+      Value: 500
+    sub.cs_cold[CS_1,61]:
+      Value: 500
+    sub.cs_cold[CS_1,62]:
+      Value: 500
+    sub.cs_cold[CS_1,63]:
+      Value: 500
+    sub.cs_cold[CS_1,64]:
+      Value: 500
+    sub.cs_cold[CS_1,65]:
+      Value: 500
+    sub.cs_cold[CS_1,66]:
+      Value: 500
+    sub.cs_cold[CS_1,67]:
+      Value: 500
+    sub.cs_cold[CS_1,68]:
+      Value: -135.453704
+    sub.cs_cold[CS_1,69]:
+      Value: -226.510088
+    sub.cs_cold[CS_1,6]:
+      Value: 500
+    sub.cs_cold[CS_1,70]:
+      Value: -269.566472
+    sub.cs_cold[CS_1,71]:
+      Value: -286.647176
+    sub.cs_cold[CS_1,72]:
+      Value: -225.060584
+    sub.cs_cold[CS_1,73]:
+      Value: -217.904576
+    sub.cs_cold[CS_1,74]:
+      Value: -210.748568
+    sub.cs_cold[CS_1,75]:
+      Value: -277.70456
+    sub.cs_cold[CS_1,76]:
+      Value: 500
+    sub.cs_cold[CS_1,77]:
+      Value: 500
+    sub.cs_cold[CS_1,78]:
+      Value: 500
+    sub.cs_cold[CS_1,79]:
+      Value: 500
+    sub.cs_cold[CS_1,7]:
+      Value: 500
+    sub.cs_cold[CS_1,80]:
+      Value: 500
+    sub.cs_cold[CS_1,81]:
+      Value: 500
+    sub.cs_cold[CS_1,82]:
+      Value: -239.260956643
+    sub.cs_cold[CS_1,83]:
+      Value: -500
+    sub.cs_cold[CS_1,84]:
+      Value: -500
+    sub.cs_cold[CS_1,85]:
+      Value: -500
+    sub.cs_cold[CS_1,86]:
+      Value: -500
+    sub.cs_cold[CS_1,87]:
+      Value: -500
+    sub.cs_cold[CS_1,88]:
+      Value: -500
+    sub.cs_cold[CS_1,89]:
+      Value: -500
+    sub.cs_cold[CS_1,8]:
+      Value: 500
+    sub.cs_cold[CS_1,90]:
+      Value: -500
+    sub.cs_cold[CS_1,91]:
+      Value: -500
+    sub.cs_cold[CS_1,92]:
+      Value: -500
+    sub.cs_cold[CS_1,93]:
+      Value: -500
+    sub.cs_cold[CS_1,94]:
+      Value: -500
+    sub.cs_cold[CS_1,95]:
+      Value: 500
+    sub.cs_cold[CS_1,9]:
+      Value: 500
+    sub.cs_cold_stored[CS_1,0]:
+      Value: 300
+    sub.cs_cold_stored[CS_1,10]:
+      Value: 1532.85359303
+    sub.cs_cold_stored[CS_1,11]:
+      Value: 1654.78688584
+    sub.cs_cold_stored[CS_1,12]:
+      Value: 1776.47631207
+    sub.cs_cold_stored[CS_1,13]:
+      Value: 1897.92235945
+    sub.cs_cold_stored[CS_1,14]:
+      Value: 2019.12551473
+    sub.cs_cold_stored[CS_1,15]:
+      Value: 2140.0862637
+    sub.cs_cold_stored[CS_1,16]:
+      Value: 2260.80509117
+    sub.cs_cold_stored[CS_1,17]:
+      Value: 2214.50397296
+    sub.cs_cold_stored[CS_1,18]:
+      Value: 2085.07396501
+    sub.cs_cold_stored[CS_1,19]:
+      Value: 1955.90281708
+    sub.cs_cold_stored[CS_1,1]:
+      Value: 424.399
+    sub.cs_cold_stored[CS_1,20]:
+      Value: 1826.99001145
+    sub.cs_cold_stored[CS_1,21]:
+      Value: 1698.33503142
+    sub.cs_cold_stored[CS_1,22]:
+      Value: 1569.93736136
+    sub.cs_cold_stored[CS_1,23]:
+      Value: 1441.79648664
+    sub.cs_cold_stored[CS_1,24]:
+      Value: 1313.91189367
+    sub.cs_cold_stored[CS_1,25]:
+      Value: 1186.28306988
+    sub.cs_cold_stored[CS_1,26]:
+      Value: 1058.90950374
+    sub.cs_cold_stored[CS_1,27]:
+      Value: 931.790684731
+    sub.cs_cold_stored[CS_1,28]:
+      Value: 804.926103361
+    sub.cs_cold_stored[CS_1,29]:
+      Value: 678.315251154
+    sub.cs_cold_stored[CS_1,2]:
+      Value: 548.549202
+    sub.cs_cold_stored[CS_1,30]:
+      Value: 551.957620652
+    sub.cs_cold_stored[CS_1,31]:
+      Value: 425.852705411
+    sub.cs_cold_stored[CS_1,32]:
+      Value: 300
+    sub.cs_cold_stored[CS_1,33]:
+      Value: 424.399
+    sub.cs_cold_stored[CS_1,34]:
+      Value: 548.549202
+    sub.cs_cold_stored[CS_1,35]:
+      Value: 672.451103596
+    sub.cs_cold_stored[CS_1,36]:
+      Value: 796.105201389
+    sub.cs_cold_stored[CS_1,37]:
+      Value: 919.511990986
+    sub.cs_cold_stored[CS_1,38]:
+      Value: 1042.671967
+    sub.cs_cold_stored[CS_1,39]:
+      Value: 1101.00424075
+    sub.cs_cold_stored[CS_1,3]:
+      Value: 672.451103596
+    sub.cs_cold_stored[CS_1,40]:
+      Value: 973.801232272
+    sub.cs_cold_stored[CS_1,41]:
+      Value: 846.852629807
+    sub.cs_cold_stored[CS_1,42]:
+      Value: 733.582194547
+    sub.cs_cold_stored[CS_1,43]:
+      Value: 667.266204158
+    sub.cs_cold_stored[CS_1,44]:
+      Value: 618.10842175
+    sub.cs_cold_stored[CS_1,45]:
+      Value: 572.301418907
+    sub.cs_cold_stored[CS_1,46]:
+      Value: 528.886610069
+    sub.cs_cold_stored[CS_1,47]:
+      Value: 487.859210849
+    sub.cs_cold_stored[CS_1,48]:
+      Value: 457.249646427
+    sub.cs_cold_stored[CS_1,49]:
+      Value: 415.948540334
+    sub.cs_cold_stored[CS_1,4]:
+      Value: 796.105201389
+    sub.cs_cold_stored[CS_1,50]:
+      Value: 384.979294053
+    sub.cs_cold_stored[CS_1,51]:
+      Value: 356.321243865
+    sub.cs_cold_stored[CS_1,52]:
+      Value: 334.904487378
+    sub.cs_cold_stored[CS_1,53]:
+      Value: 319.274542003
+    sub.cs_cold_stored[CS_1,54]:
+      Value: 309.413834119
+    sub.cs_cold_stored[CS_1,55]:
+      Value: 305.310825251
+    sub.cs_cold_stored[CS_1,56]:
+      Value: 300
+    sub.cs_cold_stored[CS_1,57]:
+      Value: 424.399
+    sub.cs_cold_stored[CS_1,58]:
+      Value: 548.549202
+    sub.cs_cold_stored[CS_1,59]:
+      Value: 672.451103596
+    sub.cs_cold_stored[CS_1,5]:
+      Value: 919.511990986
+    sub.cs_cold_stored[CS_1,60]:
+      Value: 796.105201389
+    sub.cs_cold_stored[CS_1,61]:
+      Value: 919.511990986
+    sub.cs_cold_stored[CS_1,62]:
+      Value: 1042.671967
+    sub.cs_cold_stored[CS_1,63]:
+      Value: 1165.58562307
+    sub.cs_cold_stored[CS_1,64]:
+      Value: 1288.25345182
+    sub.cs_cold_stored[CS_1,65]:
+      Value: 1410.67594492
+    sub.cs_cold_stored[CS_1,66]:
+      Value: 1532.85359303
+    sub.cs_cold_stored[CS_1,67]:
+      Value: 1654.78688584
+    sub.cs_cold_stored[CS_1,68]:
+      Value: 1776.47631207
+    sub.cs_cold_stored[CS_1,69]:
+      Value: 1739.05893345
+    sub.cs_cold_stored[CS_1,6]:
+      Value: 1042.671967
+    sub.cs_cold_stored[CS_1,70]:
+      Value: 1678.95229358
+    sub.cs_cold_stored[CS_1,71]:
+      Value: 1608.20177099
+    sub.cs_cold_stored[CS_1,72]:
+      Value: 1533.32257345
+    sub.cs_cold_stored[CS_1,73]:
+      Value: 1473.98978231
+    sub.cs_cold_stored[CS_1,74]:
+      Value: 1416.56465874
+    sub.cs_cold_stored[CS_1,75]:
+      Value: 1361.04338742
+    sub.cs_cold_stored[CS_1,76]:
+      Value: 1288.89416065
+    sub.cs_cold_stored[CS_1,77]:
+      Value: 1411.31537233
+    sub.cs_cold_stored[CS_1,78]:
+      Value: 1533.49174158
+    sub.cs_cold_stored[CS_1,79]:
+      Value: 1655.4237581
+    sub.cs_cold_stored[CS_1,7]:
+      Value: 1165.58562307
+    sub.cs_cold_stored[CS_1,80]:
+      Value: 1777.11191058
+    sub.cs_cold_stored[CS_1,81]:
+      Value: 1898.55668676
+    sub.cs_cold_stored[CS_1,82]:
+      Value: 2019.75857339
+    sub.cs_cold_stored[CS_1,83]:
+      Value: 1955.90281708
+    sub.cs_cold_stored[CS_1,84]:
+      Value: 1826.99001145
+    sub.cs_cold_stored[CS_1,85]:
+      Value: 1698.33503142
+    sub.cs_cold_stored[CS_1,86]:
+      Value: 1569.93736136
+    sub.cs_cold_stored[CS_1,87]:
+      Value: 1441.79648664
+    sub.cs_cold_stored[CS_1,88]:
+      Value: 1313.91189367
+    sub.cs_cold_stored[CS_1,89]:
+      Value: 1186.28306988
+    sub.cs_cold_stored[CS_1,8]:
+      Value: 1288.25345182
+    sub.cs_cold_stored[CS_1,90]:
+      Value: 1058.90950374
+    sub.cs_cold_stored[CS_1,91]:
+      Value: 931.790684731
+    sub.cs_cold_stored[CS_1,92]:
+      Value: 804.926103361
+    sub.cs_cold_stored[CS_1,93]:
+      Value: 678.315251154
+    sub.cs_cold_stored[CS_1,94]:
+      Value: 551.957620652
+    sub.cs_cold_stored[CS_1,95]:
+      Value: 425.852705411
+    sub.cs_cold_stored[CS_1,9]:
+      Value: 1410.67594492
+    sub.es_energy[ES_1,0]:
+      Value: 1300
+    sub.es_energy[ES_1,10]:
+      Value: 4357.93041256
+    sub.es_energy[ES_1,11]:
+      Value: 4659.53458653
+    sub.es_energy[ES_1,12]:
+      Value: 4960.38475007
+    sub.es_energy[ES_1,13]:
+      Value: 5260.48278819
+    sub.es_energy[ES_1,14]:
+      Value: 5559.83058122
+    sub.es_energy[ES_1,15]:
+      Value: 5858.43000477
+    sub.es_energy[ES_1,16]:
+      Value: 5531.28292976
+    sub.es_energy[ES_1,17]:
+      Value: 5505.7821751
+    sub.es_energy[ES_1,18]:
+      Value: 5804.51561451
+    sub.es_energy[ES_1,19]:
+      Value: 5477.50332547
+    sub.es_energy[ES_1,1]:
+      Value: 1609.249
+    sub.es_energy[ES_1,20]:
+      Value: 5151.30856716
+    sub.es_energy[ES_1,21]:
+      Value: 4825.92929574
+    sub.es_energy[ES_1,22]:
+      Value: 4501.3634725
+    sub.es_energy[ES_1,23]:
+      Value: 4177.60906382
+    sub.es_energy[ES_1,24]:
+      Value: 3854.66404116
+    sub.es_energy[ES_1,25]:
+      Value: 3532.52638106
+    sub.es_energy[ES_1,26]:
+      Value: 3211.19406511
+    sub.es_energy[ES_1,27]:
+      Value: 2890.66507994
+    sub.es_energy[ES_1,28]:
+      Value: 2570.93741724
+    sub.es_energy[ES_1,29]:
+      Value: 2252.0090737
+    sub.es_energy[ES_1,2]:
+      Value: 1917.7248775
+    sub.es_energy[ES_1,30]:
+      Value: 1933.87805102
+    sub.es_energy[ES_1,31]:
+      Value: 1616.54235589
+    sub.es_energy[ES_1,32]:
+      Value: 1300
+    sub.es_energy[ES_1,33]:
+      Value: 1609.249
+    sub.es_energy[ES_1,34]:
+      Value: 1917.7248775
+    sub.es_energy[ES_1,35]:
+      Value: 2225.42956531
+    sub.es_energy[ES_1,36]:
+      Value: 2532.36499139
+    sub.es_energy[ES_1,37]:
+      Value: 2838.53307891
+    sub.es_energy[ES_1,38]:
+      Value: 3143.93574622
+    sub.es_energy[ES_1,39]:
+      Value: 3448.57490685
+    sub.es_energy[ES_1,3]:
+      Value: 2225.42956531
+    sub.es_energy[ES_1,40]:
+      Value: 3752.45246958
+    sub.es_energy[ES_1,41]:
+      Value: 4055.57033841
+    sub.es_energy[ES_1,42]:
+      Value: 4357.93041256
+    sub.es_energy[ES_1,43]:
+      Value: 4659.53458653
+    sub.es_energy[ES_1,44]:
+      Value: 4960.38475007
+    sub.es_energy[ES_1,45]:
+      Value: 4825.92929574
+    sub.es_energy[ES_1,46]:
+      Value: 4501.3634725
+    sub.es_energy[ES_1,47]:
+      Value: 4177.60906382
+    sub.es_energy[ES_1,48]:
+      Value: 3854.66404116
+    sub.es_energy[ES_1,49]:
+      Value: 3532.52638106
+    sub.es_energy[ES_1,4]:
+      Value: 2532.36499139
+    sub.es_energy[ES_1,50]:
+      Value: 3211.19406511
+    sub.es_energy[ES_1,51]:
+      Value: 2890.66507994
+    sub.es_energy[ES_1,52]:
+      Value: 2570.93741724
+    sub.es_energy[ES_1,53]:
+      Value: 2252.0090737
+    sub.es_energy[ES_1,54]:
+      Value: 1933.87805102
+    sub.es_energy[ES_1,55]:
+      Value: 1616.54235589
+    sub.es_energy[ES_1,56]:
+      Value: 1300
+    sub.es_energy[ES_1,57]:
+      Value: 1609.249
+    sub.es_energy[ES_1,58]:
+      Value: 1917.7248775
+    sub.es_energy[ES_1,59]:
+      Value: 2225.42956531
+    sub.es_energy[ES_1,5]:
+      Value: 2838.53307891
+    sub.es_energy[ES_1,60]:
+      Value: 2532.36499139
+    sub.es_energy[ES_1,61]:
+      Value: 2838.53307891
+    sub.es_energy[ES_1,62]:
+      Value: 3143.93574622
+    sub.es_energy[ES_1,63]:
+      Value: 3448.57490685
+    sub.es_energy[ES_1,64]:
+      Value: 3752.45246958
+    sub.es_energy[ES_1,65]:
+      Value: 4055.57033841
+    sub.es_energy[ES_1,66]:
+      Value: 4357.93041256
+    sub.es_energy[ES_1,67]:
+      Value: 4659.53458653
+    sub.es_energy[ES_1,68]:
+      Value: 4960.38475007
+    sub.es_energy[ES_1,69]:
+      Value: 4635.48278819
+    sub.es_energy[ES_1,6]:
+      Value: 3143.93574622
+    sub.es_energy[ES_1,70]:
+      Value: 4311.39308122
+    sub.es_energy[ES_1,71]:
+      Value: 3988.11359852
+    sub.es_energy[ES_1,72]:
+      Value: 3665.64231452
+    sub.es_energy[ES_1,73]:
+      Value: 3343.97720874
+    sub.es_energy[ES_1,74]:
+      Value: 3023.11626571
+    sub.es_energy[ES_1,75]:
+      Value: 2703.05747505
+    sub.es_energy[ES_1,76]:
+      Value: 2383.79883136
+    sub.es_energy[ES_1,77]:
+      Value: 2690.33833428
+    sub.es_energy[ES_1,78]:
+      Value: 2996.11148845
+    sub.es_energy[ES_1,79]:
+      Value: 3301.12020973
+    sub.es_energy[ES_1,7]:
+      Value: 3448.57490685
+    sub.es_energy[ES_1,80]:
+      Value: 3605.3664092
+    sub.es_energy[ES_1,81]:
+      Value: 3908.85199318
+    sub.es_energy[ES_1,82]:
+      Value: 4211.5788632
+    sub.es_energy[ES_1,83]:
+      Value: 4513.54891604
+    sub.es_energy[ES_1,84]:
+      Value: 4814.76404375
+    sub.es_energy[ES_1,85]:
+      Value: 4825.92929574
+    sub.es_energy[ES_1,86]:
+      Value: 4501.3634725
+    sub.es_energy[ES_1,87]:
+      Value: 4177.60906382
+    sub.es_energy[ES_1,88]:
+      Value: 3854.66404116
+    sub.es_energy[ES_1,89]:
+      Value: 3532.52638106
+    sub.es_energy[ES_1,8]:
+      Value: 3752.45246958
+    sub.es_energy[ES_1,90]:
+      Value: 3211.19406511
+    sub.es_energy[ES_1,91]:
+      Value: 2890.66507994
+    sub.es_energy[ES_1,92]:
+      Value: 2570.93741724
+    sub.es_energy[ES_1,93]:
+      Value: 2252.0090737
+    sub.es_energy[ES_1,94]:
+      Value: 1933.87805102
+    sub.es_energy[ES_1,95]:
+      Value: 1616.54235589
+    sub.es_energy[ES_1,9]:
+      Value: 4055.57033841
+    sub.es_power[ES_1,0]:
+      Value: 1250
+    sub.es_power[ES_1,10]:
+      Value: 1250
+    sub.es_power[ES_1,11]:
+      Value: 1250
+    sub.es_power[ES_1,12]:
+      Value: 1250
+    sub.es_power[ES_1,13]:
+      Value: 1250
+    sub.es_power[ES_1,14]:
+      Value: 1250
+    sub.es_power[ES_1,15]:
+      Value: -1250
+    sub.es_power[ES_1,16]:
+      Value: -46.6861893109
+    sub.es_power[ES_1,17]:
+      Value: 1249.99557938
+    sub.es_power[ES_1,18]:
+      Value: -1250
+    sub.es_power[ES_1,19]:
+      Value: -1250
+    sub.es_power[ES_1,1]:
+      Value: 1250
+    sub.es_power[ES_1,20]:
+      Value: -1250
+    sub.es_power[ES_1,21]:
+      Value: -1250
+    sub.es_power[ES_1,22]:
+      Value: -1250
+    sub.es_power[ES_1,23]:
+      Value: -1250
+    sub.es_power[ES_1,24]:
+      Value: -1250
+    sub.es_power[ES_1,25]:
+      Value: -1250
+    sub.es_power[ES_1,26]:
+      Value: -1250
+    sub.es_power[ES_1,27]:
+      Value: -1250
+    sub.es_power[ES_1,28]:
+      Value: -1250
+    sub.es_power[ES_1,29]:
+      Value: -1250
+    sub.es_power[ES_1,2]:
+      Value: 1250
+    sub.es_power[ES_1,30]:
+      Value: -1250
+    sub.es_power[ES_1,31]:
+      Value: -1250
+    sub.es_power[ES_1,32]:
+      Value: 1250
+    sub.es_power[ES_1,33]:
+      Value: 1250
+    sub.es_power[ES_1,34]:
+      Value: 1250
+    sub.es_power[ES_1,35]:
+      Value: 1250
+    sub.es_power[ES_1,36]:
+      Value: 1250
+    sub.es_power[ES_1,37]:
+      Value: 1250
+    sub.es_power[ES_1,38]:
+      Value: 1250
+    sub.es_power[ES_1,39]:
+      Value: 1250
+    sub.es_power[ES_1,3]:
+      Value: 1250
+    sub.es_power[ES_1,40]:
+      Value: 1250
+    sub.es_power[ES_1,41]:
+      Value: 1250
+    sub.es_power[ES_1,42]:
+      Value: 1250
+    sub.es_power[ES_1,43]:
+      Value: 1250
+    sub.es_power[ES_1,44]:
+      Value: -488.213969795
+    sub.es_power[ES_1,45]:
+      Value: -1250
+    sub.es_power[ES_1,46]:
+      Value: -1250
+    sub.es_power[ES_1,47]:
+      Value: -1250
+    sub.es_power[ES_1,48]:
+      Value: -1250
+    sub.es_power[ES_1,49]:
+      Value: -1250
+    sub.es_power[ES_1,4]:
+      Value: 1250
+    sub.es_power[ES_1,50]:
+      Value: -1250
+    sub.es_power[ES_1,51]:
+      Value: -1250
+    sub.es_power[ES_1,52]:
+      Value: -1250
+    sub.es_power[ES_1,53]:
+      Value: -1250
+    sub.es_power[ES_1,54]:
+      Value: -1250
+    sub.es_power[ES_1,55]:
+      Value: -1250
+    sub.es_power[ES_1,56]:
+      Value: 1250
+    sub.es_power[ES_1,57]:
+      Value: 1250
+    sub.es_power[ES_1,58]:
+      Value: 1250
+    sub.es_power[ES_1,59]:
+      Value: 1250
+    sub.es_power[ES_1,5]:
+      Value: 1250
+    sub.es_power[ES_1,60]:
+      Value: 1250
+    sub.es_power[ES_1,61]:
+      Value: 1250
+    sub.es_power[ES_1,62]:
+      Value: 1250
+    sub.es_power[ES_1,63]:
+      Value: 1250
+    sub.es_power[ES_1,64]:
+      Value: 1250
+    sub.es_power[ES_1,65]:
+      Value: 1250
+    sub.es_power[ES_1,66]:
+      Value: 1250
+    sub.es_power[ES_1,67]:
+      Value: 1250
+    sub.es_power[ES_1,68]:
+      Value: -1250
+    sub.es_power[ES_1,69]:
+      Value: -1250
+    sub.es_power[ES_1,6]:
+      Value: 1250
+    sub.es_power[ES_1,70]:
+      Value: -1250
+    sub.es_power[ES_1,71]:
+      Value: -1250
+    sub.es_power[ES_1,72]:
+      Value: -1250
+    sub.es_power[ES_1,73]:
+      Value: -1250
+    sub.es_power[ES_1,74]:
+      Value: -1250
+    sub.es_power[ES_1,75]:
+      Value: -1250
+    sub.es_power[ES_1,76]:
+      Value: 1250
+    sub.es_power[ES_1,77]:
+      Value: 1250
+    sub.es_power[ES_1,78]:
+      Value: 1250
+    sub.es_power[ES_1,79]:
+      Value: 1250
+    sub.es_power[ES_1,7]:
+      Value: 1250
+    sub.es_power[ES_1,80]:
+      Value: 1250
+    sub.es_power[ES_1,81]:
+      Value: 1250
+    sub.es_power[ES_1,82]:
+      Value: 1250
+    sub.es_power[ES_1,83]:
+      Value: 1250
+    sub.es_power[ES_1,84]:
+      Value: 92.8126484185
+    sub.es_power[ES_1,85]:
+      Value: -1250
+    sub.es_power[ES_1,86]:
+      Value: -1250
+    sub.es_power[ES_1,87]:
+      Value: -1250
+    sub.es_power[ES_1,88]:
+      Value: -1250
+    sub.es_power[ES_1,89]:
+      Value: -1250
+    sub.es_power[ES_1,8]:
+      Value: 1250
+    sub.es_power[ES_1,90]:
+      Value: -1250
+    sub.es_power[ES_1,91]:
+      Value: -1250
+    sub.es_power[ES_1,92]:
+      Value: -1250
+    sub.es_power[ES_1,93]:
+      Value: -1250
+    sub.es_power[ES_1,94]:
+      Value: -1250
+    sub.es_power[ES_1,95]:
+      Value: 1250
+    sub.es_power[ES_1,9]:
+      Value: 1250
+    sub.gt_power[GT_1,0]:
+      Value: 50
+    sub.gt_power[GT_1,10]:
+      Value: 50
+    sub.gt_power[GT_1,11]:
+      Value: 50
+    sub.gt_power[GT_1,12]:
+      Value: 50
+    sub.gt_power[GT_1,13]:
+      Value: 50
+    sub.gt_power[GT_1,14]:
+      Value: 50
+    sub.gt_power[GT_1,15]:
+      Value: 50
+    sub.gt_power[GT_1,16]:
+      Value: 50
+    sub.gt_power[GT_1,17]:
+      Value: 50
+    sub.gt_power[GT_1,18]:
+      Value: 50
+    sub.gt_power[GT_1,19]:
+      Value: 50
+    sub.gt_power[GT_1,1]:
+      Value: 50
+    sub.gt_power[GT_1,20]:
+      Value: 50
+    sub.gt_power[GT_1,21]:
+      Value: 50
+    sub.gt_power[GT_1,22]:
+      Value: 50
+    sub.gt_power[GT_1,23]:
+      Value: 50
+    sub.gt_power[GT_1,24]:
+      Value: 50
+    sub.gt_power[GT_1,25]:
+      Value: 50
+    sub.gt_power[GT_1,26]:
+      Value: 50
+    sub.gt_power[GT_1,27]:
+      Value: 50
+    sub.gt_power[GT_1,28]:
+      Value: 50
+    sub.gt_power[GT_1,29]:
+      Value: 50
+    sub.gt_power[GT_1,2]:
+      Value: 50
+    sub.gt_power[GT_1,30]:
+      Value: 50
+    sub.gt_power[GT_1,31]:
+      Value: 50
+    sub.gt_power[GT_1,32]:
+      Value: 50
+    sub.gt_power[GT_1,33]:
+      Value: 50
+    sub.gt_power[GT_1,34]:
+      Value: 50
+    sub.gt_power[GT_1,35]:
+      Value: 50
+    sub.gt_power[GT_1,36]:
+      Value: 50
+    sub.gt_power[GT_1,37]:
+      Value: 50
+    sub.gt_power[GT_1,38]:
+      Value: 50
+    sub.gt_power[GT_1,39]:
+      Value: 50
+    sub.gt_power[GT_1,3]:
+      Value: 50
+    sub.gt_power[GT_1,40]:
+      Value: 50
+    sub.gt_power[GT_1,41]:
+      Value: 50
+    sub.gt_power[GT_1,42]:
+      Value: 50
+    sub.gt_power[GT_1,43]:
+      Value: 50
+    sub.gt_power[GT_1,44]:
+      Value: 50
+    sub.gt_power[GT_1,45]:
+      Value: 50
+    sub.gt_power[GT_1,46]:
+      Value: 50
+    sub.gt_power[GT_1,47]:
+      Value: 50
+    sub.gt_power[GT_1,48]:
+      Value: 50
+    sub.gt_power[GT_1,49]:
+      Value: 50
+    sub.gt_power[GT_1,4]:
+      Value: 50
+    sub.gt_power[GT_1,50]:
+      Value: 50
+    sub.gt_power[GT_1,51]:
+      Value: 50
+    sub.gt_power[GT_1,52]:
+      Value: 50
+    sub.gt_power[GT_1,53]:
+      Value: 50
+    sub.gt_power[GT_1,54]:
+      Value: 50
+    sub.gt_power[GT_1,55]:
+      Value: 50
+    sub.gt_power[GT_1,56]:
+      Value: 50
+    sub.gt_power[GT_1,57]:
+      Value: 50
+    sub.gt_power[GT_1,58]:
+      Value: 50
+    sub.gt_power[GT_1,59]:
+      Value: 50
+    sub.gt_power[GT_1,5]:
+      Value: 50
+    sub.gt_power[GT_1,60]:
+      Value: 50
+    sub.gt_power[GT_1,61]:
+      Value: 50
+    sub.gt_power[GT_1,62]:
+      Value: 50
+    sub.gt_power[GT_1,63]:
+      Value: 50
+    sub.gt_power[GT_1,64]:
+      Value: 50
+    sub.gt_power[GT_1,65]:
+      Value: 50
+    sub.gt_power[GT_1,66]:
+      Value: 50
+    sub.gt_power[GT_1,67]:
+      Value: 50
+    sub.gt_power[GT_1,68]:
+      Value: 50
+    sub.gt_power[GT_1,69]:
+      Value: 50
+    sub.gt_power[GT_1,6]:
+      Value: 50
+    sub.gt_power[GT_1,70]:
+      Value: 50
+    sub.gt_power[GT_1,71]:
+      Value: 50
+    sub.gt_power[GT_1,72]:
+      Value: 50
+    sub.gt_power[GT_1,73]:
+      Value: 50
+    sub.gt_power[GT_1,74]:
+      Value: 50
+    sub.gt_power[GT_1,75]:
+      Value: 50
+    sub.gt_power[GT_1,76]:
+      Value: 50
+    sub.gt_power[GT_1,77]:
+      Value: 50
+    sub.gt_power[GT_1,78]:
+      Value: 50
+    sub.gt_power[GT_1,79]:
+      Value: 50
+    sub.gt_power[GT_1,7]:
+      Value: 50
+    sub.gt_power[GT_1,80]:
+      Value: 50
+    sub.gt_power[GT_1,81]:
+      Value: 50
+    sub.gt_power[GT_1,82]:
+      Value: 50
+    sub.gt_power[GT_1,83]:
+      Value: 50
+    sub.gt_power[GT_1,84]:
+      Value: 50
+    sub.gt_power[GT_1,85]:
+      Value: 50
+    sub.gt_power[GT_1,86]:
+      Value: 50
+    sub.gt_power[GT_1,87]:
+      Value: 50
+    sub.gt_power[GT_1,88]:
+      Value: 50
+    sub.gt_power[GT_1,89]:
+      Value: 50
+    sub.gt_power[GT_1,8]:
+      Value: 50
+    sub.gt_power[GT_1,90]:
+      Value: 50
+    sub.gt_power[GT_1,91]:
+      Value: 50
+    sub.gt_power[GT_1,92]:
+      Value: 50
+    sub.gt_power[GT_1,93]:
+      Value: 50
+    sub.gt_power[GT_1,94]:
+      Value: 50
+    sub.gt_power[GT_1,95]:
+      Value: 50
+    sub.gt_power[GT_1,9]:
+      Value: 50
+    sub.inv_dc[0]:
+      Value: -1230.4327867
+    sub.inv_dc[10]:
+      Value: -1230.3063459
+    sub.inv_dc[11]:
+      Value: -1230.36237455
+    sub.inv_dc[12]:
+      Value: -1230.4184032
+    sub.inv_dc[13]:
+      Value: -1230.44674622
+    sub.inv_dc[14]:
+      Value: -1230.47508925
+    sub.inv_dc[15]:
+      Value: 1268.43268125
+    sub.inv_dc[16]:
+      Value: 64.0266410609
+    sub.inv_dc[17]:
+      Value: -1235.56331063
+    sub.inv_dc[18]:
+      Value: 1261.52408575
+    sub.inv_dc[19]:
+      Value: 1256.50294117
+    sub.inv_dc[1]:
+      Value: -1230.65405805
+    sub.inv_dc[20]:
+      Value: 1251.4817966
+    sub.inv_dc[21]:
+      Value: 1243.8445228
+    sub.inv_dc[22]:
+      Value: 1236.207249
+    sub.inv_dc[23]:
+      Value: 1230.69563055
+    sub.inv_dc[24]:
+      Value: 1225.1840121
+    sub.inv_dc[25]:
+      Value: 1213.89259807
+    sub.inv_dc[26]:
+      Value: 1202.60118405
+    sub.inv_dc[27]:
+      Value: 1182.2651073
+    sub.inv_dc[28]:
+      Value: 1161.9290305
+    sub.inv_dc[29]:
+      Value: 1132.7767633
+    sub.inv_dc[2]:
+      Value: -1230.8753294
+    sub.inv_dc[30]:
+      Value: 1103.6244961
+    sub.inv_dc[31]:
+      Value: 1087.46246965
+    sub.inv_dc[32]:
+      Value: -1428.6995567
+    sub.inv_dc[33]:
+      Value: -1445.68159635
+    sub.inv_dc[34]:
+      Value: -1462.6636359
+    sub.inv_dc[35]:
+      Value: -1470.6718089
+    sub.inv_dc[36]:
+      Value: -1478.6799818
+    sub.inv_dc[37]:
+      Value: -1493.2998001
+    sub.inv_dc[38]:
+      Value: -1507.9196185
+    sub.inv_dc[39]:
+      Value: -1518.6634674
+    sub.inv_dc[3]:
+      Value: -1230.8346877
+    sub.inv_dc[40]:
+      Value: -1529.4073163
+    sub.inv_dc[41]:
+      Value: -1536.75272815
+    sub.inv_dc[42]:
+      Value: -1544.09814
+    sub.inv_dc[43]:
+      Value: -1546.11426825
+    sub.inv_dc[44]:
+      Value: 190.083573295
+    sub.inv_dc[45]:
+      Value: 945.1869115
+    sub.inv_dc[46]:
+      Value: 938.5042195
+    sub.inv_dc[47]:
+      Value: 931.0848183
+    sub.inv_dc[48]:
+      Value: 923.6654172
+    sub.inv_dc[49]:
+      Value: 922.6351278
+    sub.inv_dc[4]:
+      Value: -1230.794046
+    sub.inv_dc[50]:
+      Value: 921.6048384
+    sub.inv_dc[51]:
+      Value: 921.639747
+    sub.inv_dc[52]:
+      Value: 921.6746557
+    sub.inv_dc[53]:
+      Value: 925.164046
+    sub.inv_dc[54]:
+      Value: 928.6534364
+    sub.inv_dc[55]:
+      Value: 940.53137795
+    sub.inv_dc[56]:
+      Value: -1547.5906805
+    sub.inv_dc[57]:
+      Value: -1542.79516195
+    sub.inv_dc[58]:
+      Value: -1537.9996433
+    sub.inv_dc[59]:
+      Value: -1516.58560035
+    sub.inv_dc[5]:
+      Value: -1230.77966255
+    sub.inv_dc[60]:
+      Value: -1495.1715573
+    sub.inv_dc[61]:
+      Value: -1479.27387845
+    sub.inv_dc[62]:
+      Value: -1463.3761995
+    sub.inv_dc[63]:
+      Value: -1450.39007195
+    sub.inv_dc[64]:
+      Value: -1437.4039443
+    sub.inv_dc[65]:
+      Value: -1420.85375405
+    sub.inv_dc[66]:
+      Value: -1404.3035639
+    sub.inv_dc[67]:
+      Value: -1379.9275954
+    sub.inv_dc[68]:
+      Value: 1144.4483731
+    sub.inv_dc[69]:
+      Value: 1169.50862597
+    sub.inv_dc[6]:
+      Value: -1230.7652791
+    sub.inv_dc[70]:
+      Value: 1194.56887885
+    sub.inv_dc[71]:
+      Value: 1206.37659117
+    sub.inv_dc[72]:
+      Value: 1218.1843035
+    sub.inv_dc[73]:
+      Value: 1228.95969535
+    sub.inv_dc[74]:
+      Value: 1239.7350872
+    sub.inv_dc[75]:
+      Value: 1246.34039975
+    sub.inv_dc[76]:
+      Value: -1247.0542877
+    sub.inv_dc[77]:
+      Value: -1242.3289769
+    sub.inv_dc[78]:
+      Value: -1237.6036661
+    sub.inv_dc[79]:
+      Value: -1236.12769723
+    sub.inv_dc[7]:
+      Value: -1230.7283169
+    sub.inv_dc[80]:
+      Value: -1234.65172835
+    sub.inv_dc[81]:
+      Value: -1233.53187393
+    sub.inv_dc[82]:
+      Value: -1232.4120195
+    sub.inv_dc[83]:
+      Value: -1231.4147096
+    sub.inv_dc[84]:
+      Value: -73.2300481185
+    sub.inv_dc[85]:
+      Value: 1269.48225045
+    sub.inv_dc[86]:
+      Value: 1269.3819006
+    sub.inv_dc[87]:
+      Value: 1269.48977665
+    sub.inv_dc[88]:
+      Value: 1269.5976527
+    sub.inv_dc[89]:
+      Value: 1269.47087745
+    sub.inv_dc[8]:
+      Value: -1230.6913547
+    sub.inv_dc[90]:
+      Value: 1269.3441022
+    sub.inv_dc[91]:
+      Value: 1269.38859065
+    sub.inv_dc[92]:
+      Value: 1269.4330791
+    sub.inv_dc[93]:
+      Value: 1269.46535825
+    sub.inv_dc[94]:
+      Value: 1269.4976374
+    sub.inv_dc[95]:
+      Value: -1230.5023626
+    sub.inv_dc[9]:
+      Value: -1230.4988503
+    sub.low_heat[0]:
+      Value: 724.68252
+    sub.low_heat[10]:
+      Value: 698.68252
+    sub.low_heat[11]:
+      Value: 684.08252
+    sub.low_heat[12]:
+      Value: 689.48252
+    sub.low_heat[13]:
+      Value: 674.88252
+    sub.low_heat[14]:
+      Value: 700.28252
+    sub.low_heat[15]:
+      Value: 705.68252
+    sub.low_heat[16]:
+      Value: 711.08252
+    sub.low_heat[17]:
+      Value: 716.48252
+    sub.low_heat[18]:
+      Value: 717.88252
+    sub.low_heat[19]:
+      Value: 707.28252
+    sub.low_heat[1]:
+      Value: 730.08252
+    sub.low_heat[20]:
+      Value: 712.68252
+    sub.low_heat[21]:
+      Value: 698.08252
+    sub.low_heat[22]:
+      Value: 703.48252
+    sub.low_heat[23]:
+      Value: 688.88252
+    sub.low_heat[24]:
+      Value: 694.28252
+    sub.low_heat[25]:
+      Value: 679.68252
+    sub.low_heat[26]:
+      Value: 665.08252
+    sub.low_heat[27]:
+      Value: 670.48252
+    sub.low_heat[28]:
+      Value: 675.88252
+    sub.low_heat[29]:
+      Value: 661.28252
+    sub.low_heat[2]:
+      Value: 735.48252
+    sub.low_heat[30]:
+      Value: 666.68252
+    sub.low_heat[31]:
+      Value: 672.08252
+    sub.low_heat[32]:
+      Value: 657.48252
+    sub.low_heat[33]:
+      Value: 642.88252
+    sub.low_heat[34]:
+      Value: 628.28252
+    sub.low_heat[35]:
+      Value: 613.68252
+    sub.low_heat[36]:
+      Value: 639.08252
+    sub.low_heat[37]:
+      Value: 656.1014
+    sub.low_heat[38]:
+      Value: 649.4554
+    sub.low_heat[39]:
+      Value: 682.8094
+    sub.low_heat[3]:
+      Value: 740.88252
+    sub.low_heat[40]:
+      Value: 716.1634
+    sub.low_heat[41]:
+      Value: 749.5174
+    sub.low_heat[42]:
+      Value: 743.72788
+    sub.low_heat[43]:
+      Value: 775.41418
+    sub.low_heat[44]:
+      Value: 807.10048
+    sub.low_heat[45]:
+      Value: 838.78678
+    sub.low_heat[46]:
+      Value: 870.47308
+    sub.low_heat[47]:
+      Value: 902.15938
+    sub.low_heat[48]:
+      Value: 1039.288384
+    sub.low_heat[49]:
+      Value: 1062.590896
+    sub.low_heat[4]:
+      Value: 746.28252
+    sub.low_heat[50]:
+      Value: 1085.893408
+    sub.low_heat[51]:
+      Value: 1109.19592
+    sub.low_heat[52]:
+      Value: 1132.498432
+    sub.low_heat[53]:
+      Value: 1155.800944
+    sub.low_heat[54]:
+      Value: 1179.103456
+    sub.low_heat[55]:
+      Value: 1202.405968
+    sub.low_heat[56]:
+      Value: 1225.70848
+    sub.low_heat[57]:
+      Value: 1249.010992
+    sub.low_heat[58]:
+      Value: 1247.6854
+    sub.low_heat[59]:
+      Value: 1246.359808
+    sub.low_heat[5]:
+      Value: 751.68252
+    sub.low_heat[60]:
+      Value: 1245.034216
+    sub.low_heat[61]:
+      Value: 1243.708624
+    sub.low_heat[62]:
+      Value: 1242.383032
+    sub.low_heat[63]:
+      Value: 1241.05744
+    sub.low_heat[64]:
+      Value: 1239.731848
+    sub.low_heat[65]:
+      Value: 1238.406256
+    sub.low_heat[66]:
+      Value: 1237.080664
+    sub.low_heat[67]:
+      Value: 1235.755072
+    sub.low_heat[68]:
+      Value: 1234.42948
+    sub.low_heat[69]:
+      Value: 1179.70036
+    sub.low_heat[6]:
+      Value: 757.08252
+    sub.low_heat[70]:
+      Value: 1124.97124
+    sub.low_heat[71]:
+      Value: 1070.24212
+    sub.low_heat[72]:
+      Value: 917.17888
+    sub.low_heat[73]:
+      Value: 872.32387
+    sub.low_heat[74]:
+      Value: 827.46886
+    sub.low_heat[75]:
+      Value: 782.61385
+    sub.low_heat[76]:
+      Value: 737.75884
+    sub.low_heat[77]:
+      Value: 692.90383
+    sub.low_heat[78]:
+      Value: 648.04882
+    sub.low_heat[79]:
+      Value: 603.19381
+    sub.low_heat[7]:
+      Value: 730.48252
+    sub.low_heat[80]:
+      Value: 627.725
+    sub.low_heat[81]:
+      Value: 648.61084
+    sub.low_heat[82]:
+      Value: 591.95188
+    sub.low_heat[83]:
+      Value: 595.29292
+    sub.low_heat[84]:
+      Value: 610.63396
+    sub.low_heat[85]:
+      Value: 633.975
+    sub.low_heat[86]:
+      Value: 620.51604
+    sub.low_heat[87]:
+      Value: 627.05708
+    sub.low_heat[88]:
+      Value: 633.59812
+    sub.low_heat[89]:
+      Value: 640.13916
+    sub.low_heat[8]:
+      Value: 719.88252
+    sub.low_heat[90]:
+      Value: 670.6802
+    sub.low_heat[91]:
+      Value: 677.22124
+    sub.low_heat[92]:
+      Value: 663.76228
+    sub.low_heat[93]:
+      Value: 690.30332
+    sub.low_heat[94]:
+      Value: 716.84436
+    sub.low_heat[95]:
+      Value: 723.3854
+    sub.low_heat[9]:
+      Value: 713.28252
+    sub.medium_heat[0]:
+      Value: 3707.12508
+    sub.medium_heat[10]:
+      Value: 3573.36508
+    sub.medium_heat[11]:
+      Value: 3496.98908
+    sub.medium_heat[12]:
+      Value: 3510.61308
+    sub.medium_heat[13]:
+      Value: 3436.08708
+    sub.medium_heat[14]:
+      Value: 3519.66108
+    sub.medium_heat[15]:
+      Value: 3528.4076
+    sub.medium_heat[16]:
+      Value: 3555.4076
+    sub.medium_heat[17]:
+      Value: 3582.4076
+    sub.medium_heat[18]:
+      Value: 3589.4076
+    sub.medium_heat[19]:
+      Value: 3536.4076
+    sub.medium_heat[1]:
+      Value: 3730.74908
+    sub.medium_heat[20]:
+      Value: 3563.4076
+    sub.medium_heat[21]:
+      Value: 3490.4076
+    sub.medium_heat[22]:
+      Value: 3517.4076
+    sub.medium_heat[23]:
+      Value: 3444.4076
+    sub.medium_heat[24]:
+      Value: 3471.4076
+    sub.medium_heat[25]:
+      Value: 3398.4076
+    sub.medium_heat[26]:
+      Value: 3325.4076
+    sub.medium_heat[27]:
+      Value: 3352.4076
+    sub.medium_heat[28]:
+      Value: 3379.4076
+    sub.medium_heat[29]:
+      Value: 3306.4076
+    sub.medium_heat[2]:
+      Value: 3754.37308
+    sub.medium_heat[30]:
+      Value: 3333.4076
+    sub.medium_heat[31]:
+      Value: 3360.4076
+    sub.medium_heat[32]:
+      Value: 3287.4076
+    sub.medium_heat[33]:
+      Value: 3214.4076
+    sub.medium_heat[34]:
+      Value: 3141.4076
+    sub.medium_heat[35]:
+      Value: 3079.20508
+    sub.medium_heat[36]:
+      Value: 3195.4076
+    sub.medium_heat[37]:
+      Value: 3280.502
+    sub.medium_heat[38]:
+      Value: 3247.272
+    sub.medium_heat[39]:
+      Value: 3414.042
+    sub.medium_heat[3]:
+      Value: 3777.99708
+    sub.medium_heat[40]:
+      Value: 3580.812
+    sub.medium_heat[41]:
+      Value: 3747.582
+    sub.medium_heat[42]:
+      Value: 3718.6344
+    sub.medium_heat[43]:
+      Value: 3889.26532
+    sub.medium_heat[44]:
+      Value: 4035.4974
+    sub.medium_heat[45]:
+      Value: 4193.9289
+    sub.medium_heat[46]:
+      Value: 4352.3604
+    sub.medium_heat[47]:
+      Value: 4510.7919
+    sub.medium_heat[48]:
+      Value: 5196.43692
+    sub.medium_heat[49]:
+      Value: 5312.94948
+    sub.medium_heat[4]:
+      Value: 3781.62108
+    sub.medium_heat[50]:
+      Value: 5429.46204
+    sub.medium_heat[51]:
+      Value: 5545.9746
+    sub.medium_heat[52]:
+      Value: 5662.48716
+    sub.medium_heat[53]:
+      Value: 5778.99972
+    sub.medium_heat[54]:
+      Value: 5895.51228
+    sub.medium_heat[55]:
+      Value: 6012.02484
+    sub.medium_heat[56]:
+      Value: 6128.5374
+    sub.medium_heat[57]:
+      Value: 6245.04996
+    sub.medium_heat[58]:
+      Value: 6238.422
+    sub.medium_heat[59]:
+      Value: 6231.79404
+    sub.medium_heat[5]:
+      Value: 3795.24508
+    sub.medium_heat[60]:
+      Value: 6225.16608
+    sub.medium_heat[61]:
+      Value: 6218.53812
+    sub.medium_heat[62]:
+      Value: 6211.91016
+    sub.medium_heat[63]:
+      Value: 6205.2822
+    sub.medium_heat[64]:
+      Value: 6198.65424
+    sub.medium_heat[65]:
+      Value: 6192.02628
+    sub.medium_heat[66]:
+      Value: 6185.39832
+    sub.medium_heat[67]:
+      Value: 6178.77036
+    sub.medium_heat[68]:
+      Value: 6172.1424
+    sub.medium_heat[69]:
+      Value: 5898.4968
+    sub.medium_heat[6]:
+      Value: 3808.86908
+    sub.medium_heat[70]:
+      Value: 5624.8512
+    sub.medium_heat[71]:
+      Value: 5351.2056
+    sub.medium_heat[72]:
+      Value: 4585.8894
+    sub.medium_heat[73]:
+      Value: 4361.61435
+    sub.medium_heat[74]:
+      Value: 4137.3393
+    sub.medium_heat[75]:
+      Value: 3913.06425
+    sub.medium_heat[76]:
+      Value: 3688.7892
+    sub.medium_heat[77]:
+      Value: 3468.16952
+    sub.medium_heat[78]:
+      Value: 3303.18548
+    sub.medium_heat[79]:
+      Value: 3097.02464
+    sub.medium_heat[7]:
+      Value: 3704.49308
+    sub.medium_heat[80]:
+      Value: 3186.4086
+    sub.medium_heat[81]:
+      Value: 3243.21116
+    sub.medium_heat[82]:
+      Value: 3089.83452
+    sub.medium_heat[83]:
+      Value: 3098.16668
+    sub.medium_heat[84]:
+      Value: 3154.49884
+    sub.medium_heat[85]:
+      Value: 3242.831
+    sub.medium_heat[86]:
+      Value: 3183.96316
+    sub.medium_heat[87]:
+      Value: 3205.09532
+    sub.medium_heat[88]:
+      Value: 3226.22748
+    sub.medium_heat[89]:
+      Value: 3247.35964
+    sub.medium_heat[8]:
+      Value: 3654.11708
+    sub.medium_heat[90]:
+      Value: 3364.4918
+    sub.medium_heat[91]:
+      Value: 3386.1012
+    sub.medium_heat[92]:
+      Value: 3326.75612
+    sub.medium_heat[93]:
+      Value: 3451.5116
+    sub.medium_heat[94]:
+      Value: 3584.2168
+    sub.medium_heat[95]:
+      Value: 3616.922
+    sub.medium_heat[9]:
+      Value: 3619.74108
+    sub.utility_power[0]:
+      Value: 3975.785504
+    sub.utility_power[10]:
+      Value: 3892.97008433
+    sub.utility_power[11]:
+      Value: 4102.66986964
+    sub.utility_power[12]:
+      Value: 4512.36965494
+    sub.utility_power[13]:
+      Value: 4066.97495579
+    sub.utility_power[14]:
+      Value: 3793.4988613
+    sub.utility_power[15]:
+      Value: 6785.62957021
+    sub.utility_power[16]:
+      Value: 5487.49074529
+    sub.utility_power[17]:
+      Value: 4277.36096838
+    sub.utility_power[18]:
+      Value: 6107.62377993
+    sub.utility_power[19]:
+      Value: 6057.24235788
+    sub.utility_power[1]:
+      Value: 3501.05260474
+    sub.utility_power[20]:
+      Value: 6003.76735444
+    sub.utility_power[21]:
+      Value: 5743.75047826
+    sub.utility_power[22]:
+      Value: 5480.64002067
+    sub.utility_power[23]:
+      Value: 5618.41494189
+    sub.utility_power[24]:
+      Value: 5752.32288637
+    sub.utility_power[25]:
+      Value: 5630.96988977
+    sub.utility_power[26]:
+      Value: 5508.48502911
+    sub.utility_power[27]:
+      Value: 5457.79711313
+    sub.utility_power[28]:
+      Value: 5407.10919705
+    sub.utility_power[29]:
+      Value: 5639.46158836
+    sub.utility_power[2]:
+      Value: 3026.31970548
+    sub.utility_power[30]:
+      Value: 5892.36560758
+    sub.utility_power[31]:
+      Value: 5961.38006125
+    sub.utility_power[32]:
+      Value: 3290.07544536
+    sub.utility_power[33]:
+      Value: 3261.49085967
+    sub.utility_power[34]:
+      Value: 3257.75269279
+    sub.utility_power[35]:
+      Value: 3528.89923993
+    sub.utility_power[36]:
+      Value: 3576.48719418
+    sub.utility_power[37]:
+      Value: 3536.63387867
+    sub.utility_power[38]:
+      Value: 3689.69600178
+    sub.utility_power[39]:
+      Value: 3686.04502117
+    sub.utility_power[3]:
+      Value: 3751.84871928
+    sub.utility_power[40]:
+      Value: 3752.4448791
+    sub.utility_power[41]:
+      Value: 3911.04433395
+    sub.utility_power[42]:
+      Value: 4246.61650036
+    sub.utility_power[43]:
+      Value: 3967.77303205
+    sub.utility_power[44]:
+      Value: 5627.28126465
+    sub.utility_power[45]:
+      Value: 6701.36638536
+    sub.utility_power[46]:
+      Value: 6613.66547586
+    sub.utility_power[47]:
+      Value: 6477.05358266
+    sub.utility_power[48]:
+      Value: 6340.65257507
+    sub.utility_power[49]:
+      Value: 6192.55466209
+    sub.utility_power[4]:
+      Value: 4477.37773307
+    sub.utility_power[50]:
+      Value: 6044.53674912
+    sub.utility_power[51]:
+      Value: 6149.58685824
+    sub.utility_power[52]:
+      Value: 6154.65136756
+    sub.utility_power[53]:
+      Value: 6215.38250939
+    sub.utility_power[54]:
+      Value: 6276.11365141
+    sub.utility_power[55]:
+      Value: 6298.49703089
+    sub.utility_power[56]:
+      Value: 4292.79348316
+    sub.utility_power[57]:
+      Value: 4355.89905974
+    sub.utility_power[58]:
+      Value: 4417.50194946
+    sub.utility_power[59]:
+      Value: 4619.108262
+    sub.utility_power[5]:
+      Value: 4252.88048861
+    sub.utility_power[60]:
+      Value: 4728.44852822
+    sub.utility_power[61]:
+      Value: 4830.42787967
+    sub.utility_power[62]:
+      Value: 4920.80630108
+    sub.utility_power[63]:
+      Value: 4890.30277616
+    sub.utility_power[64]:
+      Value: 4859.79925145
+    sub.utility_power[65]:
+      Value: 4824.29164512
+    sub.utility_power[66]:
+      Value: 4800.38496883
+    sub.utility_power[67]:
+      Value: 3776.31185075
+    sub.utility_power[68]:
+      Value: 6100.44710226
+    sub.utility_power[69]:
+      Value: 6380.60478201
+    sub.utility_power[6]:
+      Value: 4028.38324416
+    sub.utility_power[70]:
+      Value: 6660.64246178
+    sub.utility_power[71]:
+      Value: 6783.42023893
+    sub.utility_power[72]:
+      Value: 6906.00134786
+    sub.utility_power[73]:
+      Value: 6926.55030024
+    sub.utility_power[74]:
+      Value: 6947.09925262
+    sub.utility_power[75]:
+      Value: 7483.60877545
+    sub.utility_power[76]:
+      Value: 4813.86397744
+    sub.utility_power[77]:
+      Value: 5000.84876881
+    sub.utility_power[78]:
+      Value: 4826.968818
+    sub.utility_power[79]:
+      Value: 4887.32041235
+    sub.utility_power[7]:
+      Value: 3996.40857845
+    sub.utility_power[80]:
+      Value: 4972.09061136
+    sub.utility_power[81]:
+      Value: 5075.89820872
+    sub.utility_power[82]:
+      Value: 5410.22301642
+    sub.utility_power[83]:
+      Value: 5077.78618575
+    sub.utility_power[84]:
+      Value: 6334.67568444
+    sub.utility_power[85]:
+      Value: 7876.09282022
+    sub.utility_power[86]:
+      Value: 7474.69730758
+    sub.utility_power[87]:
+      Value: 7223.51002084
+    sub.utility_power[88]:
+      Value: 7472.3227341
+    sub.utility_power[89]:
+      Value: 7795.90079605
+    sub.utility_power[8]:
+      Value: 3954.17809879
+    sub.utility_power[90]:
+      Value: 8119.47885801
+    sub.utility_power[91]:
+      Value: 7743.13590987
+    sub.utility_power[92]:
+      Value: 7366.97750933
+    sub.utility_power[93]:
+      Value: 7461.14708424
+    sub.utility_power[94]:
+      Value: 7503.77959003
+    sub.utility_power[95]:
+      Value: 4806.0607469
+    sub.utility_power[9]:
+      Value: 3920.52176598
+    wp[13]:
+      Value: 0.122170075
+    wp[14]:
+      Value: 0.24434015
+    wp[15]:
+      Value: 1.5096731
+    wp[16]:
+      Value: 2.77500605
+    wp[17]:
+      Value: 5.9601545
+    wp[18]:
+      Value: 9.14530295
+    wp[19]:
+      Value: 13.94484173
+    wp[20]:
+      Value: 18.7443805
+    wp[21]:
+      Value: 26.91668605
+    wp[22]:
+      Value: 35.0889916
+    wp[23]:
+      Value: 47.99538765
+    wp[24]:
+      Value: 60.9017837
+    wp[25]:
+      Value: 74.39721408
+    wp[26]:
+      Value: 87.89264445
+    wp[27]:
+      Value: 110.5464674
+    wp[28]:
+      Value: 133.2002904
+    wp[29]:
+      Value: 160.9459877
+    wp[30]:
+      Value: 188.691685
+    wp[31]:
+      Value: 203.3171886
+    wp[32]:
+      Value: 217.9426921
+    wp[33]:
+      Value: 238.2141986
+    wp[34]:
+      Value: 258.485705
+    wp[35]:
+      Value: 265.5497535
+    wp[36]:
+      Value: 272.6138019
+    wp[37]:
+      Value: 286.3972045
+    wp[38]:
+      Value: 300.1806072
+    wp[39]:
+      Value: 310.2596386
+    wp[40]:
+      Value: 320.33867
+    wp[41]:
+      Value: 327.3678127
+    wp[42]:
+      Value: 334.3969554
+    wp[43]:
+      Value: 336.1116997
+    wp[44]:
+      Value: 337.826444
+    wp[45]:
+      Value: 343.8913157
+    wp[46]:
+      Value: 349.9561874
+    wp[47]:
+      Value: 354.1797816
+    wp[48]:
+      Value: 358.4033757
+    wp[49]:
+      Value: 355.4887467
+    wp[50]:
+      Value: 352.5741177
+    wp[51]:
+      Value: 347.5825974
+    wp[52]:
+      Value: 342.591077
+    wp[53]:
+      Value: 335.3874057
+    wp[54]:
+      Value: 328.1837343
+    wp[55]:
+      Value: 317.7163766
+    wp[56]:
+      Value: 307.2490189
+    wp[57]:
+      Value: 302.9468869
+    wp[58]:
+      Value: 298.6447548
+    wp[59]:
+      Value: 275.6811435
+    wp[60]:
+      Value: 252.7175321
+    wp[61]:
+      Value: 236.1373073
+    wp[62]:
+      Value: 219.5570824
+    wp[63]:
+      Value: 205.6733258
+    wp[64]:
+      Value: 191.7895691
+    wp[65]:
+      Value: 174.74248
+    wp[66]:
+      Value: 157.695391
+    wp[67]:
+      Value: 133.7107868
+    wp[68]:
+      Value: 109.7261826
+    wp[69]:
+      Value: 84.68131668
+    wp[70]:
+      Value: 59.63645075
+    wp[71]:
+      Value: 48.61932768
+    wp[72]:
+      Value: 37.6022046
+    wp[73]:
+      Value: 27.74133405
+    wp[74]:
+      Value: 17.8804635
+    wp[75]:
+      Value: 12.8889432
+    wp[76]:
+      Value: 7.8974229
+    wp[77]:
+      Value: 4.6250101
+    wp[78]:
+      Value: 1.3525973
+    wp[79]:
+      Value: 0.711204375
+    wp[80]:
+      Value: 0.06981145
+    wp[81]:
+      Value: 0.034905725
+  Constraint: No values
