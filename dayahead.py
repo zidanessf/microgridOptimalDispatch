@@ -6,7 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import optimizationModel,microgridStructure
 '''Initialize a special case of microgrid'''
-case = microgridStructure.MicrogridCase()
+case = microgridStructure.case_PS
 '''Load input data'''
 microgrid_data = pd.read_excel('input.xlsx')
 '''Construct base model'''

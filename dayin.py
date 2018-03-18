@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import optimizationModel,microgridStructure
 '''Initialize a special case of microgrid'''
-case = microgridStructure.MicrogridCase()
+case = microgridStructure.MicrogridCase_Simple()
 '''Load input data'''
 microgrid_data = pd.read_excel('input.xlsx')
 Econtract = pd.read_excel('DayAhead Electric DR.xlsx',sheetname='1')
@@ -44,7 +44,7 @@ peak = range(82, 86)
 for e in [1,0.8,0.6,0.4,0.2]:
     amount = [e * max_amount[t] for t in range(max_amount.__len__())]
     #修正优化模型
-    responseStrategy = optimizationModel.responseModel(optimalDispatch, case, peak=peak, amount = amount,mode='E')#TODO
+    responseStrategy = optimizationModel.responseModel(optimalDispatch, case, peak=peak, amount = amount,mode='E')
     #求解
     xfrm = TransformationFactory('gdp.chull')
     xfrm.apply_to(responseStrategy)

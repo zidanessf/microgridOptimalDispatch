@@ -1,40 +1,30 @@
 from microgrid_Model import *
 import networkx as nx
 '''Initialize a special case of microgrid'''
-#from neo4j.v1 import GraphDatabase
-
-#driver = GraphDatabase.driver("bolt://localhost:7687", auth=("zidanessf", "123456"))
-#graph = nx.Graph()
-def get_node(tx, name, graph):
-    return tx.run("MATCH (n:$name) RETURN n",name = name)
-
-
-def get_branch(tx, name):
-    for record in tx.run("MATCH (a:Person)-[:KNOWS]->(friend) WHERE a.name = $name "
-                         "RETURN friend.name ORDER BY friend.name", name=name):
-        print(record["friend.name"])
-
-class MicrogridCase:
+class MicrogridCase_Simple:
     def __init__(self,device,NumOfTime,graph=None):
-        microgrid_device = dict()
-        microgrid_device['PV_1'] = PV()
-        microgrid_device['ES_1'] = electricStorage()
-        microgrid_device['ABSC_1'] = absorptionChiller()
-        microgrid_device['Boiler_1'] = boiler()
-        microgrid_device['CS_1'] = coldStorage()
-        microgrid_device['AC_1'] = airConditioner()
-        microgrid_device['GT_1'] = gasTurbine()
-        microgrid_device['DR_Heat_Load'] = DRHeatLoad()
-        microgrid_device['ut'] = utility()
-        microgrid_device['inv'] = inverter()
-        self.device = microgrid_device
-        self.NumOfTime = 96
+        self.device = device
+        self.type = 'Simple'
+        self.NumOfTime = NumOfTime
     def getKey(self,type):
         return [key for key in self.device.keys() if isinstance(self.device[key], type)]
     def SOCUpdate(self, plan, nowtime):
         N_es = self.getKey(electricStorage)
         for es in N_es:
             self.device[es].SOCnow = plan[es + '电池电量'].loc[nowtime] / self.device[es].capacity
+class MicrogridCase_Graph:
+    def __init__(self,graph,NumOfTime):
+        self.graph = graph
+        device = dict()
+        for node in graph.nodes():
+            device.update(graph.node[node]['device'])
+        self.device = device
+        self.type = 'Graph'
+        self.NumOfTime = NumOfTime
+
+    def getKey(self, type):
+        return [key for key in self.device.keys() if isinstance(self.device[key], type)]
+
 
 device_IES = {
     'PV_1' : PV(),
@@ -48,18 +38,68 @@ device_IES = {
     'ut' : utility(),
     'inv' : inverter()
 }
-case_IES = MicrogridCase(device=device_IES,NumOfTime=96)
-
-device_PS = {
-    'PV_1' : PV(),
-    'ES_1' : electricStorage(),
-    'ABSC_1' : absorptionChiller(),
-    'BOL_1' : boiler(),
-    'CS_1' : coldStorage(),
-    'AC_1' : airConditioner(),
-    'GT_1' : gasTurbine(),
-    'DR_Heat_Load' : DRHeatLoad(),
-    'ut' : utility(),
-    'inv' : inverter()
-}
+case_IES = MicrogridCase_Simple(device=device_IES, NumOfTime=96)
 graph_PS = nx.Graph()
+graph_PS.add_nodes_from(['A','B','C','D','E'])
+graph_PS.add_edges_from([('A','B'),('A','E'),('B','C'),('C','D'),('D','E'),('A','D')])
+graph_PS.node['A'].update({
+    'ID' : 'A',
+    'device' : {
+        'Park City' : gasTurbine(Pmax=170,Pmin=10,Cost=15),
+        'Alta' : PV()
+    }
+})
+graph_PS.node['B'].update({
+    'ID' : 'B',
+    'device': {}
+    })
+graph_PS.node['C'].update({
+    'ID' : 'C',
+    'device':{
+        'Solitude' : gasTurbine(Pmax=320,Pmin=10,Cost=30)
+    }
+})
+graph_PS.node['D'].update({
+    'ID' : 'D',
+    'device':{
+        'Sundance' : gasTurbine(Pmax=200,Pmin=10,Cost=40)
+    }
+})
+graph_PS.node['E'].update({
+    'ID' : 'E',
+    'device':{
+        'Brighton':gasTurbine(Pmax=600,Pmin=10,Cost=20)
+    }
+})
+graph_PS.edge['A']['B'].update({
+    'R' : 0.281,
+    'X' : 2.81,
+    'Limit' : 400
+})
+graph_PS.edge['A']['D'].update({
+    'R' : 0.304,
+    'X' : 3.04,
+    'Limit' : None
+})
+graph_PS.edge['A']['E'].update({
+    'R' : 0.064,
+    'X' : 0.64,
+    'Limit' : None
+})
+graph_PS.edge['B']['C'].update({
+    'R' : 0.108,
+    'X' : 1.08,
+    'Limit' : None
+})
+graph_PS.edge['C']['D'].update({
+    'R' : 0.297,
+    'X' : 2.97,
+    'Limit' : None
+})
+graph_PS.edge['D']['E'].update({
+    'R' : 0.297,
+    'X' : 2.97,
+    'Limit' : 240
+})
+case_PS = MicrogridCase_Graph(graph=graph_PS,NumOfTime=96)
+1
