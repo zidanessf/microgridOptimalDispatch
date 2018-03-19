@@ -1,5 +1,6 @@
 from microgrid_Model import *
 import networkx as nx
+from scipy.sparse import dok_matrix
 '''Initialize a special case of microgrid'''
 class MicrogridCase_Simple:
     def __init__(self,device,NumOfTime,graph=None):
@@ -14,6 +15,9 @@ class MicrogridCase_Simple:
             self.device[es].SOCnow = plan[es + '电池电量'].loc[nowtime] / self.device[es].capacity
 class MicrogridCase_Graph:
     def __init__(self,graph,NumOfTime):
+        ns = graph.nodes()
+        for i in range(len(ns)):
+            graph.node[ns[i]].update({'index':i})
         self.graph = graph
         device = dict()
         for node in graph.nodes():
@@ -21,7 +25,17 @@ class MicrogridCase_Graph:
         self.device = device
         self.type = 'Graph'
         self.NumOfTime = NumOfTime
-
+        self.Adj = nx.adjacency_matrix(graph)
+        ns = graph.nodes()
+        B = dok_matrix((len(ns),len(ns)))
+        for l in graph.edges():
+            i = graph.node[l[0]]['index']
+            j = graph.node[l[1]]['index']
+            B[i,j] = - 1/graph.edge[l[0]][l[1]]['X']
+        B = B + B.transpose()
+        for i in range(len(ns)):
+            B[i,i] = - sum(B[i,j] for j in range(len(ns)))
+        self.B = B
     def getKey(self, type):
         return [key for key in self.device.keys() if isinstance(self.device[key], type)]
 
@@ -102,4 +116,3 @@ graph_PS.edge['D']['E'].update({
     'Limit' : 240
 })
 case_PS = MicrogridCase_Graph(graph=graph_PS,NumOfTime=96)
-1
