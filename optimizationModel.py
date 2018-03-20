@@ -5,6 +5,7 @@ import pandas as pd
 import copy
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+import numpy as np
 H2M = 0.2
 def TestModel(microgrid_data,case,T_range):
     eps = 0.0001
@@ -52,6 +53,8 @@ def DayAheadModel(microgrid_data,case,T_range):
     N_ac = case.getKey(airConditioner)
     N_gt = case.getKey(gasTurbine)
     N_pv = case.getKey(PV)
+    N_bus = case.graph.nodes()
+    N_branch = case.graph.edges()
     if case.type == 'Simple':
         microgrid_device['ut'].buy_price = microgrid_data['电价'][T[0]:T[-1]+ 1].tolist()
         acLoad = microgrid_data['交流负荷'][T[0]:T[-1] + 1].tolist()
@@ -63,7 +66,7 @@ def DayAheadModel(microgrid_data,case,T_range):
     if case.type == 'Graph':
         acLoad = dict()
         for node in case.graph.nodes():
-            acLoad[node] = microgrid_data[node+'节点交流负荷'][T[0]:T[-1]+1].tolist()
+            acLoad[node] = microgrid_data[str(node)+'节点交流负荷'][T[0]:T[-1]+1].tolist()
         steam_heat_load = len(T)*[0]
         water_heat_load = len(T)*[0]
         cold_load = len(T)*[0]
@@ -71,7 +74,7 @@ def DayAheadModel(microgrid_data,case,T_range):
     '''define sets'''
     optimalDispatch = ConcreteModel(name='IES_optimalDispatch')
     wind_power_max = microgrid_data['风机出力上限'][T[0]:T[-1]+1].tolist()
-    optimalDispatch.wp = Var(N_pv,T,bounds=lambda mdl,t: (0, wind_power_max[t]))
+    optimalDispatch.wp = Var(N_pv,T,bounds=lambda mdl,n,t: (0, wind_power_max[t]))
     '''This is the sub-problem'''
     eps = 0.001 #精度
     optimalDispatch.sub = SubModel()
@@ -106,6 +109,8 @@ def DayAheadModel(microgrid_data,case,T_range):
     optimalDispatch.sub.gt_power = Var(N_gt, T)
     optimalDispatch.sub.gt_constraint1 = Constraint(N_gt,T,rule = lambda mdl,i,t: mdl.gt_power[i,t] <= microgrid_device[i].Pmax)
     optimalDispatch.sub.gt_constraint2 = Constraint(N_gt, T,rule=lambda mdl, i, t: mdl.gt_power[i, t] >= microgrid_device[i].Pmin)
+    # Injection Power
+    optimalDispatch.sub.P_inj = Var(N_bus,T)
     if case.type == 'Simple':
         # inverter
         optimalDispatch.sub.inv_dc = Var(T)  # inv_dc > 0 means energy flows from inverter to dc side
@@ -197,16 +202,29 @@ def DayAheadModel(microgrid_data,case,T_range):
 
     '''线路潮流约束'''
     #TODO 线路潮流约束还没写好
-    def PFlimit(mdl,line,t):
-        nf = line[0]
-        nt = line[1]
+    def PFlimit(mdl,nf,nt,t):
+        # nf = line[0]
+        # nt = line[1]
         R = case.graph.edge[nf][nt]['R']
         X = case.graph.edge[nf][nt]['X']
         limit = case.graph.edge[nf][nt]['Limit']
         if limit is None:
             return Constraint.Skip
         else:
-            return
+            PF = 1/X * (sum(case.B_INV.item(nf,nb) * mdl.P_inj[nb,t] for nb in N_bus) - sum(case.B_INV.item(nt,nb) * mdl.P_inj[nb,t] for nb in N_bus))
+            return -limit <= PF <= limit
+    optimalDispatch.sub.PFlimit = Constraint(N_branch,T,rule=PFlimit)
+    '''注入功率约束（中间量）'''
+    def Power_Injection(mdl,nb,t):
+        m = mdl.model()
+        Temp = 0.0
+        for key,dev in case.graph.node[nb]['device'].items():
+            if isinstance(dev,gasTurbine):
+                Temp += mdl.gt_power[key,t]
+            if isinstance(dev,PV):
+                Temp += m.wp[key,t]
+        return -eps <= mdl.P_inj[nb,t] - Temp <= eps
+    optimalDispatch.sub.Power_Injection =  Constraint(N_bus,T,rule=Power_Injection)
     '''Define Objectives'''
 
     def OM_Cost(mdl):
@@ -240,10 +258,13 @@ def DayAheadModel(microgrid_data,case,T_range):
     def obj_Efficiency(mdl):
         return (Fuel_Cost(mdl)/2.3 * 1.2143 + 0.1229 * 0.25 *sum(mdl.utility_power[t] for t in mdl.T) + 3.6 * 0.3412 * 0.25 * sum(mdl.buy_heat[t] for t in mdl.T)) \
                / (sum(acLoad)+sum(dcLoad)+sum(cold_load)+sum(water_heat_load)+sum(steam_heat_load))
+    def obj_simple(mdl):
+        return sum(sum(0.25*microgrid_device[n_gt].Cost*mdl.gt_power[n_gt,t] for n_gt in N_gt) for t in T)
     optimalDispatch.sub.obj_Economical = obj_Economical
     optimalDispatch.sub.obj_Efficiency = obj_Efficiency
-    optimalDispatch.sub.objective = Objective(rule=obj_Economical)
-    optimalDispatch.objective = Objective(rule=lambda mdl: -obj_Economical(mdl.sub))
+    optimalDispatch.sub.obj_simple = obj_simple
+    optimalDispatch.sub.objective = Objective(rule=obj_simple)
+    optimalDispatch.objective = Objective(rule=lambda mdl: -obj_simple(mdl.sub))
     return optimalDispatch
 def retriveResult(microgrid_data,case,mdl):
     model = mdl.sub

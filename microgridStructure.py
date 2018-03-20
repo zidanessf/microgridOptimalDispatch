@@ -1,6 +1,7 @@
 from microgrid_Model import *
 import networkx as nx
 from scipy.sparse import dok_matrix
+from scipy.linalg import pinv
 '''Initialize a special case of microgrid'''
 class MicrogridCase_Simple:
     def __init__(self,device,NumOfTime,graph=None):
@@ -16,8 +17,8 @@ class MicrogridCase_Simple:
 class MicrogridCase_Graph:
     def __init__(self,graph,NumOfTime):
         ns = graph.nodes()
-        for i in range(len(ns)):
-            graph.node[ns[i]].update({'index':i})
+        # for i in range(len(ns)):
+        #     graph.node[ns[i]].update({'index':i})
         self.graph = graph
         device = dict()
         for node in graph.nodes():
@@ -29,13 +30,12 @@ class MicrogridCase_Graph:
         ns = graph.nodes()
         B = dok_matrix((len(ns),len(ns)))
         for l in graph.edges():
-            i = graph.node[l[0]]['index']
-            j = graph.node[l[1]]['index']
-            B[i,j] = - 1/graph.edge[l[0]][l[1]]['X']
+            B[l[0],l[1]] = - 1/graph.edge[l[0]][l[1]]['X']
         B = B + B.transpose()
         for i in range(len(ns)):
             B[i,i] = - sum(B[i,j] for j in range(len(ns)))
         self.B = B
+        self.B_INV = pinv(B.todense())
     def getKey(self, type):
         return [key for key in self.device.keys() if isinstance(self.device[key], type)]
 
@@ -54,63 +54,63 @@ device_IES = {
 }
 case_IES = MicrogridCase_Simple(device=device_IES, NumOfTime=96)
 graph_PS = nx.Graph()
-graph_PS.add_nodes_from(['A','B','C','D','E'])
-graph_PS.add_edges_from([('A','B'),('A','E'),('B','C'),('C','D'),('D','E'),('A','D')])
-graph_PS.node['A'].update({
+graph_PS.add_nodes_from([0,1,2,3,4])
+graph_PS.add_edges_from([(0,1),(0,4),(1,2),(2,3),(3,4),(0,3)])
+graph_PS.node[0].update({
     'ID' : 'A',
     'device' : {
         'Park City' : gasTurbine(Pmax=170,Pmin=10,Cost=15),
         'Alta' : PV()
     }
 })
-graph_PS.node['B'].update({
+graph_PS.node[1].update({
     'ID' : 'B',
     'device': {}
     })
-graph_PS.node['C'].update({
+graph_PS.node[2].update({
     'ID' : 'C',
     'device':{
         'Solitude' : gasTurbine(Pmax=320,Pmin=10,Cost=30)
     }
 })
-graph_PS.node['D'].update({
+graph_PS.node[3].update({
     'ID' : 'D',
     'device':{
         'Sundance' : gasTurbine(Pmax=200,Pmin=10,Cost=40)
     }
 })
-graph_PS.node['E'].update({
+graph_PS.node[4].update({
     'ID' : 'E',
     'device':{
         'Brighton':gasTurbine(Pmax=600,Pmin=10,Cost=20)
     }
 })
-graph_PS.edge['A']['B'].update({
+graph_PS.edge[0][1].update({
     'R' : 0.281,
     'X' : 2.81,
     'Limit' : 400
 })
-graph_PS.edge['A']['D'].update({
+graph_PS.edge[0][3].update({
     'R' : 0.304,
     'X' : 3.04,
     'Limit' : None
 })
-graph_PS.edge['A']['E'].update({
+graph_PS.edge[0][4].update({
     'R' : 0.064,
     'X' : 0.64,
     'Limit' : None
 })
-graph_PS.edge['B']['C'].update({
+graph_PS.edge[1][2].update({
     'R' : 0.108,
     'X' : 1.08,
     'Limit' : None
 })
-graph_PS.edge['C']['D'].update({
+graph_PS.edge[2][3].update({
     'R' : 0.297,
     'X' : 2.97,
     'Limit' : None
 })
-graph_PS.edge['D']['E'].update({
+graph_PS.edge[3][4].update({
     'R' : 0.297,
     'X' : 2.97,
     'Limit' : 240
