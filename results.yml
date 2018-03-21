@@ -5,24 +5,29 @@
 #   Problem Information
 # ----------------------------------------------------------
 Problem: 
-- Name: IES_optimalDispatch
-  Lower bound: -inf
-  Upper bound: inf
-  Number of objectives: None
-  Number of constraints: None
-  Number of variables: None
-  Number of binary variables: None
-  Number of integer variables: None
-  Number of continuous variables: None
-  Sense: unknown
+- Name: x3841
+  Lower bound: -398211.925
+  Upper bound: -398211.925
+  Number of objectives: 1
+  Number of constraints: 7105
+  Number of variables: 3361
+  Number of binary variables: 1920
+  Number of integer variables: 1920
+  Number of continuous variables: 1441
+  Number of nonzeros: 17281
+  Sense: minimize
 # ----------------------------------------------------------
 #   Solver Information
 # ----------------------------------------------------------
 Solver: 
-- Name: None
-  Status: ok
-  Wallclock time: 22.780288696289062
+- Status: ok
+  Return code: 0
+  Message: Model was solved to optimality (subject to tolerances), and an optimal solution is available.
   Termination condition: optimal
+  Termination message: Model was solved to optimality (subject to tolerances), and an optimal solution is available.
+  Wall time: 0.141450881958
+  Error rc: 0
+  Time: 0.32001757621765137
 # ----------------------------------------------------------
 #   Solution Information
 # ----------------------------------------------------------
@@ -34,2578 +39,4102 @@ Solution:
   Message: Model was solved to optimality (subject to tolerances), and an optimal solution is available.
   Objective:
     objective:
-      Value: -121767.97595423306
-    sub.objective:
-      Value: 121767.97595423306
+      Value: -398211.9249999996
   Variable:
-    sub.absc_heat_in[ABSC_1,15]:
-      Value: 5.17252
-    sub.absc_heat_in[ABSC_1,16]:
-      Value: 9.59852
-    sub.absc_heat_in[ABSC_1,17]:
-      Value: 18.02452
-    sub.absc_heat_in[ABSC_1,18]:
-      Value: 29.45052
-    sub.absc_heat_in[ABSC_1,19]:
-      Value: 34.87652
-    sub.absc_heat_in[ABSC_1,20]:
-      Value: 56.30252
-    sub.absc_heat_in[ABSC_1,21]:
-      Value: 54.72852
-    sub.absc_heat_in[ABSC_1,22]:
-      Value: 69.15452
-    sub.absc_heat_in[ABSC_1,23]:
-      Value: 52.58052
-    sub.absc_heat_in[ABSC_1,24]:
-      Value: 56.00652
-    sub.absc_heat_in[ABSC_1,25]:
-      Value: 53.70252
-    sub.absc_heat_in[ABSC_1,26]:
-      Value: 57.25252
-    sub.absc_heat_in[ABSC_1,27]:
-      Value: 60.80252
-    sub.absc_heat_in[ABSC_1,28]:
-      Value: 64.35252
-    sub.absc_heat_in[ABSC_1,29]:
-      Value: 47.90252
-    sub.absc_heat_in[ABSC_1,30]:
-      Value: 51.45252
-    sub.absc_heat_in[ABSC_1,31]:
-      Value: 55.00252
-    sub.absc_heat_in[ABSC_1,32]:
-      Value: 38.55252
-    sub.absc_heat_in[ABSC_1,33]:
-      Value: 22.10252
-    sub.absc_heat_in[ABSC_1,34]:
-      Value: 5.65252
-    sub.absc_heat_in[ABSC_1,36]:
-      Value: 12.75252
-    sub.absc_heat_in[ABSC_1,37]:
-      Value: 27.9214
-    sub.absc_heat_in[ABSC_1,38]:
-      Value: 15.4254
-    sub.absc_heat_in[ABSC_1,39]:
-      Value: 43.9294
-    sub.absc_heat_in[ABSC_1,40]:
-      Value: 60.4334
-    sub.absc_heat_in[ABSC_1,41]:
-      Value: 82.9374
-    sub.absc_heat_in[ABSC_1,42]:
-      Value: 56.29788
-    sub.absc_heat_in[ABSC_1,44]:
-      Value: 12.56768
-    sub.absc_heat_in[ABSC_1,45]:
-      Value: 35.89478
-    sub.absc_heat_in[ABSC_1,46]:
-      Value: 59.22188
-    sub.absc_heat_in[ABSC_1,47]:
-      Value: 74.77298
-    sub.absc_heat_in[ABSC_1,48]:
-      Value: 195.766784
-    sub.absc_heat_in[ABSC_1,49]:
-      Value: 204.640496
-    sub.absc_heat_in[ABSC_1,50]:
-      Value: 253.514208
-    sub.absc_heat_in[ABSC_1,51]:
-      Value: 265.35432
-    sub.absc_heat_in[ABSC_1,52]:
-      Value: 284.394432
-    sub.absc_heat_in[ABSC_1,53]:
-      Value: 303.434544
-    sub.absc_heat_in[ABSC_1,54]:
-      Value: 322.474656
-    sub.absc_heat_in[ABSC_1,55]:
-      Value: 341.514768
-    sub.absc_heat_in[ABSC_1,56]:
-      Value: 361.67328
-    sub.absc_heat_in[ABSC_1,57]:
-      Value: 360.039792
-    sub.absc_heat_in[ABSC_1,58]:
-      Value: 366.1782
-    sub.absc_heat_in[ABSC_1,59]:
-      Value: 361.163008
-    sub.absc_heat_in[ABSC_1,60]:
-      Value: 316.147816
-    sub.absc_heat_in[ABSC_1,61]:
-      Value: 247.233424
-    sub.absc_heat_in[ABSC_1,62]:
-      Value: 238.319032
-    sub.absc_heat_in[ABSC_1,63]:
-      Value: 244.56784
-    sub.absc_heat_in[ABSC_1,64]:
-      Value: 250.816648
-    sub.absc_heat_in[ABSC_1,65]:
-      Value: 317.195056
-    sub.absc_heat_in[ABSC_1,66]:
-      Value: 323.573464
-    sub.absc_heat_in[ABSC_1,67]:
-      Value: 325.264672
-    sub.absc_heat_in[ABSC_1,68]:
-      Value: 362.95588
-    sub.absc_heat_in[ABSC_1,69]:
-      Value: 389.23636
-    sub.absc_heat_in[ABSC_1,70]:
-      Value: 355.51684
-    sub.absc_heat_in[ABSC_1,71]:
-      Value: 331.98772
-    sub.absc_heat_in[ABSC_1,72]:
-      Value: 210.12448
-    sub.absc_heat_in[ABSC_1,73]:
-      Value: 166.46947
-    sub.absc_heat_in[ABSC_1,74]:
-      Value: 122.81446
-    sub.absc_heat_in[ABSC_1,75]:
-      Value: 79.15945
-    sub.absc_heat_in[ABSC_1,76]:
-      Value: 35.50444
-    sub.absc_heat_in[ABSC_1,91]:
-      Value: 0.47724000001
-    sub.absc_heat_in[ABSC_1,93]:
-      Value: 23.62332
-    sub.absc_heat_in[ABSC_1,94]:
-      Value: 55.19636
-    sub.absc_heat_in[ABSC_1,95]:
-      Value: 66.7694
-    sub.ac_power[AC_1,0]:
-      Value: 244.018372093
-    sub.ac_power[AC_1,10]:
-      Value: 231.692790698
-    sub.ac_power[AC_1,11]:
-      Value: 231.460232558
-    sub.ac_power[AC_1,12]:
-      Value: 231.227674419
-    sub.ac_power[AC_1,13]:
-      Value: 230.995116279
-    sub.ac_power[AC_1,14]:
-      Value: 204.018372093
-    sub.ac_power[AC_1,15]:
-      Value: 203.52115907
-    sub.ac_power[AC_1,16]:
-      Value: 358.305631659
-    sub.ac_power[AC_1,17]:
-      Value: 434.618461395
-    sub.ac_power[AC_1,18]:
-      Value: 409.701996279
-    sub.ac_power[AC_1,19]:
-      Value: 409.157624186
-    sub.ac_power[AC_1,1]:
-      Value: 244.483488372
-    sub.ac_power[AC_1,20]:
-      Value: 405.636507907
-    sub.ac_power[AC_1,21]:
-      Value: 406.394461395
-    sub.ac_power[AC_1,22]:
-      Value: 404.175670698
-    sub.ac_power[AC_1,23]:
-      Value: 407.72432186
-    sub.ac_power[AC_1,24]:
-      Value: 407.552042791
-    sub.ac_power[AC_1,25]:
-      Value: 408.445810233
-    sub.ac_power[AC_1,26]:
-      Value: 408.250461395
-    sub.ac_power[AC_1,27]:
-      Value: 408.055112558
-    sub.ac_power[AC_1,28]:
-      Value: 407.859763721
-    sub.ac_power[AC_1,29]:
-      Value: 388.129531163
-    sub.ac_power[AC_1,2]:
-      Value: 244.948604651
-    sub.ac_power[AC_1,30]:
-      Value: 387.934182326
-    sub.ac_power[AC_1,31]:
-      Value: 387.738833488
-    sub.ac_power[AC_1,32]:
-      Value: 158.706275349
-    sub.ac_power[AC_1,33]:
-      Value: 162.231856744
-    sub.ac_power[AC_1,34]:
-      Value: 189.420693953
-    sub.ac_power[AC_1,35]:
-      Value: 204.877906977
-    sub.ac_power[AC_1,36]:
-      Value: 216.910926512
-    sub.ac_power[AC_1,37]:
-      Value: 205.977181395
-    sub.ac_power[AC_1,38]:
-      Value: 283.587025411
-    sub.ac_power[AC_1,39]:
-      Value: 442.744065116
-    sub.ac_power[AC_1,3]:
-      Value: 245.41372093
-    sub.ac_power[AC_1,40]:
-      Value: 478.162855814
-    sub.ac_power[AC_1,41]:
-      Value: 500
-    sub.ac_power[AC_1,42]:
-      Value: 500
-    sub.ac_power[AC_1,43]:
-      Value: 500
-    sub.ac_power[AC_1,44]:
-      Value: 500
-    sub.ac_power[AC_1,45]:
-      Value: 500
-    sub.ac_power[AC_1,46]:
-      Value: 500
-    sub.ac_power[AC_1,47]:
-      Value: 500
-    sub.ac_power[AC_1,48]:
-      Value: 500
-    sub.ac_power[AC_1,49]:
-      Value: 500
-    sub.ac_power[AC_1,4]:
-      Value: 245.878837209
-    sub.ac_power[AC_1,50]:
-      Value: 500
-    sub.ac_power[AC_1,51]:
-      Value: 500
-    sub.ac_power[AC_1,52]:
-      Value: 500
-    sub.ac_power[AC_1,53]:
-      Value: 500
-    sub.ac_power[AC_1,54]:
-      Value: 500
-    sub.ac_power[AC_1,55]:
-      Value: 500
-    sub.ac_power[AC_1,56]:
-      Value: 378.01032
-    sub.ac_power[AC_1,57]:
-      Value: 381.830503814
-    sub.ac_power[AC_1,58]:
-      Value: 384.204753488
-    sub.ac_power[AC_1,59]:
-      Value: 391.098742698
-    sub.ac_power[AC_1,5]:
-      Value: 246.343953488
-    sub.ac_power[AC_1,60]:
-      Value: 405.434592372
-    sub.ac_power[AC_1,61]:
-      Value: 424.138665302
-    sub.ac_power[AC_1,62]:
-      Value: 431.679947535
-    sub.ac_power[AC_1,63]:
-      Value: 424.645750698
-    sub.ac_power[AC_1,64]:
-      Value: 417.61155386
-    sub.ac_power[AC_1,65]:
-      Value: 399.289989581
-    sub.ac_power[AC_1,66]:
-      Value: 392.131216
-    sub.ac_power[AC_1,67]:
-      Value: 375.524479628
-    sub.ac_power[AC_1,68]:
-      Value: 500
-    sub.ac_power[AC_1,69]:
-      Value: 500
-    sub.ac_power[AC_1,6]:
-      Value: 246.809069767
-    sub.ac_power[AC_1,70]:
-      Value: 500
-    sub.ac_power[AC_1,71]:
-      Value: 500
-    sub.ac_power[AC_1,72]:
-      Value: 500
-    sub.ac_power[AC_1,73]:
-      Value: 500
-    sub.ac_power[AC_1,74]:
-      Value: 500
-    sub.ac_power[AC_1,75]:
-      Value: 500
-    sub.ac_power[AC_1,76]:
-      Value: 303.567313488
-    sub.ac_power[AC_1,77]:
-      Value: 286.479767442
-    sub.ac_power[AC_1,78]:
-      Value: 262.786744186
-    sub.ac_power[AC_1,79]:
-      Value: 242.05744186
-    sub.ac_power[AC_1,7]:
-      Value: 247.274186047
-    sub.ac_power[AC_1,80]:
-      Value: 244.583953488
-    sub.ac_power[AC_1,81]:
-      Value: 247.110465116
-    sub.ac_power[AC_1,82]:
-      Value: 421.558129452
-    sub.ac_power[AC_1,83]:
-      Value: 484.954186047
-    sub.ac_power[AC_1,84]:
-      Value: 483.720697674
-    sub.ac_power[AC_1,85]:
-      Value: 482.487209302
-    sub.ac_power[AC_1,86]:
-      Value: 481.25372093
-    sub.ac_power[AC_1,87]:
-      Value: 480.020232558
-    sub.ac_power[AC_1,88]:
-      Value: 478.786744186
-    sub.ac_power[AC_1,89]:
-      Value: 477.553255814
-    sub.ac_power[AC_1,8]:
-      Value: 237.971860465
-    sub.ac_power[AC_1,90]:
-      Value: 476.319767442
-    sub.ac_power[AC_1,91]:
-      Value: 474.997490233
-    sub.ac_power[AC_1,92]:
-      Value: 473.852790698
-    sub.ac_power[AC_1,93]:
-      Value: 468.224266047
-    sub.ac_power[AC_1,94]:
-      Value: 461.116723721
-    sub.ac_power[AC_1,95]:
-      Value: 225.171972093
-    sub.ac_power[AC_1,9]:
-      Value: 231.925348837
-    sub.bol_power[Boiler_1,0]:
-      Value: 50
-    sub.bol_power[Boiler_1,10]:
-      Value: 50
-    sub.bol_power[Boiler_1,11]:
-      Value: 50
-    sub.bol_power[Boiler_1,12]:
-      Value: 50
-    sub.bol_power[Boiler_1,13]:
-      Value: 50
-    sub.bol_power[Boiler_1,14]:
-      Value: 50
-    sub.bol_power[Boiler_1,15]:
-      Value: 50
-    sub.bol_power[Boiler_1,16]:
-      Value: 50
-    sub.bol_power[Boiler_1,17]:
-      Value: 50
-    sub.bol_power[Boiler_1,18]:
-      Value: 50
-    sub.bol_power[Boiler_1,19]:
-      Value: 50
-    sub.bol_power[Boiler_1,1]:
-      Value: 50
-    sub.bol_power[Boiler_1,20]:
-      Value: 50
-    sub.bol_power[Boiler_1,21]:
-      Value: 50
-    sub.bol_power[Boiler_1,22]:
-      Value: 50
-    sub.bol_power[Boiler_1,23]:
-      Value: 50
-    sub.bol_power[Boiler_1,24]:
-      Value: 50
-    sub.bol_power[Boiler_1,25]:
-      Value: 50
-    sub.bol_power[Boiler_1,26]:
-      Value: 50
-    sub.bol_power[Boiler_1,27]:
-      Value: 50
-    sub.bol_power[Boiler_1,28]:
-      Value: 50
-    sub.bol_power[Boiler_1,29]:
-      Value: 50
-    sub.bol_power[Boiler_1,2]:
-      Value: 50
-    sub.bol_power[Boiler_1,30]:
-      Value: 50
-    sub.bol_power[Boiler_1,31]:
-      Value: 50
-    sub.bol_power[Boiler_1,32]:
-      Value: 50
-    sub.bol_power[Boiler_1,33]:
-      Value: 50
-    sub.bol_power[Boiler_1,34]:
-      Value: 50
-    sub.bol_power[Boiler_1,35]:
-      Value: 50
-    sub.bol_power[Boiler_1,36]:
-      Value: 50
-    sub.bol_power[Boiler_1,37]:
-      Value: 50
-    sub.bol_power[Boiler_1,38]:
-      Value: 50
-    sub.bol_power[Boiler_1,39]:
-      Value: 50
-    sub.bol_power[Boiler_1,3]:
-      Value: 50
-    sub.bol_power[Boiler_1,40]:
-      Value: 50
-    sub.bol_power[Boiler_1,41]:
-      Value: 50
-    sub.bol_power[Boiler_1,42]:
-      Value: 50
-    sub.bol_power[Boiler_1,43]:
-      Value: 50
-    sub.bol_power[Boiler_1,44]:
-      Value: 50
-    sub.bol_power[Boiler_1,45]:
-      Value: 50
-    sub.bol_power[Boiler_1,46]:
-      Value: 50
-    sub.bol_power[Boiler_1,47]:
-      Value: 50
-    sub.bol_power[Boiler_1,48]:
-      Value: 50
-    sub.bol_power[Boiler_1,49]:
-      Value: 50
-    sub.bol_power[Boiler_1,4]:
-      Value: 50
-    sub.bol_power[Boiler_1,50]:
-      Value: 50
-    sub.bol_power[Boiler_1,51]:
-      Value: 50
-    sub.bol_power[Boiler_1,52]:
-      Value: 50
-    sub.bol_power[Boiler_1,53]:
-      Value: 50
-    sub.bol_power[Boiler_1,54]:
-      Value: 50
-    sub.bol_power[Boiler_1,55]:
-      Value: 50
-    sub.bol_power[Boiler_1,56]:
-      Value: 50
-    sub.bol_power[Boiler_1,57]:
-      Value: 50
-    sub.bol_power[Boiler_1,58]:
-      Value: 50
-    sub.bol_power[Boiler_1,59]:
-      Value: 50
-    sub.bol_power[Boiler_1,5]:
-      Value: 50
-    sub.bol_power[Boiler_1,60]:
-      Value: 50
-    sub.bol_power[Boiler_1,61]:
-      Value: 50
-    sub.bol_power[Boiler_1,62]:
-      Value: 50
-    sub.bol_power[Boiler_1,63]:
-      Value: 50
-    sub.bol_power[Boiler_1,64]:
-      Value: 50
-    sub.bol_power[Boiler_1,65]:
-      Value: 50
-    sub.bol_power[Boiler_1,66]:
-      Value: 50
-    sub.bol_power[Boiler_1,67]:
-      Value: 50
-    sub.bol_power[Boiler_1,68]:
-      Value: 50
-    sub.bol_power[Boiler_1,69]:
-      Value: 50
-    sub.bol_power[Boiler_1,6]:
-      Value: 50
-    sub.bol_power[Boiler_1,70]:
-      Value: 50
-    sub.bol_power[Boiler_1,71]:
-      Value: 50
-    sub.bol_power[Boiler_1,72]:
-      Value: 50
-    sub.bol_power[Boiler_1,73]:
-      Value: 50
-    sub.bol_power[Boiler_1,74]:
-      Value: 50
-    sub.bol_power[Boiler_1,75]:
-      Value: 50
-    sub.bol_power[Boiler_1,76]:
-      Value: 50
-    sub.bol_power[Boiler_1,77]:
-      Value: 50
-    sub.bol_power[Boiler_1,78]:
-      Value: 50
-    sub.bol_power[Boiler_1,79]:
-      Value: 50
-    sub.bol_power[Boiler_1,7]:
-      Value: 50
-    sub.bol_power[Boiler_1,80]:
-      Value: 50
-    sub.bol_power[Boiler_1,81]:
-      Value: 50
-    sub.bol_power[Boiler_1,82]:
-      Value: 50
-    sub.bol_power[Boiler_1,83]:
-      Value: 50
-    sub.bol_power[Boiler_1,84]:
-      Value: 50
-    sub.bol_power[Boiler_1,85]:
-      Value: 50
-    sub.bol_power[Boiler_1,86]:
-      Value: 50
-    sub.bol_power[Boiler_1,87]:
-      Value: 50
-    sub.bol_power[Boiler_1,88]:
-      Value: 50
-    sub.bol_power[Boiler_1,89]:
-      Value: 50
-    sub.bol_power[Boiler_1,8]:
-      Value: 50
-    sub.bol_power[Boiler_1,90]:
-      Value: 50
-    sub.bol_power[Boiler_1,91]:
-      Value: 50
-    sub.bol_power[Boiler_1,92]:
-      Value: 50
-    sub.bol_power[Boiler_1,93]:
-      Value: 50
-    sub.bol_power[Boiler_1,94]:
-      Value: 50
-    sub.bol_power[Boiler_1,95]:
-      Value: 50
-    sub.bol_power[Boiler_1,9]:
-      Value: 50
-    sub.buy_heat[0]:
-      Value: 3818.03317091
-    sub.buy_heat[10]:
-      Value: 3684.27317091
-    sub.buy_heat[11]:
-      Value: 3607.89717091
-    sub.buy_heat[12]:
-      Value: 3621.52117091
-    sub.buy_heat[13]:
-      Value: 3546.99517091
-    sub.buy_heat[14]:
-      Value: 3630.56917091
-    sub.buy_heat[15]:
-      Value: 3639.31569091
-    sub.buy_heat[16]:
-      Value: 3666.31569091
-    sub.buy_heat[17]:
-      Value: 3693.31569091
-    sub.buy_heat[18]:
-      Value: 3700.31569091
-    sub.buy_heat[19]:
-      Value: 3647.31569091
-    sub.buy_heat[1]:
-      Value: 3841.65717091
-    sub.buy_heat[20]:
-      Value: 3674.31569091
-    sub.buy_heat[21]:
-      Value: 3601.31569091
-    sub.buy_heat[22]:
-      Value: 3628.31569091
-    sub.buy_heat[23]:
-      Value: 3555.31569091
-    sub.buy_heat[24]:
-      Value: 3582.31569091
-    sub.buy_heat[25]:
-      Value: 3509.31569091
-    sub.buy_heat[26]:
-      Value: 3436.31569091
-    sub.buy_heat[27]:
-      Value: 3463.31569091
-    sub.buy_heat[28]:
-      Value: 3490.31569091
-    sub.buy_heat[29]:
-      Value: 3417.31569091
-    sub.buy_heat[2]:
-      Value: 3865.28117091
-    sub.buy_heat[30]:
-      Value: 3444.31569091
-    sub.buy_heat[31]:
-      Value: 3471.31569091
-    sub.buy_heat[32]:
-      Value: 3398.31569091
-    sub.buy_heat[33]:
-      Value: 3325.31569091
-    sub.buy_heat[34]:
-      Value: 3252.31569091
-    sub.buy_heat[35]:
-      Value: 3190.11317091
-    sub.buy_heat[36]:
-      Value: 3306.31569091
-    sub.buy_heat[37]:
-      Value: 3391.41009091
-    sub.buy_heat[38]:
-      Value: 3358.18009091
-    sub.buy_heat[39]:
-      Value: 3524.95009091
-    sub.buy_heat[3]:
-      Value: 3888.90517091
-    sub.buy_heat[40]:
-      Value: 3691.72009091
-    sub.buy_heat[41]:
-      Value: 3858.49009091
-    sub.buy_heat[42]:
-      Value: 3829.54249091
-    sub.buy_heat[43]:
-      Value: 4000.17341091
-    sub.buy_heat[44]:
-      Value: 4146.40549091
-    sub.buy_heat[45]:
-      Value: 4304.83699091
-    sub.buy_heat[46]:
-      Value: 4463.26849091
-    sub.buy_heat[47]:
-      Value: 4621.69999091
-    sub.buy_heat[48]:
-      Value: 5307.34501091
-    sub.buy_heat[49]:
-      Value: 5423.85757091
-    sub.buy_heat[4]:
-      Value: 3892.52917091
-    sub.buy_heat[50]:
-      Value: 5540.37013091
-    sub.buy_heat[51]:
-      Value: 5656.88269091
-    sub.buy_heat[52]:
-      Value: 5773.39525091
-    sub.buy_heat[53]:
-      Value: 5889.90781091
-    sub.buy_heat[54]:
-      Value: 6006.42037091
-    sub.buy_heat[55]:
-      Value: 6122.93293091
-    sub.buy_heat[56]:
-      Value: 6239.44549091
-    sub.buy_heat[57]:
-      Value: 6355.95805091
-    sub.buy_heat[58]:
-      Value: 6349.33009091
-    sub.buy_heat[59]:
-      Value: 6342.70213091
-    sub.buy_heat[5]:
-      Value: 3906.15317091
-    sub.buy_heat[60]:
-      Value: 6336.07417091
-    sub.buy_heat[61]:
-      Value: 6329.44621091
-    sub.buy_heat[62]:
-      Value: 6322.81825091
-    sub.buy_heat[63]:
-      Value: 6316.19029091
-    sub.buy_heat[64]:
-      Value: 6309.56233091
-    sub.buy_heat[65]:
-      Value: 6302.93437091
-    sub.buy_heat[66]:
-      Value: 6296.30641091
-    sub.buy_heat[67]:
-      Value: 6289.67845091
-    sub.buy_heat[68]:
-      Value: 6283.05049091
-    sub.buy_heat[69]:
-      Value: 6009.40489091
-    sub.buy_heat[6]:
-      Value: 3919.77717091
-    sub.buy_heat[70]:
-      Value: 5735.75929091
-    sub.buy_heat[71]:
-      Value: 5462.11369091
-    sub.buy_heat[72]:
-      Value: 4696.79749091
-    sub.buy_heat[73]:
-      Value: 4472.52244091
-    sub.buy_heat[74]:
-      Value: 4248.24739091
-    sub.buy_heat[75]:
-      Value: 4023.97234091
-    sub.buy_heat[76]:
-      Value: 3799.69729091
-    sub.buy_heat[77]:
-      Value: 3579.07761091
-    sub.buy_heat[78]:
-      Value: 3414.09357091
-    sub.buy_heat[79]:
-      Value: 3207.93273091
-    sub.buy_heat[7]:
-      Value: 3815.40117091
-    sub.buy_heat[80]:
-      Value: 3297.31669091
-    sub.buy_heat[81]:
-      Value: 3354.11925091
-    sub.buy_heat[82]:
-      Value: 3200.74261091
-    sub.buy_heat[83]:
-      Value: 3209.07477091
-    sub.buy_heat[84]:
-      Value: 3265.40693091
-    sub.buy_heat[85]:
-      Value: 3353.73909091
-    sub.buy_heat[86]:
-      Value: 3294.87125091
-    sub.buy_heat[87]:
-      Value: 3316.00341091
-    sub.buy_heat[88]:
-      Value: 3337.13557091
-    sub.buy_heat[89]:
-      Value: 3358.26773091
-    sub.buy_heat[8]:
-      Value: 3765.02517091
-    sub.buy_heat[90]:
-      Value: 3475.39989091
-    sub.buy_heat[91]:
-      Value: 3497.00929091
-    sub.buy_heat[92]:
-      Value: 3437.66421091
-    sub.buy_heat[93]:
-      Value: 3562.41969091
-    sub.buy_heat[94]:
-      Value: 3695.12489091
-    sub.buy_heat[95]:
-      Value: 3727.83009091
-    sub.buy_heat[9]:
-      Value: 3730.64917091
-    sub.cs_cold[CS_1,0]:
-      Value: 500
-    sub.cs_cold[CS_1,10]:
-      Value: 500
-    sub.cs_cold[CS_1,11]:
-      Value: 500
-    sub.cs_cold[CS_1,12]:
-      Value: 500
-    sub.cs_cold[CS_1,13]:
-      Value: 500
-    sub.cs_cold[CS_1,14]:
-      Value: 500
-    sub.cs_cold[CS_1,15]:
-      Value: 500
-    sub.cs_cold[CS_1,16]:
-      Value: -167.114032134
-    sub.cs_cold[CS_1,17]:
-      Value: -500
-    sub.cs_cold[CS_1,18]:
-      Value: -500
-    sub.cs_cold[CS_1,19]:
-      Value: -500
-    sub.cs_cold[CS_1,1]:
-      Value: 500
-    sub.cs_cold[CS_1,20]:
-      Value: -500
-    sub.cs_cold[CS_1,21]:
-      Value: -500
-    sub.cs_cold[CS_1,22]:
-      Value: -500
-    sub.cs_cold[CS_1,23]:
-      Value: -500
-    sub.cs_cold[CS_1,24]:
-      Value: -500
-    sub.cs_cold[CS_1,25]:
-      Value: -500
-    sub.cs_cold[CS_1,26]:
-      Value: -500
-    sub.cs_cold[CS_1,27]:
-      Value: -500
-    sub.cs_cold[CS_1,28]:
-      Value: -500
-    sub.cs_cold[CS_1,29]:
-      Value: -500
-    sub.cs_cold[CS_1,2]:
-      Value: 500
-    sub.cs_cold[CS_1,30]:
-      Value: -500
-    sub.cs_cold[CS_1,31]:
-      Value: -500
-    sub.cs_cold[CS_1,32]:
-      Value: 500
-    sub.cs_cold[CS_1,33]:
-      Value: 500
-    sub.cs_cold[CS_1,34]:
-      Value: 500
-    sub.cs_cold[CS_1,35]:
-      Value: 500
-    sub.cs_cold[CS_1,36]:
-      Value: 500
-    sub.cs_cold[CS_1,37]:
-      Value: 500
-    sub.cs_cold[CS_1,38]:
-      Value: 241.674470732
-    sub.cs_cold[CS_1,39]:
-      Value: -500
-    sub.cs_cold[CS_1,3]:
-      Value: 500
-    sub.cs_cold[CS_1,40]:
-      Value: -500
-    sub.cs_cold[CS_1,41]:
-      Value: -446.30292
-    sub.cs_cold[CS_1,42]:
-      Value: -259.391304
-    sub.cs_cold[CS_1,43]:
-      Value: -191.289
-    sub.cs_cold[CS_1,44]:
-      Value: -178.279144
-    sub.cs_cold[CS_1,45]:
-      Value: -169.076824
-    sub.cs_cold[CS_1,46]:
-      Value: -159.874504
-    sub.cs_cold[CS_1,47]:
-      Value: -118.531384
-    sub.cs_cold[CS_1,48]:
-      Value: -161.5424272
-    sub.cs_cold[CS_1,49]:
-      Value: -120.5453968
-    sub.cs_cold[CS_1,4]:
-      Value: 500
-    sub.cs_cold[CS_1,50]:
-      Value: -111.5483664
-    sub.cs_cold[CS_1,51]:
-      Value: -82.812456
-    sub.cs_cold[CS_1,52]:
-      Value: -59.8365456
-    sub.cs_cold[CS_1,53]:
-      Value: -36.8846352
-    sub.cs_cold[CS_1,54]:
-      Value: -13.9327248
-    sub.cs_cold[CS_1,55]:
-      Value: -18.7968144
-    sub.cs_cold[CS_1,56]:
-      Value: 500
-    sub.cs_cold[CS_1,57]:
-      Value: 500
-    sub.cs_cold[CS_1,58]:
-      Value: 500
-    sub.cs_cold[CS_1,59]:
-      Value: 500
-    sub.cs_cold[CS_1,5]:
-      Value: 500
-    sub.cs_cold[CS_1,60]:
-      Value: 500
-    sub.cs_cold[CS_1,61]:
-      Value: 500
-    sub.cs_cold[CS_1,62]:
-      Value: 500
-    sub.cs_cold[CS_1,63]:
-      Value: 500
-    sub.cs_cold[CS_1,64]:
-      Value: 500
-    sub.cs_cold[CS_1,65]:
-      Value: 500
-    sub.cs_cold[CS_1,66]:
-      Value: 500
-    sub.cs_cold[CS_1,67]:
-      Value: 500
-    sub.cs_cold[CS_1,68]:
-      Value: -135.453704
-    sub.cs_cold[CS_1,69]:
-      Value: -226.510088
-    sub.cs_cold[CS_1,6]:
-      Value: 500
-    sub.cs_cold[CS_1,70]:
-      Value: -269.566472
-    sub.cs_cold[CS_1,71]:
-      Value: -286.647176
-    sub.cs_cold[CS_1,72]:
-      Value: -225.060584
-    sub.cs_cold[CS_1,73]:
-      Value: -217.904576
-    sub.cs_cold[CS_1,74]:
-      Value: -210.748568
-    sub.cs_cold[CS_1,75]:
-      Value: -277.70456
-    sub.cs_cold[CS_1,76]:
-      Value: 500
-    sub.cs_cold[CS_1,77]:
-      Value: 500
-    sub.cs_cold[CS_1,78]:
-      Value: 500
-    sub.cs_cold[CS_1,79]:
-      Value: 500
-    sub.cs_cold[CS_1,7]:
-      Value: 500
-    sub.cs_cold[CS_1,80]:
-      Value: 500
-    sub.cs_cold[CS_1,81]:
-      Value: 500
-    sub.cs_cold[CS_1,82]:
-      Value: -239.260956643
-    sub.cs_cold[CS_1,83]:
-      Value: -500
-    sub.cs_cold[CS_1,84]:
-      Value: -500
-    sub.cs_cold[CS_1,85]:
-      Value: -500
-    sub.cs_cold[CS_1,86]:
-      Value: -500
-    sub.cs_cold[CS_1,87]:
-      Value: -500
-    sub.cs_cold[CS_1,88]:
-      Value: -500
-    sub.cs_cold[CS_1,89]:
-      Value: -500
-    sub.cs_cold[CS_1,8]:
-      Value: 500
-    sub.cs_cold[CS_1,90]:
-      Value: -500
-    sub.cs_cold[CS_1,91]:
-      Value: -500
-    sub.cs_cold[CS_1,92]:
-      Value: -500
-    sub.cs_cold[CS_1,93]:
-      Value: -500
-    sub.cs_cold[CS_1,94]:
-      Value: -500
-    sub.cs_cold[CS_1,95]:
-      Value: 500
-    sub.cs_cold[CS_1,9]:
-      Value: 500
-    sub.cs_cold_stored[CS_1,0]:
-      Value: 300
-    sub.cs_cold_stored[CS_1,10]:
-      Value: 1532.85359303
-    sub.cs_cold_stored[CS_1,11]:
-      Value: 1654.78688584
-    sub.cs_cold_stored[CS_1,12]:
-      Value: 1776.47631207
-    sub.cs_cold_stored[CS_1,13]:
-      Value: 1897.92235945
-    sub.cs_cold_stored[CS_1,14]:
-      Value: 2019.12551473
-    sub.cs_cold_stored[CS_1,15]:
-      Value: 2140.0862637
-    sub.cs_cold_stored[CS_1,16]:
-      Value: 2260.80509117
-    sub.cs_cold_stored[CS_1,17]:
-      Value: 2214.50397296
-    sub.cs_cold_stored[CS_1,18]:
-      Value: 2085.07396501
-    sub.cs_cold_stored[CS_1,19]:
-      Value: 1955.90281708
-    sub.cs_cold_stored[CS_1,1]:
-      Value: 424.399
-    sub.cs_cold_stored[CS_1,20]:
-      Value: 1826.99001145
-    sub.cs_cold_stored[CS_1,21]:
-      Value: 1698.33503142
-    sub.cs_cold_stored[CS_1,22]:
-      Value: 1569.93736136
-    sub.cs_cold_stored[CS_1,23]:
-      Value: 1441.79648664
-    sub.cs_cold_stored[CS_1,24]:
-      Value: 1313.91189367
-    sub.cs_cold_stored[CS_1,25]:
-      Value: 1186.28306988
-    sub.cs_cold_stored[CS_1,26]:
-      Value: 1058.90950374
-    sub.cs_cold_stored[CS_1,27]:
-      Value: 931.790684731
-    sub.cs_cold_stored[CS_1,28]:
-      Value: 804.926103361
-    sub.cs_cold_stored[CS_1,29]:
-      Value: 678.315251154
-    sub.cs_cold_stored[CS_1,2]:
-      Value: 548.549202
-    sub.cs_cold_stored[CS_1,30]:
-      Value: 551.957620652
-    sub.cs_cold_stored[CS_1,31]:
-      Value: 425.852705411
-    sub.cs_cold_stored[CS_1,32]:
-      Value: 300
-    sub.cs_cold_stored[CS_1,33]:
-      Value: 424.399
-    sub.cs_cold_stored[CS_1,34]:
-      Value: 548.549202
-    sub.cs_cold_stored[CS_1,35]:
-      Value: 672.451103596
-    sub.cs_cold_stored[CS_1,36]:
-      Value: 796.105201389
-    sub.cs_cold_stored[CS_1,37]:
-      Value: 919.511990986
-    sub.cs_cold_stored[CS_1,38]:
-      Value: 1042.671967
-    sub.cs_cold_stored[CS_1,39]:
-      Value: 1101.00424075
-    sub.cs_cold_stored[CS_1,3]:
-      Value: 672.451103596
-    sub.cs_cold_stored[CS_1,40]:
-      Value: 973.801232272
-    sub.cs_cold_stored[CS_1,41]:
-      Value: 846.852629807
-    sub.cs_cold_stored[CS_1,42]:
-      Value: 733.582194547
-    sub.cs_cold_stored[CS_1,43]:
-      Value: 667.266204158
-    sub.cs_cold_stored[CS_1,44]:
-      Value: 618.10842175
-    sub.cs_cold_stored[CS_1,45]:
-      Value: 572.301418907
-    sub.cs_cold_stored[CS_1,46]:
-      Value: 528.886610069
-    sub.cs_cold_stored[CS_1,47]:
-      Value: 487.859210849
-    sub.cs_cold_stored[CS_1,48]:
-      Value: 457.249646427
-    sub.cs_cold_stored[CS_1,49]:
-      Value: 415.948540334
-    sub.cs_cold_stored[CS_1,4]:
-      Value: 796.105201389
-    sub.cs_cold_stored[CS_1,50]:
-      Value: 384.979294053
-    sub.cs_cold_stored[CS_1,51]:
-      Value: 356.321243865
-    sub.cs_cold_stored[CS_1,52]:
-      Value: 334.904487378
-    sub.cs_cold_stored[CS_1,53]:
-      Value: 319.274542003
-    sub.cs_cold_stored[CS_1,54]:
-      Value: 309.413834119
-    sub.cs_cold_stored[CS_1,55]:
-      Value: 305.310825251
-    sub.cs_cold_stored[CS_1,56]:
-      Value: 300
-    sub.cs_cold_stored[CS_1,57]:
-      Value: 424.399
-    sub.cs_cold_stored[CS_1,58]:
-      Value: 548.549202
-    sub.cs_cold_stored[CS_1,59]:
-      Value: 672.451103596
-    sub.cs_cold_stored[CS_1,5]:
-      Value: 919.511990986
-    sub.cs_cold_stored[CS_1,60]:
-      Value: 796.105201389
-    sub.cs_cold_stored[CS_1,61]:
-      Value: 919.511990986
-    sub.cs_cold_stored[CS_1,62]:
-      Value: 1042.671967
-    sub.cs_cold_stored[CS_1,63]:
-      Value: 1165.58562307
-    sub.cs_cold_stored[CS_1,64]:
-      Value: 1288.25345182
-    sub.cs_cold_stored[CS_1,65]:
-      Value: 1410.67594492
-    sub.cs_cold_stored[CS_1,66]:
-      Value: 1532.85359303
-    sub.cs_cold_stored[CS_1,67]:
-      Value: 1654.78688584
-    sub.cs_cold_stored[CS_1,68]:
-      Value: 1776.47631207
-    sub.cs_cold_stored[CS_1,69]:
-      Value: 1739.05893345
-    sub.cs_cold_stored[CS_1,6]:
-      Value: 1042.671967
-    sub.cs_cold_stored[CS_1,70]:
-      Value: 1678.95229358
-    sub.cs_cold_stored[CS_1,71]:
-      Value: 1608.20177099
-    sub.cs_cold_stored[CS_1,72]:
-      Value: 1533.32257345
-    sub.cs_cold_stored[CS_1,73]:
-      Value: 1473.98978231
-    sub.cs_cold_stored[CS_1,74]:
-      Value: 1416.56465874
-    sub.cs_cold_stored[CS_1,75]:
-      Value: 1361.04338742
-    sub.cs_cold_stored[CS_1,76]:
-      Value: 1288.89416065
-    sub.cs_cold_stored[CS_1,77]:
-      Value: 1411.31537233
-    sub.cs_cold_stored[CS_1,78]:
-      Value: 1533.49174158
-    sub.cs_cold_stored[CS_1,79]:
-      Value: 1655.4237581
-    sub.cs_cold_stored[CS_1,7]:
-      Value: 1165.58562307
-    sub.cs_cold_stored[CS_1,80]:
-      Value: 1777.11191058
-    sub.cs_cold_stored[CS_1,81]:
-      Value: 1898.55668676
-    sub.cs_cold_stored[CS_1,82]:
-      Value: 2019.75857339
-    sub.cs_cold_stored[CS_1,83]:
-      Value: 1955.90281708
-    sub.cs_cold_stored[CS_1,84]:
-      Value: 1826.99001145
-    sub.cs_cold_stored[CS_1,85]:
-      Value: 1698.33503142
-    sub.cs_cold_stored[CS_1,86]:
-      Value: 1569.93736136
-    sub.cs_cold_stored[CS_1,87]:
-      Value: 1441.79648664
-    sub.cs_cold_stored[CS_1,88]:
-      Value: 1313.91189367
-    sub.cs_cold_stored[CS_1,89]:
-      Value: 1186.28306988
-    sub.cs_cold_stored[CS_1,8]:
-      Value: 1288.25345182
-    sub.cs_cold_stored[CS_1,90]:
-      Value: 1058.90950374
-    sub.cs_cold_stored[CS_1,91]:
-      Value: 931.790684731
-    sub.cs_cold_stored[CS_1,92]:
-      Value: 804.926103361
-    sub.cs_cold_stored[CS_1,93]:
-      Value: 678.315251154
-    sub.cs_cold_stored[CS_1,94]:
-      Value: 551.957620652
-    sub.cs_cold_stored[CS_1,95]:
-      Value: 425.852705411
-    sub.cs_cold_stored[CS_1,9]:
-      Value: 1410.67594492
-    sub.es_energy[ES_1,0]:
-      Value: 1300
-    sub.es_energy[ES_1,10]:
-      Value: 4357.93041256
-    sub.es_energy[ES_1,11]:
-      Value: 4659.53458653
-    sub.es_energy[ES_1,12]:
-      Value: 4960.38475007
-    sub.es_energy[ES_1,13]:
-      Value: 5260.48278819
-    sub.es_energy[ES_1,14]:
-      Value: 5559.83058122
-    sub.es_energy[ES_1,15]:
-      Value: 5858.43000477
-    sub.es_energy[ES_1,16]:
-      Value: 5531.28292976
-    sub.es_energy[ES_1,17]:
-      Value: 5505.7821751
-    sub.es_energy[ES_1,18]:
-      Value: 5804.51561451
-    sub.es_energy[ES_1,19]:
-      Value: 5477.50332547
-    sub.es_energy[ES_1,1]:
-      Value: 1609.249
-    sub.es_energy[ES_1,20]:
-      Value: 5151.30856716
-    sub.es_energy[ES_1,21]:
-      Value: 4825.92929574
-    sub.es_energy[ES_1,22]:
-      Value: 4501.3634725
-    sub.es_energy[ES_1,23]:
-      Value: 4177.60906382
-    sub.es_energy[ES_1,24]:
-      Value: 3854.66404116
-    sub.es_energy[ES_1,25]:
-      Value: 3532.52638106
-    sub.es_energy[ES_1,26]:
-      Value: 3211.19406511
-    sub.es_energy[ES_1,27]:
-      Value: 2890.66507994
-    sub.es_energy[ES_1,28]:
-      Value: 2570.93741724
-    sub.es_energy[ES_1,29]:
-      Value: 2252.0090737
-    sub.es_energy[ES_1,2]:
-      Value: 1917.7248775
-    sub.es_energy[ES_1,30]:
-      Value: 1933.87805102
-    sub.es_energy[ES_1,31]:
-      Value: 1616.54235589
-    sub.es_energy[ES_1,32]:
-      Value: 1300
-    sub.es_energy[ES_1,33]:
-      Value: 1609.249
-    sub.es_energy[ES_1,34]:
-      Value: 1917.7248775
-    sub.es_energy[ES_1,35]:
-      Value: 2225.42956531
-    sub.es_energy[ES_1,36]:
-      Value: 2532.36499139
-    sub.es_energy[ES_1,37]:
-      Value: 2838.53307891
-    sub.es_energy[ES_1,38]:
-      Value: 3143.93574622
-    sub.es_energy[ES_1,39]:
-      Value: 3448.57490685
-    sub.es_energy[ES_1,3]:
-      Value: 2225.42956531
-    sub.es_energy[ES_1,40]:
-      Value: 3752.45246958
-    sub.es_energy[ES_1,41]:
-      Value: 4055.57033841
-    sub.es_energy[ES_1,42]:
-      Value: 4357.93041256
-    sub.es_energy[ES_1,43]:
-      Value: 4659.53458653
-    sub.es_energy[ES_1,44]:
-      Value: 4960.38475007
-    sub.es_energy[ES_1,45]:
-      Value: 4825.92929574
-    sub.es_energy[ES_1,46]:
-      Value: 4501.3634725
-    sub.es_energy[ES_1,47]:
-      Value: 4177.60906382
-    sub.es_energy[ES_1,48]:
-      Value: 3854.66404116
-    sub.es_energy[ES_1,49]:
-      Value: 3532.52638106
-    sub.es_energy[ES_1,4]:
-      Value: 2532.36499139
-    sub.es_energy[ES_1,50]:
-      Value: 3211.19406511
-    sub.es_energy[ES_1,51]:
-      Value: 2890.66507994
-    sub.es_energy[ES_1,52]:
-      Value: 2570.93741724
-    sub.es_energy[ES_1,53]:
-      Value: 2252.0090737
-    sub.es_energy[ES_1,54]:
-      Value: 1933.87805102
-    sub.es_energy[ES_1,55]:
-      Value: 1616.54235589
-    sub.es_energy[ES_1,56]:
-      Value: 1300
-    sub.es_energy[ES_1,57]:
-      Value: 1609.249
-    sub.es_energy[ES_1,58]:
-      Value: 1917.7248775
-    sub.es_energy[ES_1,59]:
-      Value: 2225.42956531
-    sub.es_energy[ES_1,5]:
-      Value: 2838.53307891
-    sub.es_energy[ES_1,60]:
-      Value: 2532.36499139
-    sub.es_energy[ES_1,61]:
-      Value: 2838.53307891
-    sub.es_energy[ES_1,62]:
-      Value: 3143.93574622
-    sub.es_energy[ES_1,63]:
-      Value: 3448.57490685
-    sub.es_energy[ES_1,64]:
-      Value: 3752.45246958
-    sub.es_energy[ES_1,65]:
-      Value: 4055.57033841
-    sub.es_energy[ES_1,66]:
-      Value: 4357.93041256
-    sub.es_energy[ES_1,67]:
-      Value: 4659.53458653
-    sub.es_energy[ES_1,68]:
-      Value: 4960.38475007
-    sub.es_energy[ES_1,69]:
-      Value: 4635.48278819
-    sub.es_energy[ES_1,6]:
-      Value: 3143.93574622
-    sub.es_energy[ES_1,70]:
-      Value: 4311.39308122
-    sub.es_energy[ES_1,71]:
-      Value: 3988.11359852
-    sub.es_energy[ES_1,72]:
-      Value: 3665.64231452
-    sub.es_energy[ES_1,73]:
-      Value: 3343.97720874
-    sub.es_energy[ES_1,74]:
-      Value: 3023.11626571
-    sub.es_energy[ES_1,75]:
-      Value: 2703.05747505
-    sub.es_energy[ES_1,76]:
-      Value: 2383.79883136
-    sub.es_energy[ES_1,77]:
-      Value: 2690.33833428
-    sub.es_energy[ES_1,78]:
-      Value: 2996.11148845
-    sub.es_energy[ES_1,79]:
-      Value: 3301.12020973
-    sub.es_energy[ES_1,7]:
-      Value: 3448.57490685
-    sub.es_energy[ES_1,80]:
-      Value: 3605.3664092
-    sub.es_energy[ES_1,81]:
-      Value: 3908.85199318
-    sub.es_energy[ES_1,82]:
-      Value: 4211.5788632
-    sub.es_energy[ES_1,83]:
-      Value: 4513.54891604
-    sub.es_energy[ES_1,84]:
-      Value: 4814.76404375
-    sub.es_energy[ES_1,85]:
-      Value: 4825.92929574
-    sub.es_energy[ES_1,86]:
-      Value: 4501.3634725
-    sub.es_energy[ES_1,87]:
-      Value: 4177.60906382
-    sub.es_energy[ES_1,88]:
-      Value: 3854.66404116
-    sub.es_energy[ES_1,89]:
-      Value: 3532.52638106
-    sub.es_energy[ES_1,8]:
-      Value: 3752.45246958
-    sub.es_energy[ES_1,90]:
-      Value: 3211.19406511
-    sub.es_energy[ES_1,91]:
-      Value: 2890.66507994
-    sub.es_energy[ES_1,92]:
-      Value: 2570.93741724
-    sub.es_energy[ES_1,93]:
-      Value: 2252.0090737
-    sub.es_energy[ES_1,94]:
-      Value: 1933.87805102
-    sub.es_energy[ES_1,95]:
-      Value: 1616.54235589
-    sub.es_energy[ES_1,9]:
-      Value: 4055.57033841
-    sub.es_power[ES_1,0]:
-      Value: 1250
-    sub.es_power[ES_1,10]:
-      Value: 1250
-    sub.es_power[ES_1,11]:
-      Value: 1250
-    sub.es_power[ES_1,12]:
-      Value: 1250
-    sub.es_power[ES_1,13]:
-      Value: 1250
-    sub.es_power[ES_1,14]:
-      Value: 1250
-    sub.es_power[ES_1,15]:
-      Value: -1250
-    sub.es_power[ES_1,16]:
-      Value: -46.6861893109
-    sub.es_power[ES_1,17]:
-      Value: 1249.99557938
-    sub.es_power[ES_1,18]:
-      Value: -1250
-    sub.es_power[ES_1,19]:
-      Value: -1250
-    sub.es_power[ES_1,1]:
-      Value: 1250
-    sub.es_power[ES_1,20]:
-      Value: -1250
-    sub.es_power[ES_1,21]:
-      Value: -1250
-    sub.es_power[ES_1,22]:
-      Value: -1250
-    sub.es_power[ES_1,23]:
-      Value: -1250
-    sub.es_power[ES_1,24]:
-      Value: -1250
-    sub.es_power[ES_1,25]:
-      Value: -1250
-    sub.es_power[ES_1,26]:
-      Value: -1250
-    sub.es_power[ES_1,27]:
-      Value: -1250
-    sub.es_power[ES_1,28]:
-      Value: -1250
-    sub.es_power[ES_1,29]:
-      Value: -1250
-    sub.es_power[ES_1,2]:
-      Value: 1250
-    sub.es_power[ES_1,30]:
-      Value: -1250
-    sub.es_power[ES_1,31]:
-      Value: -1250
-    sub.es_power[ES_1,32]:
-      Value: 1250
-    sub.es_power[ES_1,33]:
-      Value: 1250
-    sub.es_power[ES_1,34]:
-      Value: 1250
-    sub.es_power[ES_1,35]:
-      Value: 1250
-    sub.es_power[ES_1,36]:
-      Value: 1250
-    sub.es_power[ES_1,37]:
-      Value: 1250
-    sub.es_power[ES_1,38]:
-      Value: 1250
-    sub.es_power[ES_1,39]:
-      Value: 1250
-    sub.es_power[ES_1,3]:
-      Value: 1250
-    sub.es_power[ES_1,40]:
-      Value: 1250
-    sub.es_power[ES_1,41]:
-      Value: 1250
-    sub.es_power[ES_1,42]:
-      Value: 1250
-    sub.es_power[ES_1,43]:
-      Value: 1250
-    sub.es_power[ES_1,44]:
-      Value: -488.213969795
-    sub.es_power[ES_1,45]:
-      Value: -1250
-    sub.es_power[ES_1,46]:
-      Value: -1250
-    sub.es_power[ES_1,47]:
-      Value: -1250
-    sub.es_power[ES_1,48]:
-      Value: -1250
-    sub.es_power[ES_1,49]:
-      Value: -1250
-    sub.es_power[ES_1,4]:
-      Value: 1250
-    sub.es_power[ES_1,50]:
-      Value: -1250
-    sub.es_power[ES_1,51]:
-      Value: -1250
-    sub.es_power[ES_1,52]:
-      Value: -1250
-    sub.es_power[ES_1,53]:
-      Value: -1250
-    sub.es_power[ES_1,54]:
-      Value: -1250
-    sub.es_power[ES_1,55]:
-      Value: -1250
-    sub.es_power[ES_1,56]:
-      Value: 1250
-    sub.es_power[ES_1,57]:
-      Value: 1250
-    sub.es_power[ES_1,58]:
-      Value: 1250
-    sub.es_power[ES_1,59]:
-      Value: 1250
-    sub.es_power[ES_1,5]:
-      Value: 1250
-    sub.es_power[ES_1,60]:
-      Value: 1250
-    sub.es_power[ES_1,61]:
-      Value: 1250
-    sub.es_power[ES_1,62]:
-      Value: 1250
-    sub.es_power[ES_1,63]:
-      Value: 1250
-    sub.es_power[ES_1,64]:
-      Value: 1250
-    sub.es_power[ES_1,65]:
-      Value: 1250
-    sub.es_power[ES_1,66]:
-      Value: 1250
-    sub.es_power[ES_1,67]:
-      Value: 1250
-    sub.es_power[ES_1,68]:
-      Value: -1250
-    sub.es_power[ES_1,69]:
-      Value: -1250
-    sub.es_power[ES_1,6]:
-      Value: 1250
-    sub.es_power[ES_1,70]:
-      Value: -1250
-    sub.es_power[ES_1,71]:
-      Value: -1250
-    sub.es_power[ES_1,72]:
-      Value: -1250
-    sub.es_power[ES_1,73]:
-      Value: -1250
-    sub.es_power[ES_1,74]:
-      Value: -1250
-    sub.es_power[ES_1,75]:
-      Value: -1250
-    sub.es_power[ES_1,76]:
-      Value: 1250
-    sub.es_power[ES_1,77]:
-      Value: 1250
-    sub.es_power[ES_1,78]:
-      Value: 1250
-    sub.es_power[ES_1,79]:
-      Value: 1250
-    sub.es_power[ES_1,7]:
-      Value: 1250
-    sub.es_power[ES_1,80]:
-      Value: 1250
-    sub.es_power[ES_1,81]:
-      Value: 1250
-    sub.es_power[ES_1,82]:
-      Value: 1250
-    sub.es_power[ES_1,83]:
-      Value: 1250
-    sub.es_power[ES_1,84]:
-      Value: 92.8126484185
-    sub.es_power[ES_1,85]:
-      Value: -1250
-    sub.es_power[ES_1,86]:
-      Value: -1250
-    sub.es_power[ES_1,87]:
-      Value: -1250
-    sub.es_power[ES_1,88]:
-      Value: -1250
-    sub.es_power[ES_1,89]:
-      Value: -1250
-    sub.es_power[ES_1,8]:
-      Value: 1250
-    sub.es_power[ES_1,90]:
-      Value: -1250
-    sub.es_power[ES_1,91]:
-      Value: -1250
-    sub.es_power[ES_1,92]:
-      Value: -1250
-    sub.es_power[ES_1,93]:
-      Value: -1250
-    sub.es_power[ES_1,94]:
-      Value: -1250
-    sub.es_power[ES_1,95]:
-      Value: 1250
-    sub.es_power[ES_1,9]:
-      Value: 1250
-    sub.gt_power[GT_1,0]:
-      Value: 50
-    sub.gt_power[GT_1,10]:
-      Value: 50
-    sub.gt_power[GT_1,11]:
-      Value: 50
-    sub.gt_power[GT_1,12]:
-      Value: 50
-    sub.gt_power[GT_1,13]:
-      Value: 50
-    sub.gt_power[GT_1,14]:
-      Value: 50
-    sub.gt_power[GT_1,15]:
-      Value: 50
-    sub.gt_power[GT_1,16]:
-      Value: 50
-    sub.gt_power[GT_1,17]:
-      Value: 50
-    sub.gt_power[GT_1,18]:
-      Value: 50
-    sub.gt_power[GT_1,19]:
-      Value: 50
-    sub.gt_power[GT_1,1]:
-      Value: 50
-    sub.gt_power[GT_1,20]:
-      Value: 50
-    sub.gt_power[GT_1,21]:
-      Value: 50
-    sub.gt_power[GT_1,22]:
-      Value: 50
-    sub.gt_power[GT_1,23]:
-      Value: 50
-    sub.gt_power[GT_1,24]:
-      Value: 50
-    sub.gt_power[GT_1,25]:
-      Value: 50
-    sub.gt_power[GT_1,26]:
-      Value: 50
-    sub.gt_power[GT_1,27]:
-      Value: 50
-    sub.gt_power[GT_1,28]:
-      Value: 50
-    sub.gt_power[GT_1,29]:
-      Value: 50
-    sub.gt_power[GT_1,2]:
-      Value: 50
-    sub.gt_power[GT_1,30]:
-      Value: 50
-    sub.gt_power[GT_1,31]:
-      Value: 50
-    sub.gt_power[GT_1,32]:
-      Value: 50
-    sub.gt_power[GT_1,33]:
-      Value: 50
-    sub.gt_power[GT_1,34]:
-      Value: 50
-    sub.gt_power[GT_1,35]:
-      Value: 50
-    sub.gt_power[GT_1,36]:
-      Value: 50
-    sub.gt_power[GT_1,37]:
-      Value: 50
-    sub.gt_power[GT_1,38]:
-      Value: 50
-    sub.gt_power[GT_1,39]:
-      Value: 50
-    sub.gt_power[GT_1,3]:
-      Value: 50
-    sub.gt_power[GT_1,40]:
-      Value: 50
-    sub.gt_power[GT_1,41]:
-      Value: 50
-    sub.gt_power[GT_1,42]:
-      Value: 50
-    sub.gt_power[GT_1,43]:
-      Value: 50
-    sub.gt_power[GT_1,44]:
-      Value: 50
-    sub.gt_power[GT_1,45]:
-      Value: 50
-    sub.gt_power[GT_1,46]:
-      Value: 50
-    sub.gt_power[GT_1,47]:
-      Value: 50
-    sub.gt_power[GT_1,48]:
-      Value: 50
-    sub.gt_power[GT_1,49]:
-      Value: 50
-    sub.gt_power[GT_1,4]:
-      Value: 50
-    sub.gt_power[GT_1,50]:
-      Value: 50
-    sub.gt_power[GT_1,51]:
-      Value: 50
-    sub.gt_power[GT_1,52]:
-      Value: 50
-    sub.gt_power[GT_1,53]:
-      Value: 50
-    sub.gt_power[GT_1,54]:
-      Value: 50
-    sub.gt_power[GT_1,55]:
-      Value: 50
-    sub.gt_power[GT_1,56]:
-      Value: 50
-    sub.gt_power[GT_1,57]:
-      Value: 50
-    sub.gt_power[GT_1,58]:
-      Value: 50
-    sub.gt_power[GT_1,59]:
-      Value: 50
-    sub.gt_power[GT_1,5]:
-      Value: 50
-    sub.gt_power[GT_1,60]:
-      Value: 50
-    sub.gt_power[GT_1,61]:
-      Value: 50
-    sub.gt_power[GT_1,62]:
-      Value: 50
-    sub.gt_power[GT_1,63]:
-      Value: 50
-    sub.gt_power[GT_1,64]:
-      Value: 50
-    sub.gt_power[GT_1,65]:
-      Value: 50
-    sub.gt_power[GT_1,66]:
-      Value: 50
-    sub.gt_power[GT_1,67]:
-      Value: 50
-    sub.gt_power[GT_1,68]:
-      Value: 50
-    sub.gt_power[GT_1,69]:
-      Value: 50
-    sub.gt_power[GT_1,6]:
-      Value: 50
-    sub.gt_power[GT_1,70]:
-      Value: 50
-    sub.gt_power[GT_1,71]:
-      Value: 50
-    sub.gt_power[GT_1,72]:
-      Value: 50
-    sub.gt_power[GT_1,73]:
-      Value: 50
-    sub.gt_power[GT_1,74]:
-      Value: 50
-    sub.gt_power[GT_1,75]:
-      Value: 50
-    sub.gt_power[GT_1,76]:
-      Value: 50
-    sub.gt_power[GT_1,77]:
-      Value: 50
-    sub.gt_power[GT_1,78]:
-      Value: 50
-    sub.gt_power[GT_1,79]:
-      Value: 50
-    sub.gt_power[GT_1,7]:
-      Value: 50
-    sub.gt_power[GT_1,80]:
-      Value: 50
-    sub.gt_power[GT_1,81]:
-      Value: 50
-    sub.gt_power[GT_1,82]:
-      Value: 50
-    sub.gt_power[GT_1,83]:
-      Value: 50
-    sub.gt_power[GT_1,84]:
-      Value: 50
-    sub.gt_power[GT_1,85]:
-      Value: 50
-    sub.gt_power[GT_1,86]:
-      Value: 50
-    sub.gt_power[GT_1,87]:
-      Value: 50
-    sub.gt_power[GT_1,88]:
-      Value: 50
-    sub.gt_power[GT_1,89]:
-      Value: 50
-    sub.gt_power[GT_1,8]:
-      Value: 50
-    sub.gt_power[GT_1,90]:
-      Value: 50
-    sub.gt_power[GT_1,91]:
-      Value: 50
-    sub.gt_power[GT_1,92]:
-      Value: 50
-    sub.gt_power[GT_1,93]:
-      Value: 50
-    sub.gt_power[GT_1,94]:
-      Value: 50
-    sub.gt_power[GT_1,95]:
-      Value: 50
-    sub.gt_power[GT_1,9]:
-      Value: 50
-    sub.inv_dc[0]:
-      Value: -1230.4327867
-    sub.inv_dc[10]:
-      Value: -1230.3063459
-    sub.inv_dc[11]:
-      Value: -1230.36237455
-    sub.inv_dc[12]:
-      Value: -1230.4184032
-    sub.inv_dc[13]:
-      Value: -1230.44674622
-    sub.inv_dc[14]:
-      Value: -1230.47508925
-    sub.inv_dc[15]:
-      Value: 1268.43268125
-    sub.inv_dc[16]:
-      Value: 64.0266410609
-    sub.inv_dc[17]:
-      Value: -1235.56331063
-    sub.inv_dc[18]:
-      Value: 1261.52408575
-    sub.inv_dc[19]:
-      Value: 1256.50294117
-    sub.inv_dc[1]:
-      Value: -1230.65405805
-    sub.inv_dc[20]:
-      Value: 1251.4817966
-    sub.inv_dc[21]:
-      Value: 1243.8445228
-    sub.inv_dc[22]:
-      Value: 1236.207249
-    sub.inv_dc[23]:
-      Value: 1230.69563055
-    sub.inv_dc[24]:
-      Value: 1225.1840121
-    sub.inv_dc[25]:
-      Value: 1213.89259807
-    sub.inv_dc[26]:
-      Value: 1202.60118405
-    sub.inv_dc[27]:
-      Value: 1182.2651073
-    sub.inv_dc[28]:
-      Value: 1161.9290305
-    sub.inv_dc[29]:
-      Value: 1132.7767633
-    sub.inv_dc[2]:
-      Value: -1230.8753294
-    sub.inv_dc[30]:
-      Value: 1103.6244961
-    sub.inv_dc[31]:
-      Value: 1087.46246965
-    sub.inv_dc[32]:
-      Value: -1428.6995567
-    sub.inv_dc[33]:
-      Value: -1445.68159635
-    sub.inv_dc[34]:
-      Value: -1462.6636359
-    sub.inv_dc[35]:
-      Value: -1470.6718089
-    sub.inv_dc[36]:
-      Value: -1478.6799818
-    sub.inv_dc[37]:
-      Value: -1493.2998001
-    sub.inv_dc[38]:
-      Value: -1507.9196185
-    sub.inv_dc[39]:
-      Value: -1518.6634674
-    sub.inv_dc[3]:
-      Value: -1230.8346877
-    sub.inv_dc[40]:
-      Value: -1529.4073163
-    sub.inv_dc[41]:
-      Value: -1536.75272815
-    sub.inv_dc[42]:
-      Value: -1544.09814
-    sub.inv_dc[43]:
-      Value: -1546.11426825
-    sub.inv_dc[44]:
-      Value: 190.083573295
-    sub.inv_dc[45]:
-      Value: 945.1869115
-    sub.inv_dc[46]:
-      Value: 938.5042195
-    sub.inv_dc[47]:
-      Value: 931.0848183
-    sub.inv_dc[48]:
-      Value: 923.6654172
-    sub.inv_dc[49]:
-      Value: 922.6351278
-    sub.inv_dc[4]:
-      Value: -1230.794046
-    sub.inv_dc[50]:
-      Value: 921.6048384
-    sub.inv_dc[51]:
-      Value: 921.639747
-    sub.inv_dc[52]:
-      Value: 921.6746557
-    sub.inv_dc[53]:
-      Value: 925.164046
-    sub.inv_dc[54]:
-      Value: 928.6534364
-    sub.inv_dc[55]:
-      Value: 940.53137795
-    sub.inv_dc[56]:
-      Value: -1547.5906805
-    sub.inv_dc[57]:
-      Value: -1542.79516195
-    sub.inv_dc[58]:
-      Value: -1537.9996433
-    sub.inv_dc[59]:
-      Value: -1516.58560035
-    sub.inv_dc[5]:
-      Value: -1230.77966255
-    sub.inv_dc[60]:
-      Value: -1495.1715573
-    sub.inv_dc[61]:
-      Value: -1479.27387845
-    sub.inv_dc[62]:
-      Value: -1463.3761995
-    sub.inv_dc[63]:
-      Value: -1450.39007195
-    sub.inv_dc[64]:
-      Value: -1437.4039443
-    sub.inv_dc[65]:
-      Value: -1420.85375405
-    sub.inv_dc[66]:
-      Value: -1404.3035639
-    sub.inv_dc[67]:
-      Value: -1379.9275954
-    sub.inv_dc[68]:
-      Value: 1144.4483731
-    sub.inv_dc[69]:
-      Value: 1169.50862597
-    sub.inv_dc[6]:
-      Value: -1230.7652791
-    sub.inv_dc[70]:
-      Value: 1194.56887885
-    sub.inv_dc[71]:
-      Value: 1206.37659117
-    sub.inv_dc[72]:
-      Value: 1218.1843035
-    sub.inv_dc[73]:
-      Value: 1228.95969535
-    sub.inv_dc[74]:
-      Value: 1239.7350872
-    sub.inv_dc[75]:
-      Value: 1246.34039975
-    sub.inv_dc[76]:
-      Value: -1247.0542877
-    sub.inv_dc[77]:
-      Value: -1242.3289769
-    sub.inv_dc[78]:
-      Value: -1237.6036661
-    sub.inv_dc[79]:
-      Value: -1236.12769723
-    sub.inv_dc[7]:
-      Value: -1230.7283169
-    sub.inv_dc[80]:
-      Value: -1234.65172835
-    sub.inv_dc[81]:
-      Value: -1233.53187393
-    sub.inv_dc[82]:
-      Value: -1232.4120195
-    sub.inv_dc[83]:
-      Value: -1231.4147096
-    sub.inv_dc[84]:
-      Value: -73.2300481185
-    sub.inv_dc[85]:
-      Value: 1269.48225045
-    sub.inv_dc[86]:
-      Value: 1269.3819006
-    sub.inv_dc[87]:
-      Value: 1269.48977665
-    sub.inv_dc[88]:
-      Value: 1269.5976527
-    sub.inv_dc[89]:
-      Value: 1269.47087745
-    sub.inv_dc[8]:
-      Value: -1230.6913547
-    sub.inv_dc[90]:
-      Value: 1269.3441022
-    sub.inv_dc[91]:
-      Value: 1269.38859065
-    sub.inv_dc[92]:
-      Value: 1269.4330791
-    sub.inv_dc[93]:
-      Value: 1269.46535825
-    sub.inv_dc[94]:
-      Value: 1269.4976374
-    sub.inv_dc[95]:
-      Value: -1230.5023626
-    sub.inv_dc[9]:
-      Value: -1230.4988503
-    sub.low_heat[0]:
-      Value: 724.68252
-    sub.low_heat[10]:
-      Value: 698.68252
-    sub.low_heat[11]:
-      Value: 684.08252
-    sub.low_heat[12]:
-      Value: 689.48252
-    sub.low_heat[13]:
-      Value: 674.88252
-    sub.low_heat[14]:
-      Value: 700.28252
-    sub.low_heat[15]:
-      Value: 705.68252
-    sub.low_heat[16]:
-      Value: 711.08252
-    sub.low_heat[17]:
-      Value: 716.48252
-    sub.low_heat[18]:
-      Value: 717.88252
-    sub.low_heat[19]:
-      Value: 707.28252
-    sub.low_heat[1]:
-      Value: 730.08252
-    sub.low_heat[20]:
-      Value: 712.68252
-    sub.low_heat[21]:
-      Value: 698.08252
-    sub.low_heat[22]:
-      Value: 703.48252
-    sub.low_heat[23]:
-      Value: 688.88252
-    sub.low_heat[24]:
-      Value: 694.28252
-    sub.low_heat[25]:
-      Value: 679.68252
-    sub.low_heat[26]:
-      Value: 665.08252
-    sub.low_heat[27]:
-      Value: 670.48252
-    sub.low_heat[28]:
-      Value: 675.88252
-    sub.low_heat[29]:
-      Value: 661.28252
-    sub.low_heat[2]:
-      Value: 735.48252
-    sub.low_heat[30]:
-      Value: 666.68252
-    sub.low_heat[31]:
-      Value: 672.08252
-    sub.low_heat[32]:
-      Value: 657.48252
-    sub.low_heat[33]:
-      Value: 642.88252
-    sub.low_heat[34]:
-      Value: 628.28252
-    sub.low_heat[35]:
-      Value: 613.68252
-    sub.low_heat[36]:
-      Value: 639.08252
-    sub.low_heat[37]:
-      Value: 656.1014
-    sub.low_heat[38]:
-      Value: 649.4554
-    sub.low_heat[39]:
-      Value: 682.8094
-    sub.low_heat[3]:
-      Value: 740.88252
-    sub.low_heat[40]:
-      Value: 716.1634
-    sub.low_heat[41]:
-      Value: 749.5174
-    sub.low_heat[42]:
-      Value: 743.72788
-    sub.low_heat[43]:
-      Value: 775.41418
-    sub.low_heat[44]:
-      Value: 807.10048
-    sub.low_heat[45]:
-      Value: 838.78678
-    sub.low_heat[46]:
-      Value: 870.47308
-    sub.low_heat[47]:
-      Value: 902.15938
-    sub.low_heat[48]:
-      Value: 1039.288384
-    sub.low_heat[49]:
-      Value: 1062.590896
-    sub.low_heat[4]:
-      Value: 746.28252
-    sub.low_heat[50]:
-      Value: 1085.893408
-    sub.low_heat[51]:
-      Value: 1109.19592
-    sub.low_heat[52]:
-      Value: 1132.498432
-    sub.low_heat[53]:
-      Value: 1155.800944
-    sub.low_heat[54]:
-      Value: 1179.103456
-    sub.low_heat[55]:
-      Value: 1202.405968
-    sub.low_heat[56]:
-      Value: 1225.70848
-    sub.low_heat[57]:
-      Value: 1249.010992
-    sub.low_heat[58]:
-      Value: 1247.6854
-    sub.low_heat[59]:
-      Value: 1246.359808
-    sub.low_heat[5]:
-      Value: 751.68252
-    sub.low_heat[60]:
-      Value: 1245.034216
-    sub.low_heat[61]:
-      Value: 1243.708624
-    sub.low_heat[62]:
-      Value: 1242.383032
-    sub.low_heat[63]:
-      Value: 1241.05744
-    sub.low_heat[64]:
-      Value: 1239.731848
-    sub.low_heat[65]:
-      Value: 1238.406256
-    sub.low_heat[66]:
-      Value: 1237.080664
-    sub.low_heat[67]:
-      Value: 1235.755072
-    sub.low_heat[68]:
-      Value: 1234.42948
-    sub.low_heat[69]:
-      Value: 1179.70036
-    sub.low_heat[6]:
-      Value: 757.08252
-    sub.low_heat[70]:
-      Value: 1124.97124
-    sub.low_heat[71]:
-      Value: 1070.24212
-    sub.low_heat[72]:
-      Value: 917.17888
-    sub.low_heat[73]:
-      Value: 872.32387
-    sub.low_heat[74]:
-      Value: 827.46886
-    sub.low_heat[75]:
-      Value: 782.61385
-    sub.low_heat[76]:
-      Value: 737.75884
-    sub.low_heat[77]:
-      Value: 692.90383
-    sub.low_heat[78]:
-      Value: 648.04882
-    sub.low_heat[79]:
-      Value: 603.19381
-    sub.low_heat[7]:
-      Value: 730.48252
-    sub.low_heat[80]:
-      Value: 627.725
-    sub.low_heat[81]:
-      Value: 648.61084
-    sub.low_heat[82]:
-      Value: 591.95188
-    sub.low_heat[83]:
-      Value: 595.29292
-    sub.low_heat[84]:
-      Value: 610.63396
-    sub.low_heat[85]:
-      Value: 633.975
-    sub.low_heat[86]:
-      Value: 620.51604
-    sub.low_heat[87]:
-      Value: 627.05708
-    sub.low_heat[88]:
-      Value: 633.59812
-    sub.low_heat[89]:
-      Value: 640.13916
-    sub.low_heat[8]:
-      Value: 719.88252
-    sub.low_heat[90]:
-      Value: 670.6802
-    sub.low_heat[91]:
-      Value: 677.22124
-    sub.low_heat[92]:
-      Value: 663.76228
-    sub.low_heat[93]:
-      Value: 690.30332
-    sub.low_heat[94]:
-      Value: 716.84436
-    sub.low_heat[95]:
-      Value: 723.3854
-    sub.low_heat[9]:
-      Value: 713.28252
-    sub.medium_heat[0]:
-      Value: 3707.12508
-    sub.medium_heat[10]:
-      Value: 3573.36508
-    sub.medium_heat[11]:
-      Value: 3496.98908
-    sub.medium_heat[12]:
-      Value: 3510.61308
-    sub.medium_heat[13]:
-      Value: 3436.08708
-    sub.medium_heat[14]:
-      Value: 3519.66108
-    sub.medium_heat[15]:
-      Value: 3528.4076
-    sub.medium_heat[16]:
-      Value: 3555.4076
-    sub.medium_heat[17]:
-      Value: 3582.4076
-    sub.medium_heat[18]:
-      Value: 3589.4076
-    sub.medium_heat[19]:
-      Value: 3536.4076
-    sub.medium_heat[1]:
-      Value: 3730.74908
-    sub.medium_heat[20]:
-      Value: 3563.4076
-    sub.medium_heat[21]:
-      Value: 3490.4076
-    sub.medium_heat[22]:
-      Value: 3517.4076
-    sub.medium_heat[23]:
-      Value: 3444.4076
-    sub.medium_heat[24]:
-      Value: 3471.4076
-    sub.medium_heat[25]:
-      Value: 3398.4076
-    sub.medium_heat[26]:
-      Value: 3325.4076
-    sub.medium_heat[27]:
-      Value: 3352.4076
-    sub.medium_heat[28]:
-      Value: 3379.4076
-    sub.medium_heat[29]:
-      Value: 3306.4076
-    sub.medium_heat[2]:
-      Value: 3754.37308
-    sub.medium_heat[30]:
-      Value: 3333.4076
-    sub.medium_heat[31]:
-      Value: 3360.4076
-    sub.medium_heat[32]:
-      Value: 3287.4076
-    sub.medium_heat[33]:
-      Value: 3214.4076
-    sub.medium_heat[34]:
-      Value: 3141.4076
-    sub.medium_heat[35]:
-      Value: 3079.20508
-    sub.medium_heat[36]:
-      Value: 3195.4076
-    sub.medium_heat[37]:
-      Value: 3280.502
-    sub.medium_heat[38]:
-      Value: 3247.272
-    sub.medium_heat[39]:
-      Value: 3414.042
-    sub.medium_heat[3]:
-      Value: 3777.99708
-    sub.medium_heat[40]:
-      Value: 3580.812
-    sub.medium_heat[41]:
-      Value: 3747.582
-    sub.medium_heat[42]:
-      Value: 3718.6344
-    sub.medium_heat[43]:
-      Value: 3889.26532
-    sub.medium_heat[44]:
-      Value: 4035.4974
-    sub.medium_heat[45]:
-      Value: 4193.9289
-    sub.medium_heat[46]:
-      Value: 4352.3604
-    sub.medium_heat[47]:
-      Value: 4510.7919
-    sub.medium_heat[48]:
-      Value: 5196.43692
-    sub.medium_heat[49]:
-      Value: 5312.94948
-    sub.medium_heat[4]:
-      Value: 3781.62108
-    sub.medium_heat[50]:
-      Value: 5429.46204
-    sub.medium_heat[51]:
-      Value: 5545.9746
-    sub.medium_heat[52]:
-      Value: 5662.48716
-    sub.medium_heat[53]:
-      Value: 5778.99972
-    sub.medium_heat[54]:
-      Value: 5895.51228
-    sub.medium_heat[55]:
-      Value: 6012.02484
-    sub.medium_heat[56]:
-      Value: 6128.5374
-    sub.medium_heat[57]:
-      Value: 6245.04996
-    sub.medium_heat[58]:
-      Value: 6238.422
-    sub.medium_heat[59]:
-      Value: 6231.79404
-    sub.medium_heat[5]:
-      Value: 3795.24508
-    sub.medium_heat[60]:
-      Value: 6225.16608
-    sub.medium_heat[61]:
-      Value: 6218.53812
-    sub.medium_heat[62]:
-      Value: 6211.91016
-    sub.medium_heat[63]:
-      Value: 6205.2822
-    sub.medium_heat[64]:
-      Value: 6198.65424
-    sub.medium_heat[65]:
-      Value: 6192.02628
-    sub.medium_heat[66]:
-      Value: 6185.39832
-    sub.medium_heat[67]:
-      Value: 6178.77036
-    sub.medium_heat[68]:
-      Value: 6172.1424
-    sub.medium_heat[69]:
-      Value: 5898.4968
-    sub.medium_heat[6]:
-      Value: 3808.86908
-    sub.medium_heat[70]:
-      Value: 5624.8512
-    sub.medium_heat[71]:
-      Value: 5351.2056
-    sub.medium_heat[72]:
-      Value: 4585.8894
-    sub.medium_heat[73]:
-      Value: 4361.61435
-    sub.medium_heat[74]:
-      Value: 4137.3393
-    sub.medium_heat[75]:
-      Value: 3913.06425
-    sub.medium_heat[76]:
-      Value: 3688.7892
-    sub.medium_heat[77]:
-      Value: 3468.16952
-    sub.medium_heat[78]:
-      Value: 3303.18548
-    sub.medium_heat[79]:
-      Value: 3097.02464
-    sub.medium_heat[7]:
-      Value: 3704.49308
-    sub.medium_heat[80]:
-      Value: 3186.4086
-    sub.medium_heat[81]:
-      Value: 3243.21116
-    sub.medium_heat[82]:
-      Value: 3089.83452
-    sub.medium_heat[83]:
-      Value: 3098.16668
-    sub.medium_heat[84]:
-      Value: 3154.49884
-    sub.medium_heat[85]:
-      Value: 3242.831
-    sub.medium_heat[86]:
-      Value: 3183.96316
-    sub.medium_heat[87]:
-      Value: 3205.09532
-    sub.medium_heat[88]:
-      Value: 3226.22748
-    sub.medium_heat[89]:
-      Value: 3247.35964
-    sub.medium_heat[8]:
-      Value: 3654.11708
-    sub.medium_heat[90]:
-      Value: 3364.4918
-    sub.medium_heat[91]:
-      Value: 3386.1012
-    sub.medium_heat[92]:
-      Value: 3326.75612
-    sub.medium_heat[93]:
-      Value: 3451.5116
-    sub.medium_heat[94]:
-      Value: 3584.2168
-    sub.medium_heat[95]:
-      Value: 3616.922
-    sub.medium_heat[9]:
-      Value: 3619.74108
-    sub.utility_power[0]:
-      Value: 3975.785504
-    sub.utility_power[10]:
-      Value: 3892.97008433
-    sub.utility_power[11]:
-      Value: 4102.66986964
-    sub.utility_power[12]:
-      Value: 4512.36965494
-    sub.utility_power[13]:
-      Value: 4066.97495579
-    sub.utility_power[14]:
-      Value: 3793.4988613
-    sub.utility_power[15]:
-      Value: 6785.62957021
-    sub.utility_power[16]:
-      Value: 5487.49074529
-    sub.utility_power[17]:
-      Value: 4277.36096838
-    sub.utility_power[18]:
-      Value: 6107.62377993
-    sub.utility_power[19]:
-      Value: 6057.24235788
-    sub.utility_power[1]:
-      Value: 3501.05260474
-    sub.utility_power[20]:
-      Value: 6003.76735444
-    sub.utility_power[21]:
-      Value: 5743.75047826
-    sub.utility_power[22]:
-      Value: 5480.64002067
-    sub.utility_power[23]:
-      Value: 5618.41494189
-    sub.utility_power[24]:
-      Value: 5752.32288637
-    sub.utility_power[25]:
-      Value: 5630.96988977
-    sub.utility_power[26]:
-      Value: 5508.48502911
-    sub.utility_power[27]:
-      Value: 5457.79711313
-    sub.utility_power[28]:
-      Value: 5407.10919705
-    sub.utility_power[29]:
-      Value: 5639.46158836
-    sub.utility_power[2]:
-      Value: 3026.31970548
-    sub.utility_power[30]:
-      Value: 5892.36560758
-    sub.utility_power[31]:
-      Value: 5961.38006125
-    sub.utility_power[32]:
-      Value: 3290.07544536
-    sub.utility_power[33]:
-      Value: 3261.49085967
-    sub.utility_power[34]:
-      Value: 3257.75269279
-    sub.utility_power[35]:
-      Value: 3528.89923993
-    sub.utility_power[36]:
-      Value: 3576.48719418
-    sub.utility_power[37]:
-      Value: 3536.63387867
-    sub.utility_power[38]:
-      Value: 3689.69600178
-    sub.utility_power[39]:
-      Value: 3686.04502117
-    sub.utility_power[3]:
-      Value: 3751.84871928
-    sub.utility_power[40]:
-      Value: 3752.4448791
-    sub.utility_power[41]:
-      Value: 3911.04433395
-    sub.utility_power[42]:
-      Value: 4246.61650036
-    sub.utility_power[43]:
-      Value: 3967.77303205
-    sub.utility_power[44]:
-      Value: 5627.28126465
-    sub.utility_power[45]:
-      Value: 6701.36638536
-    sub.utility_power[46]:
-      Value: 6613.66547586
-    sub.utility_power[47]:
-      Value: 6477.05358266
-    sub.utility_power[48]:
-      Value: 6340.65257507
-    sub.utility_power[49]:
-      Value: 6192.55466209
-    sub.utility_power[4]:
-      Value: 4477.37773307
-    sub.utility_power[50]:
-      Value: 6044.53674912
-    sub.utility_power[51]:
-      Value: 6149.58685824
-    sub.utility_power[52]:
-      Value: 6154.65136756
-    sub.utility_power[53]:
-      Value: 6215.38250939
-    sub.utility_power[54]:
-      Value: 6276.11365141
-    sub.utility_power[55]:
-      Value: 6298.49703089
-    sub.utility_power[56]:
-      Value: 4292.79348316
-    sub.utility_power[57]:
-      Value: 4355.89905974
-    sub.utility_power[58]:
-      Value: 4417.50194946
-    sub.utility_power[59]:
-      Value: 4619.108262
-    sub.utility_power[5]:
-      Value: 4252.88048861
-    sub.utility_power[60]:
-      Value: 4728.44852822
-    sub.utility_power[61]:
-      Value: 4830.42787967
-    sub.utility_power[62]:
-      Value: 4920.80630108
-    sub.utility_power[63]:
-      Value: 4890.30277616
-    sub.utility_power[64]:
-      Value: 4859.79925145
-    sub.utility_power[65]:
-      Value: 4824.29164512
-    sub.utility_power[66]:
-      Value: 4800.38496883
-    sub.utility_power[67]:
-      Value: 3776.31185075
-    sub.utility_power[68]:
-      Value: 6100.44710226
-    sub.utility_power[69]:
-      Value: 6380.60478201
-    sub.utility_power[6]:
-      Value: 4028.38324416
-    sub.utility_power[70]:
-      Value: 6660.64246178
-    sub.utility_power[71]:
-      Value: 6783.42023893
-    sub.utility_power[72]:
-      Value: 6906.00134786
-    sub.utility_power[73]:
-      Value: 6926.55030024
-    sub.utility_power[74]:
-      Value: 6947.09925262
-    sub.utility_power[75]:
-      Value: 7483.60877545
-    sub.utility_power[76]:
-      Value: 4813.86397744
-    sub.utility_power[77]:
-      Value: 5000.84876881
-    sub.utility_power[78]:
-      Value: 4826.968818
-    sub.utility_power[79]:
-      Value: 4887.32041235
-    sub.utility_power[7]:
-      Value: 3996.40857845
-    sub.utility_power[80]:
-      Value: 4972.09061136
-    sub.utility_power[81]:
-      Value: 5075.89820872
-    sub.utility_power[82]:
-      Value: 5410.22301642
-    sub.utility_power[83]:
-      Value: 5077.78618575
-    sub.utility_power[84]:
-      Value: 6334.67568444
-    sub.utility_power[85]:
-      Value: 7876.09282022
-    sub.utility_power[86]:
-      Value: 7474.69730758
-    sub.utility_power[87]:
-      Value: 7223.51002084
-    sub.utility_power[88]:
-      Value: 7472.3227341
-    sub.utility_power[89]:
-      Value: 7795.90079605
-    sub.utility_power[8]:
-      Value: 3954.17809879
-    sub.utility_power[90]:
-      Value: 8119.47885801
-    sub.utility_power[91]:
-      Value: 7743.13590987
-    sub.utility_power[92]:
-      Value: 7366.97750933
-    sub.utility_power[93]:
-      Value: 7461.14708424
-    sub.utility_power[94]:
-      Value: 7503.77959003
-    sub.utility_power[95]:
-      Value: 4806.0607469
-    sub.utility_power[9]:
-      Value: 3920.52176598
-    wp[13]:
-      Value: 0.122170075
-    wp[14]:
-      Value: 0.24434015
-    wp[15]:
-      Value: 1.5096731
-    wp[16]:
-      Value: 2.77500605
-    wp[17]:
-      Value: 5.9601545
-    wp[18]:
-      Value: 9.14530295
-    wp[19]:
-      Value: 13.94484173
-    wp[20]:
-      Value: 18.7443805
-    wp[21]:
-      Value: 26.91668605
-    wp[22]:
-      Value: 35.0889916
-    wp[23]:
-      Value: 47.99538765
-    wp[24]:
-      Value: 60.9017837
-    wp[25]:
-      Value: 74.39721408
-    wp[26]:
-      Value: 87.89264445
-    wp[27]:
-      Value: 110.5464674
-    wp[28]:
-      Value: 133.2002904
-    wp[29]:
-      Value: 160.9459877
-    wp[30]:
-      Value: 188.691685
-    wp[31]:
-      Value: 203.3171886
-    wp[32]:
-      Value: 217.9426921
-    wp[33]:
-      Value: 238.2141986
-    wp[34]:
-      Value: 258.485705
-    wp[35]:
-      Value: 265.5497535
-    wp[36]:
-      Value: 272.6138019
-    wp[37]:
-      Value: 286.3972045
-    wp[38]:
-      Value: 300.1806072
-    wp[39]:
-      Value: 310.2596386
-    wp[40]:
-      Value: 320.33867
-    wp[41]:
-      Value: 327.3678127
-    wp[42]:
-      Value: 334.3969554
-    wp[43]:
-      Value: 336.1116997
-    wp[44]:
-      Value: 337.826444
-    wp[45]:
-      Value: 343.8913157
-    wp[46]:
-      Value: 349.9561874
-    wp[47]:
-      Value: 354.1797816
-    wp[48]:
-      Value: 358.4033757
-    wp[49]:
-      Value: 355.4887467
-    wp[50]:
-      Value: 352.5741177
-    wp[51]:
-      Value: 347.5825974
-    wp[52]:
-      Value: 342.591077
-    wp[53]:
-      Value: 335.3874057
-    wp[54]:
-      Value: 328.1837343
-    wp[55]:
-      Value: 317.7163766
-    wp[56]:
-      Value: 307.2490189
-    wp[57]:
-      Value: 302.9468869
-    wp[58]:
-      Value: 298.6447548
-    wp[59]:
-      Value: 275.6811435
-    wp[60]:
-      Value: 252.7175321
-    wp[61]:
-      Value: 236.1373073
-    wp[62]:
-      Value: 219.5570824
-    wp[63]:
-      Value: 205.6733258
-    wp[64]:
-      Value: 191.7895691
-    wp[65]:
-      Value: 174.74248
-    wp[66]:
-      Value: 157.695391
-    wp[67]:
-      Value: 133.7107868
-    wp[68]:
-      Value: 109.7261826
-    wp[69]:
-      Value: 84.68131668
-    wp[70]:
-      Value: 59.63645075
-    wp[71]:
-      Value: 48.61932768
-    wp[72]:
-      Value: 37.6022046
-    wp[73]:
-      Value: 27.74133405
-    wp[74]:
-      Value: 17.8804635
-    wp[75]:
-      Value: 12.8889432
-    wp[76]:
-      Value: 7.8974229
-    wp[77]:
-      Value: 4.6250101
-    wp[78]:
-      Value: 1.3525973
-    wp[79]:
-      Value: 0.711204375
-    wp[80]:
-      Value: 0.06981145
-    wp[81]:
-      Value: 0.034905725
+    sub.gt_power[Brighton,0]:
+      Value: 534.999
+    sub.gt_power[Brighton,10]:
+      Value: 534.999
+    sub.gt_power[Brighton,11]:
+      Value: 574.999
+    sub.gt_power[Brighton,12]:
+      Value: 600
+    sub.gt_power[Brighton,13]:
+      Value: 600
+    sub.gt_power[Brighton,14]:
+      Value: 559.999
+    sub.gt_power[Brighton,15]:
+      Value: 534.999
+    sub.gt_power[Brighton,16]:
+      Value: 574.999
+    sub.gt_power[Brighton,17]:
+      Value: 600
+    sub.gt_power[Brighton,18]:
+      Value: 600
+    sub.gt_power[Brighton,19]:
+      Value: 559.999
+    sub.gt_power[Brighton,1]:
+      Value: 574.999
+    sub.gt_power[Brighton,20]:
+      Value: 534.999
+    sub.gt_power[Brighton,21]:
+      Value: 574.999
+    sub.gt_power[Brighton,22]:
+      Value: 600
+    sub.gt_power[Brighton,23]:
+      Value: 600
+    sub.gt_power[Brighton,24]:
+      Value: 559.999
+    sub.gt_power[Brighton,25]:
+      Value: 534.999
+    sub.gt_power[Brighton,26]:
+      Value: 574.999
+    sub.gt_power[Brighton,27]:
+      Value: 600
+    sub.gt_power[Brighton,28]:
+      Value: 600
+    sub.gt_power[Brighton,29]:
+      Value: 559.999
+    sub.gt_power[Brighton,2]:
+      Value: 600
+    sub.gt_power[Brighton,30]:
+      Value: 534.999
+    sub.gt_power[Brighton,31]:
+      Value: 574.999
+    sub.gt_power[Brighton,32]:
+      Value: 600
+    sub.gt_power[Brighton,33]:
+      Value: 600
+    sub.gt_power[Brighton,34]:
+      Value: 559.999
+    sub.gt_power[Brighton,35]:
+      Value: 534.999
+    sub.gt_power[Brighton,36]:
+      Value: 574.999
+    sub.gt_power[Brighton,37]:
+      Value: 600
+    sub.gt_power[Brighton,38]:
+      Value: 600
+    sub.gt_power[Brighton,39]:
+      Value: 559.999
+    sub.gt_power[Brighton,3]:
+      Value: 600
+    sub.gt_power[Brighton,40]:
+      Value: 534.999
+    sub.gt_power[Brighton,41]:
+      Value: 574.999
+    sub.gt_power[Brighton,42]:
+      Value: 600
+    sub.gt_power[Brighton,43]:
+      Value: 600
+    sub.gt_power[Brighton,44]:
+      Value: 559.999
+    sub.gt_power[Brighton,45]:
+      Value: 534.999
+    sub.gt_power[Brighton,46]:
+      Value: 574.999
+    sub.gt_power[Brighton,47]:
+      Value: 600
+    sub.gt_power[Brighton,48]:
+      Value: 600
+    sub.gt_power[Brighton,49]:
+      Value: 559.999
+    sub.gt_power[Brighton,4]:
+      Value: 559.999
+    sub.gt_power[Brighton,50]:
+      Value: 534.999
+    sub.gt_power[Brighton,51]:
+      Value: 574.999
+    sub.gt_power[Brighton,52]:
+      Value: 600
+    sub.gt_power[Brighton,53]:
+      Value: 600
+    sub.gt_power[Brighton,54]:
+      Value: 559.999
+    sub.gt_power[Brighton,55]:
+      Value: 534.999
+    sub.gt_power[Brighton,56]:
+      Value: 574.999
+    sub.gt_power[Brighton,57]:
+      Value: 600
+    sub.gt_power[Brighton,58]:
+      Value: 600
+    sub.gt_power[Brighton,59]:
+      Value: 559.999
+    sub.gt_power[Brighton,5]:
+      Value: 534.999
+    sub.gt_power[Brighton,60]:
+      Value: 534.999
+    sub.gt_power[Brighton,61]:
+      Value: 574.999
+    sub.gt_power[Brighton,62]:
+      Value: 600
+    sub.gt_power[Brighton,63]:
+      Value: 600
+    sub.gt_power[Brighton,64]:
+      Value: 559.999
+    sub.gt_power[Brighton,65]:
+      Value: 534.999
+    sub.gt_power[Brighton,66]:
+      Value: 574.999
+    sub.gt_power[Brighton,67]:
+      Value: 600
+    sub.gt_power[Brighton,68]:
+      Value: 600
+    sub.gt_power[Brighton,69]:
+      Value: 559.999
+    sub.gt_power[Brighton,6]:
+      Value: 574.999
+    sub.gt_power[Brighton,70]:
+      Value: 534.999
+    sub.gt_power[Brighton,71]:
+      Value: 574.999
+    sub.gt_power[Brighton,72]:
+      Value: 600
+    sub.gt_power[Brighton,73]:
+      Value: 600
+    sub.gt_power[Brighton,74]:
+      Value: 559.999
+    sub.gt_power[Brighton,75]:
+      Value: 534.999
+    sub.gt_power[Brighton,76]:
+      Value: 574.999
+    sub.gt_power[Brighton,77]:
+      Value: 600
+    sub.gt_power[Brighton,78]:
+      Value: 600
+    sub.gt_power[Brighton,79]:
+      Value: 559.999
+    sub.gt_power[Brighton,7]:
+      Value: 600
+    sub.gt_power[Brighton,80]:
+      Value: 534.999
+    sub.gt_power[Brighton,81]:
+      Value: 574.999
+    sub.gt_power[Brighton,82]:
+      Value: 600
+    sub.gt_power[Brighton,83]:
+      Value: 600
+    sub.gt_power[Brighton,84]:
+      Value: 559.999
+    sub.gt_power[Brighton,85]:
+      Value: 534.999
+    sub.gt_power[Brighton,86]:
+      Value: 574.999
+    sub.gt_power[Brighton,87]:
+      Value: 600
+    sub.gt_power[Brighton,88]:
+      Value: 600
+    sub.gt_power[Brighton,89]:
+      Value: 559.999
+    sub.gt_power[Brighton,8]:
+      Value: 600
+    sub.gt_power[Brighton,90]:
+      Value: 534.999
+    sub.gt_power[Brighton,91]:
+      Value: 574.999
+    sub.gt_power[Brighton,92]:
+      Value: 600
+    sub.gt_power[Brighton,93]:
+      Value: 600
+    sub.gt_power[Brighton,94]:
+      Value: 559.999
+    sub.gt_power[Brighton,95]:
+      Value: 534.999
+    sub.gt_power[Brighton,9]:
+      Value: 559.999
+    sub.gt_power[Park City,0]:
+      Value: 170
+    sub.gt_power[Park City,10]:
+      Value: 170
+    sub.gt_power[Park City,11]:
+      Value: 170
+    sub.gt_power[Park City,12]:
+      Value: 170
+    sub.gt_power[Park City,13]:
+      Value: 170
+    sub.gt_power[Park City,14]:
+      Value: 170
+    sub.gt_power[Park City,15]:
+      Value: 170
+    sub.gt_power[Park City,16]:
+      Value: 170
+    sub.gt_power[Park City,17]:
+      Value: 170
+    sub.gt_power[Park City,18]:
+      Value: 170
+    sub.gt_power[Park City,19]:
+      Value: 170
+    sub.gt_power[Park City,1]:
+      Value: 170
+    sub.gt_power[Park City,20]:
+      Value: 170
+    sub.gt_power[Park City,21]:
+      Value: 170
+    sub.gt_power[Park City,22]:
+      Value: 170
+    sub.gt_power[Park City,23]:
+      Value: 170
+    sub.gt_power[Park City,24]:
+      Value: 170
+    sub.gt_power[Park City,25]:
+      Value: 170
+    sub.gt_power[Park City,26]:
+      Value: 170
+    sub.gt_power[Park City,27]:
+      Value: 170
+    sub.gt_power[Park City,28]:
+      Value: 170
+    sub.gt_power[Park City,29]:
+      Value: 170
+    sub.gt_power[Park City,2]:
+      Value: 170
+    sub.gt_power[Park City,30]:
+      Value: 170
+    sub.gt_power[Park City,31]:
+      Value: 170
+    sub.gt_power[Park City,32]:
+      Value: 170
+    sub.gt_power[Park City,33]:
+      Value: 170
+    sub.gt_power[Park City,34]:
+      Value: 170
+    sub.gt_power[Park City,35]:
+      Value: 170
+    sub.gt_power[Park City,36]:
+      Value: 170
+    sub.gt_power[Park City,37]:
+      Value: 170
+    sub.gt_power[Park City,38]:
+      Value: 170
+    sub.gt_power[Park City,39]:
+      Value: 170
+    sub.gt_power[Park City,3]:
+      Value: 170
+    sub.gt_power[Park City,40]:
+      Value: 170
+    sub.gt_power[Park City,41]:
+      Value: 170
+    sub.gt_power[Park City,42]:
+      Value: 170
+    sub.gt_power[Park City,43]:
+      Value: 170
+    sub.gt_power[Park City,44]:
+      Value: 170
+    sub.gt_power[Park City,45]:
+      Value: 170
+    sub.gt_power[Park City,46]:
+      Value: 170
+    sub.gt_power[Park City,47]:
+      Value: 170
+    sub.gt_power[Park City,48]:
+      Value: 170
+    sub.gt_power[Park City,49]:
+      Value: 170
+    sub.gt_power[Park City,4]:
+      Value: 170
+    sub.gt_power[Park City,50]:
+      Value: 170
+    sub.gt_power[Park City,51]:
+      Value: 170
+    sub.gt_power[Park City,52]:
+      Value: 170
+    sub.gt_power[Park City,53]:
+      Value: 170
+    sub.gt_power[Park City,54]:
+      Value: 170
+    sub.gt_power[Park City,55]:
+      Value: 170
+    sub.gt_power[Park City,56]:
+      Value: 170
+    sub.gt_power[Park City,57]:
+      Value: 170
+    sub.gt_power[Park City,58]:
+      Value: 170
+    sub.gt_power[Park City,59]:
+      Value: 170
+    sub.gt_power[Park City,5]:
+      Value: 170
+    sub.gt_power[Park City,60]:
+      Value: 170
+    sub.gt_power[Park City,61]:
+      Value: 170
+    sub.gt_power[Park City,62]:
+      Value: 170
+    sub.gt_power[Park City,63]:
+      Value: 170
+    sub.gt_power[Park City,64]:
+      Value: 170
+    sub.gt_power[Park City,65]:
+      Value: 170
+    sub.gt_power[Park City,66]:
+      Value: 170
+    sub.gt_power[Park City,67]:
+      Value: 170
+    sub.gt_power[Park City,68]:
+      Value: 170
+    sub.gt_power[Park City,69]:
+      Value: 170
+    sub.gt_power[Park City,6]:
+      Value: 170
+    sub.gt_power[Park City,70]:
+      Value: 170
+    sub.gt_power[Park City,71]:
+      Value: 170
+    sub.gt_power[Park City,72]:
+      Value: 170
+    sub.gt_power[Park City,73]:
+      Value: 170
+    sub.gt_power[Park City,74]:
+      Value: 170
+    sub.gt_power[Park City,75]:
+      Value: 170
+    sub.gt_power[Park City,76]:
+      Value: 170
+    sub.gt_power[Park City,77]:
+      Value: 170
+    sub.gt_power[Park City,78]:
+      Value: 170
+    sub.gt_power[Park City,79]:
+      Value: 170
+    sub.gt_power[Park City,7]:
+      Value: 170
+    sub.gt_power[Park City,80]:
+      Value: 170
+    sub.gt_power[Park City,81]:
+      Value: 170
+    sub.gt_power[Park City,82]:
+      Value: 170
+    sub.gt_power[Park City,83]:
+      Value: 170
+    sub.gt_power[Park City,84]:
+      Value: 170
+    sub.gt_power[Park City,85]:
+      Value: 170
+    sub.gt_power[Park City,86]:
+      Value: 170
+    sub.gt_power[Park City,87]:
+      Value: 170
+    sub.gt_power[Park City,88]:
+      Value: 170
+    sub.gt_power[Park City,89]:
+      Value: 170
+    sub.gt_power[Park City,8]:
+      Value: 170
+    sub.gt_power[Park City,90]:
+      Value: 170
+    sub.gt_power[Park City,91]:
+      Value: 170
+    sub.gt_power[Park City,92]:
+      Value: 170
+    sub.gt_power[Park City,93]:
+      Value: 170
+    sub.gt_power[Park City,94]:
+      Value: 170
+    sub.gt_power[Park City,95]:
+      Value: 170
+    sub.gt_power[Park City,9]:
+      Value: 170
+    sub.gt_power[Solitude,0]:
+      Value: 10
+    sub.gt_power[Solitude,10]:
+      Value: 10
+    sub.gt_power[Solitude,11]:
+      Value: 10
+    sub.gt_power[Solitude,12]:
+      Value: 189.999
+    sub.gt_power[Solitude,13]:
+      Value: 144.999
+    sub.gt_power[Solitude,14]:
+      Value: 10
+    sub.gt_power[Solitude,15]:
+      Value: 10
+    sub.gt_power[Solitude,16]:
+      Value: 10
+    sub.gt_power[Solitude,17]:
+      Value: 189.999
+    sub.gt_power[Solitude,18]:
+      Value: 144.999
+    sub.gt_power[Solitude,19]:
+      Value: 10
+    sub.gt_power[Solitude,1]:
+      Value: 10
+    sub.gt_power[Solitude,20]:
+      Value: 10
+    sub.gt_power[Solitude,21]:
+      Value: 10
+    sub.gt_power[Solitude,22]:
+      Value: 189.999
+    sub.gt_power[Solitude,23]:
+      Value: 144.999
+    sub.gt_power[Solitude,24]:
+      Value: 10
+    sub.gt_power[Solitude,25]:
+      Value: 10
+    sub.gt_power[Solitude,26]:
+      Value: 10
+    sub.gt_power[Solitude,27]:
+      Value: 189.999
+    sub.gt_power[Solitude,28]:
+      Value: 144.999
+    sub.gt_power[Solitude,29]:
+      Value: 10
+    sub.gt_power[Solitude,2]:
+      Value: 189.999
+    sub.gt_power[Solitude,30]:
+      Value: 10
+    sub.gt_power[Solitude,31]:
+      Value: 10
+    sub.gt_power[Solitude,32]:
+      Value: 189.999
+    sub.gt_power[Solitude,33]:
+      Value: 144.999
+    sub.gt_power[Solitude,34]:
+      Value: 10
+    sub.gt_power[Solitude,35]:
+      Value: 10
+    sub.gt_power[Solitude,36]:
+      Value: 10
+    sub.gt_power[Solitude,37]:
+      Value: 189.999
+    sub.gt_power[Solitude,38]:
+      Value: 144.999
+    sub.gt_power[Solitude,39]:
+      Value: 10
+    sub.gt_power[Solitude,3]:
+      Value: 144.999
+    sub.gt_power[Solitude,40]:
+      Value: 10
+    sub.gt_power[Solitude,41]:
+      Value: 10
+    sub.gt_power[Solitude,42]:
+      Value: 189.999
+    sub.gt_power[Solitude,43]:
+      Value: 144.999
+    sub.gt_power[Solitude,44]:
+      Value: 10
+    sub.gt_power[Solitude,45]:
+      Value: 10
+    sub.gt_power[Solitude,46]:
+      Value: 10
+    sub.gt_power[Solitude,47]:
+      Value: 189.999
+    sub.gt_power[Solitude,48]:
+      Value: 144.999
+    sub.gt_power[Solitude,49]:
+      Value: 10
+    sub.gt_power[Solitude,4]:
+      Value: 10
+    sub.gt_power[Solitude,50]:
+      Value: 10
+    sub.gt_power[Solitude,51]:
+      Value: 10
+    sub.gt_power[Solitude,52]:
+      Value: 189.999
+    sub.gt_power[Solitude,53]:
+      Value: 144.999
+    sub.gt_power[Solitude,54]:
+      Value: 10
+    sub.gt_power[Solitude,55]:
+      Value: 10
+    sub.gt_power[Solitude,56]:
+      Value: 10
+    sub.gt_power[Solitude,57]:
+      Value: 189.999
+    sub.gt_power[Solitude,58]:
+      Value: 144.999
+    sub.gt_power[Solitude,59]:
+      Value: 10
+    sub.gt_power[Solitude,5]:
+      Value: 10
+    sub.gt_power[Solitude,60]:
+      Value: 10
+    sub.gt_power[Solitude,61]:
+      Value: 10
+    sub.gt_power[Solitude,62]:
+      Value: 189.999
+    sub.gt_power[Solitude,63]:
+      Value: 144.999
+    sub.gt_power[Solitude,64]:
+      Value: 10
+    sub.gt_power[Solitude,65]:
+      Value: 10
+    sub.gt_power[Solitude,66]:
+      Value: 10
+    sub.gt_power[Solitude,67]:
+      Value: 189.999
+    sub.gt_power[Solitude,68]:
+      Value: 144.999
+    sub.gt_power[Solitude,69]:
+      Value: 10
+    sub.gt_power[Solitude,6]:
+      Value: 10
+    sub.gt_power[Solitude,70]:
+      Value: 10
+    sub.gt_power[Solitude,71]:
+      Value: 10
+    sub.gt_power[Solitude,72]:
+      Value: 189.999
+    sub.gt_power[Solitude,73]:
+      Value: 144.999
+    sub.gt_power[Solitude,74]:
+      Value: 10
+    sub.gt_power[Solitude,75]:
+      Value: 10
+    sub.gt_power[Solitude,76]:
+      Value: 10
+    sub.gt_power[Solitude,77]:
+      Value: 189.999
+    sub.gt_power[Solitude,78]:
+      Value: 144.999
+    sub.gt_power[Solitude,79]:
+      Value: 10
+    sub.gt_power[Solitude,7]:
+      Value: 189.999
+    sub.gt_power[Solitude,80]:
+      Value: 10
+    sub.gt_power[Solitude,81]:
+      Value: 10
+    sub.gt_power[Solitude,82]:
+      Value: 189.999
+    sub.gt_power[Solitude,83]:
+      Value: 144.999
+    sub.gt_power[Solitude,84]:
+      Value: 10
+    sub.gt_power[Solitude,85]:
+      Value: 10
+    sub.gt_power[Solitude,86]:
+      Value: 10
+    sub.gt_power[Solitude,87]:
+      Value: 189.999
+    sub.gt_power[Solitude,88]:
+      Value: 144.999
+    sub.gt_power[Solitude,89]:
+      Value: 10
+    sub.gt_power[Solitude,8]:
+      Value: 144.999
+    sub.gt_power[Solitude,90]:
+      Value: 10
+    sub.gt_power[Solitude,91]:
+      Value: 10
+    sub.gt_power[Solitude,92]:
+      Value: 189.999
+    sub.gt_power[Solitude,93]:
+      Value: 144.999
+    sub.gt_power[Solitude,94]:
+      Value: 10
+    sub.gt_power[Solitude,95]:
+      Value: 10
+    sub.gt_power[Solitude,9]:
+      Value: 10
+    sub.gt_power[Sundance,0]:
+      Value: 10
+    sub.gt_power[Sundance,10]:
+      Value: 10
+    sub.gt_power[Sundance,11]:
+      Value: 10
+    sub.gt_power[Sundance,12]:
+      Value: 10
+    sub.gt_power[Sundance,13]:
+      Value: 10
+    sub.gt_power[Sundance,14]:
+      Value: 10
+    sub.gt_power[Sundance,15]:
+      Value: 10
+    sub.gt_power[Sundance,16]:
+      Value: 10
+    sub.gt_power[Sundance,17]:
+      Value: 10
+    sub.gt_power[Sundance,18]:
+      Value: 10
+    sub.gt_power[Sundance,19]:
+      Value: 10
+    sub.gt_power[Sundance,1]:
+      Value: 10
+    sub.gt_power[Sundance,20]:
+      Value: 10
+    sub.gt_power[Sundance,21]:
+      Value: 10
+    sub.gt_power[Sundance,22]:
+      Value: 10
+    sub.gt_power[Sundance,23]:
+      Value: 10
+    sub.gt_power[Sundance,24]:
+      Value: 10
+    sub.gt_power[Sundance,25]:
+      Value: 10
+    sub.gt_power[Sundance,26]:
+      Value: 10
+    sub.gt_power[Sundance,27]:
+      Value: 10
+    sub.gt_power[Sundance,28]:
+      Value: 10
+    sub.gt_power[Sundance,29]:
+      Value: 10
+    sub.gt_power[Sundance,2]:
+      Value: 10
+    sub.gt_power[Sundance,30]:
+      Value: 10
+    sub.gt_power[Sundance,31]:
+      Value: 10
+    sub.gt_power[Sundance,32]:
+      Value: 10
+    sub.gt_power[Sundance,33]:
+      Value: 10
+    sub.gt_power[Sundance,34]:
+      Value: 10
+    sub.gt_power[Sundance,35]:
+      Value: 10
+    sub.gt_power[Sundance,36]:
+      Value: 10
+    sub.gt_power[Sundance,37]:
+      Value: 10
+    sub.gt_power[Sundance,38]:
+      Value: 10
+    sub.gt_power[Sundance,39]:
+      Value: 10
+    sub.gt_power[Sundance,3]:
+      Value: 10
+    sub.gt_power[Sundance,40]:
+      Value: 10
+    sub.gt_power[Sundance,41]:
+      Value: 10
+    sub.gt_power[Sundance,42]:
+      Value: 10
+    sub.gt_power[Sundance,43]:
+      Value: 10
+    sub.gt_power[Sundance,44]:
+      Value: 10
+    sub.gt_power[Sundance,45]:
+      Value: 10
+    sub.gt_power[Sundance,46]:
+      Value: 10
+    sub.gt_power[Sundance,47]:
+      Value: 10
+    sub.gt_power[Sundance,48]:
+      Value: 10
+    sub.gt_power[Sundance,49]:
+      Value: 10
+    sub.gt_power[Sundance,4]:
+      Value: 10
+    sub.gt_power[Sundance,50]:
+      Value: 10
+    sub.gt_power[Sundance,51]:
+      Value: 10
+    sub.gt_power[Sundance,52]:
+      Value: 10
+    sub.gt_power[Sundance,53]:
+      Value: 10
+    sub.gt_power[Sundance,54]:
+      Value: 10
+    sub.gt_power[Sundance,55]:
+      Value: 10
+    sub.gt_power[Sundance,56]:
+      Value: 10
+    sub.gt_power[Sundance,57]:
+      Value: 10
+    sub.gt_power[Sundance,58]:
+      Value: 10
+    sub.gt_power[Sundance,59]:
+      Value: 10
+    sub.gt_power[Sundance,5]:
+      Value: 10
+    sub.gt_power[Sundance,60]:
+      Value: 10
+    sub.gt_power[Sundance,61]:
+      Value: 10
+    sub.gt_power[Sundance,62]:
+      Value: 10
+    sub.gt_power[Sundance,63]:
+      Value: 10
+    sub.gt_power[Sundance,64]:
+      Value: 10
+    sub.gt_power[Sundance,65]:
+      Value: 10
+    sub.gt_power[Sundance,66]:
+      Value: 10
+    sub.gt_power[Sundance,67]:
+      Value: 10
+    sub.gt_power[Sundance,68]:
+      Value: 10
+    sub.gt_power[Sundance,69]:
+      Value: 10
+    sub.gt_power[Sundance,6]:
+      Value: 10
+    sub.gt_power[Sundance,70]:
+      Value: 10
+    sub.gt_power[Sundance,71]:
+      Value: 10
+    sub.gt_power[Sundance,72]:
+      Value: 10
+    sub.gt_power[Sundance,73]:
+      Value: 10
+    sub.gt_power[Sundance,74]:
+      Value: 10
+    sub.gt_power[Sundance,75]:
+      Value: 10
+    sub.gt_power[Sundance,76]:
+      Value: 10
+    sub.gt_power[Sundance,77]:
+      Value: 10
+    sub.gt_power[Sundance,78]:
+      Value: 10
+    sub.gt_power[Sundance,79]:
+      Value: 10
+    sub.gt_power[Sundance,7]:
+      Value: 10
+    sub.gt_power[Sundance,80]:
+      Value: 10
+    sub.gt_power[Sundance,81]:
+      Value: 10
+    sub.gt_power[Sundance,82]:
+      Value: 10
+    sub.gt_power[Sundance,83]:
+      Value: 10
+    sub.gt_power[Sundance,84]:
+      Value: 10
+    sub.gt_power[Sundance,85]:
+      Value: 10
+    sub.gt_power[Sundance,86]:
+      Value: 10
+    sub.gt_power[Sundance,87]:
+      Value: 10
+    sub.gt_power[Sundance,88]:
+      Value: 10
+    sub.gt_power[Sundance,89]:
+      Value: 10
+    sub.gt_power[Sundance,8]:
+      Value: 10
+    sub.gt_power[Sundance,90]:
+      Value: 10
+    sub.gt_power[Sundance,91]:
+      Value: 10
+    sub.gt_power[Sundance,92]:
+      Value: 10
+    sub.gt_power[Sundance,93]:
+      Value: 10
+    sub.gt_power[Sundance,94]:
+      Value: 10
+    sub.gt_power[Sundance,95]:
+      Value: 10
+    sub.gt_power[Sundance,9]:
+      Value: 10
+    sub_kkt.c2[100]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[101]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[102]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[103]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[104]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[105]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[106]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[107]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[108]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[109]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[10]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[110]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[111]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[112]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[113]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[114]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[115]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[116]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[117]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[118]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[119]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[11]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[120]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[121]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[122]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[123]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[124]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[125]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[126]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[127]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[128]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[129]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[12]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[130]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[131]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[132]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[133]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[134]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[135]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[136]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[137]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[138]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[139]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[13]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[140]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[141]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[142]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[143]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[144]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[145]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[146]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[147]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[148]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[149]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[14]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[150]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[151]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[152]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[153]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[154]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[155]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[156]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[157]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[158]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[159]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[15]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[160]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[161]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[162]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[163]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[164]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[165]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[166]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[167]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[168]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[169]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[16]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[170]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[171]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[172]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[173]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[174]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[175]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[176]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[177]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[178]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[179]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[17]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[180]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[181]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[182]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[183]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[184]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[185]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[186]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[187]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[188]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[189]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[18]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[190]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[191]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[192]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[193]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[194]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[195]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[196]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[197]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[198]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[199]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[19]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[1]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[200]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[201]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[202]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[203]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[204]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[205]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[206]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[207]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[208]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[209]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[20]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[210]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[211]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[212]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[213]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[214]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[215]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[216]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[217]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[218]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[219]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[21]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[220]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[221]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[222]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[223]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[224]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[225]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[226]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[227]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[228]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[229]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[22]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[230]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[231]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[232]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[233]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[234]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[235]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[236]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[237]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[238]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[239]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[23]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[240]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[241]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[242]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[243]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[244]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[245]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[246]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[247]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[248]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[249]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[24]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[250]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[251]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[252]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[253]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[254]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[255]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[256]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[257]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[258]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[259]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[25]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[260]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[261]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[262]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[263]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[264]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[265]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[266]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[267]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[268]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[269]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[26]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[270]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[271]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[272]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[273]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[274]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[275]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[276]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[277]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[278]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[279]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[27]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[280]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[281]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[282]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[283]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[284]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[285]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[286]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[287]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[288]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[289]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[28]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[290]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[291]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[292]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[293]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[294]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[295]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[296]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[297]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[298]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[299]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[29]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[2]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[300]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[301]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[302]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[303]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[304]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[305]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[306]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[307]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[308]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[309]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[30]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[310]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[311]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[312]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[313]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[314]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[315]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[316]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[317]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[318]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[319]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[31]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[320]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[321]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[322]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[323]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[324]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[325]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[326]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[327]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[328]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[329]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[32]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[330]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[331]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[332]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[333]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[334]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[335]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[336]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[337]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[338]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[339]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[33]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[340]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[341]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[342]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[343]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[344]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[345]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[346]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[347]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[348]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[349]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[34]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[350]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[351]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[352]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[353]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[354]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[355]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[356]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[357]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[358]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[359]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[35]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[360]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[361]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[362]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[363]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[364]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[365]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[366]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[367]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[368]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[369]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[36]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[370]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[371]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[372]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[373]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[374]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[375]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[376]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[377]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[378]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[379]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[37]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[380]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[381]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[382]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[383]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[384]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[385]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[386]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[387]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[388]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[389]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[38]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[390]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[391]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[392]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[393]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[394]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[395]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[396]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[397]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[398]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[399]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[39]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[3]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[400]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[401]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[402]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[403]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[404]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[405]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[406]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[407]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[408]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[409]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[40]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[410]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[411]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[412]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[413]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[414]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[415]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[416]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[417]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[418]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[419]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[41]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[420]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[421]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[422]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[423]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[424]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[425]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[426]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[427]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[428]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[429]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[42]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[430]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[431]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[432]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[433]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[434]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[435]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[436]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[437]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[438]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[439]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[43]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[440]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[441]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[442]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[443]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[444]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[445]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[446]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[447]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[448]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[449]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[44]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[450]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[451]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[452]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[453]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[454]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[455]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[456]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[457]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[458]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[459]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[45]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[460]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[461]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[462]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[463]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[464]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[465]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[466]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[467]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[468]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[469]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[46]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[470]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[471]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[472]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[473]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[474]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[475]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[476]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[477]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[478]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[479]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[47]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[480]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[481]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[482]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[483]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[484]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[485]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[486]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[487]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[488]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[489]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[48]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[490]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[491]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[492]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[493]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[494]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[495]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[496]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[497]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[498]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[499]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[49]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[4]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[500]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[501]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[502]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[503]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[504]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[505]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[506]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[507]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[508]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[509]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[50]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[510]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[511]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[512]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[513]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[514]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[515]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[516]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[517]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[518]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[519]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[51]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[520]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[521]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[522]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[523]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[524]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[525]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[526]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[527]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[528]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[529]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[52]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[530]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[531]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[532]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[533]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[534]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[535]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[536]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[537]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[538]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[539]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[53]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[540]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[541]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[542]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[543]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[544]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[545]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[546]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[547]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[548]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[549]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[54]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[550]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[551]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[552]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[553]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[554]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[555]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[556]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[557]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[558]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[559]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[55]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[560]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[561]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[562]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[563]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[564]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[565]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[566]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[567]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[568]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[569]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[56]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[570]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[571]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[572]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[573]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[574]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[575]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[576]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[577]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[578]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[579]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[57]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[580]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[581]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[582]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[583]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[584]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[585]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[586]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[587]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[588]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[589]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[58]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[590]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[591]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[592]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[593]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[594]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[595]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[596]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[597]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[598]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[599]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[59]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[5]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[600]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[601]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[602]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[603]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[604]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[605]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[606]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[607]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[608]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[609]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[60]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[610]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[611]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[612]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[613]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[614]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[615]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[616]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[617]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[618]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[619]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[61]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[620]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[621]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[622]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[623]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[624]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[625]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[626]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[627]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[628]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[629]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[62]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[630]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[631]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[632]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[633]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[634]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[635]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[636]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[637]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[638]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[639]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[63]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[640]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[641]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[642]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[643]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[644]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[645]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[646]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[647]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[648]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[649]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[64]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[650]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[651]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[652]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[653]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[654]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[655]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[656]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[657]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[658]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[659]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[65]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[660]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[661]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[662]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[663]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[664]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[665]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[666]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[667]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[668]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[669]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[66]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[670]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[671]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[672]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[673]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[674]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[675]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[676]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[677]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[678]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[679]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[67]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[680]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[681]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[682]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[683]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[684]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[685]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[686]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[687]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[688]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[689]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[68]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[690]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[691]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[692]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[693]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[694]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[695]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[696]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[697]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[698]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[699]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[69]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[6]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[700]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[701]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[702]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[703]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[704]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[705]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[706]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[707]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[708]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[709]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[70]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[710]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[711]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[712]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[713]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[714]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[715]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[716]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[717]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[718]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[719]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[71]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[720]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[721]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[722]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[723]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[724]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[725]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[726]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[727]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[728]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[729]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[72]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[730]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[731]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[732]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[733]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[734]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[735]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[736]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[737]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[738]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[739]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[73]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[740]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[741]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[742]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[743]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[744]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[745]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[746]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[747]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[748]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[749]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[74]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[750]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[751]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[752]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[753]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[754]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[755]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[756]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[757]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[758]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[759]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[75]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[760]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[761]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[762]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[763]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[764]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[765]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[766]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[767]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[768]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[769]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[76]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[770]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[771]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[772]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[773]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[774]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[775]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[776]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[777]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[778]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[779]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[77]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[780]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[781]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[782]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[783]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[784]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[785]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[786]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[787]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[788]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[789]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[78]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[790]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[791]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[792]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[793]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[794]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[795]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[796]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[797]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[798]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[799]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[79]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[7]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[800]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[801]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[802]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[803]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[804]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[805]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[806]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[807]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[808]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[809]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[80]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[810]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[811]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[812]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[813]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[814]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[815]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[816]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[817]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[818]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[819]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[81]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[820]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[821]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[822]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[823]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[824]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[825]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[826]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[827]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[828]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[829]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[82]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[830]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[831]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[832]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[833]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[834]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[835]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[836]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[837]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[838]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[839]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[83]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[840]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[841]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[842]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[843]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[844]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[845]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[846]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[847]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[848]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[849]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[84]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[850]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[851]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[852]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[853]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[854]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[855]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[856]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[857]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[858]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[859]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[85]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[860]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[861]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[862]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[863]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[864]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[865]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[866]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[867]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[868]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[869]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[86]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[870]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[871]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[872]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[873]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[874]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[875]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[876]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[877]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[878]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[879]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[87]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[880]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[881]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[882]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[883]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[884]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[885]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[886]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[887]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[888]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[889]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[88]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[890]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[891]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[892]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[893]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[894]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[895]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[896]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[897]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[898]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[899]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[89]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[8]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[900]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[901]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[902]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[903]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[904]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[905]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[906]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[907]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[908]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[909]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[90]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[910]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[911]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[912]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[913]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[914]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[915]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[916]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[917]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[918]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[919]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[91]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[920]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[921]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[922]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[923]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[924]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[925]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[926]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[927]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[928]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[929]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[92]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[930]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[931]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[932]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[933]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[934]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[935]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[936]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[937]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[938]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[939]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[93]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[940]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[941]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[942]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[943]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[944]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[945]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[946]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[947]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[948]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[949]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[94]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[950]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[951]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[952]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[953]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[954]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[955]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[956]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[957]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[958]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[959]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[95]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[960]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[96]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[97]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[98]._gdp_relax_bigm.expr1.indicator_var:
+      Value: 1
+    sub_kkt.c2[99]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.c2[9]._gdp_relax_bigm.expr2.indicator_var:
+      Value: 1
+    sub_kkt.u[100]:
+      Value: 2.50000000001
+    sub_kkt.u[101]:
+      Value: 5.00222085975e-12
+    sub_kkt.u[102]:
+      Value: 5.22959453519e-12
+    sub_kkt.u[103]:
+      Value: 5.00222085975e-12
+    sub_kkt.u[104]:
+      Value: 2.5
+    sub_kkt.u[105]:
+      Value: 2.50000000001
+    sub_kkt.u[106]:
+      Value: 5.00222085975e-12
+    sub_kkt.u[107]:
+      Value: 5.22959453519e-12
+    sub_kkt.u[108]:
+      Value: 5.00222085975e-12
+    sub_kkt.u[109]:
+      Value: 2.5
+    sub_kkt.u[10]:
+      Value: 1.25
+    sub_kkt.u[110]:
+      Value: 2.50000000001
+    sub_kkt.u[111]:
+      Value: 5.00222085975e-12
+    sub_kkt.u[112]:
+      Value: 5.22959453519e-12
+    sub_kkt.u[113]:
+      Value: 5.00222085975e-12
+    sub_kkt.u[114]:
+      Value: 2.5
+    sub_kkt.u[115]:
+      Value: 2.50000000001
+    sub_kkt.u[116]:
+      Value: 5.00222085975e-12
+    sub_kkt.u[117]:
+      Value: 5.22959453519e-12
+    sub_kkt.u[118]:
+      Value: 5.00222085975e-12
+    sub_kkt.u[119]:
+      Value: 2.5
+    sub_kkt.u[11]:
+      Value: 1.25
+    sub_kkt.u[120]:
+      Value: 2.50000000001
+    sub_kkt.u[121]:
+      Value: 5.00222085975e-12
+    sub_kkt.u[122]:
+      Value: 5.22959453519e-12
+    sub_kkt.u[123]:
+      Value: 5.00222085975e-12
+    sub_kkt.u[124]:
+      Value: 2.5
+    sub_kkt.u[125]:
+      Value: 2.50000000001
+    sub_kkt.u[126]:
+      Value: 5.00222085975e-12
+    sub_kkt.u[127]:
+      Value: 5.22959453519e-12
+    sub_kkt.u[128]:
+      Value: 5.00222085975e-12
+    sub_kkt.u[129]:
+      Value: 2.5
+    sub_kkt.u[12]:
+      Value: 1.25
+    sub_kkt.u[130]:
+      Value: 2.50000000001
+    sub_kkt.u[131]:
+      Value: 5.00222085975e-12
+    sub_kkt.u[132]:
+      Value: 5.22959453519e-12
+    sub_kkt.u[133]:
+      Value: 5.00222085975e-12
+    sub_kkt.u[134]:
+      Value: 2.5
+    sub_kkt.u[135]:
+      Value: 2.50000000001
+    sub_kkt.u[136]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[137]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[138]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[139]:
+      Value: 2.5
+    sub_kkt.u[13]:
+      Value: 3.75
+    sub_kkt.u[140]:
+      Value: 2.5
+    sub_kkt.u[141]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[142]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[143]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[144]:
+      Value: 2.5
+    sub_kkt.u[145]:
+      Value: 2.5
+    sub_kkt.u[146]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[147]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[148]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[149]:
+      Value: 2.5
+    sub_kkt.u[14]:
+      Value: 3.75
+    sub_kkt.u[150]:
+      Value: 2.5
+    sub_kkt.u[151]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[152]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[153]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[154]:
+      Value: 2.5
+    sub_kkt.u[155]:
+      Value: 2.5
+    sub_kkt.u[156]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[157]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[158]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[159]:
+      Value: 2.5
+    sub_kkt.u[15]:
+      Value: 1.25
+    sub_kkt.u[160]:
+      Value: 2.5
+    sub_kkt.u[161]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[162]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[163]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[164]:
+      Value: 2.5
+    sub_kkt.u[165]:
+      Value: 2.5
+    sub_kkt.u[166]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[167]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[168]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[169]:
+      Value: 2.5
+    sub_kkt.u[16]:
+      Value: 1.25
+    sub_kkt.u[170]:
+      Value: 2.5
+    sub_kkt.u[171]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[172]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[173]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[174]:
+      Value: 2.5
+    sub_kkt.u[175]:
+      Value: 2.5
+    sub_kkt.u[176]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[177]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[178]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[179]:
+      Value: 2.5
+    sub_kkt.u[17]:
+      Value: 1.25
+    sub_kkt.u[180]:
+      Value: 2.5
+    sub_kkt.u[181]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[182]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[183]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[184]:
+      Value: 2.5
+    sub_kkt.u[185]:
+      Value: 2.5
+    sub_kkt.u[186]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[187]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[188]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[189]:
+      Value: 2.5
+    sub_kkt.u[18]:
+      Value: 3.75
+    sub_kkt.u[190]:
+      Value: 2.5
+    sub_kkt.u[191]:
+      Value: 4.56523707726e-13
+    sub_kkt.u[192]:
+      Value: 4.09450251482e-12
+    sub_kkt.u[193]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[194]:
+      Value: -3.41060513165e-12
+    sub_kkt.u[196]:
+      Value: 6.82298662014e-12
+    sub_kkt.u[197]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[198]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[199]:
+      Value: -3.41060513165e-12
+    sub_kkt.u[19]:
+      Value: 3.75
+    sub_kkt.u[1]:
+      Value: 1.25
+    sub_kkt.u[201]:
+      Value: 6.82298662014e-12
+    sub_kkt.u[202]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[203]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[204]:
+      Value: -3.41060513165e-12
+    sub_kkt.u[206]:
+      Value: 6.82298662014e-12
+    sub_kkt.u[207]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[208]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[209]:
+      Value: -3.41060513165e-12
+    sub_kkt.u[20]:
+      Value: 1.25
+    sub_kkt.u[211]:
+      Value: 6.82298662014e-12
+    sub_kkt.u[212]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[213]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[214]:
+      Value: -3.41060513165e-12
+    sub_kkt.u[216]:
+      Value: 6.82298662014e-12
+    sub_kkt.u[217]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[218]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[219]:
+      Value: -3.41060513165e-12
+    sub_kkt.u[21]:
+      Value: 1.25
+    sub_kkt.u[221]:
+      Value: 6.82298662014e-12
+    sub_kkt.u[222]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[223]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[224]:
+      Value: -3.41060513165e-12
+    sub_kkt.u[226]:
+      Value: 6.82298662014e-12
+    sub_kkt.u[227]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[228]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[229]:
+      Value: -3.41060513165e-12
+    sub_kkt.u[22]:
+      Value: 1.25
+    sub_kkt.u[231]:
+      Value: 6.82298662014e-12
+    sub_kkt.u[232]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[233]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[234]:
+      Value: -6.8034466949e-13
+    sub_kkt.u[236]:
+      Value: 1.82076576039e-12
+    sub_kkt.u[237]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[238]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[239]:
+      Value: -6.8034466949e-13
+    sub_kkt.u[23]:
+      Value: 3.75
+    sub_kkt.u[241]:
+      Value: 1.82076576039e-12
+    sub_kkt.u[242]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[243]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[244]:
+      Value: -6.8034466949e-13
+    sub_kkt.u[246]:
+      Value: 1.82076576039e-12
+    sub_kkt.u[247]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[248]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[249]:
+      Value: -6.8034466949e-13
+    sub_kkt.u[24]:
+      Value: 3.75
+    sub_kkt.u[251]:
+      Value: 1.82076576039e-12
+    sub_kkt.u[252]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[253]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[254]:
+      Value: -6.8034466949e-13
+    sub_kkt.u[256]:
+      Value: 1.82076576039e-12
+    sub_kkt.u[257]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[258]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[259]:
+      Value: -6.8034466949e-13
+    sub_kkt.u[25]:
+      Value: 1.25
+    sub_kkt.u[261]:
+      Value: 1.82076576039e-12
+    sub_kkt.u[262]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[263]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[264]:
+      Value: -6.8034466949e-13
+    sub_kkt.u[266]:
+      Value: 1.82076576039e-12
+    sub_kkt.u[267]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[268]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[269]:
+      Value: -6.8034466949e-13
+    sub_kkt.u[26]:
+      Value: 1.25
+    sub_kkt.u[271]:
+      Value: 1.82076576039e-12
+    sub_kkt.u[272]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[273]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[274]:
+      Value: -6.8034466949e-13
+    sub_kkt.u[276]:
+      Value: 1.82076576039e-12
+    sub_kkt.u[277]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[278]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[279]:
+      Value: -6.8034466949e-13
+    sub_kkt.u[27]:
+      Value: 1.25
+    sub_kkt.u[281]:
+      Value: 1.82076576039e-12
+    sub_kkt.u[282]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[283]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[284]:
+      Value: -6.8034466949e-13
+    sub_kkt.u[286]:
+      Value: 1.82076576039e-12
+    sub_kkt.u[287]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[288]:
+      Value: -1.81721304671e-12
+    sub_kkt.u[289]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[28]:
+      Value: 3.75
+    sub_kkt.u[290]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[292]:
+      Value: -2.95408142392e-12
+    sub_kkt.u[293]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[294]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[295]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[297]:
+      Value: -2.95408142392e-12
+    sub_kkt.u[298]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[299]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[29]:
+      Value: 3.75
+    sub_kkt.u[2]:
+      Value: 1.25
+    sub_kkt.u[300]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[302]:
+      Value: -2.95408142392e-12
+    sub_kkt.u[303]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[304]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[305]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[307]:
+      Value: -2.95408142392e-12
+    sub_kkt.u[308]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[309]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[30]:
+      Value: 1.25
+    sub_kkt.u[310]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[312]:
+      Value: -2.95408142392e-12
+    sub_kkt.u[313]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[314]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[315]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[317]:
+      Value: -2.95408142392e-12
+    sub_kkt.u[318]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[319]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[31]:
+      Value: 1.25
+    sub_kkt.u[320]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[322]:
+      Value: -2.95408142392e-12
+    sub_kkt.u[323]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[324]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[325]:
+      Value: -3.18323145621e-12
+    sub_kkt.u[327]:
+      Value: -2.95408142392e-12
+    sub_kkt.u[328]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[329]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[32]:
+      Value: 1.25
+    sub_kkt.u[330]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[332]:
+      Value: -1.81721304671e-12
+    sub_kkt.u[333]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[334]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[335]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[337]:
+      Value: -1.81721304671e-12
+    sub_kkt.u[338]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[339]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[33]:
+      Value: 3.75
+    sub_kkt.u[340]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[342]:
+      Value: -1.81721304671e-12
+    sub_kkt.u[343]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[344]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[345]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[347]:
+      Value: -1.81721304671e-12
+    sub_kkt.u[348]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[349]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[34]:
+      Value: 3.75
+    sub_kkt.u[350]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[352]:
+      Value: -1.81721304671e-12
+    sub_kkt.u[353]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[354]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[355]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[357]:
+      Value: -1.81721304671e-12
+    sub_kkt.u[358]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[359]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[35]:
+      Value: 1.25
+    sub_kkt.u[360]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[362]:
+      Value: -1.81721304671e-12
+    sub_kkt.u[363]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[364]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[365]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[367]:
+      Value: -1.81721304671e-12
+    sub_kkt.u[368]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[369]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[36]:
+      Value: 1.25
+    sub_kkt.u[370]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[372]:
+      Value: -1.81721304671e-12
+    sub_kkt.u[373]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[374]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[375]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[377]:
+      Value: -1.81721304671e-12
+    sub_kkt.u[378]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[379]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[37]:
+      Value: 1.25
+    sub_kkt.u[380]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[382]:
+      Value: -1.81721304671e-12
+    sub_kkt.u[383]:
+      Value: -4.52970994047e-13
+    sub_kkt.u[384]:
+      Value: -1.58983937126e-12
+    sub_kkt.u[385]:
+      Value: -3.63797880709e-12
+    sub_kkt.u[386]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[388]:
+      Value: -5.91349191836e-12
+    sub_kkt.u[389]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[38]:
+      Value: 3.75
+    sub_kkt.u[390]:
+      Value: -3.63797880709e-12
+    sub_kkt.u[391]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[393]:
+      Value: -5.91349191836e-12
+    sub_kkt.u[394]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[395]:
+      Value: -3.63797880709e-12
+    sub_kkt.u[396]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[398]:
+      Value: -5.91349191836e-12
+    sub_kkt.u[399]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[39]:
+      Value: 3.75
+    sub_kkt.u[3]:
+      Value: 3.75
+    sub_kkt.u[400]:
+      Value: -3.63797880709e-12
+    sub_kkt.u[401]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[403]:
+      Value: -5.91349191836e-12
+    sub_kkt.u[404]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[405]:
+      Value: -3.63797880709e-12
+    sub_kkt.u[406]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[408]:
+      Value: -5.91349191836e-12
+    sub_kkt.u[409]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[40]:
+      Value: 1.25
+    sub_kkt.u[410]:
+      Value: -3.63797880709e-12
+    sub_kkt.u[411]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[413]:
+      Value: -5.91349191836e-12
+    sub_kkt.u[414]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[415]:
+      Value: -3.63797880709e-12
+    sub_kkt.u[416]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[418]:
+      Value: -5.91349191836e-12
+    sub_kkt.u[419]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[41]:
+      Value: 1.25
+    sub_kkt.u[420]:
+      Value: -3.63797880709e-12
+    sub_kkt.u[421]:
+      Value: -2.95585778076e-12
+    sub_kkt.u[423]:
+      Value: -5.91349191836e-12
+    sub_kkt.u[42]:
+      Value: 1.25
+    sub_kkt.u[43]:
+      Value: 3.75
+    sub_kkt.u[44]:
+      Value: 3.75
+    sub_kkt.u[45]:
+      Value: 1.25
+    sub_kkt.u[46]:
+      Value: 1.25
+    sub_kkt.u[47]:
+      Value: 1.25
+    sub_kkt.u[48]:
+      Value: 3.75
+    sub_kkt.u[49]:
+      Value: 3.75
+    sub_kkt.u[4]:
+      Value: 3.75
+    sub_kkt.u[50]:
+      Value: 1.25
+    sub_kkt.u[51]:
+      Value: 1.25
+    sub_kkt.u[52]:
+      Value: 1.25
+    sub_kkt.u[53]:
+      Value: 3.75
+    sub_kkt.u[54]:
+      Value: 3.75
+    sub_kkt.u[55]:
+      Value: 1.25
+    sub_kkt.u[56]:
+      Value: 1.25
+    sub_kkt.u[577]:
+      Value: 2.49999999999
+    sub_kkt.u[578]:
+      Value: 2.49999999999
+    sub_kkt.u[57]:
+      Value: 1.25
+    sub_kkt.u[581]:
+      Value: 2.49999999999
+    sub_kkt.u[582]:
+      Value: 2.49999999999
+    sub_kkt.u[583]:
+      Value: 2.49999999999
+    sub_kkt.u[586]:
+      Value: 2.49999999999
+    sub_kkt.u[587]:
+      Value: 2.49999999999
+    sub_kkt.u[588]:
+      Value: 2.49999999999
+    sub_kkt.u[58]:
+      Value: 3.75
+    sub_kkt.u[591]:
+      Value: 2.49999999999
+    sub_kkt.u[592]:
+      Value: 2.49999999999
+    sub_kkt.u[593]:
+      Value: 2.49999999999
+    sub_kkt.u[596]:
+      Value: 2.49999999999
+    sub_kkt.u[597]:
+      Value: 2.49999999999
+    sub_kkt.u[598]:
+      Value: 2.49999999999
+    sub_kkt.u[59]:
+      Value: 3.75
+    sub_kkt.u[5]:
+      Value: 1.25
+    sub_kkt.u[601]:
+      Value: 2.49999999999
+    sub_kkt.u[602]:
+      Value: 2.49999999999
+    sub_kkt.u[603]:
+      Value: 2.49999999999
+    sub_kkt.u[606]:
+      Value: 2.49999999999
+    sub_kkt.u[607]:
+      Value: 2.49999999999
+    sub_kkt.u[608]:
+      Value: 2.49999999999
+    sub_kkt.u[60]:
+      Value: 1.25
+    sub_kkt.u[611]:
+      Value: 2.49999999999
+    sub_kkt.u[612]:
+      Value: 2.49999999999
+    sub_kkt.u[613]:
+      Value: 2.49999999999
+    sub_kkt.u[616]:
+      Value: 2.5
+    sub_kkt.u[617]:
+      Value: 2.5
+    sub_kkt.u[618]:
+      Value: 2.5
+    sub_kkt.u[61]:
+      Value: 1.25
+    sub_kkt.u[621]:
+      Value: 2.5
+    sub_kkt.u[622]:
+      Value: 2.5
+    sub_kkt.u[623]:
+      Value: 2.5
+    sub_kkt.u[626]:
+      Value: 2.5
+    sub_kkt.u[627]:
+      Value: 2.5
+    sub_kkt.u[628]:
+      Value: 2.5
+    sub_kkt.u[62]:
+      Value: 1.25
+    sub_kkt.u[631]:
+      Value: 2.5
+    sub_kkt.u[632]:
+      Value: 2.5
+    sub_kkt.u[633]:
+      Value: 2.5
+    sub_kkt.u[636]:
+      Value: 2.5
+    sub_kkt.u[637]:
+      Value: 2.5
+    sub_kkt.u[638]:
+      Value: 2.5
+    sub_kkt.u[63]:
+      Value: 3.75
+    sub_kkt.u[641]:
+      Value: 2.5
+    sub_kkt.u[642]:
+      Value: 2.5
+    sub_kkt.u[643]:
+      Value: 2.5
+    sub_kkt.u[646]:
+      Value: 2.5
+    sub_kkt.u[647]:
+      Value: 2.5
+    sub_kkt.u[648]:
+      Value: 2.5
+    sub_kkt.u[64]:
+      Value: 3.75
+    sub_kkt.u[651]:
+      Value: 2.5
+    sub_kkt.u[652]:
+      Value: 2.5
+    sub_kkt.u[653]:
+      Value: 2.5
+    sub_kkt.u[656]:
+      Value: 2.5
+    sub_kkt.u[657]:
+      Value: 2.5
+    sub_kkt.u[658]:
+      Value: 2.5
+    sub_kkt.u[65]:
+      Value: 1.25
+    sub_kkt.u[661]:
+      Value: 2.5
+    sub_kkt.u[662]:
+      Value: 2.5
+    sub_kkt.u[663]:
+      Value: 2.5
+    sub_kkt.u[666]:
+      Value: 2.5
+    sub_kkt.u[667]:
+      Value: 2.5
+    sub_kkt.u[668]:
+      Value: 2.5
+    sub_kkt.u[66]:
+      Value: 1.25
+    sub_kkt.u[671]:
+      Value: 2.5
+    sub_kkt.u[672]:
+      Value: 2.49999999999
+    sub_kkt.u[673]:
+      Value: 4.99999999999
+    sub_kkt.u[674]:
+      Value: 4.99999999999
+    sub_kkt.u[675]:
+      Value: 2.5
+    sub_kkt.u[676]:
+      Value: 2.49999999999
+    sub_kkt.u[677]:
+      Value: 4.99999999999
+    sub_kkt.u[678]:
+      Value: 4.99999999999
+    sub_kkt.u[679]:
+      Value: 4.99999999999
+    sub_kkt.u[67]:
+      Value: 1.25
+    sub_kkt.u[680]:
+      Value: 2.5
+    sub_kkt.u[681]:
+      Value: 2.49999999999
+    sub_kkt.u[682]:
+      Value: 4.99999999999
+    sub_kkt.u[683]:
+      Value: 4.99999999999
+    sub_kkt.u[684]:
+      Value: 4.99999999999
+    sub_kkt.u[685]:
+      Value: 2.5
+    sub_kkt.u[686]:
+      Value: 2.49999999999
+    sub_kkt.u[687]:
+      Value: 4.99999999999
+    sub_kkt.u[688]:
+      Value: 4.99999999999
+    sub_kkt.u[689]:
+      Value: 4.99999999999
+    sub_kkt.u[68]:
+      Value: 3.75
+    sub_kkt.u[690]:
+      Value: 2.5
+    sub_kkt.u[691]:
+      Value: 2.49999999999
+    sub_kkt.u[692]:
+      Value: 4.99999999999
+    sub_kkt.u[693]:
+      Value: 4.99999999999
+    sub_kkt.u[694]:
+      Value: 4.99999999999
+    sub_kkt.u[695]:
+      Value: 2.5
+    sub_kkt.u[696]:
+      Value: 2.49999999999
+    sub_kkt.u[697]:
+      Value: 4.99999999999
+    sub_kkt.u[698]:
+      Value: 4.99999999999
+    sub_kkt.u[699]:
+      Value: 4.99999999999
+    sub_kkt.u[69]:
+      Value: 3.75
+    sub_kkt.u[6]:
+      Value: 1.25
+    sub_kkt.u[700]:
+      Value: 2.5
+    sub_kkt.u[701]:
+      Value: 2.49999999999
+    sub_kkt.u[702]:
+      Value: 4.99999999999
+    sub_kkt.u[703]:
+      Value: 4.99999999999
+    sub_kkt.u[704]:
+      Value: 4.99999999999
+    sub_kkt.u[705]:
+      Value: 2.5
+    sub_kkt.u[706]:
+      Value: 2.49999999999
+    sub_kkt.u[707]:
+      Value: 4.99999999999
+    sub_kkt.u[708]:
+      Value: 4.99999999999
+    sub_kkt.u[709]:
+      Value: 4.99999999999
+    sub_kkt.u[70]:
+      Value: 1.25
+    sub_kkt.u[710]:
+      Value: 2.5
+    sub_kkt.u[711]:
+      Value: 2.49999999999
+    sub_kkt.u[712]:
+      Value: 5
+    sub_kkt.u[713]:
+      Value: 5
+    sub_kkt.u[714]:
+      Value: 5
+    sub_kkt.u[715]:
+      Value: 2.5
+    sub_kkt.u[716]:
+      Value: 2.5
+    sub_kkt.u[717]:
+      Value: 5
+    sub_kkt.u[718]:
+      Value: 5
+    sub_kkt.u[719]:
+      Value: 5
+    sub_kkt.u[71]:
+      Value: 1.25
+    sub_kkt.u[720]:
+      Value: 2.5
+    sub_kkt.u[721]:
+      Value: 2.5
+    sub_kkt.u[722]:
+      Value: 5
+    sub_kkt.u[723]:
+      Value: 5
+    sub_kkt.u[724]:
+      Value: 5
+    sub_kkt.u[725]:
+      Value: 2.5
+    sub_kkt.u[726]:
+      Value: 2.5
+    sub_kkt.u[727]:
+      Value: 5
+    sub_kkt.u[728]:
+      Value: 5
+    sub_kkt.u[729]:
+      Value: 5
+    sub_kkt.u[72]:
+      Value: 1.25
+    sub_kkt.u[730]:
+      Value: 2.5
+    sub_kkt.u[731]:
+      Value: 2.5
+    sub_kkt.u[732]:
+      Value: 5
+    sub_kkt.u[733]:
+      Value: 5
+    sub_kkt.u[734]:
+      Value: 5
+    sub_kkt.u[735]:
+      Value: 2.5
+    sub_kkt.u[736]:
+      Value: 2.5
+    sub_kkt.u[737]:
+      Value: 5
+    sub_kkt.u[738]:
+      Value: 5
+    sub_kkt.u[739]:
+      Value: 5
+    sub_kkt.u[73]:
+      Value: 3.75
+    sub_kkt.u[740]:
+      Value: 2.5
+    sub_kkt.u[741]:
+      Value: 2.5
+    sub_kkt.u[742]:
+      Value: 5
+    sub_kkt.u[743]:
+      Value: 5
+    sub_kkt.u[744]:
+      Value: 5
+    sub_kkt.u[745]:
+      Value: 2.5
+    sub_kkt.u[746]:
+      Value: 2.5
+    sub_kkt.u[747]:
+      Value: 5
+    sub_kkt.u[748]:
+      Value: 5
+    sub_kkt.u[749]:
+      Value: 5
+    sub_kkt.u[74]:
+      Value: 3.75
+    sub_kkt.u[750]:
+      Value: 2.5
+    sub_kkt.u[751]:
+      Value: 2.5
+    sub_kkt.u[752]:
+      Value: 5
+    sub_kkt.u[753]:
+      Value: 5
+    sub_kkt.u[754]:
+      Value: 5
+    sub_kkt.u[755]:
+      Value: 2.5
+    sub_kkt.u[756]:
+      Value: 2.5
+    sub_kkt.u[757]:
+      Value: 5
+    sub_kkt.u[758]:
+      Value: 5
+    sub_kkt.u[759]:
+      Value: 5
+    sub_kkt.u[75]:
+      Value: 1.25
+    sub_kkt.u[760]:
+      Value: 2.5
+    sub_kkt.u[761]:
+      Value: 2.5
+    sub_kkt.u[762]:
+      Value: 5
+    sub_kkt.u[763]:
+      Value: 5
+    sub_kkt.u[764]:
+      Value: 5
+    sub_kkt.u[765]:
+      Value: 2.5
+    sub_kkt.u[766]:
+      Value: 2.5
+    sub_kkt.u[767]:
+      Value: 5
+    sub_kkt.u[768]:
+      Value: 4.99999999999
+    sub_kkt.u[769]:
+      Value: 5.00000000001
+    sub_kkt.u[76]:
+      Value: 1.25
+    sub_kkt.u[771]:
+      Value: 5.00000000001
+    sub_kkt.u[773]:
+      Value: 7.5
+    sub_kkt.u[775]:
+      Value: 7.50000000001
+    sub_kkt.u[777]:
+      Value: 5.00000000001
+    sub_kkt.u[779]:
+      Value: 5.00000000001
+    sub_kkt.u[77]:
+      Value: 1.25
+    sub_kkt.u[781]:
+      Value: 5.00000000001
+    sub_kkt.u[783]:
+      Value: 7.5
+    sub_kkt.u[785]:
+      Value: 7.50000000001
+    sub_kkt.u[787]:
+      Value: 5.00000000001
+    sub_kkt.u[789]:
+      Value: 5.00000000001
+    sub_kkt.u[78]:
+      Value: 3.75
+    sub_kkt.u[791]:
+      Value: 5.00000000001
+    sub_kkt.u[793]:
+      Value: 7.5
+    sub_kkt.u[795]:
+      Value: 7.50000000001
+    sub_kkt.u[797]:
+      Value: 5.00000000001
+    sub_kkt.u[799]:
+      Value: 5.00000000001
+    sub_kkt.u[79]:
+      Value: 3.75
+    sub_kkt.u[7]:
+      Value: 1.25
+    sub_kkt.u[801]:
+      Value: 5.00000000001
+    sub_kkt.u[803]:
+      Value: 7.5
+    sub_kkt.u[805]:
+      Value: 7.50000000001
+    sub_kkt.u[807]:
+      Value: 5.00000000001
+    sub_kkt.u[809]:
+      Value: 5.00000000001
+    sub_kkt.u[80]:
+      Value: 1.25
+    sub_kkt.u[811]:
+      Value: 5.00000000001
+    sub_kkt.u[813]:
+      Value: 7.5
+    sub_kkt.u[815]:
+      Value: 7.50000000001
+    sub_kkt.u[817]:
+      Value: 5.00000000001
+    sub_kkt.u[819]:
+      Value: 5.00000000001
+    sub_kkt.u[81]:
+      Value: 1.25
+    sub_kkt.u[821]:
+      Value: 5.00000000001
+    sub_kkt.u[823]:
+      Value: 7.5
+    sub_kkt.u[825]:
+      Value: 7.50000000001
+    sub_kkt.u[827]:
+      Value: 5.00000000001
+    sub_kkt.u[829]:
+      Value: 5.00000000001
+    sub_kkt.u[82]:
+      Value: 1.25
+    sub_kkt.u[831]:
+      Value: 5.00000000001
+    sub_kkt.u[833]:
+      Value: 7.5
+    sub_kkt.u[835]:
+      Value: 7.50000000001
+    sub_kkt.u[837]:
+      Value: 5.00000000001
+    sub_kkt.u[839]:
+      Value: 5.00000000001
+    sub_kkt.u[83]:
+      Value: 3.75
+    sub_kkt.u[841]:
+      Value: 5.00000000001
+    sub_kkt.u[843]:
+      Value: 7.5
+    sub_kkt.u[845]:
+      Value: 7.50000000001
+    sub_kkt.u[847]:
+      Value: 5
+    sub_kkt.u[849]:
+      Value: 5
+    sub_kkt.u[84]:
+      Value: 3.75
+    sub_kkt.u[851]:
+      Value: 5
+    sub_kkt.u[853]:
+      Value: 7.5
+    sub_kkt.u[855]:
+      Value: 7.5
+    sub_kkt.u[857]:
+      Value: 5
+    sub_kkt.u[859]:
+      Value: 5
+    sub_kkt.u[85]:
+      Value: 1.25
+    sub_kkt.u[861]:
+      Value: 5
+    sub_kkt.u[863]:
+      Value: 7.5
+    sub_kkt.u[865]:
+      Value: 7.5
+    sub_kkt.u[867]:
+      Value: 5
+    sub_kkt.u[869]:
+      Value: 5
+    sub_kkt.u[86]:
+      Value: 1.25
+    sub_kkt.u[871]:
+      Value: 5
+    sub_kkt.u[873]:
+      Value: 7.5
+    sub_kkt.u[875]:
+      Value: 7.5
+    sub_kkt.u[877]:
+      Value: 5
+    sub_kkt.u[879]:
+      Value: 5
+    sub_kkt.u[87]:
+      Value: 1.25
+    sub_kkt.u[881]:
+      Value: 5
+    sub_kkt.u[883]:
+      Value: 7.5
+    sub_kkt.u[885]:
+      Value: 7.5
+    sub_kkt.u[887]:
+      Value: 5
+    sub_kkt.u[889]:
+      Value: 5
+    sub_kkt.u[88]:
+      Value: 3.75
+    sub_kkt.u[891]:
+      Value: 5
+    sub_kkt.u[893]:
+      Value: 7.5
+    sub_kkt.u[895]:
+      Value: 7.5
+    sub_kkt.u[897]:
+      Value: 5
+    sub_kkt.u[899]:
+      Value: 5
+    sub_kkt.u[89]:
+      Value: 3.75
+    sub_kkt.u[8]:
+      Value: 3.75
+    sub_kkt.u[901]:
+      Value: 5
+    sub_kkt.u[903]:
+      Value: 7.5
+    sub_kkt.u[905]:
+      Value: 7.5
+    sub_kkt.u[907]:
+      Value: 5
+    sub_kkt.u[909]:
+      Value: 5
+    sub_kkt.u[90]:
+      Value: 1.25
+    sub_kkt.u[911]:
+      Value: 5
+    sub_kkt.u[913]:
+      Value: 7.5
+    sub_kkt.u[915]:
+      Value: 7.5
+    sub_kkt.u[917]:
+      Value: 5
+    sub_kkt.u[919]:
+      Value: 5
+    sub_kkt.u[91]:
+      Value: 1.25
+    sub_kkt.u[921]:
+      Value: 5
+    sub_kkt.u[923]:
+      Value: 7.5
+    sub_kkt.u[925]:
+      Value: 7.5
+    sub_kkt.u[927]:
+      Value: 5
+    sub_kkt.u[929]:
+      Value: 5
+    sub_kkt.u[92]:
+      Value: 1.25
+    sub_kkt.u[931]:
+      Value: 5
+    sub_kkt.u[933]:
+      Value: 7.5
+    sub_kkt.u[935]:
+      Value: 7.5
+    sub_kkt.u[937]:
+      Value: 5
+    sub_kkt.u[939]:
+      Value: 5
+    sub_kkt.u[93]:
+      Value: 3.75
+    sub_kkt.u[941]:
+      Value: 5
+    sub_kkt.u[943]:
+      Value: 7.5
+    sub_kkt.u[945]:
+      Value: 7.5
+    sub_kkt.u[947]:
+      Value: 5
+    sub_kkt.u[949]:
+      Value: 5
+    sub_kkt.u[94]:
+      Value: 3.75
+    sub_kkt.u[951]:
+      Value: 5
+    sub_kkt.u[953]:
+      Value: 7.5
+    sub_kkt.u[955]:
+      Value: 7.5
+    sub_kkt.u[957]:
+      Value: 5
+    sub_kkt.u[959]:
+      Value: 5
+    sub_kkt.u[95]:
+      Value: 1.25
+    sub_kkt.u[96]:
+      Value: 1.25
+    sub_kkt.u[97]:
+      Value: 5.22959453519e-12
+    sub_kkt.u[98]:
+      Value: 5.00222085975e-12
+    sub_kkt.u[99]:
+      Value: 2.5
+    sub_kkt.u[9]:
+      Value: 3.75
+    wp[Alta,0]:
+      Value: 25
+    wp[Alta,10]:
+      Value: 25
+    wp[Alta,11]:
+      Value: 35
+    wp[Alta,12]:
+      Value: 30
+    wp[Alta,13]:
+      Value: 25
+    wp[Alta,15]:
+      Value: 25
+    wp[Alta,16]:
+      Value: 35
+    wp[Alta,17]:
+      Value: 30
+    wp[Alta,18]:
+      Value: 25
+    wp[Alta,1]:
+      Value: 35
+    wp[Alta,20]:
+      Value: 25
+    wp[Alta,21]:
+      Value: 35
+    wp[Alta,22]:
+      Value: 30
+    wp[Alta,23]:
+      Value: 25
+    wp[Alta,25]:
+      Value: 25
+    wp[Alta,26]:
+      Value: 35
+    wp[Alta,27]:
+      Value: 30
+    wp[Alta,28]:
+      Value: 25
+    wp[Alta,2]:
+      Value: 30
+    wp[Alta,30]:
+      Value: 25
+    wp[Alta,31]:
+      Value: 35
+    wp[Alta,32]:
+      Value: 30
+    wp[Alta,33]:
+      Value: 25
+    wp[Alta,35]:
+      Value: 25
+    wp[Alta,36]:
+      Value: 35
+    wp[Alta,37]:
+      Value: 30
+    wp[Alta,38]:
+      Value: 25
+    wp[Alta,3]:
+      Value: 25
+    wp[Alta,40]:
+      Value: 25
+    wp[Alta,41]:
+      Value: 35
+    wp[Alta,42]:
+      Value: 30
+    wp[Alta,43]:
+      Value: 25
+    wp[Alta,45]:
+      Value: 25
+    wp[Alta,46]:
+      Value: 35
+    wp[Alta,47]:
+      Value: 30
+    wp[Alta,48]:
+      Value: 25
+    wp[Alta,50]:
+      Value: 25
+    wp[Alta,51]:
+      Value: 35
+    wp[Alta,52]:
+      Value: 30
+    wp[Alta,53]:
+      Value: 25
+    wp[Alta,55]:
+      Value: 25
+    wp[Alta,56]:
+      Value: 35
+    wp[Alta,57]:
+      Value: 30
+    wp[Alta,58]:
+      Value: 25
+    wp[Alta,5]:
+      Value: 25
+    wp[Alta,60]:
+      Value: 25
+    wp[Alta,61]:
+      Value: 35
+    wp[Alta,62]:
+      Value: 30
+    wp[Alta,63]:
+      Value: 25
+    wp[Alta,65]:
+      Value: 25
+    wp[Alta,66]:
+      Value: 35
+    wp[Alta,67]:
+      Value: 30
+    wp[Alta,68]:
+      Value: 25
+    wp[Alta,6]:
+      Value: 35
+    wp[Alta,70]:
+      Value: 25
+    wp[Alta,71]:
+      Value: 35
+    wp[Alta,72]:
+      Value: 30
+    wp[Alta,73]:
+      Value: 25
+    wp[Alta,75]:
+      Value: 25
+    wp[Alta,76]:
+      Value: 35
+    wp[Alta,77]:
+      Value: 30
+    wp[Alta,78]:
+      Value: 25
+    wp[Alta,7]:
+      Value: 30
+    wp[Alta,80]:
+      Value: 25
+    wp[Alta,81]:
+      Value: 35
+    wp[Alta,82]:
+      Value: 30
+    wp[Alta,83]:
+      Value: 25
+    wp[Alta,85]:
+      Value: 25
+    wp[Alta,86]:
+      Value: 35
+    wp[Alta,87]:
+      Value: 30
+    wp[Alta,88]:
+      Value: 25
+    wp[Alta,8]:
+      Value: 25
+    wp[Alta,90]:
+      Value: 25
+    wp[Alta,91]:
+      Value: 35
+    wp[Alta,92]:
+      Value: 30
+    wp[Alta,93]:
+      Value: 25
+    wp[Alta,95]:
+      Value: 25
   Constraint: No values

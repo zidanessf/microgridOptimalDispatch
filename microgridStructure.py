@@ -2,6 +2,7 @@ from microgrid_Model import *
 import networkx as nx
 from scipy.sparse import dok_matrix
 from scipy.linalg import pinv
+from importFile import *
 '''Initialize a special case of microgrid'''
 class MicrogridCase_Simple:
     def __init__(self,device,NumOfTime,graph=None):
@@ -38,7 +39,29 @@ class MicrogridCase_Graph:
         self.B_INV = pinv(B.todense())
     def getKey(self, type):
         return [key for key in self.device.keys() if isinstance(self.device[key], type)]
-
+    def DCPowerFlow(self):
+        for branch in self.graph.edges():
+            nf = branch[0]
+            nt = branch[1]
+            X = self.graph.edge[nf][nt]['X']
+            PF = list()
+            for t in self.T:
+                PF.append(1 / X * (
+                sum(self.B_INV.item(nf, nb) * self.graph.node[nb]['P_inj'][t] for nb in self.graph.nodes()) - sum(
+                    self.B_INV.item(nt, nb) * self.graph.node[nb]['P_inj'][t] for nb in self.graph.nodes())))
+            self.graph.edge[nf][nt].update({'Power_Flow' : PF})
+    def update(self,mdl):
+        def Power_Injection(mdl,graph, nb, t):
+            Temp = 0.0
+            for key, dev in graph.node[nb]['device'].items():
+                if isinstance(dev, gasTurbine):
+                    Temp += mdl.sub.gt_power[key, t]
+                if isinstance(dev, PV):
+                    Temp += mdl.wp[key, t]
+            return value(Temp)
+        for bus in self.graph.nodes():
+            self.graph.node[bus].update({'P_inj' : [Power_Injection(mdl,self.graph,bus,t) for t in mdl.sub.T]})
+        self.T = mdl.sub.T
 
 device_IES = {
     'PV_1' : PV(),
@@ -70,7 +93,7 @@ graph_PS.node[1].update({
 graph_PS.node[2].update({
     'ID' : 'C',
     'device':{
-        'Solitude' : gasTurbine(Pmax=320,Pmin=10,Cost=30)
+        'Solitude' : gasTurbine(Pmax=520,Pmin=10,Cost=30)
     }
 })
 graph_PS.node[3].update({

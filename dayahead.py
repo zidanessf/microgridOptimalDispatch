@@ -10,7 +10,7 @@ case = microgridStructure.case_PS
 '''Load input data'''
 microgrid_data = pd.read_excel('input_PS.xlsx')
 '''Construct base model'''
-optimalDispatch = optimizationModel.DayAheadModel(microgrid_data,case,range(6))
+optimalDispatch = optimizationModel.DayAheadModel(microgrid_data,case,range(16))
 xfrm = TransformationFactory('bilevel.linear_mpec')
 xfrm.apply_to(optimalDispatch)
 xfrm = TransformationFactory('mpec.simple_disjunction')
@@ -19,7 +19,13 @@ xfrm = TransformationFactory('gdp.bigm')
 xfrm.apply_to(optimalDispatch, default_bigM=1000)
 solver = SolverFactory('gurobi')
 solver.solve(optimalDispatch)
-print('总运行成本：'+str(value(optimalDispatch.sub.obj_simple(optimalDispatch.sub))))
+case.update(optimalDispatch)
+case.DCPowerFlow()
+1
+# server = SolverManagerFactory('neos')
+# opt = SolverFactory('cplex')
+# server.solve(optimalDispatch,solver=opt)
+# print('总运行成本：'+str(value(optimalDispatch.sub.obj_simple(optimalDispatch.sub))))
 # '''Solve the base model'''
 # solver = SolverFactory('bilevel_blp_global')
 # options = {
