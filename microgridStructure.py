@@ -56,8 +56,10 @@ class MicrogridCase_Graph:
             for key, dev in graph.node[nb]['device'].items():
                 if isinstance(dev, gasTurbine):
                     Temp += mdl.sub.gt_power[key, t]
+                    dev.result.append(value(mdl.sub.gt_power[key, t]))
                 if isinstance(dev, PV):
                     Temp += mdl.wp[key, t]
+                    dev.result.append(value(mdl.wp[key, t]))
             return value(Temp)
         for bus in self.graph.nodes():
             self.graph.node[bus].update({'P_inj' : [Power_Injection(mdl,self.graph,bus,t) for t in mdl.sub.T]})

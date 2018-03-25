@@ -2,6 +2,7 @@ class PV:
     def __init__(self, om = 0.0005 , output = list()):
         self.om = om
         self.output = output
+        self.result = list()
     def show(self):
         return {"om":self.om}
 
@@ -151,7 +152,7 @@ class gasTurbine:
         self.maxDetP = maxDetP*Pmax
         self.ON_OFF_COST = ON_OFF_COST
         self.Cost = Cost
-        self.result = {}
+        self.result = list()
     def show(self):
         return {"om":self.om,
                 "Pmax":self.Pmax,

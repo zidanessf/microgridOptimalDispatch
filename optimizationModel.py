@@ -214,7 +214,7 @@ def DayAheadModel(microgrid_data,case,T_range):
         else:
             PF = 1/X * (sum(case.B_INV.item(nf,nb) * mdl.P_inj[nb,t] for nb in N_bus) - sum(case.B_INV.item(nt,nb) * mdl.P_inj[nb,t] for nb in N_bus))
             return -limit <= PF <= limit
-    #optimalDispatch.sub.PFlimit = Constraint(N_branch,T,rule=PFlimit)
+    optimalDispatch.sub.PFlimit = Constraint(N_branch,T,rule=PFlimit)
     '''注入功率约束（中间量）'''
     def Power_Injection(mdl,nb,t):
         m = mdl.model()
@@ -225,7 +225,7 @@ def DayAheadModel(microgrid_data,case,T_range):
             if isinstance(dev,PV):
                 Temp += m.wp[key,t]
         return -eps <= mdl.P_inj[nb,t] - Temp <= eps
-    #optimalDispatch.sub.Power_Injection =  Constraint(N_bus,T,rule=Power_Injection)
+    optimalDispatch.sub.Power_Injection =  Constraint(N_bus,T,rule=Power_Injection)
     '''Define Objectives'''
 
     def OM_Cost(mdl):
@@ -260,7 +260,7 @@ def DayAheadModel(microgrid_data,case,T_range):
         return (Fuel_Cost(mdl)/2.3 * 1.2143 + 0.1229 * 0.25 *sum(mdl.utility_power[t] for t in mdl.T) + 3.6 * 0.3412 * 0.25 * sum(mdl.buy_heat[t] for t in mdl.T)) \
                / (sum(acLoad)+sum(dcLoad)+sum(cold_load)+sum(water_heat_load)+sum(steam_heat_load))
     def obj_simple(mdl):
-        return sum(sum(0.25*microgrid_device[n_gt].Cost*mdl.gt_power[n_gt,t] for n_gt in N_gt) for t in T)
+        return sum(sum(0.25*microgrid_device[n_gt].Cost*(mdl.gt_power[n_gt,t]) for n_gt in N_gt) for t in T)
     optimalDispatch.sub.obj_Economical = obj_Economical
     optimalDispatch.sub.obj_Efficiency = obj_Efficiency
     optimalDispatch.sub.obj_simple = obj_simple

@@ -17,10 +17,11 @@ model.sub.c = Constraint(expr=2.29 <= model.sub.y + model.sub.w <= 2.3)
 def balance(mdl):
     return mdl.y <= mdl.w
 model.sub.balance = Constraint(rule=balance)
-xfrm = TransformationFactory('bilevel.linear_mpec')
+xfrm = TransformationFactory('bilevel.linear_dual')
 xfrm.apply_to(model)
 solver = SolverFactory('bilevel_blp_global')
 result = solver.solve(model)
 print(value(model.sub.y))
++ mdl.gt_power[n_gt,t]*mdl.gt_power[n_gt,t]/microgrid_device[n_gt].Pmax
 
 #总结：pyomo可以处理上层带有整数变量或互补条件，下层为线性模型的双层规划模型。通过bilevel.linear_mpec进行转化，并通过bilevel_blp_global求解器求解
