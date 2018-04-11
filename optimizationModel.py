@@ -265,7 +265,8 @@ def DayAheadModel(microgrid_data,case,T_range):
     optimalDispatch.sub.obj_Efficiency = obj_Efficiency
     optimalDispatch.sub.obj_simple = obj_simple
     optimalDispatch.sub.objective = Objective(rule=obj_simple)
-    optimalDispatch.objective = Objective(rule=lambda mdl: -obj_simple(mdl.sub))
+    # optimalDispatch.objective = Objective(rule=lambda mdl: -obj_simple(mdl.sub))
+    optimalDispatch.objective = Objective(expr=optimalDispatch.sub.gt_power[N_gt[0],0])
     return optimalDispatch
 def retriveResult(microgrid_data,case,mdl):
     model = mdl.sub
