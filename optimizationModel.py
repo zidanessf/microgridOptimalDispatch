@@ -226,6 +226,7 @@ def DayAheadModel(microgrid_data,case,T_range):
     optimalDispatch.sub = SubModel()
     optimalDispatch.sub.pv = Var(T)
     optimalDispatch.sub.det_load = Var(T)
+
     return optimalDispatch
 
 def retriveResult(microgrid_data,case,mdl):
@@ -437,7 +438,7 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
     sub.det_absc = Var(N_absc,L)
     sub.es_energy = Var(N_es,L,bounds=lambda b,i,s: (device[i].capacity*device[i].SOCmin,device[i].capacity*device[i].SOCmax))
     sub.cs_cold_stored = Var(N_cs,L,bounds=lambda b,i,s: (device[i].capacity*device[i].Tmin,device[i].capacity*device[i].Tmax))
-    sub.detP_ut = Var(L)
+    sub.detP_ut = Var(L,bounds=(-10000,10000))
     sub.P_DER = Var(L,domain=PositiveReals)
     sub.ESSocAuxVar = Var(N_es,L)
     sub.CSSocAuxVar = Var(N_cs, L)
@@ -499,15 +500,39 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
     sub.P_ac_bounds = Constraint(N_ac,L,rule = lambda b,i,s: device[i].Pmin <= b.detP_ac[i,s] + mdl.ac_power[i,t+s] <= device[i].Pmax)
     sub.absc_bounds = Constraint(N_absc,L,rule = lambda b,i,s: device[i].Hmin <= b.det_absc[i,s] + mdl.absc_heat_in[i,t+s] <= device[i].Hmax)
     sub.P_DER_bounds = Constraint(L,rule = lambda b,s: b.P_DER[s] - mdl.sub.pv[t+s] <= 0)
-    def obj_MinSocError(mdl):
+    sub.detP_ut_bounds = Constraint(L,rule = lambda b,s: b.detP_ut[s] + mdl.utility_power[t+s] >= 0)
+    def obj_MinSocError(b):
         obj = 0
         for i in N_es:
-            obj += sum(mdl.ESSocAuxVar[i,s] for s in L)
+            obj += sum(b.ESSocAuxVar[i,s] for s in L)
         for i in N_cs:
-            obj += sum(mdl.CSSocAuxVar[i,s] for s in L)
+            obj += sum(b.CSSocAuxVar[i,s] for s in L)
         return obj
+    def Fuel_Cost(b,l):
+        if isinstance(l,int):
+            ls = [l]
+        else:
+            ls = l
+        fuel_cost = 0
+        for id in N_gt:
+            fuel_cost += (1 / device[id].efficiency) * device['ut'].gas_price * step * sum(
+                b.detP_gt[id, t] for t in ls)
+        for id in N_bol:
+            fuel_cost += (1 / device[id].efficiency) * device['ut'].gas_price * step * sum(
+                b.detP_bol[id, t] for t in ls)
+        return fuel_cost
+
+    def ElectricalFee(b,l):
+        if isinstance(l,int):
+            ls = [l]
+        else:
+            ls = l
+        return step * sum(b.detP_ut[t] * device['ut'].buy_price[t] for t in ls)
+    def obj_Cost(b,l):
+        return Fuel_Cost(b,l) + ElectricalFee(b,l)
+    sub.obj_Cost = obj_Cost
     sub.obj_MinSocError = obj_MinSocError
-    sub.objective = Objective(rule=lambda mdl: obj_MinSocError(mdl))
+    sub.objective = Objective(rule=lambda b: 100000 * obj_MinSocError(b) + obj_Cost(b,L))
     sub.ESCsocAuxCons1 = Constraint(N_es,L,rule = lambda b,i,s:b.ESSocAuxVar[i,s]>=
                                                                  (b.es_energy[i,s] - mdl.es_energy[i,t+s])/device[i].capacity)
     sub.ESsocAuxCons2 = Constraint(N_es, L, rule=lambda b, i,s: b.ESSocAuxVar[i, s] >=
