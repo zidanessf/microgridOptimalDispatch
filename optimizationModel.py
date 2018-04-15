@@ -87,7 +87,7 @@ def DayAheadModel(microgrid_data,case,T_range):
         power_demand = sum(mdl.cs_power[i, t] for i in N_cs) \
                        + sum(mdl.ac_power[i, t] for i in N_ac) \
                        + eLoad[t] + sum(mdl.es_power_in[i, t] for i in N_es)
-        return pv_lower[t] <= power_supply - power_demand <= pv_upper[t]
+        return power_supply - power_demand == pv_output[t]
 
     optimalDispatch.EPowerBalance = Constraint(T, rule=EPowerBalance)
     '''热功率平衡约束'''
@@ -217,13 +217,16 @@ def DayAheadModel(microgrid_data,case,T_range):
 
     def ElectricalFee(mdl):
         return step * sum(mdl.utility_power[t] * microgrid_device['ut'].buy_price[t] for t in T)
-
+    def HeatFee(mdl):
+        return step * sum(mdl.buy_heat[t] for t in T) * microgrid_device['ut'].steam_price
     def StartShutdownFee(mdl):
         return sum(microgrid_device[n].ON_OFF_COST*sum(mdl.gt_auxvar[n,t] for t in T) for n in N_gt) + sum(microgrid_device[n].ON_OFF_COST*sum(mdl.bol_auxvar[n,t] for t in T) for n in N_bol)
+
+    #OM_Cost(mdl) + Dep_Cost(mdl) +
     def obj_Economical(mdl):
-        return OM_Cost(mdl) + Dep_Cost(mdl) + Fuel_Cost(mdl) + ElectricalFee(mdl) +StartShutdownFee(mdl)
+        return  Fuel_Cost(mdl) + ElectricalFee(mdl) +StartShutdownFee(mdl) + HeatFee(mdl)
     optimalDispatch.obj_Economical = obj_Economical
-    optimalDispatch.objective = Objective(rule=lambda mdl:obj_Economical(mdl) +mdl.eta)
+    optimalDispatch.objective = Objective(rule=lambda mdl:obj_Economical(mdl))
     '''sub problem'''
     optimalDispatch.sub = Block()
     optimalDispatch.sub.pv = Var(T,bounds=lambda mdl,t:(pv_lower[t],pv_upper[t]))
@@ -434,7 +437,6 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
     setattr(mdl.sub, 'MPC_' + str(t), SubModel())
     sub = getattr(mdl.sub,'MPC_' + str(t))
     sub.detP_gt = Var(N_gt,L,bounds=lambda b, i, s: (- device[i].maxDetP, device[i].maxDetP))
-    sub.detP_fuck = Var(N_gt,L,bounds=lambda b, i, s: (- device[i].maxDetP, device[i].maxDetP))
     sub.detP_bol = Var(N_bol,L,bounds=lambda b, i, s: (- device[i].maxDetP, device[i].maxDetP))
     sub.detP_ac = Var(N_ac,L,bounds=lambda b, i, s: (- device[i].maxDetP, device[i].maxDetP))
     sub.detP_es = Var(N_es,L)
@@ -445,8 +447,9 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
     sub.detP_ut = Var(L,bounds=(-10000,10000))
     sub.detH_ut = Var(L,bounds=(-10000,10000))
     sub.P_DER = Var(L,domain=PositiveReals)
-    sub.ESSocAuxVar = Var(N_es,L,bounds=(-1,1))
-    sub.CSSocAuxVar = Var(N_cs, L,bounds=(-1,1))
+    sub.ESSocAuxVar = Var(N_es,L,bounds=(-100,100))
+    sub.CSSocAuxVar = Var(N_cs, L,bounds=(-100,100))
+    sub.x = Var(bounds=(-1000,1000))
     '''电功率平衡约束'''
     def EPowerBalance(b,s):
         power_supply_det = sum(b.detP_gt[i, s] for i in N_gt) \
@@ -454,13 +457,6 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
         power_demand_det = sum(b.detP_ac[i, s] for i in N_ac)
         return -eps <= power_supply_det - power_demand_det <= eps
     sub.EPowerBalance = Constraint(L,rule=EPowerBalance)
-    def EPowerBalancefuck(b,s):
-        power_supply_det = sum(b.detP_fuck[i, s] for i in N_gt) \
-                       + b.detP_ut[s] + sum(b.detP_es[i, s] for i in N_es) + b.P_DER[s] - pv_output[t+s]
-        power_demand_det = sum(b.detP_ac[i, s] for i in N_ac)
-        return -eps <= power_supply_det - power_demand_det <= eps
-    sub.EPowerBalancefuck = Constraint(L,rule=EPowerBalancefuck)
-
     '''冷功率平衡约束'''
     def coldPowerBalance(b, s):
         cold_det_supply = sum(b.detP_ac[i, s] * device[i].EER for i in N_ac) \
@@ -475,12 +471,6 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
             N_gt) - sum(b.det_absc[n_absc, s] for n_absc in N_absc)
         return heat_change + mdl.heat_ex[t + s] >= 0
     sub.heatPowerBalance = Constraint(L,rule=heatPowerBalance)
-    def heatPowerBalancefuck(b, s):
-        heat_change = b.detH_ut[s] + sum(b.detP_bol[n_bol, s] for n_bol in N_bol) + sum(
-            b.detP_fuck[n_gt, s] * device[n_gt].HER * device[n_gt].heat_recycle for n_gt in
-            N_gt) - sum(b.det_absc[n_absc, s] for n_absc in N_absc)
-        return heat_change + mdl.heat_ex[t + s] >= 0
-    sub.heatPowerBalancefuck = Constraint(L,rule=heatPowerBalancefuck)
 
     '''SOC conditions'''
     prev = getattr(mdl.sub,'MPC_'+str(t-1),None)
@@ -514,8 +504,6 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
     #GT
     sub.P_gt_bounds_lower = Constraint(N_gt,L,rule = lambda b,i,s:   b.detP_gt[i,s] + mdl.gt_power[i,t+s] - device[i].Pmin * mdl.gt_state[i,t+s] >= 0)
     sub.P_gt_bounds_upper = Constraint(N_gt,L,rule = lambda b,i,s:   b.detP_gt[i,s] + mdl.gt_power[i,t+s] - device[i].Pmax * mdl.gt_state[i,t+s] <= 0)
-    # sub.P_fuck_bounds_lower = Constraint(N_gt,L,rule = lambda b,i,s:   b.detP_fuck[i,s] + mdl.gt_power[i,t+s] - device[i].Pmin * mdl.gt_state[i,t+s] >= 0)
-    # sub.P_fuck_bounds_upper = Constraint(N_gt,L,rule = lambda b,i,s:   b.detP_fuck[i,s] + mdl.gt_power[i,t+s] - device[i].Pmax * mdl.gt_state[i,t+s] <= 0)
     sub.P_bol_bounds_lower = Constraint(N_bol,L,rule = lambda b,i,s:   b.detP_bol[i,s] + mdl.bol_power[i,t+s] - device[i].Pmin * mdl.bol_state[i,t+s] >= 0)
     sub.P_bol_bounds_upper = Constraint(N_bol,L,rule = lambda b,i,s:   b.detP_bol[i,s] + mdl.bol_power[i,t+s] - device[i].Pmax * mdl.bol_state[i,t+s] <= 0)
     sub.P_ac_bounds = Constraint(N_ac,L,rule = lambda b,i,s: device[i].Pmin <= b.detP_ac[i,s] + mdl.ac_power[i,t+s] <= device[i].Pmax)
@@ -538,11 +526,16 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
         for id in N_gt:
             fuel_cost += (1 / device[id].efficiency) * device['ut'].gas_price * step * sum(
                 b.detP_gt[id, t] for t in ls)
-        # for id in N_bol:
-        #     fuel_cost += (1 / device[id].efficiency) * device['ut'].gas_price * step * sum(
-        #         b.detP_bol[id, t] for t in ls)
+        for id in N_bol:
+            fuel_cost += (1 / device[id].efficiency) * device['ut'].gas_price * step * sum(
+                b.detP_bol[id, t] for t in ls)
         return fuel_cost
-
+    def HeatFee(b,l):
+        if isinstance(l,int):
+            ls = [l]
+        else:
+            ls = l
+        return step * sum(b.detH_ut[s] for s in ls) * device['ut'].steam_price
     def ElectricalFee(b,l):
         if isinstance(l,int):
             ls = [l]
@@ -550,11 +543,10 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
             ls = l
         return step * sum(b.detP_ut[t] * device['ut'].buy_price[t] for t in ls)
     def obj_Cost(b,l):
-        return Fuel_Cost(b,l) + ElectricalFee(b,l)
+        return Fuel_Cost(b,l) + ElectricalFee(b,l) + HeatFee(b,l)
     sub.obj_Cost = obj_Cost
     sub.obj_MinSocError = obj_MinSocError
-    sub.x = Var(bounds=(-100000,100000))
-    sub.objective = Objective(rule=lambda b: b.detP_fuck['GT_1',0])
+    sub.objective = Objective(expr=1000*obj_MinSocError(sub)+obj_Cost(sub,L))
     sub.ESCsocAuxCons1 = Constraint(N_es,L,rule = lambda b,i,s:b.ESSocAuxVar[i,s]>=
                                                                  (b.es_energy[i,s] - mdl.es_energy[i,t+s])/device[i].capacity)
     sub.ESsocAuxCons2 = Constraint(N_es, L, rule=lambda b, i,s: b.ESSocAuxVar[i, s] >=
@@ -575,7 +567,7 @@ def fix_all_var(mdl):
         if isinstance(data, Var):
             for v in data:
                 try:
-                    data[v].fix(value(data[v]))
+                    data[v].fix()
                 except Exception:
                     pass
 
@@ -588,15 +580,30 @@ def add_kkt_cuts(mdl,IterNum): #create a copy of sub-problem and fix the pv vars
     setattr(mdl,'KKTG'+str(IterNum),mdl.sub.clone())
     new_kkt_block = getattr(mdl,'KKTG'+str(IterNum))
     # add the optimal cut
-    new_kkt_block.opt_cut = Constraint(expr = mdl.eta >= new_kkt_block.o.expr )
+    opt_cut = Constraint(expr = mdl.eta >= new_kkt_block.o.expr)
+    setattr(mdl, 'opt_cut_' + str(IterNum), opt_cut)
     del new_kkt_block.o
     # fix the u_star
     for (name, data) in new_kkt_block.component_map().items():
         if isinstance(data, Var):
             for v in data:
                 mirror = getattr(mdl.sub,name)
-                data[v].fix(value(mirror[v]))
+                try:
+                    data[v].fix(value(mirror[v]))
+                except Exception as e:
+                    print(e)
+                    data[v].fix(0)
     # ## add spy var
     # new_kkt_block.spy = Var()
     # new_kkt_block.spy_is = Constraint(expr=new_kkt_block.spy == mdl.eta)
     new_kkt_block.activate()
+def transform_sub(mdl):
+    xfrm = TransformationFactory('mpec.simple_disjunction')
+    xfrm.apply_to(mdl)
+    xfrm = TransformationFactory('gdp.bigm')
+    xfrm.apply_to(mdl, default_bigM=100000)  # Big-M过小会导致不可行
+def transform_master(mdl):
+    xfrm = TransformationFactory('mpec.simple_disjunction')
+    xfrm.apply_to(mdl)
+    xfrm = TransformationFactory('gdp.bigm')
+    xfrm.apply_to(mdl, default_bigM=1000)
