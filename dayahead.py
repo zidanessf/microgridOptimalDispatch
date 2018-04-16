@@ -21,7 +21,17 @@ solver = SolverFactory('gurobi')
 res = solver.solve(optimalDispatch)
 case.update(optimalDispatch)
 case.DCPowerFlow()
-
+df = pd.DataFrame()
+T= optimalDispatch.sub.T
+for gt in case.getKey(microgridStructure.gasTurbine):
+    df[gt] = [value(optimalDispatch.sub.gt_power[gt,t]) for t in T]
+for wt in case.getKey(microgridStructure.PV):
+    df[wt] = [value(optimalDispatch.wp[wt,t]) for t in T]
+for branch in case.graph.edges():
+    nf = branch[0]
+    nt = branch[1]
+    df[str(nf) + ' to ' + str(nt) + ' power flow'] = case.graph.edge[nf][nt]['Power_Flow']
+df.to_excel('optimistic.xlsx')
 # server = SolverManagerFactory('neos')
 # opt = SolverFactory('cplex')
 # server.solve(optimalDispatch,solver=opt)
