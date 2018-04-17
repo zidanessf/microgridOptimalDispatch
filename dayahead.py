@@ -13,8 +13,8 @@ case = microgridStructure.case_IES
 microgrid_data = pd.read_excel('IES_SIMPLE.xlsx')
 
 '''Construct base model'''
-OD = DayAheadModel(microgrid_data,case,range(5))
-Tmpc = 2
+OD = DayAheadModel(microgrid_data,case,range(6))
+Tmpc = 3
 Lmpc = 4
 # get the KKT conditions
 subobj = 0
@@ -36,6 +36,7 @@ for i in range(Tmpc):
         subobj += temp.obj_Cost(temp, 0)
 # set sub-problem objective///fix master vars///transform the sub-problem
 OD.sub.o = Objective(expr=subobj,sense=maximize)
+OD.sub.obj_copy = subobj
 transform_sub(OD.sub)
 unfix_all_vars(OD)
 transform_master(OD)
@@ -65,10 +66,18 @@ while 1:
         del OD.objective
         OD.objective = Objective(rule=lambda mdl: mdl.obj_Economical(mdl) + mdl.eta)
     res = solver.solve(OD)
-    if res.solver.termination_condition == TerminationCondition.optimal:
+    # print([value(OD.utility_power[t]) for t in OD.T])
+    if NumIter >= 2:
         lb = value(OD.objective)
-    elif res.solver.termination_condition == TerminationCondition.unbounded:
-        lb = - np.inf
+        print('各子问题eta')
+        for i in  range(1,NumIter):
+            print('子问题{0}'.format(i))
+            print(value(getattr(OD,'KKTG'+str(i)).obj_copy))
+            print([value(getattr(OD,'KKTG'+str(i)).pv[t]) for t in OD.T])
+    # if res.solver.termination_condition == TerminationCondition.optimal:
+    #     lb = value(OD.objective)
+    # elif res.solver.termination_condition == TerminationCondition.unbounded:
+    #     lb = - np.inf
     if NumIter == 1:
         print('master problem optimal value is {0}'.format(lb))
         print('master problem optimal eta is None')
@@ -81,10 +90,10 @@ while 1:
     OD.sub.activate()
     fix_all_var(OD) #注意查看文档，fix变量的方法,fix master variables
     solver = SolverFactory('gurobi')
-    # res = solver.solve(OD.sub,tee=True, #stream the solver output
-    #                     keepfiles=True, #print the MILP file for examination
-    #                     symbolic_solver_labels=True) #fix变量之后，submodel可以直接求解
-    res = solver.solve(OD.sub)
+    res = solver.solve(OD.sub,tee=False#stream the solver output
+                         #print the MILP file for examination
+                        ) #fix变量之后，submodel可以直接求解
+    # res = solver.solve(OD.sub)
     if res.solver.termination_condition == TerminationCondition.optimal:
         ub = min(ub,value(OD.obj_Economical(OD)) + value(OD.sub.o))
     elif res.solver.termination_condition == TerminationCondition.unbounded:
@@ -92,7 +101,14 @@ while 1:
     # add kkt cuts to master problem
     print('the sub-obj is {0}'.format(value(OD.sub.o)))
     print('the upper bound is updated to {0}'.format(ub))
-    print([value(OD.sub.o)])
+    # print([value(OD.sub.o)])
+    # print([value(OD.sub.MPC_0.det_cs_cold['CS_1',t]) for t in range(4)])
+    print('-----------------------')
+    print('THE GAP IS {0}%'.format(100*(ub-lb)/(ub+lb)))
+    print('-----------------------')
+    if (ub-lb)/(ub+lb) <= 0.0001:
+        print('CONVERGED!')
+        break
     add_kkt_cuts(OD, NumIter)
     unfix_all_vars(OD)
     NumIter += 1

@@ -87,7 +87,7 @@ def DayAheadModel(microgrid_data,case,T_range):
         power_demand = sum(mdl.cs_power[i, t] for i in N_cs) \
                        + sum(mdl.ac_power[i, t] for i in N_ac) \
                        + eLoad[t] + sum(mdl.es_power_in[i, t] for i in N_es)
-        return power_supply - power_demand == pv_output[t]
+        return  pv_lower[t] <= power_demand - power_supply <= pv_upper[t]
 
     optimalDispatch.EPowerBalance = Constraint(T, rule=EPowerBalance)
     '''热功率平衡约束'''
@@ -421,7 +421,7 @@ def getMaxAmount(mdl,case,peak,amount,mode):
     return (model,MaxAmount)
 
 def AddDayInSubModel(mdl,t,microgrid_data, case):
-    eps = 100
+    eps = 0.1
     N_es = case.getKey(electricStorage)
     N_absc = case.getKey(absorptionChiller)
     N_bol = case.getKey(boiler)
@@ -436,39 +436,40 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
     # # '''MPC Variables'''
     setattr(mdl.sub, 'MPC_' + str(t), SubModel())
     sub = getattr(mdl.sub,'MPC_' + str(t))
-    sub.detP_gt = Var(N_gt,L,bounds=lambda b, i, s: (- device[i].maxDetP, device[i].maxDetP))
-    sub.detP_bol = Var(N_bol,L,bounds=lambda b, i, s: (- device[i].maxDetP, device[i].maxDetP))
-    sub.detP_ac = Var(N_ac,L,bounds=lambda b, i, s: (- device[i].maxDetP, device[i].maxDetP))
+    sub.gt_power = Var(N_gt,L,bounds=lambda b, i, s: (- device[i].maxDetP, device[i].maxDetP))
+    sub.bol_power = Var(N_bol,L,bounds=lambda b, i, s: (- device[i].maxDetP, device[i].maxDetP))
+    sub.ac_power = Var(N_ac,L,bounds=lambda b, i, s: (- device[i].maxDetP, device[i].maxDetP))
     sub.detP_es = Var(N_es,L)
     sub.det_cs_cold = Var(N_cs, L)
-    sub.det_absc = Var(N_absc,L)
+    sub.absc_heat_in = Var(N_absc,L)
     sub.es_energy = Var(N_es,L,bounds=lambda b,i,s: (device[i].capacity*device[i].SOCmin,device[i].capacity*device[i].SOCmax))
     sub.cs_cold_stored = Var(N_cs,L,bounds=lambda b,i,s: (device[i].capacity*device[i].Tmin,device[i].capacity*device[i].Tmax))
-    sub.detP_ut = Var(L,bounds=(-10000,10000))
-    sub.detH_ut = Var(L,bounds=(-10000,10000))
+    sub.utility_power = Var(L,bounds=(-10000,10000))
+    sub.buy_heat = Var(L,bounds=(0,10000))
     sub.P_DER = Var(L,domain=PositiveReals)
-    sub.ESSocAuxVar = Var(N_es,L,bounds=(-100,100))
-    sub.CSSocAuxVar = Var(N_cs, L,bounds=(-100,100))
-    sub.x = Var(bounds=(-1000,1000))
+    sub.ESSocAuxVar = Var(N_es,L,bounds=lambda b,i,s: (-device[i].capacity,device[i].capacity))
+    sub.CSSocAuxVar = Var(N_cs, L,bounds=lambda b,i,s: (-device[i].capacity,device[i].capacity))
+    # sub.x = Var(L,bounds=(-10000,10000))
+    # sub.mirror = Constraint(L,rule=lambda b,s: -eps <= b.x[s] - 0.1 * mdl.utility_power[t+s] <=eps)
     '''电功率平衡约束'''
     def EPowerBalance(b,s):
-        power_supply_det = sum(b.detP_gt[i, s] for i in N_gt) \
-                       + b.detP_ut[s] + sum(b.detP_es[i, s] for i in N_es) + b.P_DER[s] - pv_output[t+s]
-        power_demand_det = sum(b.detP_ac[i, s] for i in N_ac)
+        power_supply_det = sum(b.gt_power[i, s] for i in N_gt) \
+                       + b.utility_power[s] + sum(b.detP_es[i, s] for i in N_es) + b.P_DER[s] - pv_output[t+s]
+        power_demand_det = sum(b.ac_power[i, s] for i in N_ac)
         return -eps <= power_supply_det - power_demand_det <= eps
     sub.EPowerBalance = Constraint(L,rule=EPowerBalance)
     '''冷功率平衡约束'''
     def coldPowerBalance(b, s):
-        cold_det_supply = sum(b.detP_ac[i, s] * device[i].EER for i in N_ac) \
+        cold_det_supply = sum(b.ac_power[i, s] * device[i].EER for i in N_ac) \
                       + sum(b.det_cs_cold[i, s] for i in N_cs) \
-                      + sum(b.det_absc[i, s] * device[i].COP_htc for i in N_absc)
+                      + sum(b.absc_heat_in[i, s] * device[i].COP_htc for i in N_absc)
         return -eps <= cold_det_supply <= eps
     sub.coldPowerBalance = Constraint(L, rule=coldPowerBalance)
     '''热功率平衡约束'''
     def heatPowerBalance(b, s):
-        heat_change = b.detH_ut[s] + sum(b.detP_bol[n_bol, s] for n_bol in N_bol) + sum(
-            b.detP_gt[n_gt, s] * device[n_gt].HER * device[n_gt].heat_recycle for n_gt in
-            N_gt) - sum(b.det_absc[n_absc, s] for n_absc in N_absc)
+        heat_change = b.buy_heat[s] + sum(b.bol_power[n_bol, s] for n_bol in N_bol) + sum(
+            b.gt_power[n_gt, s] * device[n_gt].HER * device[n_gt].heat_recycle for n_gt in
+            N_gt) - sum(b.absc_heat_in[n_absc, s] for n_absc in N_absc)
         return heat_change + mdl.heat_ex[t + s] >= 0
     sub.heatPowerBalance = Constraint(L,rule=heatPowerBalance)
 
@@ -483,7 +484,7 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
                 return -eps <= b.es_energy[n_es, s] - prev.es_energy[n_es,1] <= eps
         else:
             return -eps <= b.es_energy[n_es, s] - b.es_energy[n_es, s - 1] * (1 - bat.selfRelease) \
-                                             - step * (mdl.es_power_out[n_es, t + s - 1] - mdl.es_power_in[n_es, t + s - 1] + b.detP_es[n_es,s-1]) <= eps
+                                             + step * (mdl.es_power_out[n_es, t + s - 1] - mdl.es_power_in[n_es, t + s - 1] + b.detP_es[n_es,s-1]) <= eps
     sub.batteryEnergyBalance = Constraint(N_es, L, rule=batteryEnergyBalance)
     def coldStorageBalance(b, n_cs, s):
         cs = device[n_cs]
@@ -499,17 +500,19 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
     '''Power Bounds'''
     #ES
     sub.ES_power_bounds = Constraint(N_es,L,rule = lambda b,i,s: -device[i].Pmax_in<= b.detP_es[i,s] - mdl.es_power_in[i,t+s]+ mdl.es_power_out[i,t+s] <= device[i].Pmax_out)
+    sub.ES_FINAL = Constraint(N_es,rule=lambda b,i:-eps <= b.detP_es[i,3] <= eps)
     #CS
     sub.CS_power_bounds = Constraint(N_cs,L,rule = lambda b,i,s: -device[i].Hin<= b.det_cs_cold[i,s] + mdl.cs_cold[i,t+s] <= device[i].Hout)
+    sub.CS_FINAL = Constraint(N_cs, rule=lambda b, i: -eps <= b.det_cs_cold[i, 3] <= eps)
     #GT
-    sub.P_gt_bounds_lower = Constraint(N_gt,L,rule = lambda b,i,s:   b.detP_gt[i,s] + mdl.gt_power[i,t+s] - device[i].Pmin * mdl.gt_state[i,t+s] >= 0)
-    sub.P_gt_bounds_upper = Constraint(N_gt,L,rule = lambda b,i,s:   b.detP_gt[i,s] + mdl.gt_power[i,t+s] - device[i].Pmax * mdl.gt_state[i,t+s] <= 0)
-    sub.P_bol_bounds_lower = Constraint(N_bol,L,rule = lambda b,i,s:   b.detP_bol[i,s] + mdl.bol_power[i,t+s] - device[i].Pmin * mdl.bol_state[i,t+s] >= 0)
-    sub.P_bol_bounds_upper = Constraint(N_bol,L,rule = lambda b,i,s:   b.detP_bol[i,s] + mdl.bol_power[i,t+s] - device[i].Pmax * mdl.bol_state[i,t+s] <= 0)
-    sub.P_ac_bounds = Constraint(N_ac,L,rule = lambda b,i,s: device[i].Pmin <= b.detP_ac[i,s] + mdl.ac_power[i,t+s] <= device[i].Pmax)
-    sub.absc_bounds = Constraint(N_absc,L,rule = lambda b,i,s: device[i].Hmin <= b.det_absc[i,s] + mdl.absc_heat_in[i,t+s] <= device[i].Hmax)
+    sub.P_gt_bounds_lower = Constraint(N_gt,L,rule = lambda b,i,s:   b.gt_power[i,s] + mdl.gt_power[i,t+s] - device[i].Pmin * mdl.gt_state[i,t+s] >= 0)
+    sub.P_gt_bounds_upper = Constraint(N_gt,L,rule = lambda b,i,s:   b.gt_power[i,s] + mdl.gt_power[i,t+s] - device[i].Pmax * mdl.gt_state[i,t+s] <= 0)
+    sub.P_bol_bounds_lower = Constraint(N_bol,L,rule = lambda b,i,s:   b.bol_power[i,s] + mdl.bol_power[i,t+s] - device[i].Pmin * mdl.bol_state[i,t+s] >= 0)
+    sub.P_bol_bounds_upper = Constraint(N_bol,L,rule = lambda b,i,s:   b.bol_power[i,s] + mdl.bol_power[i,t+s] - device[i].Pmax * mdl.bol_state[i,t+s] <= 0)
+    sub.P_ac_bounds = Constraint(N_ac,L,rule = lambda b,i,s: device[i].Pmin <= b.ac_power[i,s] + mdl.ac_power[i,t+s] <= device[i].Pmax)
+    sub.absc_bounds = Constraint(N_absc,L,rule = lambda b,i,s: device[i].Hmin <= b.absc_heat_in[i,s] + mdl.absc_heat_in[i,t+s] <= device[i].Hmax)
     sub.P_DER_bounds = Constraint(L,rule = lambda b,s: b.P_DER[s] - mdl.sub.pv[t+s] <= 0)
-    sub.detP_ut_bounds = Constraint(L,rule = lambda b,s: b.detP_ut[s] + mdl.utility_power[t+s] >= 0)
+    sub.detP_ut_bounds = Constraint(L,rule = lambda b,s: b.utility_power[s] + mdl.utility_power[t+s] >= 0)
     def obj_MinSocError(b):
         obj = 0
         for i in N_es:
@@ -518,43 +521,44 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
             obj += sum(b.CSSocAuxVar[i,s] for s in L)
         return obj
     def Fuel_Cost(b,l):
+        fuel_cost = 0
         if isinstance(l,int):
             ls = [l]
         else:
             ls = l
-        fuel_cost = 0
         for id in N_gt:
             fuel_cost += (1 / device[id].efficiency) * device['ut'].gas_price * step * sum(
-                b.detP_gt[id, t] for t in ls)
+                b.gt_power[id, s] for s in ls)
         for id in N_bol:
             fuel_cost += (1 / device[id].efficiency) * device['ut'].gas_price * step * sum(
-                b.detP_bol[id, t] for t in ls)
+                b.bol_power[id, s] for s in ls)
         return fuel_cost
-    def HeatFee(b,l):
-        if isinstance(l,int):
-            ls = [l]
-        else:
-            ls = l
-        return step * sum(b.detH_ut[s] for s in ls) * device['ut'].steam_price
+
     def ElectricalFee(b,l):
         if isinstance(l,int):
             ls = [l]
         else:
             ls = l
-        return step * sum(b.detP_ut[t] * device['ut'].buy_price[t] for t in ls)
+        return step * sum(b.utility_power[s] * device['ut'].buy_price[s] for s in ls)
+    def HeatFee(b,l):
+        if isinstance(l,int):
+            ls = [l]
+        else:
+            ls = l
+        return step * sum(b.buy_heat[s] for s in ls) * device['ut'].steam_price
     def obj_Cost(b,l):
         return Fuel_Cost(b,l) + ElectricalFee(b,l) + HeatFee(b,l)
     sub.obj_Cost = obj_Cost
     sub.obj_MinSocError = obj_MinSocError
-    sub.objective = Objective(expr=1000*obj_MinSocError(sub)+obj_Cost(sub,L))
+    sub.objective = Objective(expr=10*obj_MinSocError(sub)+obj_Cost(sub,L))
     sub.ESCsocAuxCons1 = Constraint(N_es,L,rule = lambda b,i,s:b.ESSocAuxVar[i,s]>=
-                                                                 (b.es_energy[i,s] - mdl.es_energy[i,t+s])/device[i].capacity)
+                                                                 (b.es_energy[i,s] - mdl.es_energy[i,t+s]))
     sub.ESsocAuxCons2 = Constraint(N_es, L, rule=lambda b, i,s: b.ESSocAuxVar[i, s] >=
-                                                                - (b.es_energy[i, s] - mdl.es_energy[i, t + s]) / case.device[i].capacity)
+                                                                - (b.es_energy[i, s] - mdl.es_energy[i, t + s]) )
     sub.CSCsocAuxCons1 = Constraint(N_cs,L,rule = lambda b,i,s:b.CSSocAuxVar[i,s]>=
-                                                                 (b.cs_cold_stored[i,s] - mdl.cs_cold_stored[i,t+s])/device[i].capacity)
+                                                                 (b.cs_cold_stored[i,s] - mdl.cs_cold_stored[i,t+s]))
     sub.CSsocAuxCons2 = Constraint(N_cs, L, rule=lambda b, i,s: b.CSSocAuxVar[i, s] >=
-                                                                - (b.cs_cold_stored[i, s] - mdl.cs_cold_stored[i, t + s]) / case.device[i].capacity)
+                                                                - (b.cs_cold_stored[i, s] - mdl.cs_cold_stored[i, t + s]))
 
 def df_sum(df,cols):
     newdf = pd.Series([0]*df.__len__(),index=df[cols[0]].index)

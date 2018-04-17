@@ -12,7 +12,7 @@ class DRHeatLoad:
         self.lower_bound = lower_bound
 
 class electricStorage:
-    def __init__(self, om = 0.005, Cbw = 0.00075 , capacity = 13000, SOCmin = 0.1, SOCmax = 0.9, SOCint = 0.1, Pmax_in = 1250, Pmax_out = 1250, efficiency = 0.95, selfRelease = 0.0025):
+    def __init__(self, om = 0.005, Cbw = 0.00075 , capacity = 13000, SOCmin = 0.1, SOCmax = 0.9, SOCint = 0.1, Pmax_in = 1250, Pmax_out = 1250, efficiency = 1, selfRelease = 0.0025):
         self.om = om
         self.Cbw = Cbw
         self.capacity = capacity
@@ -91,7 +91,7 @@ class heatStorage:
                 "Hmax_in":self.Hmax_in}
 
 class coldStorage:
-    def __init__(self, om = 0.01, capacity = 3000, Tmin = 0.1, Tmax = 0.95, Tint = 0.1, Hin = 500, Hout = 500, Pmin = 0, Pmax = 500, maxDetP = 500, EER = 3 , efficiency = 0.9 , COP = 3 , Partition_in = 0.9, Partition_out = 0.9, mode = "并联" ,selfRelease = 0.002):
+    def __init__(self, om = 0.01, capacity = 3000, Tmin = 0.1, Tmax = 0.95, Tint = 0.1, Hin = 500, Hout = 500, Pmin = 0, Pmax = 500, maxDetP = 500, EER = 3 , efficiency = 1 , COP = 3 , Partition_in = 0.9, Partition_out = 0.9, mode = "并联" ,selfRelease = 0.002):
         self.om = om
         self.capacity = capacity
         self.Tmin = Tmin
