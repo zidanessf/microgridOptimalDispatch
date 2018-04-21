@@ -7,6 +7,7 @@ import copy
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
+import math
 H2M = 0.2
 
 def DayAheadModel(microgrid_data,case,T_range):
@@ -230,6 +231,9 @@ def DayAheadModel(microgrid_data,case,T_range):
     '''sub problem'''
     optimalDispatch.sub = Block()
     optimalDispatch.sub.pv = Var(T,bounds=lambda mdl,t:(pv_lower[t],pv_upper[t]))
+    real_intval = math.sqrt(sum(((pv_upper[t]-pv_lower[t])/2)**2 for t in T))
+    real_mid = sum(pv_output)
+    optimalDispatch.sub.pv_cons = Constraint(expr = real_mid - real_intval<= sum(optimalDispatch.sub.pv[t] for t in T) <= real_mid + real_intval)
     # optimalDispatch.sub.det_load = Var(T,bounds=(-1,1))
 
     return optimalDispatch
@@ -431,7 +435,7 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
     T = mdl.T
     step = mdl.step
     device = case.device
-    L = range(4)
+    L = range(2)
     pv_output = microgrid_data['光伏出力'][T[0]:T[-1] + 1].tolist()
     # # '''MPC Variables'''
     setattr(mdl.sub, 'MPC_' + str(t), SubModel())
@@ -447,8 +451,8 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
     sub.utility_power = Var(L,bounds=(-10000,10000))
     sub.buy_heat = Var(L,bounds=(0,10000))
     sub.P_DER = Var(L,domain=PositiveReals)
-    sub.ESSocAuxVar = Var(N_es,L,bounds=lambda b,i,s: (-device[i].capacity,device[i].capacity))
-    sub.CSSocAuxVar = Var(N_cs, L,bounds=lambda b,i,s: (-device[i].capacity,device[i].capacity))
+    # sub.ESSocAuxVar = Var(N_es,L,bounds=lambda b,i,s: (-device[i].capacity,device[i].capacity))
+    # sub.CSSocAuxVar = Var(N_cs, L,bounds=lambda b,i,s: (-device[i].capacity,device[i].capacity))
     # sub.x = Var(L,bounds=(-10000,10000))
     # sub.mirror = Constraint(L,rule=lambda b,s: -eps <= b.x[s] - 0.1 * mdl.utility_power[t+s] <=eps)
     '''电功率平衡约束'''
@@ -500,10 +504,10 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
     '''Power Bounds'''
     #ES
     sub.ES_power_bounds = Constraint(N_es,L,rule = lambda b,i,s: -device[i].Pmax_in<= b.detP_es[i,s] - mdl.es_power_in[i,t+s]+ mdl.es_power_out[i,t+s] <= device[i].Pmax_out)
-    sub.ES_FINAL = Constraint(N_es,rule=lambda b,i:-eps <= b.detP_es[i,3] <= eps)
+    sub.ES_FINAL = Constraint(N_es,rule=lambda b,i:-eps <= b.detP_es[i,L[-1]] <= eps)
     #CS
     sub.CS_power_bounds = Constraint(N_cs,L,rule = lambda b,i,s: -device[i].Hin<= b.det_cs_cold[i,s] + mdl.cs_cold[i,t+s] <= device[i].Hout)
-    sub.CS_FINAL = Constraint(N_cs, rule=lambda b, i: -eps <= b.det_cs_cold[i, 3] <= eps)
+    sub.CS_FINAL = Constraint(N_cs,rule=lambda b, i: -eps <= b.det_cs_cold[i, L[-1]] <= eps)
     #GT
     sub.P_gt_bounds_lower = Constraint(N_gt,L,rule = lambda b,i,s:   b.gt_power[i,s] + mdl.gt_power[i,t+s] - device[i].Pmin * mdl.gt_state[i,t+s] >= 0)
     sub.P_gt_bounds_upper = Constraint(N_gt,L,rule = lambda b,i,s:   b.gt_power[i,s] + mdl.gt_power[i,t+s] - device[i].Pmax * mdl.gt_state[i,t+s] <= 0)
@@ -550,15 +554,21 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
         return Fuel_Cost(b,l) + ElectricalFee(b,l) + HeatFee(b,l)
     sub.obj_Cost = obj_Cost
     sub.obj_MinSocError = obj_MinSocError
-    sub.objective = Objective(expr=10*obj_MinSocError(sub)+obj_Cost(sub,L))
-    sub.ESCsocAuxCons1 = Constraint(N_es,L,rule = lambda b,i,s:b.ESSocAuxVar[i,s]>=
-                                                                 (b.es_energy[i,s] - mdl.es_energy[i,t+s]))
-    sub.ESsocAuxCons2 = Constraint(N_es, L, rule=lambda b, i,s: b.ESSocAuxVar[i, s] >=
-                                                                - (b.es_energy[i, s] - mdl.es_energy[i, t + s]) )
-    sub.CSCsocAuxCons1 = Constraint(N_cs,L,rule = lambda b,i,s:b.CSSocAuxVar[i,s]>=
-                                                                 (b.cs_cold_stored[i,s] - mdl.cs_cold_stored[i,t+s]))
-    sub.CSsocAuxCons2 = Constraint(N_cs, L, rule=lambda b, i,s: b.CSSocAuxVar[i, s] >=
-                                                                - (b.cs_cold_stored[i, s] - mdl.cs_cold_stored[i, t + s]))
+    sub.objective = Objective(expr=obj_Cost(sub,L))
+    # sub.ESCsocAuxCons1 = Constraint(N_es,L,rule = lambda b,i,s:b.ESSocAuxVar[i,s]>=
+    #                                                              (b.es_energy[i,s] - mdl.es_energy[i,t+s]))
+    # sub.ESsocAuxCons2 = Constraint(N_es, L, rule=lambda b, i,s: b.ESSocAuxVar[i, s] >=
+    #                                                             - (b.es_energy[i, s] - mdl.es_energy[i, t + s]) )
+    # sub.CSCsocAuxCons1 = Constraint(N_cs,L,rule = lambda b,i,s:b.CSSocAuxVar[i,s]>=
+    #                                                              (b.cs_cold_stored[i,s] - mdl.cs_cold_stored[i,t+s]))
+    # sub.CSsocAuxCons2 = Constraint(N_cs, L, rule=lambda b, i,s: b.CSSocAuxVar[i, s] >=
+    #                                                             - (b.cs_cold_stored[i, s] - mdl.cs_cold_stored[i, t + s]))
+
+    sub.CSsocAuxCons = Constraint(N_cs, L, rule=lambda b, i, s:-eps <=
+                                                            - (b.cs_cold_stored[i, s] - mdl.cs_cold_stored[i, t + s]) <= eps)
+    sub.ESsocAuxCons = Constraint(N_es, L, rule=lambda b, i, s: -eps <=
+                                                                 - (b.es_energy[i, s] - mdl.es_energy[
+                                                                     i, t + s]) <= eps)
 
 def df_sum(df,cols):
     newdf = pd.Series([0]*df.__len__(),index=df[cols[0]].index)
@@ -604,10 +614,12 @@ def add_kkt_cuts(mdl,IterNum): #create a copy of sub-problem and fix the pv vars
 def transform_sub(mdl):
     xfrm = TransformationFactory('mpec.simple_disjunction')
     xfrm.apply_to(mdl)
+    NumOfKKT = sum([1 if isinstance(data,SubModel) else 0 for (name, data) in mdl.component_map().items()])
+    targets = ('MPC_{0}_kkt'.format(i) for i in range(NumOfKKT))
     xfrm = TransformationFactory('gdp.bigm')
-    xfrm.apply_to(mdl, default_bigM=100000)  # Big-M过小会导致不可行
+    xfrm.apply_to(mdl, bigM=100000,targets=targets)  # Big-M过小会导致不可行
 def transform_master(mdl):
     xfrm = TransformationFactory('mpec.simple_disjunction')
     xfrm.apply_to(mdl)
     xfrm = TransformationFactory('gdp.bigm')
-    xfrm.apply_to(mdl, default_bigM=1000)
+    xfrm.apply_to(mdl, bigM=10000)

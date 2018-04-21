@@ -10,12 +10,12 @@ from optimizationModel import *
 '''Initialize a special case of microgrid'''
 case = microgridStructure.case_IES
 '''Load input data'''
-microgrid_data = pd.read_excel('IES_SIMPLE.xlsx')
+microgrid_data = pd.read_excel('input_IES.xlsx')
 
 '''Construct base model'''
-OD = DayAheadModel(microgrid_data,case,range(6))
-Tmpc = 3
-Lmpc = 4
+OD = DayAheadModel(microgrid_data,case,range(24))
+Tmpc = 21
+Lmpc = 2
 # get the KKT conditions
 subobj = 0
 fix_all_var(OD)
@@ -34,6 +34,7 @@ for i in range(Tmpc):
         subobj += temp.obj_Cost(temp, range(Lmpc))
     else:
         subobj += temp.obj_Cost(temp, 0)
+    print('MPC_{0} created'.format(i))
 # set sub-problem objective///fix master vars///transform the sub-problem
 OD.sub.o = Objective(expr=subobj,sense=maximize)
 OD.sub.obj_copy = subobj
@@ -65,15 +66,27 @@ while 1:
     if NumIter >= 2:
         del OD.objective
         OD.objective = Objective(rule=lambda mdl: mdl.obj_Economical(mdl) + mdl.eta)
-    res = solver.solve(OD)
+    res = solver.solve(OD,tee=True)
     # print([value(OD.utility_power[t]) for t in OD.T])
     if NumIter >= 2:
         lb = value(OD.objective)
         print('各子问题eta')
-        for i in  range(1,NumIter):
+        for i in range(1,NumIter):
+            try:
+                sub_p = getattr(OD,'KKTG'+str(i))
+            except Exception:
+                continue
             print('子问题{0}'.format(i))
-            print(value(getattr(OD,'KKTG'+str(i)).obj_copy))
-            print([value(getattr(OD,'KKTG'+str(i)).pv[t]) for t in OD.T])
+            temp_obj = value(sub_p.obj_copy)
+            print(temp_obj)
+            print([value(sub_p.pv[t]) for t in OD.T])
+            if i == 1:
+                pv_ref = [value(sub_p.pv[t]) for t in OD.T]
+            else:
+                if sum(abs((value(sub_p.pv[t])-pv_ref[t])) for t in OD.T) <= 0.1:
+                    OD.del_component('KKTG'+str(i))
+                    OD.del_component('opt_cut_' + str(i))
+        del pv_ref
     # if res.solver.termination_condition == TerminationCondition.optimal:
     #     lb = value(OD.objective)
     # elif res.solver.termination_condition == TerminationCondition.unbounded:
@@ -90,7 +103,7 @@ while 1:
     OD.sub.activate()
     fix_all_var(OD) #注意查看文档，fix变量的方法,fix master variables
     solver = SolverFactory('gurobi')
-    res = solver.solve(OD.sub,tee=False#stream the solver output
+    res = solver.solve(OD.sub,tee=True#stream the solver output
                          #print the MILP file for examination
                         ) #fix变量之后，submodel可以直接求解
     # res = solver.solve(OD.sub)
@@ -106,7 +119,7 @@ while 1:
     print('-----------------------')
     print('THE GAP IS {0}%'.format(100*(ub-lb)/(ub+lb)))
     print('-----------------------')
-    if (ub-lb)/(ub+lb) <= 0.0001:
+    if (ub-lb)/(ub+lb) <= 0.005:
         print('CONVERGED!')
         break
     add_kkt_cuts(OD, NumIter)
