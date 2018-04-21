@@ -7,40 +7,6 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
 H2M = 0.2
-def TestModel(microgrid_data,case,T_range):
-    eps = 0.0001
-    microgrid_device = case.device
-    N_T = case.NumOfTime
-    T = range(len(T_range))
-    step = 24 / N_T
-    acLoad = microgrid_data['交流负荷'][T[0]:T[-1] + 1].tolist()
-    microgrid_device['ut'].buy_price = microgrid_data['电价'][T[0]:T[-1] + 1].tolist()
-    '''A general model and algorithm for microgrid optimal dispatch'''
-    '''define sets'''
-    optimalDispatch = ConcreteModel(name='IES_optimalDispatch')
-    wind_power_max = microgrid_data['风机出力上限'][T[0]:T[-1] + 1].tolist()
-    wind_power_min = microgrid_data['风机出力下限'][T[0]:T[-1] + 1].tolist()
-    optimalDispatch.wp = Var(T, bounds=lambda mdl, t: (-200, 100))
-    '''This is the sub-problem'''
-    optimalDispatch.sub = SubModel()
-    optimalDispatch.sub.T = T
-    optimalDispatch.sub.T_range = T_range
-    optimalDispatch.sub.input = microgrid_data
-    optimalDispatch.sub.case = case
-    '''define variables'''
-    optimalDispatch.sub.utility_power = Var(T, bounds=(-10000, 10000))
-    def ACPowerBalance(mdl, t):
-        power_supply = mdl.utility_power[t] + optimalDispatch.wp[t]
-        power_demand = acLoad[t]
-        return -eps <= power_supply - power_demand <= eps
-    optimalDispatch.sub.ACPowerBalance = Constraint(T,rule=ACPowerBalance)
-    def ElectricalFee(mdl):
-        return step * sum(mdl.utility_power[t] * microgrid_device['ut'].buy_price[t] for t in T)
-    def obj_Economical(mdl):
-        return ElectricalFee(mdl)
-    optimalDispatch.sub.obj_Economical = obj_Economical
-    optimalDispatch.objective = Objective(rule=lambda mdl: -obj_Economical(mdl.sub))
-    return optimalDispatch
 def DayAheadModel(microgrid_data,case,T_range):
     microgrid_device = case.device
     N_T = case.NumOfTime
@@ -55,7 +21,7 @@ def DayAheadModel(microgrid_data,case,T_range):
     N_pv = case.getKey(PV)
     N_bus = case.graph.nodes()
     N_branch = case.graph.edges()
-    if case.type == 'Simple':
+    if case.type == 'Simple': #NOTE 这个BRANCH应该不涉及综合能源
         microgrid_device['ut'].buy_price = microgrid_data['电价'][T[0]:T[-1]+ 1].tolist()
         acLoad = microgrid_data['交流负荷'][T[0]:T[-1] + 1].tolist()
         dcLoad = microgrid_data['直流负荷'][T[0]:T[-1] + 1].tolist()
@@ -73,50 +39,47 @@ def DayAheadModel(microgrid_data,case,T_range):
     '''A general model and algorithm for microgrid optimal dispatch'''
     '''define sets'''
     optimalDispatch = ConcreteModel(name='IES_optimalDispatch')
-    wind_power_max = microgrid_data['风机出力上限'][T[0]:T[-1]+1].tolist()
-    wind_power_min = microgrid_data['风机出力下限'][T[0]:T[-1]+1].tolist()
-    optimalDispatch.wp = Var(N_pv,T,bounds=lambda mdl,n,t: (wind_power_min[t], wind_power_max[t]))
     '''This is the sub-problem'''
     eps = 0.001 #精度
-    optimalDispatch.sub = SubModel()
-    optimalDispatch.sub.T = T
-    optimalDispatch.sub.T_range = T_range
-    optimalDispatch.sub.input = microgrid_data
-    optimalDispatch.sub.case = case
+    optimalDispatch.T = T
+    optimalDispatch.T_range = T_range
+    optimalDispatch.input = microgrid_data
+    optimalDispatch.case = case
     '''define variables'''
-    # electrical storage
-    optimalDispatch.sub.es_power = Var(N_es, T, bounds=lambda mdl, i, T: (-microgrid_device[i].Pmax_in, microgrid_device[i].Pmax_out))
-    optimalDispatch.sub.es_energy = Var(N_es, T, bounds=lambda mdl, i, T: (
+    # electrical storage 储能应该也没有
+    optimalDispatch.es_power = Var(N_es, T, bounds=lambda mdl, i, T: (-microgrid_device[i].Pmax_in, microgrid_device[i].Pmax_out))
+    optimalDispatch.es_energy = Var(N_es, T, bounds=lambda mdl, i, T: (
     microgrid_device[i].SOCmin * microgrid_device[i].capacity,
     microgrid_device[i].SOCmax * microgrid_device[i].capacity))
     # absorption chiller
-    optimalDispatch.sub.absc_heat_in = Var(N_absc, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Hmax))
-    # heat variables
+    optimalDispatch.absc_heat_in = Var(N_absc, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Hmax))
+    # heat variables 这个BRANCH应该也不涉及热负荷
     if sum(steam_heat_load) + sum(water_heat_load) > 1:
-        optimalDispatch.sub.buy_heat = Var(T,bounds = (0,microgrid_device['ut'].PCC['maxH']))
-        optimalDispatch.sub.medium_heat = Var(T,bounds=(-10000,10000))
-        optimalDispatch.sub.low_heat = Var(T,bounds=(-10000,10000))
-    # boiler
-    optimalDispatch.sub.bol_power = Var(N_bol, T)
-    optimalDispatch.sub.bol_constraint1 = Constraint(N_bol,T,rule = lambda  mdl,i,t: mdl.bol_power[i,t] <= microgrid_device[i].Pmax)
-    optimalDispatch.sub.bol_constraint2 = Constraint(N_bol, T,rule=lambda mdl, i, t: mdl.bol_power[i, t] >= microgrid_device[i].Pmin)
-    # cold storage
-    optimalDispatch.sub.cs_cold = Var(N_cs, T, bounds=lambda mdl, i, T: (-microgrid_device[i].Hin, microgrid_device[i].Hout))
-    optimalDispatch.sub.cs_cold_stored = Var(N_cs, T, bounds=lambda mdl, i, T: (
+        optimalDispatch.buy_heat = Var(T,bounds = (0,microgrid_device['ut'].PCC['maxH']))
+        optimalDispatch.medium_heat = Var(T,bounds=(-10000,10000))
+        optimalDispatch.low_heat = Var(T,bounds=(-10000,10000))
+    # boiler 这个应该也没有
+    optimalDispatch.bol_power = Var(N_bol, T)
+    optimalDispatch.bol_constraint1 = Constraint(N_bol,T,rule = lambda  mdl,i,t: mdl.bol_power[i,t] <= microgrid_device[i].Pmax)
+    optimalDispatch.bol_constraint2 = Constraint(N_bol, T,rule=lambda mdl, i, t: mdl.bol_power[i, t] >= microgrid_device[i].Pmin)
+    # cold storage 这个应该也没有
+    optimalDispatch.cs_cold = Var(N_cs, T, bounds=lambda mdl, i, T: (-microgrid_device[i].Hin, microgrid_device[i].Hout))
+    optimalDispatch.cs_cold_stored = Var(N_cs, T, bounds=lambda mdl, i, T: (
     microgrid_device[i].Tmin * microgrid_device[i].capacity, microgrid_device[i].Tmax * microgrid_device[i].capacity))
-    # air conditioner
-    optimalDispatch.sub.ac_power = Var(N_ac, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax))
+    # air conditioner 这个应该也没有
+    optimalDispatch.ac_power = Var(N_ac, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax))
     # gas turbine
-    optimalDispatch.sub.gt_power = Var(N_gt, T)
-    optimalDispatch.sub.gt_constraint1 = Constraint(N_gt,T,rule = lambda mdl,i,t: mdl.gt_power[i,t] <= microgrid_device[i].Pmax)
-    optimalDispatch.sub.gt_constraint2 = Constraint(N_gt, T,rule=lambda mdl, i, t: mdl.gt_power[i, t] >= microgrid_device[i].Pmin)
+    optimalDispatch.gt_power = Var(N_gt, T)
+    optimalDispatch.gt_state = Var(N_gt,T,domain=Binary)
+    optimalDispatch.gt_constraint1 = Constraint(N_gt,T,rule = lambda mdl,i,t: mdl.gt_power[i,t] <= mdl.gt_state[i,t]*microgrid_device[i].Pmax + 0.001)
+    optimalDispatch.gt_constraint2 = Constraint(N_gt, T,rule=lambda mdl, i, t: mdl.gt_power[i, t] >= mdl.gt_state[i,t]*microgrid_device[i].Pmin - 0.001)
     # Injection Power
-    optimalDispatch.sub.P_inj = Var(N_bus,T)
+    optimalDispatch.P_inj = Var(N_bus,T)
     if case.type == 'Simple':
         # inverter
-        optimalDispatch.sub.inv_dc = Var(T)  # inv_dc > 0 means energy flows from inverter to dc side
+        optimalDispatch.inv_dc = Var(T)  # inv_dc > 0 means energy flows from inverter to dc side
         # utility power
-        optimalDispatch.sub.utility_power = Var(T, bounds=(-10000,10000))
+        optimalDispatch.utility_power = Var(T, bounds=(-10000,10000))
     '''define constraints'''
     '''电功率平衡约束'''
     def ACPowerBalance(mdl,t):
@@ -133,22 +96,22 @@ def DayAheadModel(microgrid_data,case,T_range):
         return -eps <= power_supply - power_demand <= eps
 
     def PowerBalance(mdl,t):
-        power_supply = sum(mdl.gt_power[i, t] for i in N_gt) + sum(optimalDispatch.wp[i,t] for i in N_pv)
+        power_supply = sum(mdl.gt_power[i, t] for i in N_gt)
         power_demand = sum(acLoad[node][t] for node in acLoad.keys())
         return -eps <= power_supply - power_demand <= eps
     if case.type == 'Simple':
-        optimalDispatch.sub.ACPowerBalance = Constraint(T, rule=ACPowerBalance)
-        optimalDispatch.sub.DCPowerBalance = Constraint(T, rule=DCPowerBalance)
+        optimalDispatch.ACPowerBalance = Constraint(T, rule=ACPowerBalance)
+        optimalDispatch.DCPowerBalance = Constraint(T, rule=DCPowerBalance)
     if case.type == 'Graph':
-        optimalDispatch.sub.PowerBalance = Constraint(T, rule=PowerBalance)
+        optimalDispatch.PowerBalance = Constraint(T, rule=PowerBalance)
     '''热功率平衡约束'''
     if sum(steam_heat_load) + sum(water_heat_load) > 1:
         H2M = 0.2
-        optimalDispatch.sub.HPB1 = Constraint(T, rule=lambda mdl, t: -eps <= mdl.medium_heat[t] - mdl.buy_heat[t] + sum(
+        optimalDispatch.HPB1 = Constraint(T, rule=lambda mdl, t: -eps <= mdl.medium_heat[t] - mdl.buy_heat[t] + sum(
             mdl.bol_power[n_bol, t] for n_bol in N_bol) + sum(mdl.gt_power[n_gt, t] * microgrid_device[n_gt].HER * microgrid_device[n_gt].heat_recycle for n_gt in N_gt) <= eps)
-        optimalDispatch.sub.HPB2 = Constraint(T,rule = lambda mdl,t:mdl.medium_heat[t] >= steam_heat_load[t])
-        optimalDispatch.sub.HPB3 = Constraint(T, rule=lambda mdl, t: -eps <= mdl.low_heat[t] - (H2M) * steam_heat_load[t] <= eps)
-        optimalDispatch.sub.HPB4 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] + mdl.medium_heat[t] >= water_heat_load[t] + steam_heat_load[t] + sum(mdl.absc_heat_in[n_absc, t] for n_absc in N_absc))
+        optimalDispatch.HPB2 = Constraint(T,rule = lambda mdl,t:mdl.medium_heat[t] >= steam_heat_load[t])
+        optimalDispatch.HPB3 = Constraint(T, rule=lambda mdl, t: -eps <= mdl.low_heat[t] - (H2M) * steam_heat_load[t] <= eps)
+        optimalDispatch.HPB4 = Constraint(T, rule=lambda mdl, t: mdl.low_heat[t] + mdl.medium_heat[t] >= water_heat_load[t] + steam_heat_load[t] + sum(mdl.absc_heat_in[n_absc, t] for n_absc in N_absc))
 
     '''冷功率平衡约束'''
     def coldPowerBalance(mdl, t):
@@ -158,7 +121,7 @@ def DayAheadModel(microgrid_data,case,T_range):
         cold_demand = cold_load[t]
         return -eps <= cold_supply - cold_demand <= eps
     if sum(cold_load) > 1:
-        optimalDispatch.sub.coldPowerBalance = Constraint(T, rule=coldPowerBalance)
+        optimalDispatch.coldPowerBalance = Constraint(T, rule=coldPowerBalance)
     '''电池日平衡约束、自放电率、爬坡率约束'''
 
     def batteryEnergyBalance(mdl, n_es, t):
@@ -169,8 +132,8 @@ def DayAheadModel(microgrid_data,case,T_range):
             return -eps <= mdl.es_energy[n_es, t] - mdl.es_energy[n_es, t - 1] * (1 - bat.selfRelease) \
                                              - step * mdl.es_power[n_es, t - 1] <= eps
 
-    optimalDispatch.sub.batteryEnergyBalance = Constraint(N_es, T, rule=batteryEnergyBalance)
-    optimalDispatch.sub.batteryEnergyBalance0 = Constraint(N_es, rule=lambda mdl,n:-eps <= mdl.es_energy[n, T[-1]]* (1 - microgrid_device[n].selfRelease) \
+    optimalDispatch.batteryEnergyBalance = Constraint(N_es, T, rule=batteryEnergyBalance)
+    optimalDispatch.batteryEnergyBalance0 = Constraint(N_es, rule=lambda mdl,n:-eps <= mdl.es_energy[n, T[-1]]* (1 - microgrid_device[n].selfRelease) \
                                              - step * mdl.es_power[n, T[-1]] - microgrid_device[n].SOCint * microgrid_device[n].capacity <= eps)
 
 
@@ -184,8 +147,8 @@ def DayAheadModel(microgrid_data,case,T_range):
             return -eps <= mdl.cs_cold_stored[n_cs, t] - mdl.cs_cold_stored[n_cs, t - 1] * (1 - ice.selfRelease) \
                                                   - step * mdl.cs_cold[n_cs, t - 1] <= eps
 
-    optimalDispatch.sub.coldStorageEnergyBalance = Constraint(N_cs, T, rule=coldStorageEnergyBalance)
-    optimalDispatch.sub.coldStorageEnergyBalance0 = Constraint(N_cs, rule=lambda mdl,n:-eps <= mdl.cs_cold_stored[n, T[-1]]* (1 - microgrid_device[n].selfRelease) \
+    optimalDispatch.coldStorageEnergyBalance = Constraint(N_cs, T, rule=coldStorageEnergyBalance)
+    optimalDispatch.coldStorageEnergyBalance0 = Constraint(N_cs, rule=lambda mdl,n:-eps <= mdl.cs_cold_stored[n, T[-1]]* (1 - microgrid_device[n].selfRelease) \
                                              - step * mdl.cs_cold[n, T[-1]] - microgrid_device[n].capacity*microgrid_device[n].Tint <= eps)
     '''燃气轮机/锅炉爬坡率约束'''
     def gtRampLimit(mdl,n,t):
@@ -198,8 +161,8 @@ def DayAheadModel(microgrid_data,case,T_range):
             return Constraint.Skip
         else:
             return -microgrid_device[n].maxDetP <= mdl.bol_power[n,t] - mdl.bol_power[n,t-1] <= microgrid_device[n].maxDetP
-    #optimalDispatch.sub.gtRampLimit = Constraint(N_gt,T,rule=gtRampLimit)
-    optimalDispatch.sub.bolRampLimit = Constraint(N_bol,T,rule=bolRampLimit)
+    #optimalDispatch.gtRampLimit = Constraint(N_gt,T,rule=gtRampLimit)
+    optimalDispatch.bolRampLimit = Constraint(N_bol,T,rule=bolRampLimit)
 
     '''线路潮流约束'''
     #TODO 线路潮流约束还没写好
@@ -214,7 +177,7 @@ def DayAheadModel(microgrid_data,case,T_range):
         else:
             PF = 1/X * (sum(case.B_INV.item(nf,nb) * mdl.P_inj[nb,t] for nb in N_bus) - sum(case.B_INV.item(nt,nb) * mdl.P_inj[nb,t] for nb in N_bus))
             return -limit <= PF <= limit
-    optimalDispatch.sub.PFlimit = Constraint(N_branch,T,rule=PFlimit)
+    optimalDispatch.PFlimit = Constraint(N_branch,T,rule=PFlimit)
     '''注入功率约束（中间量）'''
     def Power_Injection(mdl,nb,t):
         m = mdl.model()
@@ -225,7 +188,7 @@ def DayAheadModel(microgrid_data,case,T_range):
             if isinstance(dev,PV):
                 Temp += m.wp[key,t]
         return -eps <= mdl.P_inj[nb,t] - Temp <= eps
-    optimalDispatch.sub.Power_Injection =  Constraint(N_bus,T,rule=Power_Injection)
+    optimalDispatch.Power_Injection =  Constraint(N_bus,T,rule=Power_Injection)
     '''Define Objectives'''
 
     def OM_Cost(mdl):
@@ -242,33 +205,36 @@ def DayAheadModel(microgrid_data,case,T_range):
     def Fuel_Cost(mdl):
         fuel_cost = 0
         for id in N_gt:
-            fuel_cost += (1 / microgrid_device[id].efficiency) * microgrid_device['ut'].gas_price * step * sum(
-                mdl.gt_power[id, t] for t in T)
+            fuel_cost += sum (mdl.gt_power[id,t] * microgrid_device[id].cost[1] + mdl.gt_power[id,t] **2 * microgrid_device[id].cost[2]\
+                              for t in T)
         for id in N_bol:
             fuel_cost += (1 / microgrid_device[id].efficiency) * microgrid_device['ut'].gas_price * step * sum(
                 mdl.bol_power[id, t] for t in T)
         return fuel_cost
-
+    def ON_OFF_cost(mdl):
+        on_off_cost = 0
+        for id in N_gt:
+            on_off_cost += sum(microgrid_device[id].cost[0] * (mdl.gt_state[id,t] - mdl.gt_state[id,t-1])**2 if t >= 1 else 0 for t in T)
+        return on_off_cost
     def ElectricalFee(mdl):
         return step * sum(mdl.utility_power[t] * microgrid_device['ut'].buy_price[t] for t in T)
 
     def HeatFee(mdl):
         return step * sum(mdl.buy_heat[t] for t in T) * microgrid_device['ut'].steam_price
     def obj_Economical(mdl):
-        return OM_Cost(mdl) + Fuel_Cost(mdl) + ElectricalFee(mdl) + HeatFee(mdl)
+        return Fuel_Cost(mdl) + ON_OFF_cost(mdl)
     def obj_Efficiency(mdl):
         return (Fuel_Cost(mdl)/2.3 * 1.2143 + 0.1229 * 0.25 *sum(mdl.utility_power[t] for t in mdl.T) + 3.6 * 0.3412 * 0.25 * sum(mdl.buy_heat[t] for t in mdl.T)) \
                / (sum(acLoad)+sum(dcLoad)+sum(cold_load)+sum(water_heat_load)+sum(steam_heat_load))
     def obj_simple(mdl):
         return sum(sum(0.25*microgrid_device[n_gt].Cost*(mdl.gt_power[n_gt,t]) for n_gt in N_gt) for t in T)
-    optimalDispatch.sub.obj_Economical = obj_Economical
-    optimalDispatch.sub.obj_Efficiency = obj_Efficiency
-    optimalDispatch.sub.obj_simple = obj_simple
-    optimalDispatch.sub.objective = Objective(rule=obj_simple)
-    optimalDispatch.objective = Objective(rule=lambda mdl: -obj_simple(mdl.sub))
+    optimalDispatch.obj_Economical = obj_Economical
+    optimalDispatch.obj_Efficiency = obj_Efficiency
+    optimalDispatch.obj_simple = obj_simple
+    optimalDispatch.objective = Objective(rule=obj_Economical)
     return optimalDispatch
 def retriveResult(microgrid_data,case,mdl):
-    model = mdl.sub
+    model = mdl
     microgrid_device = case.device
     N_T = case.NumOfTime
     T = model.T
