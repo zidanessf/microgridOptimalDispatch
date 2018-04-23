@@ -7,40 +7,6 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
 H2M = 0.2
-def TestModel(microgrid_data,case,T_range):
-    eps = 0.0001
-    microgrid_device = case.device
-    N_T = case.NumOfTime
-    T = range(len(T_range))
-    step = 24 / N_T
-    acLoad = microgrid_data['交流负荷'][T[0]:T[-1] + 1].tolist()
-    microgrid_device['ut'].buy_price = microgrid_data['电价'][T[0]:T[-1] + 1].tolist()
-    '''A general model and algorithm for microgrid optimal dispatch'''
-    '''define sets'''
-    optimalDispatch = ConcreteModel(name='IES_optimalDispatch')
-    wind_power_max = microgrid_data['风机出力上限'][T[0]:T[-1] + 1].tolist()
-    wind_power_min = microgrid_data['风机出力下限'][T[0]:T[-1] + 1].tolist()
-    optimalDispatch.wp = Var(T, bounds=lambda mdl, t: (-200, 100))
-    '''This is the sub-problem'''
-    optimalDispatch.sub = SubModel()
-    optimalDispatch.sub.T = T
-    optimalDispatch.sub.T_range = T_range
-    optimalDispatch.sub.input = microgrid_data
-    optimalDispatch.sub.case = case
-    '''define variables'''
-    optimalDispatch.sub.utility_power = Var(T, bounds=(-10000, 10000))
-    def ACPowerBalance(mdl, t):
-        power_supply = mdl.utility_power[t] + optimalDispatch.wp[t]
-        power_demand = acLoad[t]
-        return -eps <= power_supply - power_demand <= eps
-    optimalDispatch.sub.ACPowerBalance = Constraint(T,rule=ACPowerBalance)
-    def ElectricalFee(mdl):
-        return step * sum(mdl.utility_power[t] * microgrid_device['ut'].buy_price[t] for t in T)
-    def obj_Economical(mdl):
-        return ElectricalFee(mdl)
-    optimalDispatch.sub.obj_Economical = obj_Economical
-    optimalDispatch.objective = Objective(rule=lambda mdl: -obj_Economical(mdl.sub))
-    return optimalDispatch
 def DayAheadModel(microgrid_data,case,T_range):
     microgrid_device = case.device
     N_T = case.NumOfTime
@@ -64,9 +30,9 @@ def DayAheadModel(microgrid_data,case,T_range):
         steam_heat_load = microgrid_data['蒸汽负荷'][T[0]:T[-1]+1].tolist()
         pv_output = microgrid_data['光伏出力'][T[0]:T[-1] + 1].tolist()
     if case.type == 'Graph':
-        acLoad = dict()
-        for node in case.graph.nodes():
-            acLoad[node] = microgrid_data[str(node)+'节点交流负荷'][T[0]:T[-1]+1].tolist()
+        # acLoad = dict()
+        # for node in case.graph.nodes():
+        #     acLoad[node] = microgrid_data[str(node)+'节点交流负荷'][T[0]:T[-1]+1].tolist()
         steam_heat_load = len(T)*[0]
         water_heat_load = len(T)*[0]
         cold_load = len(T)*[0]
@@ -134,7 +100,7 @@ def DayAheadModel(microgrid_data,case,T_range):
 
     def PowerBalance(mdl,t):
         power_supply = sum(mdl.gt_power[i, t] for i in N_gt) + sum(optimalDispatch.wp[i,t] for i in N_pv)
-        power_demand = sum(acLoad[node][t] for node in acLoad.keys())
+        power_demand = sum(case.graph.node[node]['Load'][t] for node in case.graph.nodes())
         return -eps <= power_supply - power_demand <= eps
     if case.type == 'Simple':
         optimalDispatch.sub.ACPowerBalance = Constraint(T, rule=ACPowerBalance)
@@ -224,6 +190,7 @@ def DayAheadModel(microgrid_data,case,T_range):
                 Temp += mdl.gt_power[key,t]
             if isinstance(dev,PV):
                 Temp += m.wp[key,t]
+        Temp -= case.graph.node[nb]['Load'][t]
         return -eps <= mdl.P_inj[nb,t] - Temp <= eps
     optimalDispatch.sub.Power_Injection =  Constraint(N_bus,T,rule=Power_Injection)
     '''Define Objectives'''
