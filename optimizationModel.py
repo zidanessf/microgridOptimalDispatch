@@ -35,6 +35,7 @@ def DayAheadModel(microgrid_data,case,T_range):
     # electrical storage
     optimalDispatch.es_power_in = Var(N_es, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax_in))
     optimalDispatch.es_power_out = Var(N_es, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax_out))
+    optimalDispatch.es_ramp_aux = Var(N_es,T[0:-1])
     #optimalDispatch.es_power_out_0 = Constraint(N_es,rule=lambda mdl,i: mdl.es_power_out[i,T[-1]] == 0)
     optimalDispatch.es_energy = Var(N_es, T, bounds=lambda mdl, i, T: (
     microgrid_device[i].SOCmin * microgrid_device[i].capacity,
@@ -90,6 +91,13 @@ def DayAheadModel(microgrid_data,case,T_range):
         return [mdl.es_power_in_out_state[i, T, 0], mdl.es_power_in_out_state[i, T, 1]]
 
     optimalDispatch.es_in_out = Disjunction(N_es, T, rule=es_in_out)
+    optimalDispatch.es_ramp_aux_cons1 = Constraint(N_es,T[0:-1],rule= lambda mdl,i,t: mdl.es_ramp_aux[i,t] >=
+    mdl.es_power_in[i,t] + mdl.es_power_out[i,t] - mdl.es_power_in[i,t + 1] - mdl.es_power_out[i,t + 1])
+    optimalDispatch.es_ramp_aux_cons2 = Constraint(N_es, T[0:-1], rule=lambda mdl, i, t: mdl.es_ramp_aux[i, t] >=
+                                                                                        - mdl.es_power_in[i, t] -
+                                                                                        mdl.es_power_out[i, t] +
+                                                                                        mdl.es_power_in[i, t + 1] +
+                                                                                        mdl.es_power_out[i, t + 1])
     '''Cold Storage'''
 
     def cs_cold_in_out_state(b, i, T, indicator):
@@ -286,6 +294,11 @@ def DayAheadModel(microgrid_data,case,T_range):
         return step * sum(mdl.buy_heat[t] for t in T) * microgrid_device['ut'].steam_price
     def StartShutdownFee(mdl):
         return sum(microgrid_device[n].ON_OFF_COST*sum(mdl.gt_auxvar[n,t] for t in T) for n in N_gt) + sum(microgrid_device[n].ON_OFF_COST*sum(mdl.bol_auxvar[n,t] for t in T) for n in N_bol)
+    def HACKFEE(mdl):
+        temp = 0
+        for i in N_es:
+            temp += sum(mdl.es_ramp_aux[i,t] for t in T[0:-1])
+        return temp
     def obj_Economical(mdl):
         return OM_Cost(mdl) + Dep_Cost(mdl) + Fuel_Cost(mdl) + ElectricalFee(mdl) + HeatFee(mdl)+StartShutdownFee(mdl)
     def obj_Efficiency(mdl):
@@ -293,7 +306,7 @@ def DayAheadModel(microgrid_data,case,T_range):
                / (sum(acLoad)+sum(dcLoad)+sum(cold_load)+sum(water_heat_load)+sum(steam_heat_load))
     optimalDispatch.obj_Economical = obj_Economical
     optimalDispatch.obj_Efficiency = obj_Efficiency
-    optimalDispatch.objective = Objective(rule=obj_Economical)
+    optimalDispatch.objective = Objective(rule=lambda mdl: 1000000*obj_Economical(mdl) + HACKFEE(mdl))
     return optimalDispatch
 def retriveResult(microgrid_data,case,model):
     microgrid_device = case.device
