@@ -25,7 +25,8 @@ input_data = {
 '''Construct base model'''
 optimalDispatch = optimizationModel.DayInModel(**input_data)
 '''Solve the base model'''
-xfrm = TransformationFactory('gdp.chull')
+# xfrm = TransformationFactory('gdp.chull')
+xfrm = TransformationFactory('mpec.simple_disjunction')
 xfrm.apply_to(optimalDispatch)
 solver = SolverFactory('glpk')
 solver.solve(optimalDispatch)
@@ -46,10 +47,6 @@ for e in [1,0.8,0.6,0.4,0.2]:
     #修正优化模型
     responseStrategy = optimizationModel.responseModel(optimalDispatch, case, peak=peak, amount = amount,mode='E')#TODO
     #求解
-    xfrm = TransformationFactory('gdp.chull')
-    xfrm.apply_to(responseStrategy)
-    solver = SolverFactory('glpk')
-    solver.solve(responseStrategy)
     print('电需求响应' + str(100 * e) + '%：' + str(value(responseStrategy.objective)))
     #获取结果
     res_result = optimizationModel.retriveResult(microgrid_data,case,responseStrategy)
