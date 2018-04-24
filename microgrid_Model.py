@@ -11,7 +11,7 @@ class DRHeatLoad:
         self.lower_bound = lower_bound
 
 class electricStorage:
-    def __init__(self, om = 0.005, Cbw = 0.00075 , capacity = 9600, SOCmin = 0.1, SOCmax = 0.9, SOCint = 0.1, Pmax_in = 1250, Pmax_out = 1250, efficiency = 0.95, selfRelease = 0):
+    def __init__(self, om = 0.005, Cbw = 0.00075 , capacity = 2400, SOCmin = 0.1, SOCmax = 0.9, SOCint = 0.1, Pmax_in = 1250, Pmax_out = 1250, efficiency = 0.95, selfRelease = 0):
         self.om = om
         self.Cbw = Cbw
         self.capacity = capacity
