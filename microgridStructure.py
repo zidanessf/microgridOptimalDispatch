@@ -140,10 +140,10 @@ case_IES = MicrogridCase_Simple(device=device_IES, NumOfTime=96)
 #     'X' : 2.97,
 #     'Limit' : 240
 # })
-
 # 赶工啦，临时写的一个PYPOWER ---- GRAPH 转换器
 from case39 import case39
 import numpy as np
+np.random.seed(96)
 def ppc2graph(ppc):
     graph_PS = nx.Graph()
     ppc_nodes = ppc['bus'][:,0].astype(np.int) - 1
@@ -158,7 +158,7 @@ def ppc2graph(ppc):
     for row in gen:
         bus = row[0].astype(np.int) - 1
         graph_PS.node[bus]['device'].update({'GT_'+str(bus):gasTurbine(Pmax=row[8],Pmin=row[9],
-                                                                       Cost=0.3)})
+                                                                       Cost=0.5*bus)})
     for row in ppc['branch']:
         nf = row[0].astype(np.int) - 1
         nt = row[1].astype(np.int) - 1

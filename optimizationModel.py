@@ -77,7 +77,7 @@ def DayAheadModel(microgrid_data,case,T_range):
     optimalDispatch.sub.gt_constraint1 = Constraint(N_gt,T,rule = lambda mdl,i,t: mdl.gt_power[i,t] <= microgrid_device[i].Pmax)
     optimalDispatch.sub.gt_constraint2 = Constraint(N_gt, T,rule=lambda mdl, i, t: mdl.gt_power[i, t] >= microgrid_device[i].Pmin)
     # Injection Power
-    optimalDispatch.sub.P_inj = Var(N_bus,T)
+    # optimalDispatch.sub.P_inj = Var(N_bus,T)
     if case.type == 'Simple':
         # inverter
         optimalDispatch.sub.inv_dc = Var(T)  # inv_dc > 0 means energy flows from inverter to dc side
@@ -180,7 +180,7 @@ def DayAheadModel(microgrid_data,case,T_range):
         else:
             PF = 1/X * (sum(case.B_INV.item(nf,nb) * mdl.P_inj[nb,t] for nb in N_bus) - sum(case.B_INV.item(nt,nb) * mdl.P_inj[nb,t] for nb in N_bus))
             return -limit <= PF <= limit
-    optimalDispatch.sub.PFlimit = Constraint(N_branch,T,rule=PFlimit)
+    # optimalDispatch.sub.PFlimit = Constraint(N_branch,T,rule=PFlimit)
     '''注入功率约束（中间量）'''
     def Power_Injection(mdl,nb,t):
         m = mdl.model()
@@ -192,7 +192,7 @@ def DayAheadModel(microgrid_data,case,T_range):
                 Temp += m.wp[key,t]
         Temp -= case.graph.node[nb]['Load'][t]
         return -eps <= mdl.P_inj[nb,t] - Temp <= eps
-    optimalDispatch.sub.Power_Injection =  Constraint(N_bus,T,rule=Power_Injection)
+    # optimalDispatch.sub.Power_Injection =  Constraint(N_bus,T,rule=Power_Injection)
     '''Define Objectives'''
 
     def OM_Cost(mdl):
@@ -232,7 +232,7 @@ def DayAheadModel(microgrid_data,case,T_range):
     optimalDispatch.sub.obj_Efficiency = obj_Efficiency
     optimalDispatch.sub.obj_simple = obj_simple
     optimalDispatch.sub.objective = Objective(rule=obj_simple)
-    optimalDispatch.objective = Objective(rule=lambda mdl: -obj_simple(mdl.sub))
+    optimalDispatch.objective = Objective(rule=lambda mdl:  obj_simple(mdl.sub))
     return optimalDispatch
 def retriveResult(microgrid_data,case,mdl):
     model = mdl.sub
