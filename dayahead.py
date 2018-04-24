@@ -10,7 +10,7 @@ case = microgridStructure.case_PS
 microgrid_data = pd.read_excel('input_PS.xlsx')
 '''Construct base model'''
 optimalDispatch = optimizationModel.DayAheadModel(microgrid_data,case,range(96))
-solver = SolverFactory('gurobi')
+solver = SolverFactory('cplex')
 res = solver.solve(optimalDispatch,tee=True)
 case.update(optimalDispatch)
 case.DCPowerFlow()

@@ -88,17 +88,17 @@ def DayAheadModel(microgrid_data,case,T_range):
         power_demand = 1.05*sum(mdl.ac_power[i, t] for i in N_ac) \
                        + acLoad[t] + (1 / microgrid_device['inv'].ac_dc_efficiency) * mdl.inv_dc[t]\
 					   + sum(microgrid_device[i].ElecCost * mdl.absc_heat_in[i, t] for i in N_absc)
-        return -eps <= power_supply - power_demand <= eps
+        return power_supply - power_demand == 0
 
     def DCPowerBalance(mdl, t):
         power_supply = sum(mdl.es_power[i, t] for i in N_es) + mdl.inv_dc[t] + pv_output[t]
         power_demand = dcLoad[t]
-        return -eps <= power_supply - power_demand <= eps
+        return  power_supply - power_demand == 0
 
     def PowerBalance(mdl,t):
         power_supply = sum(mdl.gt_power[i, t] for i in N_gt)
         power_demand = sum(acLoad[node][t] for node in acLoad.keys())
-        return -eps <= power_supply - power_demand <= eps
+        return  power_supply - power_demand == 0
     if case.type == 'Simple':
         optimalDispatch.ACPowerBalance = Constraint(T, rule=ACPowerBalance)
         optimalDispatch.DCPowerBalance = Constraint(T, rule=DCPowerBalance)
@@ -164,8 +164,6 @@ def DayAheadModel(microgrid_data,case,T_range):
     #optimalDispatch.gtRampLimit = Constraint(N_gt,T,rule=gtRampLimit)
     optimalDispatch.bolRampLimit = Constraint(N_bol,T,rule=bolRampLimit)
 
-    '''线路潮流约束'''
-    #TODO 线路潮流约束还没写好
     def PFlimit(mdl,nf,nt,t):
         # nf = line[0]
         # nt = line[1]
@@ -187,7 +185,8 @@ def DayAheadModel(microgrid_data,case,T_range):
                 Temp += mdl.gt_power[key,t]
             if isinstance(dev,PV):
                 Temp += m.wp[key,t]
-        return -eps <= mdl.P_inj[nb,t] - Temp <= eps
+        Temp -= acLoad[nb][t]
+        return mdl.P_inj[nb,t] - Temp == 0
     optimalDispatch.Power_Injection =  Constraint(N_bus,T,rule=Power_Injection)
     '''Define Objectives'''
 
