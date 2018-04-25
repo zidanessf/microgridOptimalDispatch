@@ -74,9 +74,10 @@ def DayAheadModel(microgrid_data,case,T_range):
     0, microgrid_device['inv'].maxP))  # inv_dc > 0 means energy flows from inverter to dc side
     # utility power
     optimalDispatch.utility_power = Var(T, domain=PositiveReals)
-    optimalDispatch.ut_power_aux = Var()
-    optimalDispatch.minmax_ut_power = Constraint(T[0:32],rule = lambda mdl,t:mdl.ut_power_aux >= mdl.utility_power[t])
-
+    optimalDispatch.ut_power_max_aux = Var()
+    optimalDispatch.ut_power_min_aux = Var()
+    optimalDispatch.minmax_ut_power = Constraint(T[0:32],rule = lambda mdl,t:mdl.ut_power_max_aux >= mdl.utility_power[t])
+    optimalDispatch.maxmin_ut_power = Constraint(T[0:32],rule = lambda mdl,t:mdl.ut_power_min_aux <= mdl.utility_power[t])
     '''define disjuncts(states)'''
     '''Battery'''
 
@@ -308,7 +309,7 @@ def DayAheadModel(microgrid_data,case,T_range):
                / (sum(acLoad)+sum(dcLoad)+sum(cold_load)+sum(water_heat_load)+sum(steam_heat_load))
     optimalDispatch.obj_Economical = obj_Economical
     optimalDispatch.obj_Efficiency = obj_Efficiency
-    optimalDispatch.objective = Objective(rule=lambda mdl: 5000000 * obj_Economical(mdl) + HACKFEE(mdl) + 0*mdl.ut_power_aux)
+    optimalDispatch.objective = Objective(rule=lambda mdl: 5000000 * obj_Economical(mdl) + HACKFEE(mdl) + 5000*(mdl.ut_power_max_aux-mdl.ut_power_min_aux))
     return optimalDispatch
 def retriveResult(microgrid_data,case,model):
     microgrid_device = case.device
