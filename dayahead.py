@@ -48,3 +48,4 @@ for e in [1,0.8,0.6,0.4,0.2]:
     res_result = optimizationModel.retriveResult(microgrid_data, case, responseStrategy)
     res_result.to_excel(writer, sheet_name=str(e))
 writer.save()
+#单位成本的生产能耗 2.5%
