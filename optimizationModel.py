@@ -187,7 +187,7 @@ def DayAheadModel(microgrid_data,case,T_range):
                 Temp += m.wp[key,t]
         Temp -= acLoad[nb][t]
         return mdl.P_inj[nb,t] - Temp == 0
-    optimalDispatch.Power_Injection =  Constraint(N_bus,T,rule=Power_Injection)
+    optimalDispatch.Power_Injection = Constraint(N_bus,T,rule=Power_Injection)
     '''Define Objectives'''
 
     def OM_Cost(mdl):
