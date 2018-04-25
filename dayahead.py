@@ -49,3 +49,5 @@ for e in [1,0.8,0.6,0.4,0.2]:
     res_result.to_excel(writer, sheet_name=str(e))
 writer.save()
 #单位成本的生产能耗 2.5%
+#实际数据仿真，写一个需求。考虑母线电压的影响。
+#考虑电压的变化。起到稳定电压的作用。
