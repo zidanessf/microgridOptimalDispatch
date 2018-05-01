@@ -9,7 +9,6 @@ case = microgridStructure.MicrogridCase()
 microgrid_data = pd.read_excel('input.xlsx')
 '''Construct base model'''
 optimalDispatch = optimizationModel.DayAheadModel(microgrid_data,case,range(96))
-
 '''Solve the base model'''
 xfrm = TransformationFactory('gdp.bigm')
 xfrm.apply_to(optimalDispatch)

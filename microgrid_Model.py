@@ -20,6 +20,7 @@ class electricStorage:
         self.SOCint = SOCint
         self.Pmax_in = Pmax_in
         self.Pmax_out = Pmax_out
+        self.Pmin_in = 200
         self.efficiency = efficiency
         self.selfRelease = selfRelease
         self.maxDetP = self.Pmax_out * 0.5

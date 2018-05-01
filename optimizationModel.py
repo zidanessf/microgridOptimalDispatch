@@ -100,7 +100,26 @@ def DayAheadModel(microgrid_data,case,T_range):
                                                                                         - mdl.es_power_in[i, t] -
                                                                                         mdl.es_power_out[i, t] +
                                                                                         mdl.es_power_in[i, t + 1] +
-                                                                                        mdl.es_power_out[i, t + 1])
+                                                                                       mdl.es_power_out[i, t + 1])
+
+    '''Battery if ON no STOP'''
+    def es_no_stop(b,i,t,indicator):
+        mdl = b.model()
+        if indicator == 0:
+            # b.is_started = Constraint(expr=mdl.es_power_in_out_state[i,t,1].indicator_var - mdl.es_power_in_out_state[i,t-1,1].indicator_var ==1 )
+            b.es_charge_prev = Constraint(expr=mdl.es_power_in[i, t - 1] >= microgrid_device[i].Pmin_in)
+            b.es_charge = Constraint(expr=mdl.es_power_in[i,t] >= microgrid_device[i].Pmin_in)
+        elif indicator == 1 :
+            b.SOC = Constraint(expr=mdl.es_energy[i, t] == microgrid_device[i].SOCmax * microgrid_device[i].capacity)
+        elif indicator == 2:
+            b.es_charge_prev = Constraint(expr=mdl.es_power_in[i, t - 1] == 0)
+    optimalDispatch.es_no_stop = Disjunct(N_es,T[1:32],[0,1,2],rule=es_no_stop)
+    def es_no_stop_FY(mdl, i, t):
+        return [mdl.es_no_stop[i, t, 0], mdl.es_no_stop[i, t, 1],mdl.es_no_stop[i, t, 2]]
+    optimalDispatch.es_no_stop_FY = Disjunction(N_es, T[1:32], rule=es_no_stop_FY)
+    optimalDispatch.es_no_charge = Constraint(N_es,T[29:32],rule=lambda mdl,i,t:mdl.es_power_in[i,t] == 0)
+    optimalDispatch.es_no_discharge = Constraint(N_es,T[0:32],rule = lambda mdl,i,t:mdl.es_power_out[i,t] == 0)
+
     '''Cold Storage'''
 
     def cs_cold_in_out_state(b, i, T, indicator):
@@ -309,7 +328,7 @@ def DayAheadModel(microgrid_data,case,T_range):
                / (sum(acLoad)+sum(dcLoad)+sum(cold_load)+sum(water_heat_load)+sum(steam_heat_load))
     optimalDispatch.obj_Economical = obj_Economical
     optimalDispatch.obj_Efficiency = obj_Efficiency
-    optimalDispatch.objective = Objective(rule=lambda mdl: 5000000 * obj_Economical(mdl) + HACKFEE(mdl) + 5000*(mdl.ut_power_max_aux-mdl.ut_power_min_aux))
+    optimalDispatch.objective = Objective(rule=lambda mdl: 5000000 * obj_Economical(mdl) + 0.1*HACKFEE(mdl) + 500*(mdl.ut_power_max_aux-mdl.ut_power_min_aux))
     return optimalDispatch
 def retriveResult(microgrid_data,case,model):
     microgrid_device = case.device
