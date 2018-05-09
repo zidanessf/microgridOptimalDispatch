@@ -17,12 +17,27 @@ class SCUC(scuc_pb2_grpc.SCUCServicer):
         for load_one in request.load_all:
             bus = str(load_one.bus)
             load[bus] = pd.Series([x for x in load_one.load_of_a_day])
-        print(load)
         mdl = optimizationModel.DayAheadModel(load,case_PS)
         solver = SolverManagerFactory('neos')
         res = solver.solve(mdl,opt=SolverFactory('cplex'))
-        mdl.gt_power.pprint()
-        return scuc_pb2.SCUCoutput(termination_condition = 'GOOD' )
+        status = [scuc_pb2.STATUS(gen = int(gen.split('_')[1]),
+                                     status_of_a_day = [int(value(mdl.gt_state[gen,t])) for t in mdl.T])\
+                     for gen in mdl.N_gt]
+        power = [scuc_pb2.POWER(gen = int(gen.split('_')[1]),
+                                power_of_a_day = [value(mdl.gt_power[gen,t]) for t in mdl.T])\
+                     for gen in mdl.N_gt]
+        case_PS.update(mdl)
+        case_PS.DCPowerFlow()
+        power_flow = list()
+        for branch in case_PS.graph.edges():
+            nf = branch[0]
+            nt = branch[1]
+            power_flow.append(scuc_pb2.POWER_FLOW(
+                f_bus = nf,t_bus = nt,power_flow_of_a_day=case_PS.graph.edge[nf][nt]['Power_Flow']))
+
+        return scuc_pb2.SCUCoutput(termination_condition=str(res.solver.termination_condition),
+                                   optimal_value=value(mdl.objective),
+                                   status=status, power=power)
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 def serve():
   server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
@@ -48,13 +63,3 @@ if __name__ == '__main__':
 # optimalDispatch = optimizationModel.DayAheadModel(microgrid_data,case,range(96))
 # solver = SolverFactory('cplex')
 # res = solver.solve(optimalDispatch,tee=True)
-# case.update(optimalDispatch)
-# case.DCPowerFlow()
-# df = pd.DataFrame()
-# T= optimalDispatch.T
-# for gt in case.getKey(microgridStructure.gasTurbine):
-#     df[gt] = [value(optimalDispatch.gt_power[gt,t]) for t in T]
-# for branch in case.graph.edges():
-#     nf = branch[0]
-#     nt = branch[1]
-#     df[str(nf) + ' to ' + str(nt) + ' power flow'] = case.graph.edge[nf][nt]['Power_Flow']

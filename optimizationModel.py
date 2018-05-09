@@ -12,9 +12,6 @@ def DayAheadModel(load,case):
     N_T = case.NumOfTime
     T = range(96)
     step = 24 / N_T
-    N_gt = case.getKey(gasTurbine)
-    N_bus = case.graph.nodes()
-    N_branch = case.graph.edges()
     acLoad = dict()
     for node in case.graph.nodes():
         acLoad[node] = load[str(node)][T[0]:T[-1]+1].tolist()
@@ -23,38 +20,39 @@ def DayAheadModel(load,case):
     # cold_load = len(T)*[0]
     '''A general model and algorithm for microgrid optimal dispatch'''
     '''define sets'''
-    optimalDispatch = ConcreteModel(name='IES_optimalDispatch')
-    '''This is the sub-problem'''
-    eps = 0.001 #精度
-    optimalDispatch.T = T
-    optimalDispatch.case = case
+    OD = ConcreteModel(name='IES_optimalDispatch')
+    OD.N_gt = case.getKey(gasTurbine)
+    OD.N_bus = case.graph.nodes()
+    OD.N_branch = case.graph.edges()
+    OD.T = T
+    OD.case = case
     '''define variables'''
     # gas turbine
-    optimalDispatch.gt_power = Var(N_gt, T)
-    optimalDispatch.gt_state = Var(N_gt,T,domain=Binary)
-    optimalDispatch.gt_constraint1 = Constraint(N_gt,T,rule = lambda mdl,i,t: mdl.gt_power[i,t] <= mdl.gt_state[i,t]*microgrid_device[i].Pmax + 0.001)
-    optimalDispatch.gt_constraint2 = Constraint(N_gt, T,rule=lambda mdl, i, t: mdl.gt_power[i, t] >= mdl.gt_state[i,t]*microgrid_device[i].Pmin - 0.001)
+    OD.gt_power = Var(OD.N_gt, T)
+    OD.gt_state = Var(OD.N_gt,T,domain=Binary)
+    OD.gt_constraint1 = Constraint(OD.N_gt,T,rule = lambda mdl,i,t: mdl.gt_power[i,t] <= mdl.gt_state[i,t]*microgrid_device[i].Pmax + 0.001)
+    OD.gt_constraint2 = Constraint(OD.N_gt, T,rule=lambda mdl, i, t: mdl.gt_power[i, t] >= mdl.gt_state[i,t]*microgrid_device[i].Pmin - 0.001)
     # Injection Power
-    optimalDispatch.P_inj = Var(N_bus,T)
+    OD.P_inj = Var(OD.N_bus,T)
     if case.type == 'Simple':
         # inverter
-        optimalDispatch.inv_dc = Var(T)  # inv_dc > 0 means energy flows from inverter to dc side
+        OD.inv_dc = Var(T)  # inv_dc > 0 means energy flows from inverter to dc side
         # utility power
-        optimalDispatch.utility_power = Var(T, bounds=(-10000,10000))
+        OD.utility_power = Var(T, bounds=(-10000,10000))
     '''define constraints'''
     '''电功率平衡约束'''
     def PowerBalance(mdl,t):
-        power_supply = sum(mdl.gt_power[i, t] for i in N_gt)
+        power_supply = sum(mdl.gt_power[i, t] for i in OD.N_gt)
         power_demand = sum(acLoad[node][t] for node in acLoad.keys())
         return  power_supply - power_demand == 0
-    optimalDispatch.PowerBalance = Constraint(T, rule=PowerBalance)
+    OD.PowerBalance = Constraint(T, rule=PowerBalance)
     '''燃气轮机/锅炉爬坡率约束'''
     def gtRampLimit(mdl,n,t):
         if t == 0:
             return Constraint.Skip
         else:
             return -microgrid_device[n].maxDetP <= mdl.gt_power[n,t] - mdl.gt_power[n,t-1] <= microgrid_device[n].maxDetP
-    optimalDispatch.gtRampLimit = Constraint(N_gt,T,rule=gtRampLimit)
+    OD.gtRampLimit = Constraint(OD.N_gt,T,rule=gtRampLimit)
 
     def PFlimit(mdl,nf,nt,t):
         # nf = line[0]
@@ -65,9 +63,9 @@ def DayAheadModel(load,case):
         if limit is None:
             return Constraint.Skip
         else:
-            PF = 1/X * (sum(case.B_INV.item(nf,nb) * mdl.P_inj[nb,t] for nb in N_bus) - sum(case.B_INV.item(nt,nb) * mdl.P_inj[nb,t] for nb in N_bus))
+            PF = 1/X * (sum(case.B_INV.item(nf,nb) * mdl.P_inj[nb,t] for nb in OD.N_bus) - sum(case.B_INV.item(nt,nb) * mdl.P_inj[nb,t] for nb in OD.N_bus))
             return -limit <= PF <= limit
-    optimalDispatch.PFlimit = Constraint(N_branch,T,rule=PFlimit)
+    OD.PFlimit = Constraint(OD.N_branch,T,rule=PFlimit)
     '''注入功率约束（中间量）'''
     def Power_Injection(mdl,nb,t):
         m = mdl.model()
@@ -79,11 +77,11 @@ def DayAheadModel(load,case):
                 Temp += m.wp[key,t]
         Temp -= acLoad[nb][t]
         return mdl.P_inj[nb,t] - Temp == 0
-    optimalDispatch.Power_Injection = Constraint(N_bus,T,rule=Power_Injection)
+    OD.Power_Injection = Constraint(OD.N_bus,T,rule=Power_Injection)
     '''Define Objectives'''
     def ON_OFF_cost(mdl):
         on_off_cost = 0
-        for id in N_gt:
+        for id in OD.N_gt:
             on_off_cost += sum(microgrid_device[id].cost[0] * (mdl.gt_state[id,t] - mdl.gt_state[id,t-1])**2 if t >= 1 else 0 for t in T)
         return on_off_cost
     def ElectricalFee(mdl):
@@ -92,10 +90,10 @@ def DayAheadModel(load,case):
     def HeatFee(mdl):
         return step * sum(mdl.buy_heat[t] for t in T) * microgrid_device['ut'].steam_price
     def obj_simple(mdl):
-        return sum(sum(0.25*microgrid_device[n_gt].Cost*(mdl.gt_power[n_gt,t]) for n_gt in N_gt) for t in T)
-    optimalDispatch.obj_simple = obj_simple
-    optimalDispatch.objective = Objective(rule=obj_simple)
-    return optimalDispatch
+        return sum(sum(0.25*microgrid_device[n_gt].Cost*(mdl.gt_power[n_gt,t]) for n_gt in OD.N_gt) for t in T)
+    OD.obj_simple = obj_simple
+    OD.objective = Objective(rule=obj_simple)
+    return OD
 def retriveResult(microgrid_data,case,mdl):
     model = mdl
     microgrid_device = case.device
