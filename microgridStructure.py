@@ -140,4 +140,31 @@ graph_PS.edge[3][4].update({
     'X' : 2.97,
     'Limit' : 240
 })
-case_PS = MicrogridCase_Graph(graph=graph_PS,NumOfTime=96)
+# 赶工啦，临时写的一个PYPOWER ---- GRAPH 转换器
+from cases.case39 import *
+import numpy as np
+def ppc2graph(ppc):
+    graph_PS = nx.Graph()
+    ppc_nodes = ppc['bus'][:,0].astype(np.int) - 1
+    graph_PS.add_nodes_from(ppc_nodes)
+    for bus in graph_PS.nodes():
+        graph_PS.node[bus].update({
+            'device':{},
+            'Load' :  (0.3*np.random.rand(96) + 0.85)*[ppc['bus'][bus,2]]
+        })
+    gen = ppc['gen']
+    gencost = ppc['gencost']
+    for row in gen:
+        bus = row[0].astype(np.int) - 1
+        graph_PS.node[bus]['device'].update({'GT_'+str(bus):gasTurbine(Pmax=row[8],Pmin=row[9],
+                                                                       Cost=0.3)})
+    for row in ppc['branch']:
+        nf = row[0].astype(np.int) - 1
+        nt = row[1].astype(np.int) - 1
+        graph_PS.add_edge(nf,nt,{'R':row[2],'X':row[3],'Limit':row[5]})
+
+    return graph_PS
+ppc = case39()
+graph_case39 = ppc2graph(ppc)
+graph_case39.node[1]['device'].update({'WT':PV()})
+case_PS = MicrogridCase_Graph(graph=graph_case39,NumOfTime=96)

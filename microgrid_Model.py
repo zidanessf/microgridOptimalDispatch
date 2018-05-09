@@ -141,7 +141,7 @@ class airConditioner:## P>=0 cooling, P<0 heating
                 "COP":self.COP}
 
 class gasTurbine:
-    def __init__(self, om = 0.063, Pmax = 1000, Pmin = 50, efficiency = 0.33, heat_recycle = 0.6,maxDetP=0.2,cost=(200,3,3/200)):
+    def __init__(self, om = 0.063, Pmax = 1000, Pmin = 50, efficiency = 0.33, heat_recycle = 0.6,maxDetP=0.2,Cost=1):
         self.om = om
         self.Pmax = Pmax
         self.Pmin = Pmin
@@ -150,7 +150,7 @@ class gasTurbine:
         self.low_heat_recycle = 1 - heat_recycle
         self.HER = (1 - efficiency)/efficiency
         self.maxDetP = maxDetP*Pmax
-        self.cost = cost
+        self.Cost = Cost
         self.result = list()
     def show(self):
         return {"om":self.om,
