@@ -78,68 +78,6 @@ device_IES = {
     'inv' : inverter()
 }
 case_IES = MicrogridCase_Simple(device=device_IES, NumOfTime=96)
-graph_PS = nx.Graph()
-graph_PS.add_nodes_from([0,1,2,3,4])
-graph_PS.add_edges_from([(0,1),(0,4),(1,2),(2,3),(3,4),(0,3)])
-graph_PS.node[0].update({
-    'ID' : 'A',
-    'device' : {
-        'Park City' : gasTurbine(Pmax=170,Pmin=10,cost=(15,15,5/170)),
-        'Alta' : gasTurbine(Pmax=520,Pmin=10,cost=(10,20,6/520))
-    }
-})
-graph_PS.node[1].update({
-    'ID' : 'B',
-    'device': {}
-    })
-graph_PS.node[2].update({
-    'ID' : 'C',
-    'device':{
-        'Solitude' : gasTurbine(Pmax=520,Pmin=10,cost=(20,25,6/520))
-    }
-})
-graph_PS.node[3].update({
-    'ID' : 'D',
-    'device':{
-        'Sundance' : gasTurbine(Pmax=200,Pmin=10,cost=(40,30,6/520))
-    }
-})
-graph_PS.node[4].update({
-    'ID' : 'E',
-    'device':{
-        'Brighton':gasTurbine(Pmax=600,Pmin=10,cost=(50,10,3/520))
-    }
-})
-graph_PS.edge[0][1].update({
-    'R' : 0.281,
-    'X' : 2.81,
-    'Limit' : 400
-})
-graph_PS.edge[0][3].update({
-    'R' : 0.304,
-    'X' : 3.04,
-    'Limit' : None
-})
-graph_PS.edge[0][4].update({
-    'R' : 0.064,
-    'X' : 0.64,
-    'Limit' : None
-})
-graph_PS.edge[1][2].update({
-    'R' : 0.108,
-    'X' : 1.08,
-    'Limit' : None
-})
-graph_PS.edge[2][3].update({
-    'R' : 0.297,
-    'X' : 2.97,
-    'Limit' : None
-})
-graph_PS.edge[3][4].update({
-    'R' : 0.297,
-    'X' : 2.97,
-    'Limit' : 240
-})
 # 赶工啦，临时写的一个PYPOWER ---- GRAPH 转换器
 from cases.case39 import *
 import numpy as np
