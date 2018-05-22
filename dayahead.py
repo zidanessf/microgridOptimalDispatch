@@ -13,8 +13,8 @@ case = microgridStructure.case_IES
 microgrid_data = pd.read_excel('input_IES.xlsx')
 
 '''Construct base model'''
-T = 48
-Lmpc = 4
+T = 24
+Lmpc = 2
 Tmpc = T - Lmpc - 1
 OD = DayAheadModel(microgrid_data,case,range(T))
 # get the KKT conditions
@@ -62,7 +62,7 @@ NumIter = 1
 while 1:
     # solve the master problem
     print('Iteration num {0}'.format(NumIter))
-    solver = SolverFactory('gurobi')
+    solver = SolverFactory('cplex')
     OD.sub.deactivate()
     if NumIter >= 2:
         del OD.objective
@@ -103,7 +103,7 @@ while 1:
     # solve the sub problem
     OD.sub.activate()
     fix_all_var(OD) #注意查看文档，fix变量的方法,fix master variables
-    solver = SolverFactory('gurobi')
+    solver = SolverFactory('cplex')
     res = solver.solve(OD.sub,tee=True#stream the solver output
                          #print the MILP file for examination
                         ) #fix变量之后，submodel可以直接求解

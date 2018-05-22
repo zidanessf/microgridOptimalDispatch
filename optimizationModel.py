@@ -610,13 +610,21 @@ def add_kkt_cuts(mdl,IterNum): #create a copy of sub-problem and fix the pv vars
     # new_kkt_block.spy = Var()
     # new_kkt_block.spy_is = Constraint(expr=new_kkt_block.spy == mdl.eta)
     new_kkt_block.activate()
+import pathos.multiprocessing as mp
+
+def apply(mdl,tar):
+    xfrm = TransformationFactory('gdp.bigm')
+    xfrm.apply_to(mdl, bigM=100000, targets=tar)  # Big-M过小会导致不可行
+    print(str(tar) + 'Transformed')
+
 def transform_sub(mdl):
     xfrm = TransformationFactory('mpec.simple_disjunction')
     xfrm.apply_to(mdl)
     NumOfKKT = sum([1 if isinstance(data,SubModel) else 0 for (name, data) in mdl.component_map().items()])
-    targets = ('MPC_{0}_kkt'.format(i) for i in range(NumOfKKT))
-    xfrm = TransformationFactory('gdp.bigm')
-    xfrm.apply_to(mdl, bigM=100000,targets=targets)  # Big-M过小会导致不可行
+    targets = [(mdl,'MPC_{0}_kkt'.format(i))for i in range(NumOfKKT)]
+    cores = mp.cpu_count()
+    pool = mp.Pool(processes=cores)
+    pool.starmap(apply,targets)
 def transform_master(mdl):
     xfrm = TransformationFactory('mpec.simple_disjunction')
     xfrm.apply_to(mdl)
