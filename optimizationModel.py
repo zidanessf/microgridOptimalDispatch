@@ -424,7 +424,7 @@ def getMaxAmount(mdl,case,peak,amount,mode):
         MaxAmount = 0
     return (model,MaxAmount)
 
-def AddDayInSubModel(mdl,t,microgrid_data, case):
+def AddDayInSubModel(mdl,t,microgrid_data, case,L):
     eps = 0.1
     N_es = case.getKey(electricStorage)
     N_absc = case.getKey(absorptionChiller)
@@ -435,7 +435,6 @@ def AddDayInSubModel(mdl,t,microgrid_data, case):
     T = mdl.T
     step = mdl.step
     device = case.device
-    L = range(2)
     pv_output = microgrid_data['光伏出力'][T[0]:T[-1] + 1].tolist()
     # # '''MPC Variables'''
     setattr(mdl.sub, 'MPC_' + str(t), SubModel())

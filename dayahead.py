@@ -13,14 +13,15 @@ case = microgridStructure.case_IES
 microgrid_data = pd.read_excel('input_IES.xlsx')
 
 '''Construct base model'''
-OD = DayAheadModel(microgrid_data,case,range(24))
-Tmpc = 21
-Lmpc = 2
+T = 48
+Lmpc = 4
+Tmpc = T - Lmpc - 1
+OD = DayAheadModel(microgrid_data,case,range(T))
 # get the KKT conditions
 subobj = 0
 fix_all_var(OD)
 for i in range(Tmpc):
-    AddDayInSubModel(OD, i, microgrid_data, case)
+    AddDayInSubModel(OD, i, microgrid_data, case,range(Lmpc))
     temp = getattr(OD.sub, 'MPC_' + str(i))
     xfrm = TransformationFactory('bilevel.linear_mpec')
     if i >= 1:
