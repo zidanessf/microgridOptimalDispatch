@@ -237,6 +237,231 @@ def DayAheadModel(microgrid_data,case,T_range):
     # optimalDispatch.sub.det_load = Var(T,bounds=(-1,1))
 
     return optimalDispatch
+def Benchmark1(microgrid_data,case,T_range):
+    microgrid_device = case.device
+    N_T = case.NumOfTime
+    T = range(len(T_range))
+    step = 24 / N_T
+    N_es = case.getKey(electricStorage)
+    N_absc = case.getKey(absorptionChiller)
+    N_bol = case.getKey(boiler)
+    N_cs = case.getKey(coldStorage)
+    N_ac = case.getKey(airConditioner)
+    N_gt = case.getKey(gasTurbine)
+    N_pv = case.getKey(PV)
+    N_ss = list(set(N_bol) | set(N_gt))
+    eLoad = microgrid_data['电负荷'][T[0]:T[-1]+1].tolist()
+    pv_output = microgrid_data['光伏出力'][T[0]:T[-1]+1].tolist()
+    pv_lower = microgrid_data['光伏区间下界'][T[0]:T[-1]+1].tolist()
+    pv_upper = microgrid_data['光伏区间上界'][T[0]:T[-1] + 1].tolist()
+    microgrid_device['ut'].buy_price = microgrid_data['电价'][T[0]:T[-1]+1].tolist()
+    cold_load = microgrid_data['冷负荷'][T[0]:T[-1]+1].tolist()
+    water_heat_load = microgrid_data['热水负荷'][T[0]:T[-1]+1].tolist()
+    steam_heat_load = microgrid_data['蒸汽负荷'][T[0]:T[-1]+1].tolist()
+    '''A general model and algorithm for microgrid optimal dispatch'''
+    '''define sets'''
+    optimalDispatch = ConcreteModel(name='IES_optimalDispatch')
+    optimalDispatch.T = T
+    optimalDispatch.T_range = T_range
+    optimalDispatch.input = microgrid_data
+    optimalDispatch.case = case
+    optimalDispatch.step = step
+    '''define variables'''
+    # electrical storage
+    optimalDispatch.es_power_in = Var(N_es, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax_in))
+    optimalDispatch.es_power_out = Var(N_es, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax_out))
+    #optimalDispatch.es_power_out_0 = Constraint(N_es,rule=lambda mdl,i: mdl.es_power_out[i,T[-1]] == 0)
+    optimalDispatch.es_energy = Var(N_es, T, bounds=lambda mdl, i, T: (
+    microgrid_device[i].SOCmin * microgrid_device[i].capacity,
+    microgrid_device[i].SOCmax * microgrid_device[i].capacity))
+    # absorption chiller
+    optimalDispatch.absc_heat_in = Var(N_absc, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Hmax))
+    # heat variables
+    # boiler
+    optimalDispatch.bol_power = Var(N_bol, T)
+    optimalDispatch.bol_state = Var(N_bol, T, within=Binary)
+    optimalDispatch.bol_auxvar = Var(N_bol,T)
+    optimalDispatch.bol_constraint1 = Constraint(N_bol,T,rule = lambda  mdl,i,t: mdl.bol_power[i,t] <= mdl.bol_state[i,t]*microgrid_device[i].Pmax)
+    optimalDispatch.bol_constraint2 = Constraint(N_bol, T,rule=lambda mdl, i, t: mdl.bol_power[i, t] >= mdl.bol_state[i, t] *microgrid_device[i].Pmin)
+    # cold storage
+    optimalDispatch.cs_power = Var(N_cs, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax))
+    optimalDispatch.cs_cold = Var(N_cs, T, bounds=lambda mdl, i, T: (-microgrid_device[i].Hin, microgrid_device[i].Hin))
+    optimalDispatch.cs_cold_stored = Var(N_cs, T, bounds=lambda mdl, i, T: (
+    microgrid_device[i].Tmin * microgrid_device[i].capacity, microgrid_device[i].Tmax * microgrid_device[i].capacity))
+    # air conditioner
+    optimalDispatch.ac_power = Var(N_ac, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax))
+    # gas turbine
+    optimalDispatch.gt_power = Var(N_gt, T)
+    optimalDispatch.gt_state = Var(N_gt,T,within=Binary)
+    optimalDispatch.gt_auxvar = Var(N_gt, T)
+    optimalDispatch.gt_constraint1 = Constraint(N_gt,T,rule = lambda mdl,i,t: mdl.gt_power[i,t] <= mdl.gt_state[i,t]*microgrid_device[i].Pmax)
+    optimalDispatch.gt_constraint2 = Constraint(N_gt, T,rule=lambda mdl, i, t: mdl.gt_power[i, t] >= mdl.gt_state[i, t] *microgrid_device[i].Pmin)
+    # utility power
+    optimalDispatch.utility_power = Var(T, domain=PositiveReals)
+    optimalDispatch.heat_ex = Var(T, domain=PositiveReals)
+    optimalDispatch.buy_heat = Var(T, domain=PositiveReals)
+    optimalDispatch.eta = Var()
+    '''Battery'''
+    def es_in_out(mdl,i,t):
+        return complements(mdl.es_power_in[i,t] >= 0 , mdl.es_power_out[i,t] >= 0)
+    optimalDispatch.es_in_out = Complementarity(N_es,T,rule=es_in_out)
+
+    '''define constraints'''
+    '''电功率平衡约束'''
+
+    def EPowerBalance(mdl, t):
+        power_supply = sum(mdl.gt_power[i, t] for i in N_gt) \
+                       + mdl.utility_power[t] + sum(mdl.es_power_out[i, t] for i in N_es)
+        power_demand = sum(mdl.cs_power[i, t] for i in N_cs) \
+                       + sum(mdl.ac_power[i, t] for i in N_ac) \
+                       + eLoad[t] + sum(mdl.es_power_in[i, t] for i in N_es)
+        return power_demand - power_supply == (pv_lower[t] + pv_upper[t])/2
+
+    optimalDispatch.EPowerBalance = Constraint(T, rule=EPowerBalance)
+    '''热功率平衡约束'''
+    def Heat_Balance(mdl,t):
+        heat_supply = mdl.buy_heat[t] + sum(mdl.bol_power[n_bol, t] for n_bol in N_bol) + sum(mdl.gt_power[n_gt, t] * microgrid_device[n_gt].HER * microgrid_device[n_gt].heat_recycle for n_gt in N_gt)
+        heat_demand = water_heat_load[t] + steam_heat_load[t] + sum(mdl.absc_heat_in[n_absc, t] for n_absc in N_absc)
+        return mdl.heat_ex[t] == heat_supply - heat_demand
+    optimalDispatch.Heat_Balance = Constraint(T,rule=Heat_Balance)
+    # TODO 完善高中低品味热模型
+    '''冷功率平衡约束'''
+    def coldPowerBalance(mdl, t):
+        cold_supply = sum(mdl.ac_power[i, t] * microgrid_device[i].EER for i in N_ac) \
+                      + sum(mdl.cs_cold[i, t] for i in N_cs) \
+                      + sum(mdl.absc_heat_in[i, t] * microgrid_device[i].COP_htc for i in N_absc)
+        cold_demand = cold_load[t]
+        return cold_supply == cold_demand
+    optimalDispatch.coldPowerBalance = Constraint(T, rule=coldPowerBalance)
+    '''电池日平衡约束、自放电率、爬坡率约束'''
+    def batteryEnergyBalance(mdl, n_es, t):
+        bat = microgrid_device[n_es]
+        if t == T[0]:
+            return mdl.es_energy[n_es, t] == bat.SOCnow * bat.capacity
+        else:
+            return mdl.es_energy[n_es, t] == mdl.es_energy[n_es, t - 1] * (1 - bat.selfRelease) \
+                                             + step * (
+            bat.efficiency * mdl.es_power_in[n_es, t - 1] - (1 / bat.efficiency) * mdl.es_power_out[n_es, t - 1])
+
+    optimalDispatch.batteryEnergyBalance = Constraint(N_es, T, rule=batteryEnergyBalance)
+    optimalDispatch.batteryEnergyBalance0 = Constraint(N_es, rule=lambda mdl,n:mdl.es_energy[n, T[-1]]* (1 - microgrid_device[n].selfRelease) \
+                                             + step * (microgrid_device[n].efficiency * mdl.es_power_in[n, T[-1]] - (1 / microgrid_device[n].efficiency) * mdl.es_power_out[n, T[-1]]) == microgrid_device[n].SOCint * microgrid_device[n].capacity )
+
+    def batteryRampLimit(mdl, n_es, t):
+        if t == 0:
+            return Constraint.Skip
+        else:
+            return -microgrid_device[n_es].maxDetP <= (mdl.es_power_out[n_es, t] - mdl.es_power_in[n_es, t]) - (
+            mdl.es_power_out[n_es, t - 1] - mdl.es_power_in[n_es, t - 1]) <= microgrid_device[n_es].maxDetP
+
+    optimalDispatch.batteryRampLimit = Constraint(N_es, T, rule=batteryRampLimit)
+    '''冰蓄冷日平衡约束、自放冷率、爬坡率约束'''
+
+    def coldStorageEnergyBalance(mdl, n_cs, t):
+        ice = microgrid_device[n_cs]
+        if t == 0:
+            return mdl.cs_cold_stored[n_cs, t] == ice.Tint * ice.capacity
+        else:
+            return mdl.cs_cold_stored[n_cs, t] == mdl.cs_cold_stored[n_cs, t - 1] * (1 - ice.selfRelease) - step * mdl.cs_cold[n_cs, t - 1]
+
+    optimalDispatch.coldStorageEnergyBalance = Constraint(N_cs, T, rule=coldStorageEnergyBalance)
+    optimalDispatch.coldStorageEnergyBalance0 = Constraint(N_cs, rule=lambda mdl,n:mdl.cs_cold_stored[n, T[-1]]* (1 - microgrid_device[n].selfRelease) \
+                                             - step * mdl.cs_cold[n, T[-1]] == microgrid_device[n].capacity*microgrid_device[n].Tint)
+    def coldStorageRampLimit(mdl, n_cs, t):
+        if t == 0:
+            return Constraint.Skip
+        else:
+            return -microgrid_device[n_cs].maxDetP <= mdl.cs_cold[n_cs, t] - mdl.cs_cold[n_cs, t - 1] <= microgrid_device[n_cs].maxDetP
+
+    optimalDispatch.coldStorageRampLimit = Constraint(N_cs, T, rule=coldStorageRampLimit)
+    '''燃气轮机/锅炉爬坡率约束'''
+    def gtRampLimit(mdl,n,t):
+        if t == 0:
+            return Constraint.Skip
+        else:
+            return -microgrid_device[n].maxDetP <= mdl.gt_power[n,t] - mdl.gt_power[n,t-1] <= microgrid_device[n].maxDetP
+    def bolRampLimit(mdl,n,t):
+        if t == 0:
+            return Constraint.Skip
+        else:
+            return -microgrid_device[n].maxDetP <= mdl.bol_power[n,t] - mdl.bol_power[n,t-1] <= microgrid_device[n].maxDetP
+    optimalDispatch.gtRampLimit = Constraint(N_gt,T,rule=gtRampLimit)
+    optimalDispatch.bolRampLimit = Constraint(N_bol,T,rule=bolRampLimit)
+    '''起停状态辅助约束'''
+    def gtauxCons1(mdl,n,t):
+        if t == 0:
+            return mdl.gt_auxvar[n,t] == 0
+        else:
+            return mdl.gt_auxvar[n,t]>=mdl.gt_state[n,t]-mdl.gt_state[n,t-1]
+    def gtauxCons2(mdl,n,t):
+        if t == 0:
+            return mdl.gt_auxvar[n,t] == 0
+        else:
+            return mdl.gt_auxvar[n,t]>=-(mdl.gt_state[n,t]-mdl.gt_state[n,t-1])
+    def bolauxCons1(mdl,n,t):
+        if t == 0:
+            return mdl.bol_auxvar[n,t] == 0
+        else:
+            return mdl.bol_auxvar[n,t]>=mdl.bol_state[n,t]-mdl.bol_state[n,t-1]
+    def bolauxCons2(mdl,n,t):
+        if t == 0:
+            return mdl.bol_auxvar[n, t] == 0
+        else:
+            return mdl.bol_auxvar[n,t]>=-(mdl.bol_state[n,t]-mdl.bol_state[n,t-1])
+    optimalDispatch.gtauxCons1 = Constraint(N_gt,T,rule=gtauxCons1)
+    optimalDispatch.gtauxCons2 = Constraint(N_gt, T, rule=gtauxCons2)
+    optimalDispatch.bolauxCons1 = Constraint(N_bol,T,rule=bolauxCons1)
+    optimalDispatch.bolauxCons2 = Constraint(N_bol, T, rule=bolauxCons2)
+    '''Define Objectives'''
+
+    def OM_Cost(mdl):
+        om_cost = 0
+        for id in microgrid_device.keys():
+            if (id in N_es):
+                om_cost += microgrid_device[id].om * step * (
+                sum(mdl.es_power_out[id, t] for t in T) + sum(mdl.es_power_in[id, t] for t in T))
+            if (id in N_cs):
+                om_cost += microgrid_device[id].om * step * sum(mdl.cs_cold[id, t] for t in T)
+            if (id in N_absc):
+                om_cost += microgrid_device[id].om * step * sum(mdl.absc_heat_in[id, t] for t in T)
+            if (id in N_bol):
+                om_cost += microgrid_device[id].om * step * sum(mdl.bol_power[id, t] for t in T)
+            if (id in N_ac):
+                om_cost += microgrid_device[id].om * step * sum(mdl.ac_power[id, t] for t in T)
+        return om_cost
+
+    def Dep_Cost(mdl):
+        return sum(sum(microgrid_device[id].Cbw * step * mdl.es_power_out[id, t] for id in N_es) for t in T)
+
+    def Fuel_Cost(mdl):
+        fuel_cost = 0
+        for id in N_gt:
+            fuel_cost += (1 / microgrid_device[id].efficiency) * microgrid_device['ut'].gas_price * step * sum(
+                mdl.gt_power[id, t] for t in T)
+        for id in N_bol:
+            fuel_cost += (1 / microgrid_device[id].efficiency) * microgrid_device['ut'].gas_price * step * sum(
+                mdl.bol_power[id, t] for t in T)
+        return fuel_cost
+
+    def ElectricalFee(mdl):
+        return step * sum(mdl.utility_power[t] * microgrid_device['ut'].buy_price[t] for t in T)
+    def HeatFee(mdl):
+        return step * sum(mdl.buy_heat[t] for t in T) * microgrid_device['ut'].steam_price
+    def StartShutdownFee(mdl):
+        return sum(microgrid_device[n].ON_OFF_COST*sum(mdl.gt_auxvar[n,t] for t in T) for n in N_gt) + sum(microgrid_device[n].ON_OFF_COST*sum(mdl.bol_auxvar[n,t] for t in T) for n in N_bol)
+
+    #OM_Cost(mdl) + Dep_Cost(mdl) +
+    def obj_Economical(mdl):
+        return  Fuel_Cost(mdl) + ElectricalFee(mdl) +StartShutdownFee(mdl) + HeatFee(mdl)
+    optimalDispatch.obj_Economical = obj_Economical
+    optimalDispatch.objective = Objective(rule=lambda mdl:obj_Economical(mdl))
+    '''sub problem'''
+    optimalDispatch.sub = Block()
+    optimalDispatch.sub.pv = Var(T,bounds=lambda mdl,t:(pv_lower[t],pv_upper[t]))
+    real_intval = math.sqrt(sum(((pv_upper[t]-pv_lower[t])/2)**2 for t in T))
+    real_mid = sum(pv_output)
+    optimalDispatch.sub.pv_cons = Constraint(expr = real_mid - real_intval<= sum(optimalDispatch.sub.pv[t] for t in T) <= real_mid + real_intval)
+    # optimalDispatch.sub.det_load = Var(T,bounds=(-1,1))
 
 def retriveResult(microgrid_data,case,mdl):
     model = mdl.sub
@@ -553,16 +778,15 @@ def AddDayInSubModel(mdl,t,microgrid_data, case,L):
         return Fuel_Cost(b,l) + ElectricalFee(b,l) + HeatFee(b,l)
     sub.obj_Cost = obj_Cost
     sub.obj_MinSocError = obj_MinSocError
-    sub.objective = Objective(expr=obj_Cost(sub,L))
-    # sub.ESCsocAuxCons1 = Constraint(N_es,L,rule = lambda b,i,s:b.ESSocAuxVar[i,s]>=
-    #                                                              (b.es_energy[i,s] - mdl.es_energy[i,t+s]))
-    # sub.ESsocAuxCons2 = Constraint(N_es, L, rule=lambda b, i,s: b.ESSocAuxVar[i, s] >=
-    #                                                             - (b.es_energy[i, s] - mdl.es_energy[i, t + s]) )
-    # sub.CSCsocAuxCons1 = Constraint(N_cs,L,rule = lambda b,i,s:b.CSSocAuxVar[i,s]>=
-    #                                                              (b.cs_cold_stored[i,s] - mdl.cs_cold_stored[i,t+s]))
-    # sub.CSsocAuxCons2 = Constraint(N_cs, L, rule=lambda b, i,s: b.CSSocAuxVar[i, s] >=
-    #                                                             - (b.cs_cold_stored[i, s] - mdl.cs_cold_stored[i, t + s]))
-
+    sub.objective = Objective(expr=obj_Cost(sub,L) + obj_MinSocError(sub))
+    sub.ESCsocAuxCons1 = Constraint(N_es,L,rule = lambda b,i,s:b.ESSocAuxVar[i,s]>=
+                                                                 (b.es_energy[i,s] - mdl.es_energy[i,t+s]))
+    sub.ESsocAuxCons2 = Constraint(N_es, L, rule=lambda b, i,s: b.ESSocAuxVar[i, s] >=
+                                                                - (b.es_energy[i, s] - mdl.es_energy[i, t + s]) )
+    sub.CSCsocAuxCons1 = Constraint(N_cs,L,rule = lambda b,i,s:b.CSSocAuxVar[i,s]>=
+                                                                 (b.cs_cold_stored[i,s] - mdl.cs_cold_stored[i,t+s]))
+    sub.CSsocAuxCons2 = Constraint(N_cs, L, rule=lambda b, i,s: b.CSSocAuxVar[i, s] >=
+                                                                - (b.cs_cold_stored[i, s] - mdl.cs_cold_stored[i, t + s]))
     sub.CSsocAuxCons = Constraint(N_cs, L, rule=lambda b, i, s:-eps <=
                                                             - (b.cs_cold_stored[i, s] - mdl.cs_cold_stored[i, t + s]) <= eps)
     sub.ESsocAuxCons = Constraint(N_es, L, rule=lambda b, i, s: -eps <=

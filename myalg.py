@@ -13,8 +13,8 @@ case = microgridStructure.case_IES
 microgrid_data = pd.read_excel('input_IES.xlsx')
 
 '''Construct base model'''
-T = 24
-Lmpc = 2
+T = 48
+Lmpc = 4
 Tmpc = T - Lmpc - 1
 OD = DayAheadModel(microgrid_data,case,range(T))
 # get the KKT conditions
@@ -42,20 +42,6 @@ OD.sub.obj_copy = subobj
 transform_sub(OD.sub)
 unfix_all_vars(OD)
 transform_master(OD)
-#'''THIS IS A TEST'''
-# #Transformation
-# transform_master(OD)
-# '''the base model is constructed'''
-# OD.sub.deactivate()
-# solver = SolverFactory('gurobi')
-# res = solver.solve(OD)
-# '''The KKT&G Algorithm begins'''
-# OD.sub.activate()
-# fix_all_var(OD)
-# solver = SolverFactory('gurobi')
-# res = solver.solve(OD.sub, tee=True,  # stream the solver output
-#                    keepfiles=True,  # print the MILP file for examination
-#                    symbolic_solver_labels=True)  # fix变量之后，submodel可以直接求解
 lb = - np.inf
 ub = np.inf
 NumIter = 1
@@ -67,8 +53,9 @@ while 1:
     if NumIter >= 2:
         del OD.objective
         OD.objective = Objective(rule=lambda mdl: mdl.obj_Economical(mdl) + mdl.eta)
-    res = solver.solve(OD,tee=True)
-    # print([value(OD.utility_power[t]) for t in OD.T])
+    print('求解LEVEL1问题中...')
+    res = solver.solve(OD)
+    print(res)
     if NumIter >= 2:
         lb = value(OD.objective)
         print('各子问题eta')
@@ -103,11 +90,9 @@ while 1:
     # solve the sub problem
     OD.sub.activate()
     fix_all_var(OD) #注意查看文档，fix变量的方法,fix master variables
-    solver = SolverFactory('cplex')
-    res = solver.solve(OD.sub,tee=True#stream the solver output
-                         #print the MILP file for examination
-                        ) #fix变量之后，submodel可以直接求解
-    # res = solver.solve(OD.sub)
+    print('求解LEVEL2/3问题中...')
+    res = solver.solve(OD.sub) #fix变量之后，submodel可以直接求解
+    print(res)
     if res.solver.termination_condition == TerminationCondition.optimal:
         ub = min(ub,value(OD.obj_Economical(OD)) + value(OD.sub.o))
     elif res.solver.termination_condition == TerminationCondition.unbounded:
