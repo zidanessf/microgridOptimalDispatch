@@ -141,7 +141,7 @@ case_IES = MicrogridCase_Simple(device=device_IES, NumOfTime=96)
 #     'Limit' : 240
 # })
 # 赶工啦，临时写的一个PYPOWER ---- GRAPH 转换器
-from case39 import case39
+from pypowercase.case39 import case39
 import numpy as np
 np.random.seed(96)
 def ppc2graph(ppc):
