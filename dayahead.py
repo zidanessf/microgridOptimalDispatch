@@ -32,18 +32,3 @@ for branch in case.graph.edges():
     nt = branch[1]
     df[str(nf) + ' to ' + str(nt) + ' power flow'] = case.graph.edge[nf][nt]['Power_Flow']
 df.to_excel('optimistic.xlsx')
-# server = SolverManagerFactory('neos')
-# opt = SolverFactory('cplex')
-# server.solve(optimalDispatch,solver=opt)
-# print('总运行成本：'+str(value(optimalDispatch.sub.obj_simple(optimalDispatch.sub))))
-# '''Solve the base model'''
-# solver = SolverFactory('bilevel_blp_global')
-# options = {
-#     'solver' : 'gurobi',
-#     'bigM' : 1000
-# }
-# solver.solve(optimalDispatch)
-# print('-------经济性最优----------')
-# optimizationModel.retriveResult(microgrid_data,case,optimalDispatch)
-# print('总运行成本：'+str(value(optimalDispatch.sub.obj_Economical(optimalDispatch.sub))))
-# print('能效： '+str(1/value(optimalDispatch.sub.obj_Efficiency(optimalDispatch.sub))))
