@@ -16,7 +16,7 @@ microgrid_data = pd.read_excel('input_IES.xlsx')
 T = 48
 Lmpc = 4
 Tmpc = T - Lmpc - 1
-OD = DayAheadModel(microgrid_data,case,range(T))
+OD = Benchmark1(microgrid_data,case,range(T))
 
 # get the KKT conditions
 subobj = 0
@@ -106,9 +106,10 @@ while 1:
     print('-----------------------')
     print('THE GAP IS {0}%'.format(100*(ub-lb)/(ub+lb)))
     print('-----------------------')
+    raise Exception('Only compute once')
     if (ub-lb)/(ub+lb) <= 0.005:
         print('CONVERGED!')
-        break
+        break1
     add_kkt_cuts(OD, NumIter)
     unfix_all_vars(OD)
     NumIter += 1

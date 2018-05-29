@@ -461,8 +461,7 @@ def Benchmark1(microgrid_data,case,T_range):
     real_intval = math.sqrt(sum(((pv_upper[t]-pv_lower[t])/2)**2 for t in T))
     real_mid = sum(pv_output)
     optimalDispatch.sub.pv_cons = Constraint(expr = real_mid - real_intval<= sum(optimalDispatch.sub.pv[t] for t in T) <= real_mid + real_intval)
-    # optimalDispatch.sub.det_load = Var(T,bounds=(-1,1))
-
+    return optimalDispatch
 def retriveResult(microgrid_data,case,mdl):
     model = mdl.sub
     microgrid_device = case.device
@@ -638,7 +637,6 @@ def responseModel(mdl,case,peak,amount,mode):
             solver = SolverManagerFactory('neos')
             solver.solve(model, solver=SolverFactory('cplex'))
     return model
-
 def getMaxAmount(mdl,case,peak,amount,mode):
     model = responseModel(mdl,case,peak,amount,mode)
     if mode == 'E':
@@ -648,7 +646,6 @@ def getMaxAmount(mdl,case,peak,amount,mode):
     else:
         MaxAmount = 0
     return (model,MaxAmount)
-
 def AddDayInSubModel(mdl,t,microgrid_data, case,L):
     eps = 0.1
     N_es = case.getKey(electricStorage)
@@ -675,8 +672,8 @@ def AddDayInSubModel(mdl,t,microgrid_data, case,L):
     sub.utility_power = Var(L,bounds=(-10000,10000))
     sub.buy_heat = Var(L,bounds=(0,10000))
     sub.P_DER = Var(L,domain=PositiveReals)
-    # sub.ESSocAuxVar = Var(N_es,L,bounds=lambda b,i,s: (-device[i].capacity,device[i].capacity))
-    # sub.CSSocAuxVar = Var(N_cs, L,bounds=lambda b,i,s: (-device[i].capacity,device[i].capacity))
+    sub.ESSocAuxVar = Var(N_es,L,bounds=lambda b,i,s: (-device[i].capacity,device[i].capacity))
+    sub.CSSocAuxVar = Var(N_cs, L,bounds=lambda b,i,s: (-device[i].capacity,device[i].capacity))
     # sub.x = Var(L,bounds=(-10000,10000))
     # sub.mirror = Constraint(L,rule=lambda b,s: -eps <= b.x[s] - 0.1 * mdl.utility_power[t+s] <=eps)
     '''电功率平衡约束'''
@@ -792,13 +789,11 @@ def AddDayInSubModel(mdl,t,microgrid_data, case,L):
     sub.ESsocAuxCons = Constraint(N_es, L, rule=lambda b, i, s: -eps <=
                                                                  - (b.es_energy[i, s] - mdl.es_energy[
                                                                      i, t + s]) <= eps)
-
 def df_sum(df,cols):
     newdf = pd.Series([0]*df.__len__(),index=df[cols[0]].index)
     for col in cols:
         newdf = newdf + df[col]
     return newdf
-
 def fix_all_var(mdl):
     for (name, data) in mdl.component_map().items():
         if isinstance(data, Var):
@@ -807,7 +802,6 @@ def fix_all_var(mdl):
                     data[v].fix()
                 except Exception:
                     pass
-
 def unfix_all_vars(mdl):
     for (name, data) in mdl.component_map().items():
         if isinstance(data, Var):
