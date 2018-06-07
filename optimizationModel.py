@@ -209,10 +209,10 @@ def DayAheadModel(microgrid_data,case,T_range,mode):
     def Fuel_Cost(mdl):
         fuel_cost = 0
         for id in N_gt:
-            fuel_cost += (1 / microgrid_device[id].efficiency) * microgrid_device['ut'].gas_price * step * sum(
+            fuel_cost += (1 / microgrid_device[id].efficiency) * 0.5 * step * sum(
                 mdl.gt_power[id, t] for t in T)
         for id in N_bol:
-            fuel_cost += (1 / microgrid_device[id].efficiency) * microgrid_device['ut'].gas_price * step * sum(
+            fuel_cost += (1 / microgrid_device[id].efficiency) * 0.5 * step * sum(
                 mdl.bol_power[id, t] for t in T)
         return fuel_cost
 
@@ -230,6 +230,8 @@ def DayAheadModel(microgrid_data,case,T_range,mode):
         return sum(sum(0.25*microgrid_device[n_gt].Cost*(mdl.gt_power[n_gt,t]) for n_gt in N_gt) for t in T)
     def cost_per_15min(mdl,t):
         return sum(0.25*microgrid_device[n_gt].Cost*(mdl.gt_power[n_gt,t]) for n_gt in N_gt)
+
+    optimalDispatch.sub.Fuel_Cost = Fuel_Cost
     optimalDispatch.sub.cost_per_15min = cost_per_15min
     optimalDispatch.sub.obj_Economical = obj_Economical
     optimalDispatch.sub.obj_Efficiency = obj_Efficiency
