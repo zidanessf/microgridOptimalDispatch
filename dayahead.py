@@ -35,8 +35,8 @@ def NBI_solver(mdl,objs,max_layer=3):
         ins.t_len = Var()
         ins.objective = Objective(rule=lambda mdl:-mdl.t_len)
         ins.add_cons = Constraint(range(len(objs)),rule = lambda mdl,k:centoid[k] + mdl.t_len * ns[k] == objs[k](mdl))
-        xfrm = TransformationFactory('gdp.bigM',bigM=1000000000)
-        xfrm.apply_to(ins)
+        xfrm = TransformationFactory('gdp.bigm')
+        xfrm.apply_to(optimalDispatch, bigM=100000000)
         solver = SolverFactory('gurobi')
         result = solver.solve(ins)
         if result.solver.termination_condition == TerminationCondition.optimal:
