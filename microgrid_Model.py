@@ -2,13 +2,14 @@ class PV:
     def __init__(self, om = 0.0005 , output = list()):
         self.om = om
         self.output = output
+        self.result = list()
     def show(self):
         return {"om":self.om}
 
 class DRHeatLoad:
     def __init__(self,upper_bound=1000,lower_bound=-1000):
-        self.upper_bound = 1000
-        self.lower_bound = 1000
+        self.upper_bound = upper_bound
+        self.lower_bound = lower_bound
 
 class electricStorage:
     def __init__(self, om = 0.005, Cbw = 0.00075 , capacity = 13000, SOCmin = 0.1, SOCmax = 0.9, SOCint = 0.1, Pmax_in = 1250, Pmax_out = 1250, efficiency = 0.95, selfRelease = 0.0025):
@@ -26,6 +27,7 @@ class electricStorage:
         self.power_into = {}
         self.power_outof = {}
         self.energy = {}
+        self.SOCnow = SOCint
     def show(self):
         return {"om":self.om,
                 "Cbw":self.Cbw,
@@ -40,7 +42,7 @@ class electricStorage:
 
 
 class absorptionChiller:
-    def __init__(self, om = 0.00008, COP_htc = 0.8, COP_hth = 1, Hmin = 0, Hmax = 1000, ElecCost = 0.02):
+    def __init__(self, om = 0.00008, COP_htc = 0.8, COP_hth = 1, Hmin = 0, Hmax = 1000, ElecCost = 0.002):
         self.om = om
         self.COP_htc = COP_htc
         self.COP_hth = COP_hth
@@ -69,7 +71,7 @@ class boiler:
                 "efficiency":self.efficiency}
 
 class heatStorage:
-    def __init__(self, om = 0.04, capacity = 4000, Tmin = 0, Tmax = 0.95, Tint = 0.1, Hmax_in = 2500, Hmax_out = 2500, selfRelease = 0.003,efficiency=0.95):
+    def __init__(self, om = 0.04, capacity = 2000, Tmin = 0, Tmax = 0.95, Tint = 0.1, Hmax_in = 1500, Hmax_out = 1500, selfRelease = 0.003):
         self.om = om
         self.capacity = capacity
         self.Tmin = Tmin
@@ -78,7 +80,6 @@ class heatStorage:
         self.Hmax_in = Hmax_in
         self.Hmax_out = Hmax_out
         self.selfRelease = selfRelease
-        self.efficiency = efficiency
         self.maxDetP = self.Hmax_in * 0.4
         self.result = {}
     def show(self):
@@ -140,7 +141,7 @@ class airConditioner:## P>=0 cooling, P<0 heating
                 "COP":self.COP}
 
 class gasTurbine:
-    def __init__(self, om = 0.063, Pmax = 1000, Pmin = 50, efficiency = 0.33, heat_recycle = 0.8,maxDetP=500,ON_OFF_COST=200):
+    def __init__(self, om = 0.063, Pmax = 1000, Pmin = 50, efficiency = 0.33, heat_recycle = 0.6,maxDetP=0.2,ON_OFF_COST=200,Cost=0):
         self.om = om
         self.Pmax = Pmax
         self.Pmin = Pmin
@@ -148,9 +149,10 @@ class gasTurbine:
         self.heat_recycle = heat_recycle
         self.low_heat_recycle = 1 - heat_recycle
         self.HER = (1 - efficiency)/efficiency
-        self.maxDetP = maxDetP
+        self.maxDetP = maxDetP*Pmax
         self.ON_OFF_COST = ON_OFF_COST
-        self.result = {}
+        self.Cost = Cost
+        self.result = list()
     def show(self):
         return {"om":self.om,
                 "Pmax":self.Pmax,
@@ -161,7 +163,7 @@ class gasTurbine:
 
 
 class utility:
-    def __init__(self, buy_price = 0.8, sell_price = 0, gas_price = 0.349,steam_price = 348/996, CO2_utility = 0.997, CO2_gas = 0.18):
+    def __init__(self, buy_price = 0.8, sell_price = 0, gas_price = 0.349,steam_price = 348/996, CO2_utility = 0.997, CO2_user = 0.18):
         self.buy_price = buy_price
         self.sell_price = sell_price
         self.gas_price = gas_price
@@ -169,9 +171,9 @@ class utility:
         self.steam_price = steam_price
         self.gas_utility = {}
         self.CO2_utility = CO2_utility
-        self.CO2_gas = CO2_gas #每立方米燃气的CO2排放量
-        self.PCC = {'maxP':0,
-                    'maxH':0}
+        self.CO2_user = CO2_user
+        self.PCC = {'maxP':10000,
+                    'maxH':10000}
     def show(self):
         return {"sell_price":self.sell_price,
                 "gas_price":self.gas_price}

@@ -942,7 +942,6 @@ def DayInModel(microgrid_data,case,nowtime,data,realdata):
 
     optimalDispatch.objective = Objective(rule=obj_Economical)
     return optimalDispatch#TODO 补充完整日内修正模型
-
 def df_sum(df,cols):
     newdf = pd.Series([0]*df.__len__(),index=df[cols[0]].index)
     for col in cols:
