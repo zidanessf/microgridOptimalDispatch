@@ -63,7 +63,7 @@ case = microgridStructure.case_PS
 '''Load input data'''
 microgrid_data = pd.read_excel('input.xlsx')
 '''Construct base model'''
-optimalDispatch = optimizationModel.DayAheadModel(microgrid_data,case)
+optimalDispatch = optimizationModel.DayAheadModel(microgrid_data,case,range(96),mode='max')
 '''Setting Goals'''
 def obj_max_wind(mdl):#最大化风电消纳
     return -sum(mdl.wind[t] for t in mdl.T)
