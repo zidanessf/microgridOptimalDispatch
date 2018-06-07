@@ -59,7 +59,7 @@ def NBI_solver(mdl,objs,max_layer=3):
 
     return CHULL
 '''Initialize a special case of microgrid'''
-case = microgridStructure.MicrogridCase()
+case = microgridStructure.case_PS
 '''Load input data'''
 microgrid_data = pd.read_excel('input.xlsx')
 '''Construct base model'''
