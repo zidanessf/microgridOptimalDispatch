@@ -71,6 +71,6 @@ obj_min_cost = optimalDispatch.obj_Economical#最小化运行成本
 def obj_min_CO2(mdl):
     return case.device['ut'].CO2_gas*mdl.Fuel_Cost(mdl)/case.device['ut'].gas_price
 '''Solve the model'''
-CHULL = NBI_solver(optimalDispatch,[obj_min_cost,obj_max_wind,obj_min_CO2],max_layer=4)
+CHULL = NBI_solver(optimalDispatch,[obj_min_cost,obj_min_CO2],max_layer=2)
 for c in CHULL:
     print(c['objective'],' : ',c['point'])
