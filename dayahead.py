@@ -66,19 +66,18 @@ def Bilevel_NBI_solver(mdl,objs,max_layer=3):
     for obj in objs:
         ins = copy.deepcopy(mdl)
         ins.name = str(np.random.random())
-        mdl.sub.objective = Objective(rule=lambda mdl:1000*obj(mdl)+sum(obj1(mdl) for obj1 in objs))
-        mdl.objective = Objective(rule=lambda mdl: - 1000*obj(mdl.sub) - sum(obj1(mdl.sub) for obj1 in objs))
+        mdl.sub.objective = Objective(rule=lambda mdl:obj(mdl)+0.001 * sum(obj1(mdl) for obj1 in objs))
+        mdl.objective = Objective(rule=lambda mdl: - obj(mdl.sub) - 0.001 * sum(obj1(mdl.sub) for obj1 in objs))
         xfrm = TransformationFactory('bilevel.linear_mpec')
         xfrm.apply_to(ins)
         xfrm = TransformationFactory('mpec.simple_disjunction')
         xfrm.apply_to(ins)
-        xfrm = TransformationFactory('gdp.bigM',bigM=1000000000)
-        xfrm.apply_to(ins)
-        solver = SolverFactory('gurobi')
-        solver.solve(ins)
+        xfrm = TransformationFactory('gdp.bigm')
+        xfrm.apply_to(ins,bigM=10000000000000)
+        solver = SolverFactory('cplex')
+        solver.solve(ins,tee=True)
         point = np.array([value(obj(ins.sub)) for obj in objs])
         CHULL.append({'point':point,
-                      'result':optimizationModel.retriveResult(microgrid_data,case,ins),
                       'objective':obj.__name__})
    #计算CHULL的法向量ns(求解NULL SPACE)
     ref = CHULL[0]['point']
