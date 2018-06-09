@@ -66,8 +66,8 @@ def Bilevel_NBI_solver(mdl,objs,max_layer=3):
     for obj in objs:
         ins = copy.deepcopy(mdl)
         ins.name = str(np.random.random())
-        mdl.sub.objective = Objective(rule=lambda mdl:obj(mdl)+0.001 * sum(obj1(mdl) for obj1 in objs))
-        mdl.objective = Objective(rule=lambda mdl: - obj(mdl.sub) - 0.001 * sum(obj1(mdl.sub) for obj1 in objs))
+        ins.sub.objective = Objective(rule=lambda mdl:obj(mdl))
+        ins.objective = Objective(rule=lambda mdl: - obj(mdl.sub))
         xfrm = TransformationFactory('bilevel.linear_mpec')
         xfrm.apply_to(ins)
         xfrm = TransformationFactory('mpec.simple_disjunction')
@@ -96,8 +96,12 @@ def Bilevel_NBI_solver(mdl,objs,max_layer=3):
         ins.sub.t_len = Var()
         ins.sub.objective = Objective(rule=lambda mdl:-mdl.t_len)
         ins.sub.add_cons = Constraint(range(len(objs)),rule = lambda mdl,k:centoid[k] + mdl.t_len * ns[k] == objs[k](mdl))
-        xfrm = TransformationFactory('gdp.bigM',bigM=1000000000)
+        xfrm = TransformationFactory('bilevel.linear_mpec')
         xfrm.apply_to(ins)
+        xfrm = TransformationFactory('mpec.simple_disjunction')
+        xfrm.apply_to(ins)
+        xfrm = TransformationFactory('gdp.bigm')
+        xfrm.apply_to(ins,bigM=1000000000)
         solver = SolverFactory('gurobi')
         result = solver.solve(ins)
         if result.solver.termination_condition == TerminationCondition.optimal:
@@ -126,8 +130,7 @@ microgrid_data = pd.read_excel('input_PS.xlsx')
 optimalDispatch = optimizationModel.DayAheadModel(microgrid_data,case,range(96),mode='max')
 '''Setting Goals'''
 obj_min_cost = optimalDispatch.sub.obj_simple#最小化运行成本
-def obj_min_CO2(mdl):
-    return 0.5*mdl.Fuel_Cost(mdl)
+obj_min_CO2 = optimalDispatch.sub.obj_min_CO2
 '''Solve the model'''
 CHULL = Bilevel_NBI_solver(optimalDispatch,[obj_min_cost,obj_min_CO2],max_layer=2)
 for c in CHULL:

@@ -228,6 +228,8 @@ def DayAheadModel(microgrid_data,case,T_range,mode):
                / (sum(acLoad)+sum(dcLoad)+sum(cold_load)+sum(water_heat_load)+sum(steam_heat_load))
     def obj_simple(mdl):
         return sum(sum(0.25*microgrid_device[n_gt].Cost*(mdl.gt_power[n_gt,t]) for n_gt in N_gt) for t in T)
+    def obj_min_CO2(mdl):
+        return sum(sum(0.25 / microgrid_device[n_gt].Cost * (mdl.gt_power[n_gt, t]) for n_gt in N_gt) for t in T)
     def cost_per_15min(mdl,t):
         return sum(0.25*microgrid_device[n_gt].Cost*(mdl.gt_power[n_gt,t]) for n_gt in N_gt)
 
@@ -236,6 +238,7 @@ def DayAheadModel(microgrid_data,case,T_range,mode):
     optimalDispatch.sub.obj_Economical = obj_Economical
     optimalDispatch.sub.obj_Efficiency = obj_Efficiency
     optimalDispatch.sub.obj_simple = obj_simple
+    optimalDispatch.sub.obj_min_CO2 = obj_min_CO2
     optimalDispatch.sub.objective = Objective(rule=obj_simple)
     if mode == 'max':
         optimalDispatch.objective = Objective(rule=lambda mdl:  -obj_simple(mdl.sub))

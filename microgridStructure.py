@@ -85,7 +85,7 @@ graph_PS.add_edges_from([(0,1),(0,4),(1,2),(2,3),(3,4),(0,3)])
 graph_PS.node[0].update({
     'ID' : 'A',
     'device' : {
-        'Park City' : gasTurbine(Pmax=170,Pmin=10,Cost=15),
+        'Park City' : gasTurbine(Pmax=270,Pmin=10,Cost=15),
         'Alta' : PV()
     },
     'Load' : load_PS['0节点交流负荷']
@@ -98,21 +98,21 @@ graph_PS.node[1].update({
 graph_PS.node[2].update({
     'ID' : 'C',
     'device':{
-        'Solitude' : gasTurbine(Pmax=520,Pmin=10,Cost=30)
+        'Solitude' : gasTurbine(Pmax=720,Pmin=10,Cost=30)
     },
     'Load' : load_PS['2节点交流负荷']
 })
 graph_PS.node[3].update({
     'ID' : 'D',
     'device':{
-        'Sundance' : gasTurbine(Pmax=200,Pmin=10,Cost=40)
+        'Sundance' : gasTurbine(Pmax=400,Pmin=10,Cost=40)
     },
     'Load' : load_PS['3节点交流负荷']
 })
 graph_PS.node[4].update({
     'ID' : 'E',
     'device':{
-        'Brighton':gasTurbine(Pmax=600,Pmin=10,Cost=20)
+        'Brighton':gasTurbine(Pmax=800,Pmin=10,Cost=20)
     },
     'Load' : load_PS['4节点交流负荷']
 })
