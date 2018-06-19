@@ -1,11 +1,20 @@
-from neo4j.v1 import GraphDatabase
-import networkx as nx
-driver = GraphDatabase.driver("bolt://localhost:7687", auth=("zidanessf", "123456"))
-G = nx.Graph()
-def get_node(tx,keyword,graph):
-    mylist = list()
-    for record in tx.run("MATCH (n:{}) RETURN n".format(keyword)):
-        graph.add_node(record._values[0].id,record._values[0].properties)
-    return graph
-s = driver.session()
-s.read_transaction(get_node,'ENERGYCONSUMER',G)
+import pickle
+import pandas as pd
+from ggplot import *
+fp = open('乐观解','rb')
+OPTI_CHULL = pickle.load(fp)
+data = pd.DataFrame()
+data['cost'] = pd.Series([c['point'][0] for c in OPTI_CHULL])
+data['CO2'] = pd.Series([c['point'][1] for c in OPTI_CHULL])
+data['color'] = pd.Series(['red']*len(OPTI_CHULL))
+fp.close()
+fp = open('悲观解','rb')
+PESS_CHULL = pickle.load(fp)
+temp = pd.DataFrame()
+temp['cost'] = pd.Series([c['point'][0] for c in PESS_CHULL])
+temp['CO2'] = pd.Series([c['point'][1] for c in PESS_CHULL])
+temp['color'] = pd.Series(['blue']*len(PESS_CHULL))
+data = data.append(temp)
+print(data)
+p = ggplot(aes(x='cost',y='CO2',color='color'),data=data) + geom_point() + geom_line(linetype='dotted')
+p.show()
