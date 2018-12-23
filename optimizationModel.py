@@ -6,6 +6,7 @@ import copy
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 H2M = 0.2
+
 def DayAheadModel(microgrid_data,case,T_range):
     microgrid_device = case.device
     N_T = case.NumOfTime
@@ -25,6 +26,8 @@ def DayAheadModel(microgrid_data,case,T_range):
     cold_load = microgrid_data['冷负荷'][T[0]:T[-1]+1].tolist()
     water_heat_load = microgrid_data['热水负荷'][T[0]:T[-1]+1].tolist()
     steam_heat_load = microgrid_data['蒸汽负荷'][T[0]:T[-1]+1].tolist()
+    SHEDLoad = microgrid_data['可削减负荷'][T[0]:T[-1]+1].tolist()
+    MOVLoad = microgrid_data['可转移负荷'][T[0]:T[-1]+1].tolist()
     '''A general model and algorithm for microgrid optimal dispatch'''
     '''define sets'''
     optimalDispatch = ConcreteModel(name='IES_optimalDispatch')
@@ -99,7 +102,7 @@ def DayAheadModel(microgrid_data,case,T_range):
                        + mdl.utility_power[t] + mdl.inv_ac[t]
         power_demand = 1.05*sum(mdl.cs_power[i, t] for i in N_cs) \
                        + 1.05*sum(mdl.ac_power[i, t] for i in N_ac) \
-                       + acLoad[t] + (1 / microgrid_device['inv'].ac_dc_efficiency) * mdl.inv_dc[t]\
+                       + acLoad[t] + MOVLoad[t] + SHEDLoad[t] + (1 / microgrid_device['inv'].ac_dc_efficiency) * mdl.inv_dc[t]\
 					   + sum(microgrid_device[i].ElecCost * mdl.absc_heat_in[i, t] for i in N_absc)
         return power_supply == power_demand
 
@@ -451,6 +454,13 @@ def responseModel(mdl,case,peak,amount,mode):
     tmp = ConcreteModel()
     N_T = case.NumOfTime
     T = model.T
+    N_es = case.getKey(electricStorage)
+    N_absc = case.getKey(absorptionChiller)
+    N_bol = case.getKey(boiler)
+    N_cs = case.getKey(coldStorage)
+    N_ac = case.getKey(airConditioner)
+    N_gt = case.getKey(gasTurbine)
+    N_pv = case.getKey(PV)
     microgrid_data = model.input
     step = 24 / N_T
     k1 = 1
@@ -461,6 +471,7 @@ def responseModel(mdl,case,peak,amount,mode):
     model.H_ref = list()
     model.P_0 = [value(model.utility_power[t]) for t in T]
     model.H_0 = [value(model.buy_heat[t]) for t in T]
+    acLoad = microgrid_data['交流负荷'][T[0]:T[-1]+1].tolist()
     if mode == 'E':
         for t in T:
             if t in peak:
@@ -476,8 +487,13 @@ def responseModel(mdl,case,peak,amount,mode):
                 model.H_ref.append(1000)
         model.P_ref = [8000]*len(T)
     model.DRHeatLoad = Var(peak,bounds=(case.device['DR_Heat_Load'].lower_bound,case.device['DR_Heat_Load'].upper_bound))
+    MOVRange = range(- min(peak[0],16),min(96-peak[-1],16))
+    model.MOVLoad = Var(peak,MOVRange,domain=PositiveReals)
+    model.SHEDLoad = Var(T,domain=PositiveReals)
     steam_heat_load = microgrid_data['蒸汽负荷'].tolist()
     water_heat_load = microgrid_data['热水负荷'].tolist()
+    SHEDLoad = microgrid_data['可削减负荷'][T[0]:T[-1]+1].tolist()
+    MOVLoad = microgrid_data['可转移负荷'][T[0]:T[-1]+1].tolist()
     # '''热损失惩罚函数'''
     # def wastingHeatPenalty(mdl):
     #     return 100000*sum(mdl.medium_heat[t] - steam_heat_load[t] for t in mdl.T)
@@ -498,6 +514,22 @@ def responseModel(mdl,case,peak,amount,mode):
         model.heat_limit = Constraint(T, rule = lambda mdl,t: mdl.buy_heat[t] >= mdl.H_ref[t])
         model.eq_power = Constraint(peak, rule=lambda mdl,t: (mdl.P_0[peak[0]]-mdl.P_ref[peak[0]])*(mdl.utility_power[t]-mdl.P_0[t]) \
                                                              == (mdl.P_0[t]-mdl.P_ref[t])*(mdl.utility_power[peak[0]]-mdl.P_0[peak[0]]))
+        model.MOVLoadBalance = Constraint(peak,
+                                          rule=lambda mdl, t: sum(mdl.MOVLoad[t, r] for r in MOVRange) == MOVLoad[t])
+        model.SHEDLoadLimit = Constraint(peak,rule=lambda mdl, t: mdl.SHEDLoad[t] <= SHEDLoad[t])
+        model.SHEDLoadLimit2 = Constraint(set(T) - set(peak),rule=lambda mdl, t: mdl.SHEDLoad[t] == 0 )
+        del model.ACPowerBalance
+        del model.ACPowerBalance_index
+        def ACPowerBalance(mdl, t):
+            power_supply = sum(mdl.gt_power[i, t] for i in N_gt) \
+                           + mdl.utility_power[t] + mdl.inv_ac[t]
+            power_demand = 1.05 * sum(mdl.cs_power[i, t] for i in N_cs) \
+                           + 1.05 * sum(mdl.ac_power[i, t] for i in N_ac) \
+                           + acLoad[t] + sum(mdl.MOVLoad[s,r] for s in peak for r in MOVRange if s+r == t) + SHEDLoad[t] - mdl.SHEDLoad[t] + (1 / case.device['inv'].ac_dc_efficiency) * \
+                                                                    mdl.inv_dc[t] \
+                           + sum(case.device[i].ElecCost * mdl.absc_heat_in[i, t] for i in N_absc)
+            return power_supply == power_demand
+        model.ACPowerBalance = Constraint(T,rule=ACPowerBalance)
     elif mode == 'H':
         model.res_curve_u = Constraint(peak, rule=lambda mdl, t: mdl.buy_heat[t] - mdl.H_ref[t] <= 0) #TODO 增加电约束
         model.heat_limit = Constraint(set(T) - set(peak), rule=lambda mdl, t: mdl.buy_heat[t] >= mdl.H_ref[t])
