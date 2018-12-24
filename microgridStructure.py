@@ -18,11 +18,8 @@ class MicrogridCase:
     def __init__(self):
         microgrid_device = dict()
         microgrid_device['PV_1'] = PV()
-        microgrid_device['ES_1'] = electricStorage(capacity=3600,Pmax_in=600)
-        microgrid_device['ES_2'] = electricStorage(capacity=3600,Pmax_in=600)
-        microgrid_device['ES_3'] = electricStorage(capacity=3600,Pmax_in=600)
-        microgrid_device['ES_4'] = electricStorage(capacity=3600,Pmax_in=600)
-        microgrid_device['ES_5'] = electricStorage(capacity=3600,Pmax_in=600)
+        microgrid_device['ES_1'] = electricStorage()
+        microgrid_device['ES_2'] = electricStorage()
         microgrid_device['ABSC_1'] = absorptionChiller()
         microgrid_device['Boiler_1'] = boiler()
         microgrid_device['CS_1'] = coldStorage()
