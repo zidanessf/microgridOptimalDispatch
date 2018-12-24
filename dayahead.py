@@ -9,13 +9,11 @@ case = microgridStructure.MicrogridCase()
 microgrid_data = pd.read_excel('input.xlsx')
 '''Construct base model'''
 optimalDispatch = optimizationModel.DayAheadModel(microgrid_data,case,range(96))
-
 '''Solve the base model'''
-# xfrm = TransformationFactory('gdp.chull')
-xfrm = TransformationFactory('mpec.simple_disjunction')
+xfrm = TransformationFactory('gdp.bigm')
 xfrm.apply_to(optimalDispatch)
 solver = SolverFactory('glpk')
-solver.solve(optimalDispatch)
+solver.solve(optimalDispatch,tee = True)
 print('自趋优：'+str(value(optimalDispatch.objective)))
 '''Retrieve the result'''
 result = optimizationModel.retriveResult(microgrid_data,case,optimalDispatch)
@@ -49,3 +47,6 @@ for e in [1,0.8,0.6,0.4,0.2]:
     res_result = optimizationModel.retriveResult(microgrid_data, case, responseStrategy)
     res_result.to_excel(writer, sheet_name=str(e))
 writer.save()
+#单位成本的生产能耗 2.5%
+#实际数据仿真，写一个需求。考虑母线电压的影响。
+#考虑电压的变化。起到稳定电压的作用。

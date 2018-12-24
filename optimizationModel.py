@@ -1,5 +1,4 @@
 from importFile import *
-from pyomo.mpec import *
 from microgrid_Model import *
 import pandas as pd
 import copy
@@ -39,6 +38,7 @@ def DayAheadModel(microgrid_data,case,T_range):
     # electrical storage
     optimalDispatch.es_power_in = Var(N_es, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax_in))
     optimalDispatch.es_power_out = Var(N_es, T, bounds=lambda mdl, i, T: (0, microgrid_device[i].Pmax_out))
+    optimalDispatch.es_ramp_aux = Var(N_es,T[0:-1])
     #optimalDispatch.es_power_out_0 = Constraint(N_es,rule=lambda mdl,i: mdl.es_power_out[i,T[-1]] == 0)
     optimalDispatch.es_energy = Var(N_es, T, bounds=lambda mdl, i, T: (
     microgrid_device[i].SOCmin * microgrid_device[i].capacity,
@@ -77,22 +77,82 @@ def DayAheadModel(microgrid_data,case,T_range):
     0, microgrid_device['inv'].maxP))  # inv_dc > 0 means energy flows from inverter to dc side
     # utility power
     optimalDispatch.utility_power = Var(T, domain=PositiveReals)
-
+    optimalDispatch.ut_power_max_aux = Var()
+    optimalDispatch.ut_power_min_aux = Var()
+    optimalDispatch.minmax_ut_power = Constraint(T[0:32],rule = lambda mdl,t:mdl.ut_power_max_aux >= mdl.utility_power[t])
+    optimalDispatch.maxmin_ut_power = Constraint(T[0:32],rule = lambda mdl,t:mdl.ut_power_min_aux <= mdl.utility_power[t])
     '''define disjuncts(states)'''
     '''Battery'''
-    def es_in_out(mdl,i,t):
-        return complements(mdl.es_power_in[i,t] >= 0 , mdl.es_power_out[i,t] >= 0)
-    optimalDispatch.es_in_out = Complementarity(N_es,T,rule=es_in_out)
+
+    def es_in_out_state(b, i, T, indicator):
+        mdl = b.model()
+        if indicator == 0:
+            b.es_forbidden = Constraint(expr=mdl.es_power_in[i, T] == 0)
+        else:
+            b.es_forbidden = Constraint(expr=mdl.es_power_out[i, T] == 0)
+
+    optimalDispatch.es_power_in_out_state = Disjunct(N_es, T, [0, 1], rule=es_in_out_state)
+
+    def es_in_out(mdl, i, T):
+        return [mdl.es_power_in_out_state[i, T, 0], mdl.es_power_in_out_state[i, T, 1]]
+
+    optimalDispatch.es_in_out = Disjunction(N_es, T, rule=es_in_out)
+    optimalDispatch.es_ramp_aux_cons1 = Constraint(N_es,T[0:-1],rule= lambda mdl,i,t: mdl.es_ramp_aux[i,t] >=
+    mdl.es_power_in[i,t] + mdl.es_power_out[i,t] - mdl.es_power_in[i,t + 1] - mdl.es_power_out[i,t + 1])
+    optimalDispatch.es_ramp_aux_cons2 = Constraint(N_es, T[0:-1], rule=lambda mdl, i, t: mdl.es_ramp_aux[i, t] >=
+                                                                                        - mdl.es_power_in[i, t] -
+                                                                                        mdl.es_power_out[i, t] +
+                                                                                        mdl.es_power_in[i, t + 1] +
+                                                                                       mdl.es_power_out[i, t + 1])
+
+    '''Battery if ON no STOP'''
+    def es_no_stop(b,i,t,indicator):
+        mdl = b.model()
+        if indicator == 0:
+            # b.is_started = Constraint(expr=mdl.es_power_in_out_state[i,t,1].indicator_var - mdl.es_power_in_out_state[i,t-1,1].indicator_var ==1 )
+            b.es_charge_prev = Constraint(expr=mdl.es_power_in[i, t - 1] >= microgrid_device[i].Pmin_in)
+            b.es_charge = Constraint(expr=mdl.es_power_in[i,t] >= microgrid_device[i].Pmin_in)
+        elif indicator == 1 :
+            b.SOC = Constraint(expr=mdl.es_energy[i, t] == microgrid_device[i].SOCmax * microgrid_device[i].capacity)
+        elif indicator == 2:
+            b.es_charge_prev = Constraint(expr=mdl.es_power_in[i, t - 1] == 0)
+    optimalDispatch.es_no_stop = Disjunct(N_es,T[1:32],[0,1,2],rule=es_no_stop)
+    def es_no_stop_FY(mdl, i, t):
+        return [mdl.es_no_stop[i, t, 0], mdl.es_no_stop[i, t, 1],mdl.es_no_stop[i, t, 2]]
+    optimalDispatch.es_no_stop_FY = Disjunction(N_es, T[1:32], rule=es_no_stop_FY)
+    optimalDispatch.es_no_charge = Constraint(N_es,T[29:32],rule=lambda mdl,i,t:mdl.es_power_in[i,t] == 0)
+    optimalDispatch.es_no_discharge = Constraint(N_es,T[0:32],rule = lambda mdl,i,t:mdl.es_power_out[i,t] == 0)
 
     '''Cold Storage'''
-    def cs_in_out(mdl,i,t):
-        return complements(mdl.cs_cold_in[i,t] >= 0 , mdl.cs_cold_out[i,t] >= 0)
-    optimalDispatch.cs_in_out = Complementarity(N_cs,T,rule=cs_in_out)
 
+    def cs_cold_in_out_state(b, i, T, indicator):
+        mdl = b.model()
+        if indicator == 0:
+            b.cs_forbidden = Constraint(expr=mdl.cs_cold_in[i, T] == 0)
+        else:
+            b.cs_forbidden = Constraint(expr=mdl.cs_cold_out[i, T] == 0)
+
+    optimalDispatch.cs_cold_in_out_state = Disjunct(N_cs, T, [0, 1], rule=cs_cold_in_out_state)
+
+    def cs_in_out(mdl, i, T):
+        return [mdl.cs_cold_in_out_state[i, T, 0], mdl.cs_cold_in_out_state[i, T, 1]]
+
+    optimalDispatch.cs_in_out = Disjunction(N_cs, T, rule=cs_in_out)
     '''INVERTER'''
-    def inv_ac2dc_dc2ac(mdl,t):
-        return complements(mdl.inv_ac[t] >= 0 , mdl.inv_dc[t] >= 0)
-    optimalDispatch.inv_ac2dc_dc2ac = Complementarity(T,rule=inv_ac2dc_dc2ac)
+
+    def inv_trans_state(b, T, indicator):
+        mdl = b.model()
+        if indicator == 0:  # ac to dc
+            b.acdc_state = Constraint(expr=mdl.inv_ac[T] == 0)
+        else:
+            b.acdc_state = Constraint(expr=mdl.inv_dc[T] == 0)
+
+    optimalDispatch.inv_trans_state = Disjunct(T, [0, 1], rule=inv_trans_state)
+
+    def inv_ac2dc_dc2ac(mdl, T):
+        return [mdl.inv_trans_state[T, 0], mdl.inv_trans_state[T, 1]]
+
+    optimalDispatch.inv_ac2dc_dc2ac = Disjunction(T, rule=inv_ac2dc_dc2ac)
 
     '''define constraints'''
     '''电功率平衡约束'''
@@ -259,10 +319,19 @@ def DayAheadModel(microgrid_data,case,T_range):
         return step * sum(mdl.buy_heat[t] for t in T) * microgrid_device['ut'].steam_price
     def StartShutdownFee(mdl):
         return sum(microgrid_device[n].ON_OFF_COST*sum(mdl.gt_auxvar[n,t] for t in T) for n in N_gt) + sum(microgrid_device[n].ON_OFF_COST*sum(mdl.bol_auxvar[n,t] for t in T) for n in N_bol)
+    def HACKFEE(mdl):
+        temp = 0
+        for i in N_es:
+            temp += sum(mdl.es_ramp_aux[i,t] for t in T[0:-1])
+        return temp
     def obj_Economical(mdl):
         return OM_Cost(mdl) + Dep_Cost(mdl) + Fuel_Cost(mdl) + ElectricalFee(mdl) + HeatFee(mdl)+StartShutdownFee(mdl)
+    def obj_Efficiency(mdl):
+        return (Fuel_Cost(mdl)/2.3 * 1.2143 + 0.1229 * 0.25 *sum(mdl.utility_power[t] for t in mdl.T) + 3.6 * 0.3412 * 0.25 * sum(mdl.buy_heat[t] for t in mdl.T)) \
+               / (sum(acLoad)+sum(dcLoad)+sum(cold_load)+sum(water_heat_load)+sum(steam_heat_load))
     optimalDispatch.obj_Economical = obj_Economical
-    optimalDispatch.objective = Objective(rule=obj_Economical)
+    optimalDispatch.obj_Efficiency = obj_Efficiency
+    optimalDispatch.objective = Objective(rule=lambda mdl: 5000000 * obj_Economical(mdl) + 0.1*HACKFEE(mdl) + 500*(mdl.ut_power_max_aux-mdl.ut_power_min_aux))
     return optimalDispatch
 def retriveResult(microgrid_data,case,model):
     microgrid_device = case.device
@@ -544,6 +613,23 @@ def responseModel(mdl,case,peak,amount,mode):
         # del model.HPB4
         # del model.HPB4_index
         N_absc = model.case.getKey(absorptionChiller)
+        # def low_heat_enough_or_not(b, t, indicator):
+        #     m = b.model()
+        #     if indicator == 0:  # low heat is not enough
+        #         b.low_heat_state = Constraint(expr=m.low_heat[t] <= water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc))
+        #         b.HPB2 = Constraint(T,rule=lambda mdl, t: m.medium_heat[t] + m.low_heat[t]==
+        #                                                       steam_heat_load[t] + m.DRHeatLoad[t] + water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc) if t in peak else
+        #         m.medium_heat[t] == steam_heat_load[t] + water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc))
+        #     else:
+        #         b.low_heat_state = Constraint(expr=m.low_heat[t] >= water_heat_load[t] + sum(m.absc_heat_in[n_absc, t] for n_absc in N_absc))
+        #         b.HPB2 = Constraint(T,rule=lambda mdl, t: m.medium_heat[t] + m.low_heat[t] == steam_heat_load[t] + m.DRHeatLoad[t] if t in peak else
+        #         m.medium_heat[t] >= steam_heat_load[t])
+        # model.low_heat_enough_or_not = Disjunct(T, [0, 1], rule=low_heat_enough_or_not)
+        #
+        # def low_heat_enough_disjunct(mdl, t):
+        #     return [mdl.low_heat_enough_or_not[t, 0], mdl.low_heat_enough_or_not[t, 1]]
+        #
+        # model.low_heat_enough_disjunct = Disjunction(T, rule=low_heat_enough_disjunct)
         model.HPB2_1 = Constraint(T,rule = lambda mdl,t:mdl.medium_heat[t] >= steam_heat_load[t] + mdl.DRHeatLoad[t] if t in peak else
                                   mdl.medium_heat[t] >= steam_heat_load[t])
         model.HPB2_2 = Constraint(T,rule = lambda mdl,t:mdl.medium_heat[t] <= steam_heat_load[t] + mdl.DRHeatLoad[t] + sum(mdl.absc_heat_in[n_absc, t] for n_absc in N_absc) if t in peak else
@@ -552,7 +638,7 @@ def responseModel(mdl,case,peak,amount,mode):
         model.low_heat[t] == H2M * (steam_heat_load[t]))
 
     model.mode = mode
-    xfrm = TransformationFactory('mpec.simple_disjunction')
+    xfrm = TransformationFactory('gdp.chull')
     xfrm.apply_to(model)
     if mode == 'E':
         solver = SolverFactory('glpk')
@@ -568,11 +654,10 @@ def responseModel(mdl,case,peak,amount,mode):
 #TODO 补充最大可调容量
 def getMaxAmount(mdl,case,peak,amount,mode):
     model = responseModel(mdl,case,peak,amount,mode)
-    peak = [t - model.T_range[0] for t in peak]
     if mode == 'E':
-        MaxAmount = [model.P_0[t] - value(model.utility_power[t]) for t in peak]
+        MaxAmount = [model.P_0[t-model.T[0]] - value(model.utility_power[t]) for t in peak]
     elif mode == 'H':
-        MaxAmount = [- model.H_0[t] + value(model.buy_heat[t]) for t in peak]
+        MaxAmount = [- model.H_0[t-model.T[0]] + value(model.buy_heat[t]) for t in peak]
     else:
         MaxAmount = 0
     return (model,MaxAmount)
