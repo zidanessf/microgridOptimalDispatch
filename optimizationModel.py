@@ -492,8 +492,8 @@ def responseModel(mdl,case,peak,amount,mode):
     model.SHEDLoad = Var(T,domain=PositiveReals)
     steam_heat_load = microgrid_data['蒸汽负荷'].tolist()
     water_heat_load = microgrid_data['热水负荷'].tolist()
-    SHEDLoad = microgrid_data['可削减负荷'][T[0]:T[-1]+1].tolist()
-    MOVLoad = microgrid_data['可转移负荷'][T[0]:T[-1]+1].tolist()
+    SHEDLoad = microgrid_data['可削减负荷'][T[0]:T[-1]+1].tolist() ## 削减负荷量
+    MOVLoad = microgrid_data['可转移负荷'][T[0]:T[-1]+1].tolist() ## 转移负荷量
     # '''热损失惩罚函数'''
     # def wastingHeatPenalty(mdl):
     #     return 100000*sum(mdl.medium_heat[t] - steam_heat_load[t] for t in mdl.T)
@@ -501,7 +501,7 @@ def responseModel(mdl,case,peak,amount,mode):
     ''''更新目标函数'''
     def obj_response(mdl):
         if mode == 'E':
-            return step * sum((mdl.utility_power[t] - mdl.P_ref[t]) for t in peak)
+            return step * sum((mdl.utility_power[t] - mdl.P_ref[t]) for t in peak) + step * 0.02 * (sum(mdl.SHEDLoad[t] for t in peak) + sum(abs(r)*mdl.MOVLoad[t,r] for t in peak for r in MOVRange))
         elif mode == 'H':
             return step * sum((mdl.H_ref[t] - mdl.buy_heat[t]) for t in peak)
     tmp.obj = Objective(expr=obj_response(model))
@@ -525,7 +525,7 @@ def responseModel(mdl,case,peak,amount,mode):
                            + mdl.utility_power[t] + mdl.inv_ac[t]
             power_demand = 1.05 * sum(mdl.cs_power[i, t] for i in N_cs) \
                            + 1.05 * sum(mdl.ac_power[i, t] for i in N_ac) \
-                           + acLoad[t] + sum(mdl.MOVLoad[s,r] for s in peak for r in MOVRange if s+r == t) + SHEDLoad[t] - mdl.SHEDLoad[t] + (1 / case.device['inv'].ac_dc_efficiency) * \
+                           + acLoad[t] + sum(mdl.MOVLoad[s,r] for s in peak for r in MOVRange if s+r == t) + (t not in peak)*MOVLoad[t] + SHEDLoad[t] - mdl.SHEDLoad[t] + (1 / case.device['inv'].ac_dc_efficiency) * \
                                                                     mdl.inv_dc[t] \
                            + sum(case.device[i].ElecCost * mdl.absc_heat_in[i, t] for i in N_absc)
             return power_supply == power_demand

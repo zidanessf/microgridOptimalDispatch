@@ -14,7 +14,7 @@ optimalDispatch = optimizationModel.DayAheadModel(microgrid_data,case,range(96))
 # xfrm = TransformationFactory('gdp.chull')
 xfrm = TransformationFactory('mpec.simple_disjunction')
 xfrm.apply_to(optimalDispatch)
-solver = SolverFactory('cplex')
+solver = SolverFactory('glpk')
 solver.solve(optimalDispatch)
 print('自趋优：'+str(value(optimalDispatch.objective)))
 '''Retrieve the result'''
@@ -25,7 +25,7 @@ optimizationModel.extendedResult(result)
 '''Electric DR'''
 writer = pd.ExcelWriter('DayAhead Electric DR.xlsx')
 peak = range(72, 76)
-(max_model,max_amount) = optimizationModel.getMaxAmount(optimalDispatch,case,peak=peak,amount = [3000]*len(peak),mode='E')
+(max_model,max_amount) = optimizationModel.getMaxAmount(optimalDispatch,case,peak=peak,amount = [5000]*len(peak),mode='E')
 for e in [1,0.8,0.6,0.4,0.2]:
     amount = [e * max_amount[t] for t in range(max_amount.__len__())]
     #修正优化模型
